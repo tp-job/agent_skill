@@ -1,0 +1,48 @@
+/**
+ * main.css — CSS Entry Point
+ * ==========================
+ * TailwindCSS is primary. This file imports only what Tailwind cannot do.
+ *
+ * REQUIREMENTS (Tailwind v3):
+ *   npm install -D postcss-import
+ *   postcss.config.js must load postcss-import BEFORE tailwindcss
+ *   See: references/linting-setup.md → PostCSS Setup
+ *
+ * Tailwind v4: native @import — no postcss-import needed.
+ *
+ * Layer priority (lowest → highest):
+ *   tokens → reset → base → components → layouts → utilities → vendors → overrides
+ */
+
+/* ─── 1. LAYER ORDER — always declare first ──────────────── */
+@layer tokens, reset, base, components, layouts, utilities, vendors, overrides;
+
+/* ─── 2. TAILWIND DIRECTIVES ─────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── 3. STRUCTURAL TOKENS — always first ────────────────── */
+@import "./tokens/_root.css";
+
+/* ─── 4. BASE STYLES ─────────────────────────────────────── */
+@import "./base/_reset.css";
+@import "./base/_typography.css";
+
+/* ─── 5. COMPONENT STYLES ────────────────────────────────── */
+/* Uncomment as you add files: */
+/* @import "./components/_buttons.css";   */
+/* @import "./components/_forms.css";     */
+/* @import "./components/_cards.css";     */
+/* @import "./components/_navigation.css";*/
+
+/* ─── 6. LAYOUT STYLES ───────────────────────────────────── */
+/* @import "./layouts/_grid.css";         */
+/* @import "./layouts/_sidebar.css";      */
+
+/* ─── 7. ANIMATIONS ──────────────────────────────────────── */
+/* @import "./animations/_keyframes.css"; */
+/* @import "./animations/_transitions.css"; */
+
+/* ─── 8. VENDOR OVERRIDES — always last ──────────────────── */
+/* @import "./vendors/_overrides.css";    */

@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "note": "Install wiring only. Skill content remains in source folders.",
+  "skills": [
+    {
+      "id": "react-best-practices",
+      "source": "E:\\ApexCore\\ObsidianNote\\agent-skill\\react-best-practices",
+      "agent_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.agents\\skills\\react-best-practices",
+      "cursor_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.cursor\\skills\\react-best-practices"
+    },
+    {
+      "id": "vercel-cli-with-tokens",
+      "source": "E:\\ApexCore\\ObsidianNote\\agent-skill\\vercel-cli-with-tokens",
+      "agent_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.agents\\skills\\vercel-cli-with-tokens",
+      "cursor_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.cursor\\skills\\vercel-cli-with-tokens"
+    },
+    {
+      "id": "deploy-to-vercel",
+      "source": "E:\\ApexCore\\ObsidianNote\\agent-skill\\deploy-to-vercel",
+      "agent_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.agents\\skills\\deploy-to-vercel",
+      "cursor_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.cursor\\skills\\deploy-to-vercel"
+    },
+    {
+      "id": "web-design-guidelines",
+      "source": "E:\\ApexCore\\ObsidianNote\\agent-skill\\web-design-guidelines",
+      "agent_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.agents\\skills\\web-design-guidelines",
+      "cursor_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.cursor\\skills\\web-design-guidelines"
+    },
+    {
+      "id": "css-manage",
+      "source": "E:\\ApexCore\\ObsidianNote\\agent-skill\\css-manage",
+      "agent_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.agents\\skills\\css-manage",
+      "cursor_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.cursor\\skills\\css-manage"
+    },
+    {
+      "id": "requirement-gathering",
+      "source": "E:\\ApexCore\\ObsidianNote\\agent-skill\\model\\requirement-gathering",
+      "agent_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.agents\\skills\\requirement-gathering",
+      "cursor_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.cursor\\skills\\requirement-gathering"
+    },
+    {
+      "id": "tracking-and-logging",
+      "source": "E:\\ApexCore\\ObsidianNote\\agent-skill\\model\\tracking-and-logging",
+      "agent_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.agents\\skills\\tracking-and-logging",
+      "cursor_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.cursor\\skills\\tracking-and-logging"
+    },
+    {
+      "id": "three",
+      "source": "E:\\ApexCore\\ObsidianNote\\agent-skill\\three",
+      "agent_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.agents\\skills\\three",
+      "cursor_link": "E:\\ApexCore\\ObsidianNote\\agent-skill\\.cursor\\skills\\three"
+    }
+  ]
+}
