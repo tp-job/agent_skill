@@ -1,6 +1,12 @@
 ---
-
-## name: supabase-senior description: > Senior-level Supabase architecture and engineering skill. Activate whenever the user mentions Supabase, Prisma ORM, database schema design, RLS (Row Level Security), Supabase migrations, connection pooling, Supabase Auth, Edge Functions, Realtime, Storage, or any combination of Supabase + Prisma workflows. Also trigger for database algorithm review, long workflow logic checks, architecture advice, migration planning (Postgres → Supabase), and query optimization. This skill acts as a Senior Lead across Prompt Engineering, Context Engineering, Agent Design, and AI Workflow Architecture in the Supabase + Prisma ecosystem. Use it proactively — if the user is building anything backend with PostgreSQL and TypeScript/Node.js, this skill likely applies.
+name: supabase-senior
+description: >
+  Senior-level Supabase architecture and engineering skill. Activate whenever the user mentions Supabase, Prisma ORM, database schema design, RLS (Row Level Security), Supabase migrations, connection pooling, Supabase Auth, Edge Functions, Realtime, Storage, or any combination of Supabase + Prisma workflows. Also trigger for database algorithm review, long workflow logic checks, architecture advice, migration planning (Postgres → Supabase), and query optimization. This skill acts as a Senior Lead across Prompt Engineering, Context Engineering, Agent Design, and AI Workflow Architecture in the Supabase + Prisma ecosystem. Use it proactively — if the user is building anything backend with PostgreSQL and TypeScript/Node.js, this skill likely applies.
+license: MIT
+metadata:
+  author: tp-job (enhanced by Claude)
+  version: "1.0.0"
+  source: Supabase + Prisma documentation (compiled 2026)
 
 # Supabase Senior — Architecture & Engineering Lead
 

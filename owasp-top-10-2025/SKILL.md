@@ -3,8 +3,9 @@ name: owasp-top-10-2025
 description: Security review and vulnerability analysis based on the OWASP Top 10 2025. Use this skill when auditing code for security flaws, reviewing authentication, checking for injection vulnerabilities, or ensuring cryptographic correctness. Triggers on tasks involving broken access control, injection attacks, security misconfiguration, cryptographic failures, vibe coding risks, memory management, supply chain security, or resilience failures. Also trigger for: "security review", "find vulnerabilities", "check authentication", "SQL injection", "audit my API", "secure this code", "OWASP compliance", "check my auth", "is this secure", or any security-related code review request.
 license: MIT
 metadata:
-  author: nevinas06
+  author: nevinas06 (enhanced by Claude)
   version: "1.0.0"
+  source: OWASP Top 10 2025 (compiled 2026)
 ---
 
 # OWASP Top 10 — 2025 Security Skill

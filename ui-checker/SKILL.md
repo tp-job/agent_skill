@@ -2,8 +2,12 @@
 name: ui-checker
 description: >
   Systematically audit and inspect web UIs across four dimensions: (1) Theme Compliance — verify colors, text, borders, and shadows correctly follow CSS variables/design tokens (including Tailwind utility classes and shadcn-style `.dark` setups) rather than being hardcoded, so they respond to light/dark mode or custom theme switches; (2) Layout Integrity — measure and validate element dimensions (height, width, min/max), spacing, overflow, and responsive breakpoints; (3) Browser Rendering — render a live, clickable inspector artifact in chat so the person can SEE the page, toggle themes, click elements for live dimensions, and check color contrast, all without leaving the conversation; (4) Accessibility & Polish — WCAG contrast ratios, missing alt text, missing focus styles, fixed px font sizes, motion without reduced-motion support.
-
   Trigger this skill for ANY of the following: "check UI colors", "audit my theme", "does dark mode work", "find hardcoded colors", "check CSS variables", "layout dimensions", "measure width/height", "responsive check", "WCAG contrast", "screenshot my page", "color audit", "UI QA", "inspect my design", "check display in browser", "theme compliance", "fix my colors", "check if this follows my theme", "check my Tailwind dark mode", or any similar request about visual/styling quality. Also trigger when user pastes or uploads HTML/CSS and asks "does this look right", "why doesn't my dark mode work", "what's wrong with my layout", or any variation of debugging visual appearance.
+license: MIT
+metadata:
+  author: tp-job (enhanced by Claude)
+  version: "1.0.0"
+  source: UI Inspection & WCAG guidelines (compiled 2026)
 ---
 
 # UI Inspector

@@ -3,8 +3,9 @@ name: knowledge-base
 description: Software engineering knowledge base covering architecture patterns, component-based design, security fundamentals, software design principles, and use case + microservices design. Use this skill when answering questions about software architecture, design patterns, system design, security best practices, or use case modeling. Triggers on tasks involving architecture decisions, component design, security review, software design review, or microservices planning. Also trigger for: "architecture patterns", "component design", "software design", "system design", "security patterns", "use case diagram", "microservices design", "3-tier architecture", "design principles", or any request for software engineering reference knowledge.
 license: MIT
 metadata:
-  author: nevinas06
+  author: nevinas06 (enhanced by Claude)
   version: "1.0.0"
+  source: Software Engineering Knowledge Base (compiled 2026)
 ---
 
 # Software Engineering Knowledge Base

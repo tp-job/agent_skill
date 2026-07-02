@@ -2,6 +2,11 @@
 name: threejs-3d
 description: >
   Build high-performance, production-grade Three.js and 3D web experiences. ALWAYS use this skill when the user mentions: Three.js, WebGL, WebGPU, 3D scene, 3D model, GLTF, GLB, OBJ, FBX, STL, shader, GLSL, TSL, vertex shader, fragment shader, particle system, procedural geometry, 3D animation, skeletal animation, morph target, animation mixer, environment map, HDRI, PBR material, physically based rendering, shadow, ambient occlusion, instanced mesh, raycasting, picking, interaction in 3D, camera rig, orbit controls, postprocessing, bloom, depth of field, FXAA, SMAA, tone mapping, color grading, 3D product viewer, configurator, 3D background, WebGL demo, spinning cube, Three Fiber, R3F, Drei, canvas 3D, point cloud, terrain generation, procedural mesh, GPU particles, compute shader, or anything involving rendering 3D graphics in the browser. Also trigger for: "make it look cinematic", "add glow", "add reflections", "realistic materials", "game-like graphics", "3D interactive experience". Produces modern r182+ code with correct memory management, delta-time animation, import maps, and professional visual quality.
+license: MIT
+metadata:
+  author: tp-job (enhanced by Claude)
+  version: "1.0.0"
+  source: Three.js r182 documentation & best practices (compiled 2026)
 ---
 
 # Three.js & 3D Web — Professional Skill

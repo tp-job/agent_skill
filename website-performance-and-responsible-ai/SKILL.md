@@ -1,6 +1,12 @@
 ---
-
-## name: ai-web-product-craft description: Guidance for building, reviewing, or advising on web pages and apps that load images/iframes/embeds and/or include an AI feature (chatbot, AI agent, summarizer, recommender, generative UI). Combines HTML delivery performance (TTFB, caching, compression, CDNs, lazy loading of images and iframes, third-party embed facades) with responsible AI product design (privacy, fairness, calibrated trust, and choosing the right AI UX pattern — background, constrained, or open-ended). Use this whenever the user asks to build, optimize, or review a web page's loading performance, wants to add lazy loading or defer iframes/embeds, is designing an AI feature or AI UX flow, asks about AI governance/trust/transparency/bias, or uses terms like Core Web Vitals, TTFB, LCP, INP, prompt engineering, system prompt, or AI blueprint. Even if the user only mentions "performance" or "AI feature" without naming these specifics, consult this skill — it encodes the trade-offs that are easy to miss.
+name: ai-web-product-craft
+description: >
+  Guidance for building, reviewing, or advising on web pages and apps that load images/iframes/embeds and/or include an AI feature (chatbot, AI agent, summarizer, recommender, generative UI). Combines HTML delivery performance (TTFB, caching, compression, CDNs, lazy loading of images and iframes, third-party embed facades) with responsible AI product design (privacy, fairness, calibrated trust, and choosing the right AI UX pattern — background, constrained, or open-ended). Use this whenever the user asks to build, optimize, or review a web page's loading performance, wants to add lazy loading or defer iframes/embeds, is designing an AI feature or AI UX flow, asks about AI governance/trust/transparency/bias, or uses terms like Core Web Vitals, TTFB, LCP, INP, prompt engineering, system prompt, or AI blueprint. Even if the user only mentions "performance" or "AI feature" without naming these specifics, consult this skill — it encodes the trade-offs that are easy to miss.
+license: MIT
+metadata:
+  author: tp-job (enhanced by Claude)
+  version: "1.0.0"
+  source: Web Performance + Responsible AI guidelines (compiled 2026)
 
 # AI Web Product Craft
 

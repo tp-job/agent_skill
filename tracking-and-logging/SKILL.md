@@ -9,6 +9,11 @@ description: >
   Thai triggers: "แก้บัค", "หา bug", "debug", "ทำไม X ไม่ทำงาน", "crash", "error",
   "ช้า", "memory leak", "ไม่แสดงผล", "ส่ง API ไม่ได้", "login ไม่ได้".
   ALWAYS triage autonomously — classify layer, diagnose cause, produce issue report immediately.
+license: MIT
+metadata:
+  author: tp-job (enhanced by Claude)
+  version: "1.0.0"
+  source: PERN/MERN bug triage & debugging methodology (compiled 2026)
 ---
 
 # SKILL: Autonomous Bug Triage & Debugging

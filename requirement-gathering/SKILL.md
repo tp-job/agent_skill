@@ -9,6 +9,11 @@ description: >
   Thai triggers: "วิเคราะห์ code", "เขียน spec", "ทำ requirements", "audit component",
   "เช็ค design system", "สร้าง acceptance criteria", "document API contract".
   ALWAYS run autonomously — infer missing context, annotate assumptions, never ask to proceed.
+license: MIT
+metadata:
+  author: tp-job (enhanced by Claude)
+  version: "1.0.0"
+  source: PERN/MERN requirement extraction methodology (compiled 2026)
 ---
 
 # SKILL: Autonomous Requirement Extraction

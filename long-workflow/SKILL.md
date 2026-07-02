@@ -2,6 +2,11 @@
 name: long-horizon-engineering-workflow
 description: >
   Operationalizes a six-stage gated delivery workflow (Requirements → Design → Development → QA → UAT → Deployment) to keep long, multi-session, or multi-stage engineering builds from drifting. Use this whenever a user asks Claude to build, develop, architect, extend, or ship something that will span multiple turns or sessions — a new app, a multi-component feature, a system with several moving parts, a refactor touching many files, or any "build me X" / "let's build out Y" request too big to land in one shot. Also trigger mid-build if the requirement, design, or test plan was never written down and the work is starting to drift. Push hard for gate artifacts (problem statement, acceptance criteria, design notes, structured feedback, sign-off) before advancing stages, but respect an explicit user override to skip ahead. Do NOT trigger for single quick snippets, isolated one-off scripts, or small well-specified bug fixes — those don't need gates.
+license: MIT
+metadata:
+  author: tp-job (enhanced by Claude)
+  version: "1.0.0"
+  source: Long-Horizon Engineering Workflow playbook (compiled 2026)
 ---
 
 # Long-Horizon Engineering Workflow

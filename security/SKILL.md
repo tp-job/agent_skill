@@ -2,6 +2,11 @@
 name: security
 description: >
   Senior-level security architecture skill covering OAuth2 authorization flows and Leveled API Key design. Activate whenever the user mentions OAuth2, access tokens, authorization flows, API key management, key rotation, key compromise, leveled permissions (read-only / write / admin), resource server security, or agent authentication patterns. Also trigger for: designing secure agent-to-service communication, reviewing API key scoping, auditing key privilege levels, implementing token exchange flows, or any question about "who can access what and how". Use proactively — if the user is building anything that touches auth, keys, or service-to-service security, this skill almost certainly applies.
+license: MIT
+metadata:
+  author: tp-job (enhanced by Claude)
+  version: "1.0.0"
+  source: OAuth2 / API Key security architecture (compiled 2026)
 ---
 
 # Security — OAuth2 & Leveled API Key Architecture

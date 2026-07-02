@@ -2,6 +2,11 @@
 name: web-design-guidelines
 description: Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".
 argument-hint: <file-or-pattern>
+license: MIT
+metadata:
+  author: tp-job (enhanced by Claude)
+  version: "1.0.0"
+  source: Web Interface Guidelines (compiled 2026)
 ---
 
 # Web Interface Guidelines

@@ -3,8 +3,9 @@ name: java-api-performance
 description: Java Spring Boot backend API performance optimization. Use this skill when writing, reviewing, or refactoring Java/Spring Boot code to fix slow APIs, memory issues, or database inefficiencies. Triggers on tasks involving loop optimization, caching, pagination, query tuning, N+1 problems, database indexing, async processing, or connection pooling. Also trigger for: "my API is slow", "fix N+1 query", "add caching", "optimize database", "Spring Boot performance", "HikariCP config", "reduce memory usage", "paginate results", "add @Async", or any Java backend performance request.
 license: MIT
 metadata:
-  author: nevinas06
+  author: nevinas06 (enhanced by Claude)
   version: "1.0.0"
+  source: Java Spring Boot performance patterns (compiled 2026)
 ---
 
 # Java Spring Boot — API Performance Optimization
