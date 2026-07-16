@@ -1,6 +1,8 @@
 ---
-
-## name: agent-security description: > A skill for identifying, analyzing, and defending against security threats in AI agent systems and LLM-powered projects. Use when the user asks about prompt injection, tool poisoning, privilege escalation, data exfiltration, jailbreaking, backdoor attacks, agent deception, or any AI-specific security concern. Also trigger on: "is this safe?", "can this be exploited?", "how do I secure my agent?", "red team this", "what are the risks?", or when reviewing agent code, tool integrations, or system prompts. Covers both Attack Research (offensive) and Defense Research (defensive).
+name: agent-security
+description: >-
+  A skill for identifying, analyzing, and defending against security threats in AI agent systems and LLM-powered projects. Use when the user asks about prompt injection, tool poisoning, privilege escalation, data exfiltration, jailbreaking, backdoor attacks, agent deception, or any AI-specific security concern. Also trigger on: "is this safe?", "can this be exploited?", "how do I secure my agent?", "red team this", "what are the risks?", or when reviewing agent code, tool integrations, or system prompts. Covers both Attack Research (offensive) and Defense Research (defensive).
+---
 
 # Agent Security Skill
 

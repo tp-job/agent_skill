@@ -73,20 +73,20 @@ metadata:
 
 ระบุ Domain ที่ตรงกับงานที่ทำ แล้วเปิดไฟล์ใน `references/` ที่ตรงกัน:
 
-| Priority | Domain | ไฟล์อ้างอิง | เปิดเมื่อ |
-|---|---|---|---|
-| 🔴 Critical | Material 3 Expressive | `01-material-3-expressive.md` | ออกแบบ UI Component, เลือก Color/Shape/Motion |
-| 🔴 Critical | Global Accessibility | `06-global-accessibility.md` | ตรวจสอบ Contrast, Touch Target, RTL, Screen Reader |
-| 🟠 High | Motion Design | `05-motion-design.md` | กำหนด Animation, Transition, Duration, Easing |
-| 🟠 High | Typography — Google Sans Flex | `03-google-sans-flex-typography.md` | เลือก Typeface, Type Scale, Variable Axes |
-| 🟠 High | AI / Gemini Visual Design | `04-gemini-ai-visual-design.md` | ออกแบบ AI Interface, Loading States, Trust |
-| 🟡 Medium | Transparent Screens / XR | `02-transparent-screens-xr.md` | AI Glasses, Android XR, Additive Display |
-| 🟡 Medium | Design Sprints | `07-design-sprints.md` | วางแผน/Facilitate 5-day Sprint |
-| 🟡 Medium | Material Design Evolution | `08-material-design-evolution.md` | เข้าใจ Context M1–M3E, Grid System |
-| 🟢 Support | UX Writing, Design Review, Brand, AI Terms, Culture | `09-12-culture-ai-terms-review-ux-writing-brand.md` | เขียน Copy, ทำ Review, สร้าง Brand |
-| 🔵 Overview | 10 หลักการ + URL Resources | `00-overview-principles-resources.md` | ภาพรวม + แหล่งข้อมูล Official |
-| 📄 Full Source | เอกสารต้นฉบับเต็ม | `google-design-full.md` | ค้นหาข้อมูลรายละเอียดเพิ่มเติม |
-| 📄 Concept | สรุปแนวคิดย่อ | `google-concept.md` | ภาพรวมเร็ว 5 นาที |
+| Priority       | Domain                                              | ไฟล์อ้างอิง                                         | เปิดเมื่อ                                          |
+| -------------- | --------------------------------------------------- | --------------------------------------------------- | -------------------------------------------------- |
+| 🔴 Critical    | Material 3 Expressive                               | [[material-3-expressive]]                       | ออกแบบ UI Component, เลือก Color/Shape/Motion      |
+| 🔴 Critical    | Global Accessibility                                | [[global-accessibility]]                        | ตรวจสอบ Contrast, Touch Target, RTL, Screen Reader |
+| 🟠 High        | Motion Design                                       | [[motion-design]]                               | กำหนด Animation, Transition, Duration, Easing      |
+| 🟠 High        | Typography — Google Sans Flex                       | [[google-sans-flex]]                 | เลือก Typeface, Type Scale, Variable Axes          |
+| 🟠 High        | AI / Gemini Visual Design                           | [[gemini-ai-visual-design]]                     | ออกแบบ AI Interface, Loading States, Trust         |
+| 🟡 Medium      | Transparent Screens / XR                            | [[transparent-screens]]                      | AI Glasses, Android XR, Additive Display           |
+| 🟡 Medium      | Design Sprints                                      | [[design-sprints]]                              | วางแผน/Facilitate 5-day Sprint                     |
+| 🟡 Medium      | Material Design Evolution                           | [[material-design]]                   | เข้าใจ Context M1–M3E, Grid System                 |
+| 🟢 Support     | UX Writing, Design Review, Brand, AI Terms, Culture | [[design-culture]] | เขียน Copy, ทำ Review, สร้าง Brand                 |
+| 🔵 Overview    | 10 หลักการ + URL Resources                          | [[google-design-10]]               | ภาพรวม + แหล่งข้อมูล Official                      |
+| 📄 Full Source | เอกสารต้นฉบับเต็ม                                   | [[google-design]]                             | ค้นหาข้อมูลรายละเอียดเพิ่มเติม                     |
+| 📄 Concept     | สรุปแนวคิดย่อ                                       | [[google-concept]]                                 | ภาพรวมเร็ว 5 นาที                                  |
 
 ---
 
@@ -95,8 +95,8 @@ metadata:
 1. **รับ Task** → ระบุว่า Task นี้อยู่ใน Domain ไหน (ดู Domain Map)
 2. **เปิดไฟล์อ้างอิง** ที่ตรงกับ Domain นั้น (อาจมีมากกว่า 1 ไฟล์)
 3. **ใช้หลักการ + Checklist** ใน Reference File ประกอบการตอบหรือรีวิว
-4. **ถ้าไม่แน่ใจ** → เปิด `google-design-full.md` ค้นหาข้อมูลเพิ่มเติม
-5. **ทุก Output** ต้องผ่าน Accessibility Checklist (`06-global-accessibility.md`) เสมอ ไม่ว่า Domain จะเป็นอะไร
+4. **ถ้าไม่แน่ใจ** → เปิด [[google-design]] ค้นหาข้อมูลเพิ่มเติม
+5. **ทุก Output** ต้องผ่าน Accessibility Checklist ([[global-accessibility]]) เสมอ ไม่ว่า Domain จะเป็นอะไร
 
 ---
 
@@ -133,11 +133,11 @@ metadata:
 
 ## แหล่งข้อมูล Official (URL พร้อมใช้)
 
-| Resource | URL |
-|---|---|
-| Google Design | design.google |
-| Material Design 3 | m3.material.io |
-| Google Fonts | fonts.google.com |
-| PAIR (Human-AI) | pair.withgoogle.com |
-| Android XR Design | developer.android.com/design/ui/ai-glasses |
-| Material Web Components | material-web.dev |
+| Resource                 | URL                                          | Refer                            |
+| ------------------------ | --------------------------------------------- | --------------------------------- |
+| Google Design            | design.google                                 | [[google-design]], [[google-concept]] |
+| Material Design 3        | m3.material.io                                | [[material-3-expressive]], [[material-design]] |
+| Google Fonts             | fonts.google.com                              | [[google-sans-flex]]              |
+| PAIR (Human-AI)          | pair.withgoogle.com                           | [[gemini-ai-visual-design]]       |
+| Android XR Design        | developer.android.com/design/ui/ai-glasses    | [[transparent-screens]]           |
+| Material Web Components  | material-web.dev                              | [[material-3-expressive]]         |

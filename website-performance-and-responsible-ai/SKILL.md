@@ -7,6 +7,7 @@ metadata:
   author: tp-job (enhanced by Claude)
   version: "1.0.0"
   source: Web Performance + Responsible AI guidelines (compiled 2026)
+---
 
 # AI Web Product Craft
 
@@ -22,15 +23,15 @@ Acting as senior leadership across prompt engineering, context engineering, agen
 
 |Task touches...|Read|
 |---|---|
-|Page load speed, TTFB, caching HTML, compression, CDNs|`references/html-performance.md`|
-|Images or `<iframe>`/embeds loading too eagerly, layout shift, third-party widgets (video, chat, ads)|`references/html-performance.md`|
-|Privacy, data collection, bias/fairness, hallucination, calibrated trust, AI governance|`references/ai-responsible-design.md`|
-|Deciding how visible/controllable an AI feature should be (auto-applied vs. button-triggered vs. open chat)|`references/ai-ux-patterns.md`|
+|Page load speed, TTFB, caching HTML, compression, CDNs|[[html-performance]]|
+|Images or `<iframe>`/embeds loading too eagerly, layout shift, third-party widgets (video, chat, ads)|[[html-performance]]|
+|Privacy, data collection, bias/fairness, hallucination, calibrated trust, AI governance|[[ai-responsible-design]]|
+|Deciding how visible/controllable an AI feature should be (auto-applied vs. button-triggered vs. open chat)|[[ai-ux-patterns]]|
 |Unfamiliar AI/product term (compound AI, context engineering, data drift, EDD, model card, system prompt, etc.)|`references/ai-glossary.md`|
 
 ## Part 1 — HTML & resource-loading performance (summary)
 
-Every page starts with a request for HTML; how fast that request resolves caps how fast everything else (including any AI UI) can render. The full reasoning, header examples, and code samples are in `references/html-performance.md`. The headline moves:
+Every page starts with a request for HTML; how fast that request resolves caps how fast everything else (including any AI UI) can render. The full reasoning, header examples, and code samples are in [[html-performance]]. The headline moves:
 
 - **Minimize redirects**, especially chained ones (ad links → HTTP → HTTPS → final page). Same-origin redirects are fully under your control; fix them at the link level instead of relying on a server hop.
 - **Cache HTML carefully.** Static HTML can usually take a short cache lifetime (a few minutes) plus `ETag`/`Last-Modified` revalidation. Personalized or authenticated HTML generally should not be cached at all — there's no way to purge a browser's local cache later.
@@ -42,7 +43,7 @@ Every page starts with a request for HTML; how fast that request resolves caps h
 
 ## Part 2 — Building AI features responsibly (summary)
 
-Every AI product decision sits in one of three layers: **Data** (what you collect and feed in), **Intelligence** (the model and its surrounding logic), and **User Experience** (what the person actually sees and controls). Responsible design touches all three for each of three pillars — full depth in `references/ai-responsible-design.md`:
+Every AI product decision sits in one of three layers: **Data** (what you collect and feed in), **Intelligence** (the model and its surrounding logic), and **User Experience** (what the person actually sees and controls). Responsible design touches all three for each of three pillars — full depth in [[ai-responsible-design]]:
 
 - **Privacy** — collect only what improves the system, strip PII before it leaves the browser or hits an external model, set short retention windows, and prefer on-device/client-side inference for sensitive domains. In the UI, label what's happening ("processed on this device") and ask for consent in context rather than via a blanket opt-in.
 - **Fairness** — document training data sources and coverage, run diagnostic tests that swap demographic-coded terms to surface inconsistent treatment, and rank/filter multiple candidate outputs for neutrality before showing one to the user. Make it easy to report a biased or wrong result, and actually close that feedback loop.
@@ -50,7 +51,7 @@ Every AI product decision sits in one of three layers: **Data** (what you collec
 
 ## Part 3 — Picking the right AI UX pattern (summary)
 
-Before designing the interface, decide how exposed the AI should be. Full decision criteria and a worked example are in `references/ai-ux-patterns.md`.
+Before designing the interface, decide how exposed the AI should be. Full decision criteria and a worked example are in [[ai-ux-patterns]].
 
 - **Background AI** — runs automatically, no user trigger (spam filters, blurred video backgrounds, personalized recommendations). Use when the task is low-risk, user control wouldn't meaningfully change the outcome, and the product still delivers its core value if the AI silently fails.
 - **Constrained AI** — triggered by an explicit user action (a button, a menu item); the system prompt tightly scopes task, tone, and output format. Use for well-defined, bounded tasks (generate a title, summarize this thread) where predictability matters more than flexibility.

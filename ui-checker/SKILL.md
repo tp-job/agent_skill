@@ -277,5 +277,5 @@ For quick one-liner questions ("is `#fff` on `#e5e5e5` accessible?"), skip all s
 
 ## References
 
-- `references/checklist.md` — Complete 50-point UI check checklist
-- `references/theme-patterns.md` — Per-framework theming patterns and detection
+- [[checklist]] — Complete 50-point UI check checklist
+- [[theme-patterns]] — Per-framework theming patterns and detection

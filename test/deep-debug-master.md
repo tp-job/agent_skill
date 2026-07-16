@@ -1,6 +1,9 @@
 ---
-
-## name: debug-master description: > Deep debug and auto-fix skill covering file system inspection, logic tracing, algorithm analysis, and AI workflow debugging. Trigger this skill whenever the user shares an error message, stack trace, broken file path, missing module, wrong output, or describes unexpected behavior in any codebase or workflow. Also trigger for: "why is this not working", "fix this bug", "check my paths", "trace this logic", "analyze this algorithm", "my workflow is broken", "find the error", "debug this agent", "check folder structure", "validate these files", "summarize this algorithm's complexity", or any variant of these. Use this skill even for vague reports like "something is wrong" — the skill's intake phase will extract what's needed. Covers Python, JavaScript/TypeScript, Go, Bash, SQL, LangChain/LangGraph, AutoGen, CrewAI, and generic AI agent workflows. This skill is intentionally broad — when in doubt, use it. argument-hint: "<error, path, file, or workflow to debug>"
+name: debug-master
+description: >-
+  Deep debug and auto-fix skill covering file system inspection, logic tracing, algorithm analysis, and AI workflow debugging. Trigger this skill whenever the user shares an error message, stack trace, broken file path, missing module, wrong output, or describes unexpected behavior in any codebase or workflow. Also trigger for: "why is this not working", "fix this bug", "check my paths", "trace this logic", "analyze this algorithm", "my workflow is broken", "find the error", "debug this agent", "check folder structure", "validate these files", "summarize this algorithm's complexity", or any variant of these. Use this skill even for vague reports like "something is wrong" — the skill's intake phase will extract what's needed. Covers Python, JavaScript/TypeScript, Go, Bash, SQL, LangChain/LangGraph, AutoGen, CrewAI, and generic AI agent workflows. This skill is intentionally broad — when in doubt, use it.
+argument-hint: "<error, path, file, or workflow to debug>"
+---
 
 # debug-master
 

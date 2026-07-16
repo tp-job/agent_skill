@@ -387,5 +387,5 @@ For a 1–5 person team, escalate when:
 
 ## Reference Files
 
-- `references/known-issues.md` — Documented issues for the Nocturnal Atelier Loading component
-- `references/full-stack-debug-deep-dive.md` — Deep-dive debugging for L8/L9/L10 full-stack layers
+- [[known-issues]] — Documented issues for the Nocturnal Atelier Loading component
+- [[full-stack-debug-deep-dive]] — Deep-dive debugging for L8/L9/L10 full-stack layers

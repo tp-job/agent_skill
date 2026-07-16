@@ -18,7 +18,7 @@ UAT is not the first time the user sees the feature. If it is, the earlier stage
 - [ ] UAT script prepared from the Stage 2 use cases, not written from scratch at this stage.
 - [ ] Tested in an environment that matches what's described as production-equivalent.
 - [ ] Tested by someone in the actual user role — not just by whoever built it.
-- [ ] Feedback captured using `structured-feedback-format.md`.
+- [ ] Feedback captured using [[structured-feedback-format]].
 - [ ] Sign-off — even an explicit "looks good, ship it" from the user — recorded before deployment, not assumed from silence.
 
 ## Stage 6 — Deployment

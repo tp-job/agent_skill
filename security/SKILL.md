@@ -384,10 +384,10 @@ For deeper dives, load the relevant reference file when needed:
 
 | Topic                                | Reference File                     |
 | ------------------------------------ | ---------------------------------- |
-| OAuth2 detailed token flow + PKCE    | `references/oauth2-deep.md`        |
+| OAuth2 detailed token flow + PKCE    | [[oauth2-deep]]        |
 | Secrets manager integration patterns | `references/secrets-management.md` |
 | Key rotation automation scripts      | `references/key-rotation.md`       |
-| Agent security threat model          | `references/agent-threat-model.md` |
+| Agent security threat model          | [[agent-threat-model]] |
 
 ---
 

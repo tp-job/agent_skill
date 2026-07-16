@@ -223,7 +223,7 @@ h1, h2, h3 { ... }
 ```
 Merge conflicts on every PR. Impossible to find anything. No isolation of concerns.
 
-**Fix:** One file per concern. See `references/folder-templates.md`.
+**Fix:** One file per concern. See [[folder-templates]].
 
 ---
 

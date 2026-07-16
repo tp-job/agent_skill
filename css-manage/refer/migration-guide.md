@@ -65,7 +65,7 @@ Document the numbers. These become your **before** metrics to compare against af
    /* Phase 2: new files will be added here as migration progresses */
    ```
 
-3. Install and configure `postcss-import` (if v3) — see `references/linting-setup.md`
+3. Install and configure `postcss-import` (if v3) — see [[linting-setup]]
 
 4. Install Stylelint but run it in **warning mode** only (don't make it block CI yet):
    ```json

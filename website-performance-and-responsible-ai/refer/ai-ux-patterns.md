@@ -20,7 +20,7 @@ Common examples: spam filters, entertainment recommendations, automatic video-ca
 
 ### Worked example: AI-generated review summaries
 
-A product page with hundreds of reviews makes it hard for a shopper to judge what matters to them. Background AI can surface recurring themes (e.g., "sound quality," "battery life" for headphones) as a personalized highlight, reducing cognitive load and speeding up the decision. Because the summary is personalized per user, prefer a client-side/on-device platform (built-in AI, a Summarizer API) for privacy and latency reasons — see the privacy guidance in `ai-responsible-design.md`.
+A product page with hundreds of reviews makes it hard for a shopper to judge what matters to them. Background AI can surface recurring themes (e.g., "sound quality," "battery life" for headphones) as a personalized highlight, reducing cognitive load and speeding up the decision. Because the summary is personalized per user, prefer a client-side/on-device platform (built-in AI, a Summarizer API) for privacy and latency reasons — see the privacy guidance in [[ai-responsible-design]].
 
 ### Best practices
 

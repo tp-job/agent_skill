@@ -28,7 +28,7 @@ without re-reading everything.
 
 This skill is inspired by the "LLM Wiki" pattern popularized for Claude + Obsidian
 setups (e.g. AgriciDaniel/claude-obsidian on GitHub, credited in
-`references/credits.md`), reworked here as a single self-contained skill.
+[[credits]]), reworked here as a single self-contained skill.
 
 ---
 

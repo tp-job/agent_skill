@@ -1,6 +1,7 @@
 ---
 name: owasp-top-10-2025
-description: Security review and vulnerability analysis based on the OWASP Top 10 2025. Use this skill when auditing code for security flaws, reviewing authentication, checking for injection vulnerabilities, or ensuring cryptographic correctness. Triggers on tasks involving broken access control, injection attacks, security misconfiguration, cryptographic failures, vibe coding risks, memory management, supply chain security, or resilience failures. Also trigger for: "security review", "find vulnerabilities", "check authentication", "SQL injection", "audit my API", "secure this code", "OWASP compliance", "check my auth", "is this secure", or any security-related code review request.
+description: >-
+  Security review and vulnerability analysis based on the OWASP Top 10 2025. Use this skill when auditing code for security flaws, reviewing authentication, checking for injection vulnerabilities, or ensuring cryptographic correctness. Triggers on tasks involving broken access control, injection attacks, security misconfiguration, cryptographic failures, vibe coding risks, memory management, supply chain security, or resilience failures. Also trigger for: "security review", "find vulnerabilities", "check authentication", "SQL injection", "audit my API", "secure this code", "OWASP compliance", "check my auth", "is this secure", or any security-related code review request.
 license: MIT
 metadata:
   author: nevinas06 (enhanced by Claude)
@@ -27,19 +28,19 @@ Reference these guidelines when:
 
 | Priority | Category | Severity | Reference File |
 |----------|---------|----------|---------------|
-| 1 | Broken Access Control | CRITICAL | `broken-access-control.md` |
-| 2 | Cryptographic Failures | CRITICAL | `cryptographic-failures.md` |
-| 3 | Injection | CRITICAL | `injection.md` |
-| 4 | Authentication Failures | HIGH | `authentication-failures.md` |
-| 5 | Security Misconfiguration | HIGH | `security-misconfiguration.md` |
-| 6 | Insecure Design | HIGH | `insecure-design.md` |
-| 7 | Software & Data Integrity Failures | HIGH | `software-or-data-integrity-failures.md` |
-| 8 | Software Supply Chain Failures | HIGH | `software-supply-chain-failures.md` |
-| 9 | Security Logging & Alerting Failures | MEDIUM | `security-logging-and-alerting-failures.md` |
-| 10 | Memory Management Failures | MEDIUM | `memory-management-failures.md` |
-| 11 | Mishandling of Exceptional Conditions | MEDIUM | `mishandling-of-exceptional-conditions.md` |
-| 12 | Lack of Application Resilience | MEDIUM | `lack-of-application-resilience.md` |
-| 13 | Inappropriate Trust in AI-Generated Code | MEDIUM | `inappropriate-trust-in-ai-generated-code ('vibe coding').md` |
+| 1 | Broken Access Control | CRITICAL | [[broken-access-control]] |
+| 2 | Cryptographic Failures | CRITICAL | [[cryptographic-failures]] |
+| 3 | Injection | CRITICAL | [[injection]] |
+| 4 | Authentication Failures | HIGH | [[authentication-failures]] |
+| 5 | Security Misconfiguration | HIGH | [[security-misconfiguration]] |
+| 6 | Insecure Design | HIGH | [[insecure-design]] |
+| 7 | Software & Data Integrity Failures | HIGH | [[software-or-data-integrity-failures]] |
+| 8 | Software Supply Chain Failures | HIGH | [[software-supply-chain-failures]] |
+| 9 | Security Logging & Alerting Failures | MEDIUM | [[security-logging-and-alerting-failures]] |
+| 10 | Memory Management Failures | MEDIUM | [[memory-management-failures]] |
+| 11 | Mishandling of Exceptional Conditions | MEDIUM | [[mishandling-of-exceptional-conditions]] |
+| 12 | Lack of Application Resilience | MEDIUM | [[lack-of-application-resilience]] |
+| 13 | Inappropriate Trust in AI-Generated Code | MEDIUM | [[inappropriate-trust-in-ai-generated-code ('vibe coding')]] |
 
 ## Quick Reference
 
@@ -138,16 +139,16 @@ authentication-failures.md — Login, session, MFA patterns
 
 | File | Review When |
 |------|------------|
-| `broken-access-control.md` | Any authorization or ownership check |
-| `cryptographic-failures.md` | Password hashing, encryption, HTTPS |
-| `injection.md` | Database queries, shell commands, templates |
-| `authentication-failures.md` | Login, session management, MFA |
-| `security-misconfiguration.md` | Server config, headers, debug settings |
-| `insecure-design.md` | Architecture and threat modeling |
-| `software-or-data-integrity-failures.md` | CI/CD, deserialization, webhooks |
-| `software-supply-chain-failures.md` | Dependencies, packages, lockfiles |
-| `security-logging-and-alerting-failures.md` | Logging and monitoring |
-| `memory-management-failures.md` | Low-level memory and resource handling |
-| `mishandling-of-exceptional-conditions.md` | Error handling and exception paths |
-| `lack-of-application-resilience.md` | Fault tolerance and reliability |
-| `inappropriate-trust-in-ai-generated-code ('vibe coding').md` | AI-assisted code review |
+| [[broken-access-control]] | Any authorization or ownership check |
+| [[cryptographic-failures]] | Password hashing, encryption, HTTPS |
+| [[injection]] | Database queries, shell commands, templates |
+| [[authentication-failures]] | Login, session management, MFA |
+| [[security-misconfiguration]] | Server config, headers, debug settings |
+| [[insecure-design]] | Architecture and threat modeling |
+| [[software-or-data-integrity-failures]] | CI/CD, deserialization, webhooks |
+| [[software-supply-chain-failures]] | Dependencies, packages, lockfiles |
+| [[security-logging-and-alerting-failures]] | Logging and monitoring |
+| [[memory-management-failures]] | Low-level memory and resource handling |
+| [[mishandling-of-exceptional-conditions]] | Error handling and exception paths |
+| [[lack-of-application-resilience]] | Fault tolerance and reliability |
+| [[inappropriate-trust-in-ai-generated-code ('vibe coding')]] | AI-assisted code review |

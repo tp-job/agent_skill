@@ -1,6 +1,7 @@
 ---
 name: agent-skill-creator
-description: Guide for creating, structuring, and organising AI agent skills. Use this skill when building a new agent skill from scratch, setting up a .agents/ workspace, designing skill folder structures, or writing SKILL.md files with proper YAML frontmatter. Triggers on tasks involving skill creation, agent configuration, AGENT.md setup, skills folder layout, or workspace organisation. Also trigger for: "create a skill", "write a SKILL.md", "set up .agents folder", "agent workspace", "skill structure", "how do I create a skill", "agent rules", "agent context", or any request to build or improve AI agent configuration.
+description: >-
+  Guide for creating, structuring, and organising AI agent skills. Use this skill when building a new agent skill from scratch, setting up a .agents/ workspace, designing skill folder structures, or writing SKILL.md files with proper YAML frontmatter. Triggers on tasks involving skill creation, agent configuration, AGENT.md setup, skills folder layout, or workspace organisation. Also trigger for: "create a skill", "write a SKILL.md", "set up .agents folder", "agent workspace", "skill structure", "how do I create a skill", "agent rules", "agent context", or any request to build or improve AI agent configuration.
 license: MIT
 metadata:
   author: nevinas06 (enhanced by Claude)
@@ -137,4 +138,4 @@ description: Clean Code principles for JavaScript. Use when reviewing or refacto
 
 ## Full Reference Document
 
-For the complete workspace layout reference: `agent-skill.md`
+For the complete workspace layout reference: [[agent-skill]]

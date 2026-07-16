@@ -1,6 +1,7 @@
 ---
 name: knowledge-base
-description: Software engineering knowledge base covering architecture patterns, component-based design, security fundamentals, software design principles, and use case + microservices design. Use this skill when answering questions about software architecture, design patterns, system design, security best practices, or use case modeling. Triggers on tasks involving architecture decisions, component design, security review, software design review, or microservices planning. Also trigger for: "architecture patterns", "component design", "software design", "system design", "security patterns", "use case diagram", "microservices design", "3-tier architecture", "design principles", or any request for software engineering reference knowledge.
+description: >-
+  Software engineering knowledge base covering architecture patterns, component-based design, security fundamentals, software design principles, and use case + microservices design. Use this skill when answering questions about software architecture, design patterns, system design, security best practices, or use case modeling. Triggers on tasks involving architecture decisions, component design, security review, software design review, or microservices planning. Also trigger for: "architecture patterns", "component design", "software design", "system design", "security patterns", "use case diagram", "microservices design", "3-tier architecture", "design principles", or any request for software engineering reference knowledge.
 license: MIT
 metadata:
   author: nevinas06 (enhanced by Claude)
@@ -26,11 +27,11 @@ Reference this knowledge base when:
 
 | Domain | File | Topics Covered |
 |--------|------|---------------|
-| Architecture | `architecture.md` | System architecture patterns, trade-offs, scalability |
-| Component-Based Architecture | `component-based-architecture.md` | Component design, composition, atomic design |
-| Security | `security.md` | Security fundamentals, threat modeling, secure defaults |
-| Software Design 2024 | `software-design-2024.md` | Modern design principles, Clean Architecture, DDD |
-| Use Cases + Microservices + 3-Tier | `usecase-microservices-3tier.md` | Use case modeling, Microservices patterns, 3-tier design |
+| Architecture | [[architecture]] | System architecture patterns, trade-offs, scalability |
+| Component-Based Architecture | [[component-based-architecture]] | Component design, composition, atomic design |
+| Security | [[security]] | Security fundamentals, threat modeling, secure defaults |
+| Software Design 2024 | [[software-design-2024]] | Modern design principles, Clean Architecture, DDD |
+| Use Cases + Microservices + 3-Tier | [[usecase-microservices-3tier]] | Use case modeling, Microservices patterns, 3-tier design |
 
 ## Quick Reference
 
@@ -88,8 +89,8 @@ usecase-microservices-3tier.md — System modeling and architecture
 
 | File | Read When |
 |------|-----------|
-| `architecture.md` | System design, architectural decisions |
-| `component-based-architecture.md` | Component design, atomic design, composition |
-| `security.md` | Security review, threat modeling |
-| `software-design-2024.md` | Design principles, Clean Architecture, DDD |
-| `usecase-microservices-3tier.md` | Use case modeling, Microservices, 3-tier |
+| [[architecture]] | System design, architectural decisions |
+| [[component-based-architecture]] | Component design, atomic design, composition |
+| [[security]] | Security review, threat modeling |
+| [[software-design-2024]] | Design principles, Clean Architecture, DDD |
+| [[usecase-microservices-3tier]] | Use case modeling, Microservices, 3-tier |

@@ -1,6 +1,7 @@
 ---
 name: design:css-architecture
-description: Scaffold and manage CSS file architecture for TailwindCSS-first projects. Use this skill whenever the user needs to organize CSS files, prevent or fix CSS hell, add custom styles alongside Tailwind, create a styles folder, set up structural design tokens, configure PostCSS for CSS imports, enforce CSS linting rules, migrate a messy stylesheet to a clean structure, or when CSS is growing out of control and causing conflicts. Trigger on any of these: "css structure", "css folder", "css hell", "css mess", "custom css with tailwind", "css organization", "css architecture", "stylesheet management", "css conflicts", "css specificity", or any request to set up, audit, fix, or improve CSS organization. Use this skill even when the user casually says "my CSS is getting messy" or "styles are conflicting" or "how should I organize my styles".
+description: >-
+  Scaffold and manage CSS file architecture for TailwindCSS-first projects. Use this skill whenever the user needs to organize CSS files, prevent or fix CSS hell, add custom styles alongside Tailwind, create a styles folder, set up structural design tokens, configure PostCSS for CSS imports, enforce CSS linting rules, migrate a messy stylesheet to a clean structure, or when CSS is growing out of control and causing conflicts. Trigger on any of these: "css structure", "css folder", "css hell", "css mess", "custom css with tailwind", "css organization", "css architecture", "stylesheet management", "css conflicts", "css specificity", or any request to set up, audit, fix, or improve CSS organization. Use this skill even when the user casually says "my CSS is getting messy" or "styles are conflicting" or "how should I organize my styles".
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
@@ -27,7 +28,7 @@ Before generating any file or advice, gather context silently (check files, don'
 
 **Default output mode:** When the user's intent is unclear, default to scaffold mode — produce: (1) recommended folder structure as a tree, (2) ready-to-use `main.css`, (3) starter `tokens/_root.css`. Always produce runnable code, not explanatory prose alone.
 
-**When migrating:** Do not suggest rewriting everything at once. Follow the 3-phase migration plan in `references/migration-guide.md`.
+**When migrating:** Do not suggest rewriting everything at once. Follow the 3-phase migration plan in [[migration-guide]].
 
 ---
 
@@ -80,7 +81,7 @@ src/
 - One concern per file. If a file exceeds ~150 lines, that's a signal — not a hard rule — to split by sub-concern
 - `@keyframes` never in component files. Always in `animations/_keyframes.css`
 
-> For project-size variants (small / medium / large), see `references/folder-templates.md`
+> For project-size variants (small / medium / large), see [[folder-templates]]
 
 ---
 
@@ -146,7 +147,7 @@ Styles in a higher-priority layer always win, regardless of selector specificity
 }
 ```
 
-> For `@layer` deep dive, common mistakes, and v3/v4 specificity charts, see `references/layer-system.md`
+> For `@layer` deep dive, common mistakes, and v3/v4 specificity charts, see [[layer-system]]
 
 ---
 
@@ -326,7 +327,7 @@ Tailwind v4 uses native CSS `@import` resolution via Lightning CSS — no `postc
 | Duplicate Tailwind utilities in CSS | Remove — use Tailwind classes directly |
 | Third-party overrides without documentation | Add to `_vendor-map.md` explaining why |
 
-> For detailed before/after examples of all 10 patterns, see `references/anti-patterns.md`
+> For detailed before/after examples of all 10 patterns, see [[anti-patterns]]
 
 ---
 
@@ -360,7 +361,7 @@ Tailwind v4 uses native CSS `@import` resolution via Lightning CSS — no `postc
 - [ ] `declaration-no-important` rule active (with vendor exception)
 - [ ] `no-duplicate-selectors` rule active
 
-> For Stylelint setup and `.stylelintrc` config, see `references/linting-setup.md`
+> For Stylelint setup and `.stylelintrc` config, see [[linting-setup]]
 
 ---
 
@@ -384,9 +385,9 @@ A well-structured CSS codebase should achieve:
 
 | File | Read When |
 |---|---|
-| `references/folder-templates.md` | Scaffolding a new project or choosing structure size |
-| `references/layer-system.md` | Debugging specificity conflicts or learning `@layer` |
-| `references/anti-patterns.md` | Auditing existing CSS or diagnosing CSS hell |
-| `references/linting-setup.md` | Setting up Stylelint for automated enforcement |
-| `references/migration-guide.md` | Migrating an existing messy codebase incrementally |
+| [[folder-templates]] | Scaffolding a new project or choosing structure size |
+| [[layer-system]] | Debugging specificity conflicts or learning `@layer` |
+| [[anti-patterns]] | Auditing existing CSS or diagnosing CSS hell |
+| [[linting-setup]] | Setting up Stylelint for automated enforcement |
+| [[migration-guide]] | Migrating an existing messy codebase incrementally |
 | `assets/main.css.template` | Starter `main.css` ready to copy into a project |

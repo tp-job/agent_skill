@@ -28,14 +28,14 @@ design:css-architecture/
 ## 🚀 Quick Start
 
 ### For a New Project
-1. Read: `SKILL.md` Step 0 + Golden Rule
-2. Choose: Small/Medium/Large from `folder-templates.md`
+1. Read: [[css-manage/SKILL|SKILL.md]] Step 0 + Golden Rule
+2. Choose: Small/Medium/Large from [[folder-templates]]
 3. Copy: `main.css.template` → `src/styles/main.css`
 4. Create: `tokens/_root.css` with starter tokens
-5. Install: Stylelint config from `linting-setup.md`
+5. Install: Stylelint config from [[linting-setup]]
 
 ### For an Existing Project
-1. Audit: Run checklist from `migration-guide.md`
+1. Audit: Run checklist from [[migration-guide]]
 2. Plan: Follow 3-phase migration plan
 3. Enforce: Add Stylelint to CI
 4. Track: Monitor success metrics
@@ -110,12 +110,12 @@ Register this skill in your custom skill library. Claude will reference it when 
 - Any CSS organization question
 
 ### In Code Review
-Use the `QA Validation Checklist` from SKILL.md when reviewing CSS PRs. Link to specific anti-patterns in `anti-patterns.md` if violations occur.
+Use the `QA Validation Checklist` from SKILL.md when reviewing CSS PRs. Link to specific anti-patterns in [[anti-patterns]] if violations occur.
 
 ### In Team Onboarding
 Point new developers to:
-1. `SKILL.md` — Golden Rule + Folder Structure sections
-2. `anti-patterns.md` — What not to do
+1. [[css-manage/SKILL|SKILL.md]] — Golden Rule + Folder Structure sections
+2. [[anti-patterns]] — What not to do
 3. Keep this README as the index
 
 ---
@@ -160,12 +160,12 @@ After implementing this skill across your project:
 ## 📞 Questions?
 
 Each reference file has examples and detailed explanations:
-- CSS conflicts? → `layer-system.md`
-- Folder structure? → `folder-templates.md`
-- Setting up Stylelint? → `linting-setup.md`
-- Migrating existing CSS? → `migration-guide.md`
-- What went wrong? → `anti-patterns.md`
-- How to decide? → `SKILL.md` Workflow section
+- CSS conflicts? → [[layer-system]]
+- Folder structure? → [[folder-templates]]
+- Setting up Stylelint? → [[linting-setup]]
+- Migrating existing CSS? → [[migration-guide]]
+- What went wrong? → [[anti-patterns]]
+- How to decide? → [[css-manage/SKILL|SKILL.md]] Workflow section
 
 ---
 

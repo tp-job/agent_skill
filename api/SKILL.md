@@ -1,6 +1,7 @@
 ---
 name: java-api-performance
-description: Java Spring Boot backend API performance optimization. Use this skill when writing, reviewing, or refactoring Java/Spring Boot code to fix slow APIs, memory issues, or database inefficiencies. Triggers on tasks involving loop optimization, caching, pagination, query tuning, N+1 problems, database indexing, async processing, or connection pooling. Also trigger for: "my API is slow", "fix N+1 query", "add caching", "optimize database", "Spring Boot performance", "HikariCP config", "reduce memory usage", "paginate results", "add @Async", or any Java backend performance request.
+description: >-
+  Java Spring Boot backend API performance optimization. Use this skill when writing, reviewing, or refactoring Java/Spring Boot code to fix slow APIs, memory issues, or database inefficiencies. Triggers on tasks involving loop optimization, caching, pagination, query tuning, N+1 problems, database indexing, async processing, or connection pooling. Also trigger for: "my API is slow", "fix N+1 query", "add caching", "optimize database", "Spring Boot performance", "HikariCP config", "reduce memory usage", "paginate results", "add @Async", or any Java backend performance request.
 license: MIT
 metadata:
   author: nevinas06 (enhanced by Claude)
@@ -87,7 +88,7 @@ Reference these patterns when:
 
 ## How to Use
 
-Each pattern ID maps to a concrete before/after example in `api.md`:
+Each pattern ID maps to a concrete before/after example in [[api/refer/api|api]]:
 
 ```
 api.md — Step 01: loop-db-filter
@@ -99,4 +100,4 @@ Apply the highest-priority patterns first. For new services, implement patterns 
 
 ## Full Reference Document
 
-For all 9 patterns with complete code examples: `api.md`
+For all 9 patterns with complete code examples: [[api/refer/api|api]]

@@ -7,6 +7,7 @@ metadata:
   author: tp-job (enhanced by Claude)
   version: "1.0.0"
   source: Supabase + Prisma documentation (compiled 2026)
+---
 
 # Supabase Senior — Architecture & Engineering Lead
 

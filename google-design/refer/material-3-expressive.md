@@ -54,7 +54,7 @@ Material 3 Expressive ถือเป็น **การอัปเดตที�
 1. **เริ่มจาก User Need** — ไม่ใช่ความสวยงามก่อน
 2. **ใช้ Material 3 Design Kit สำหรับ Figma** เพื่อทดลอง Component ใหม่
 3. **Prioritize Functionality** — ความงามไม่สามารถทดแทน Core Functionality ได้
-4. **ปฏิบัติตาม Accessibility Standards** — Color Contrast, Screen Reader, Navigation (ดูรายละเอียดใน `05-global-accessibility.md`)
+4. **ปฏิบัติตาม Accessibility Standards** — Color Contrast, Screen Reader, Navigation (ดูรายละเอียดใน [[global-accessibility]])
 5. **Iterate บนฐานข้อมูล** — หาจุดสมดุลระหว่าง "Freshness" และ "Familiarity"
 
 ### ✅ Checklist สำหรับ Design Review

@@ -1,6 +1,13 @@
 ---
-
-## name: software-design-2024 description: > Comprehensive software design knowledge base extracted from "Design-2024-V1.6" course material. Use this skill whenever a user asks about UML diagrams (Use Case, Class, Activity, Sequence), software architecture patterns (Monolithic, SOA, Microservices, 3-tier), UI/UX design principles, Material Design guidelines, Nielsen's Heuristics, ERD/database design, wireframes, mockups, prototypes, color theory, or any software design concept. Trigger this skill for design reviews, architecture decisions, diagram explanations, usability evaluations, and database schema planning. author: surachai version: 1.6 source: Design-2024-V1.6.pdf (212 pages, Jan 2025) language: Thai + English
+name: software-design-2024
+description: >-
+  Comprehensive software design knowledge base extracted from "Design-2024-V1.6" course material. Use this skill whenever a user asks about UML diagrams (Use Case, Class, Activity, Sequence), software architecture patterns (Monolithic, SOA, Microservices, 3-tier), UI/UX design principles, Material Design guidelines, Nielsen's Heuristics, ERD/database design, wireframes, mockups, prototypes, color theory, or any software design concept. Trigger this skill for design reviews, architecture decisions, diagram explanations, usability evaluations, and database schema planning.
+metadata:
+  author: surachai
+  version: "1.6"
+  source: Design-2024-V1.6.pdf (212 pages, Jan 2025)
+  language: Thai + English
+---
 
 # Software Design 2024 — Agent Skill
 

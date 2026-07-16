@@ -8,7 +8,7 @@ Copy this checklist to your project. Check off as you implement.
 
 ### Phase 0 — Skill Installation
 - [ ] Download all 7 files from the skill deliverable
-- [ ] Create directory structure: `design:css-architecture/` with `SKILL.md` and `references/` folder
+- [ ] Create directory structure: `design:css-architecture/` with [[css-manage/SKILL|SKILL.md]] and `references/` folder
 - [ ] Store in project repo or team documentation system
 - [ ] Share with team — make it discoverable
 
@@ -48,7 +48,7 @@ Copy this checklist to your project. Check off as you implement.
 
 ### Phase 5 — Stylelint Setup
 - [ ] Run `npm install -D stylelint stylelint-config-standard stylelint-order`
-- [ ] Copy `.stylelintrc.json` from `linting-setup.md`
+- [ ] Copy `.stylelintrc.json` from [[linting-setup]]
 - [ ] Add npm scripts: `"lint:css": "stylelint 'src/styles/**/*.css'"`
 - [ ] Run `npm run lint:css` — should pass (or have known violations)
 - [ ] Add to CI: `npm run lint:css` must pass before merge
@@ -63,7 +63,7 @@ Copy this checklist to your project. Check off as you implement.
 
 ## If Migrating Existing Project
 
-Follow the 3-phase plan in `references/migration-guide.md`:
+Follow the 3-phase plan in [[migration-guide]]:
 
 ### Audit First
 - [ ] Run: `grep -r "!important" src/ --include="*.css" | wc -l` → document count
@@ -146,9 +146,9 @@ wc -c src/styles/main.css
 | Issue | Fix |
 |---|---|
 | `@import` in `main.css` produces blank styles | Missing `postcss-import` — install and configure it |
-| Stylelint errors on valid `@layer` rules | Update Stylelint config — see `linting-setup.md` |
+| Stylelint errors on valid `@layer` rules | Update Stylelint config — see [[linting-setup]] |
 | Tailwind utilities not working alongside custom CSS | Missing layer order declaration at top of `main.css` |
-| `!important` doesn't override Tailwind utility | Use `@layer overrides` instead — see `layer-system.md` |
+| `!important` doesn't override Tailwind utility | Use `@layer overrides` instead — see [[layer-system]] |
 | Old CSS still being loaded | Make sure old CSS file is NOT imported by app entry point |
 | Component tokens not working | Verify `tailwind.config.js` references the CSS variables |
 
@@ -157,10 +157,10 @@ wc -c src/styles/main.css
 ## Team Onboarding
 
 **For new team members:**
-1. Read: `SKILL.md` (sections: Golden Rule, Folder Structure, Workflow)
-2. Reference: Keep `anti-patterns.md` open during PR review
+1. Read: [[css-manage/SKILL|SKILL.md]] (sections: Golden Rule, Folder Structure, Workflow)
+2. Reference: Keep [[anti-patterns]] open during PR review
 3. Check: Use QA checklist before submitting CSS PRs
-4. Questions: Link to relevant reference file (e.g., "!important issue? See `anti-patterns.md` #1")
+4. Questions: Link to relevant reference file (e.g., "!important issue? See [[anti-patterns]] #1")
 
 **For code review:**
 - Use the QA Validation Checklist when reviewing CSS PRs
@@ -173,10 +173,10 @@ wc -c src/styles/main.css
 
 | Need | File | Sections |
 |---|---|---|
-| Start a new project | `folder-templates.md` | Small/Medium/Large variants |
-| Migrate existing CSS | `migration-guide.md` | Phase 1/2/3, audit checklist |
-| Understand @layer | `layer-system.md` | Why @layer, v3/v4 integration |
-| Prevent CSS hell | `anti-patterns.md` | 10 patterns, smell test |
-| Set up linting | `linting-setup.md` | Stylelint config, CI setup |
-| Main skill reference | `SKILL.md` | All sections, decision tree |
+| Start a new project | [[folder-templates]] | Small/Medium/Large variants |
+| Migrate existing CSS | [[migration-guide]] | Phase 1/2/3, audit checklist |
+| Understand @layer | [[layer-system]] | Why @layer, v3/v4 integration |
+| Prevent CSS hell | [[anti-patterns]] | 10 patterns, smell test |
+| Set up linting | [[linting-setup]] | Stylelint config, CI setup |
+| Main skill reference | [[css-manage/SKILL|SKILL.md]] | All sections, decision tree |
 | Copy starter code | `main.css.template` | Ready-to-use template |

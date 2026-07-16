@@ -36,71 +36,44 @@ Every output from this skill MUST satisfy:
 
 ## 🗺️ Reference Map — Read the Right File First
 
-```
-references/
-├── setup-and-renderer.md       ← ALWAYS read for new scenes
-├── geometry-and-instancing.md  ← BufferGeometry, InstancedMesh, LOD, particles
-├── materials-and-textures.md   ← PBR, texture config, KTX2, environment maps
-├── lighting-and-shadows.md     ← Lights, shadow maps, CSM, baked lighting
-├── animation.md                ← Keyframes, skeletal, morph targets, mixers
-├── loaders.md                  ← GLTF/DRACO, OBJ, FBX, HDR, async patterns
-├── shaders-and-tsl.md          ← Custom GLSL, onBeforeCompile, TSL/WebGPU
-├── postprocessing.md           ← Bloom, DOF, FXAA, EffectComposer, tone mapping
-├── performance.md              ← Profiling, draw calls, mobile, frustum culling
-├── interaction.md              ← Raycasting, picking, drag, pointer events
-├── react-and-frameworks.md     ← React Three Fiber, Drei, Vue integration
-└── debugging-and-qa.md         ← Stats.js, renderer.info, helpers, bug catalog
-```
+| File | Covers |
+|---|---|
+| [[setup-and-renderer]] | ALWAYS read for new scenes |
+| [[geometry-and-instancing]] | BufferGeometry, InstancedMesh, LOD, particles |
+| [[materials-and-textures]] | PBR, texture config, KTX2, environment maps |
+| [[lighting-and-shadows]] | Lights, shadow maps, CSM, baked lighting |
+| [[animation]] | Keyframes, skeletal, morph targets, mixers |
+| [[loaders]] | GLTF/DRACO, OBJ, FBX, HDR, async patterns |
+| [[shaders-and-tsl]] | Custom GLSL, onBeforeCompile, TSL/WebGPU |
+| [[postprocessing]] | Bloom, DOF, FXAA, EffectComposer, tone mapping |
+| [[preformance]] | Profiling, draw calls, mobile, frustum culling |
+| [[interaction]] | Raycasting, picking, drag, pointer events |
+| [[three-fiber]] | React Three Fiber, Drei, Vue integration |
+| [[memory-and-disposal]] | GPU resource cleanup, `.dispose()` patterns |
+| [[three/refer/api|api]] | API surface reference |
 
 ---
 
 ## 🔀 Decision Tree — Which Files to Read
 
-```
-User request
-│
-├─ New 3D scene from scratch
-│  └─ ALWAYS: setup-and-renderer.md + memory-and-dispose-section
-│
-├─ Geometry / mesh / procedural shape / particles
-│  └─ geometry-and-instancing.md
-│
-├─ Load model (GLTF / OBJ / FBX / STL)
-│  └─ loaders.md [+ animation.md if model has animations]
-│
-├─ Materials / textures / PBR / looks realistic
-│  └─ materials-and-textures.md + lighting-and-shadows.md
-│
-├─ Lighting / shadows / environment / HDRI
-│  └─ lighting-and-shadows.md + materials-and-textures.md (env maps)
-│
-├─ Animate objects / play GLTF animations / morph / blend
-│  └─ animation.md
-│
-├─ Custom shader / GLSL / TSL / vertex displacement
-│  └─ shaders-and-tsl.md
-│
-├─ Postprocessing / glow / bloom / cinematic
-│  └─ postprocessing.md + lighting-and-shadows.md
-│
-├─ Click / hover / pick / drag objects in 3D
-│  └─ interaction.md
-│
-├─ React / Next.js / Vue / R3F / Drei
-│  └─ react-and-frameworks.md
-│
-├─ Performance / FPS drops / mobile / too slow
-│  └─ performance.md + geometry-and-instancing.md
-│
-└─ Debug / memory leak / renderer info / visual artifacts
-   └─ debugging-and-qa.md
-```
+- New 3D scene from scratch → ALWAYS: [[setup-and-renderer]] + [[memory-and-disposal]]
+- Geometry / mesh / procedural shape / particles → [[geometry-and-instancing]]
+- Load model (GLTF / OBJ / FBX / STL) → [[loaders]] [+ [[animation]] if model has animations]
+- Materials / textures / PBR / looks realistic → [[materials-and-textures]] + [[lighting-and-shadows]]
+- Lighting / shadows / environment / HDRI → [[lighting-and-shadows]] + [[materials-and-textures]] (env maps)
+- Animate objects / play GLTF animations / morph / blend → [[animation]]
+- Custom shader / GLSL / TSL / vertex displacement → [[shaders-and-tsl]]
+- Postprocessing / glow / bloom / cinematic → [[postprocessing]] + [[lighting-and-shadows]]
+- Click / hover / pick / drag objects in 3D → [[interaction]]
+- React / Next.js / Vue / R3F / Drei → [[three-fiber]]
+- Performance / FPS drops / mobile / too slow → [[preformance]] + [[geometry-and-instancing]]
+- Debug / memory leak / renderer info / visual artifacts → [[memory-and-disposal]]
 
 ---
 
 ## ⚡ Scene Bootstrap — Canonical Modern Pattern
 
-Always start new scenes from this template. Read `setup-and-renderer.md` for full options.
+Always start new scenes from this template. Read [[setup-and-renderer]] for full options.
 
 ```html
 <!DOCTYPE html>

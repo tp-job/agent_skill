@@ -86,14 +86,14 @@ design:css-architecture/
 ## 🚀 How to Use
 
 ### Option 1: New Project
-1. Copy `folder-templates.md` → choose your size (small/medium/large)
+1. Copy [[folder-templates]] → choose your size (small/medium/large)
 2. Copy `main.css.template` → `src/styles/main.css`
 3. Create tokens from SKILL.md template
-4. Install Stylelint from `linting-setup.md`
+4. Install Stylelint from [[linting-setup]]
 5. ✅ Done — no CSS hell from day 1
 
 ### Option 2: Existing Messy Project
-1. Run audit from `migration-guide.md`
+1. Run audit from [[migration-guide]]
 2. Follow 3-phase plan (1-2 hours Phase 1, 1-2 sprints Phase 2, 3-6 sprints Phase 3)
 3. Safe, incremental, zero big-bang risk
 4. Add Stylelint to prevent future mess

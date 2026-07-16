@@ -97,7 +97,7 @@ Cleanup: [what it destroys/stops/unsubscribes]  ← required; flag if missing
 
 ### Micro Design Classification
 Classify component tier and flag violations.
-Read `references/micro-design-checklist.md` for full rules.
+Read [[micro-design-checklist]] for full rules.
 
 ```
 TIER: atom | molecule | organism | template | page
@@ -286,8 +286,8 @@ Agent generates a file named `REQ-[ComponentName]-[YYYYMMDD].md`:
 
 ## Reference Files
 
-- `references/micro-design-checklist.md` — Atomic sizing rules, naming conventions, DS compliance
-- `references/full-stack-contract.md` — API + DB contract patterns for PERN/MERN
-- `references/webgl-requirements.md` — Requirement-gathering guidance specific to WebGL/3D features
+- [[micro-design-checklist]] — Atomic sizing rules, naming conventions, DS compliance
+- [[full-stack-contract]] — API + DB contract patterns for PERN/MERN
+- [[webgl-requirements]] — Requirement-gathering guidance specific to WebGL/3D features
 
 Read these only when deeper guidance is needed for that specific area.

@@ -53,15 +53,15 @@ Global Accessibility            → Inclusive Design at Scale
 
 | ไฟล์                                                | เนื้อหา                                    | อ่านเมื่อ                         |
 | --------------------------------------------------- | ------------------------------------------ | --------------------------------- |
-| `01-material-3-expressive.md`                       | M3E Research, Components, Checklist        | ออกแบบ UI ที่ต้องการ Personality  |
-| `02-transparent-screens-xr.md`                      | Glimmer, Additive Display, Physics         | ออกแบบ AI Glasses / XR            |
-| `03-google-sans-flex-typography.md`                 | Type Scale, Variable Axes, Multi-script    | เลือก Font และตั้งค่า Type System |
-| `04-gemini-ai-visual-design.md`                     | Gradient, Motion, Trust, AI States         | ออกแบบ AI Interface               |
-| `05-motion-design.md`                               | Duration, Easing, Reduced Motion           | ออกแบบ Animation / Transition     |
-| `06-global-accessibility.md`                        | Contrast, Touch Target, RTL, Screen Reader | ตรวจสอบ Accessibility             |
-| `07-design-sprints.md`                              | 5-day Framework, Tools, Anti-patterns      | วางแผนและ Facilitate Sprint       |
-| `08-material-design-evolution.md`                   | M1–M3E, Grid, Core Principles              | เข้าใจบริบทของ Material System    |
-| `09-12-culture-ai-terms-review-ux-writing-brand.md` | Culture, AI Terms, Review, Writing, Brand  | งานด้าน Process และ Content       |
-| `00-overview-principles-resources.md`               | 10 หลักการ + แหล่งข้อมูล                   | ภาพรวม + Reference URL            |
-| `google-design-full.md`                             | เอกสารต้นฉบับฉบับเต็ม                      | อ่านรายละเอียดเพิ่มเติมทุกหัวข้อ  |
-| `google-concept.md`                                 | สรุปแนวคิดหลักภาษาไทย                      | ภาพรวมเร็ว 5 นาที                 |
+| [[material-3-expressive]]                       | M3E Research, Components, Checklist        | ออกแบบ UI ที่ต้องการ Personality  |
+| [[transparent-screens]]                      | Glimmer, Additive Display, Physics         | ออกแบบ AI Glasses / XR            |
+| [[google-sans-flex]]                 | Type Scale, Variable Axes, Multi-script    | เลือก Font และตั้งค่า Type System |
+| [[gemini-ai-visual-design]]                     | Gradient, Motion, Trust, AI States         | ออกแบบ AI Interface               |
+| [[motion-design]]                               | Duration, Easing, Reduced Motion           | ออกแบบ Animation / Transition     |
+| [[global-accessibility]]                        | Contrast, Touch Target, RTL, Screen Reader | ตรวจสอบ Accessibility             |
+| [[design-sprints]]                              | 5-day Framework, Tools, Anti-patterns      | วางแผนและ Facilitate Sprint       |
+| [[material-design]]                   | M1–M3E, Grid, Core Principles              | เข้าใจบริบทของ Material System    |
+| [[design-culture]] | Culture, AI Terms, Review, Writing, Brand  | งานด้าน Process และ Content       |
+| *(this file)*               | 10 หลักการ + แหล่งข้อมูล                   | ภาพรวม + Reference URL            |
+| [[google-design]]                             | เอกสารต้นฉบับฉบับเต็ม                      | อ่านรายละเอียดเพิ่มเติมทุกหัวข้อ  |
+| [[google-concept]]                                 | สรุปแนวคิดหลักภาษาไทย                      | ภาพรวมเร็ว 5 นาที                 |
