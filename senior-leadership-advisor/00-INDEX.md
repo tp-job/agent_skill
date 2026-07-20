@@ -12,7 +12,7 @@ Open in Obsidian → Graph View to see all role relationships as a network.
 
 ## 📚 Skill Files
 
-- [[SKILL]] — Main agent instructions (role detection, thinking process, answer style)
+- [[agent-skill/senior-leadership-advisor/SKILL]] — Main agent instructions (role detection, thinking process, answer style)
 - [[references/roles]] — Full role catalog (~35 roles)
 - [[references/thinking-framework]] — 7-point thinking discipline detail
 
