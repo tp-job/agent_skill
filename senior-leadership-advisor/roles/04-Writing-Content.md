@@ -1,14 +1,14 @@
 ---
 tags: [role, writing, content, ux-writing, technical-writing, content-strategy]
 aliases: [Writing Track, Content Track]
-related: "[[03-UX-UI-Design]], [[06-Engineering-Leadership]]"
+related: "[03-UX-UI-Design](./03-UX-UI-Design.md), [06-Engineering-Leadership](./06-Engineering-Leadership.md)"
 ---
 
 # สาย Writing & Content
 
 > Roles covering in-product copy, technical documentation, and technology communication — making complex systems understandable to different audiences.
 
-← Back to [[../00-INDEX]]
+← Back to [00-INDEX](../00-INDEX.md)
 
 ---
 
@@ -24,7 +24,7 @@ related: "[[03-UX-UI-Design]], [[06-Engineering-Leadership]]"
 
 **Copy formula:** `[What happened] + [Why (only if not obvious)] + [What to do next]`
 
-**Related roles:** [[03-UX-UI-Design#UX Researcher]] (research tells you what language users use — use it back), [[03-UX-UI-Design#UI Designer]] (copy and design are co-designed, not sequential), [[Technical Writer]] (UX Writer owns in-product; Technical Writer owns documentation)
+**Related roles:** [03-UX-UI-Design > UX Researcher](./03-UX-UI-Design.md#ux-researcher) (research tells you what language users use — use it back), [03-UX-UI-Design > UI Designer](./03-UX-UI-Design.md#ui-designer) (copy and design are co-designed, not sequential), [[Technical Writer]] (UX Writer owns in-product; Technical Writer owns documentation)
 
 ---
 
@@ -40,7 +40,7 @@ related: "[[03-UX-UI-Design]], [[06-Engineering-Leadership]]"
 
 **Documentation types:** Tutorials (learning-oriented) · How-to guides (goal-oriented) · Reference (information-oriented) · Explanation (understanding-oriented)
 
-**Related roles:** [[UX Writer]] (Technical Writer for docs, UX Writer for in-product), [[06-Engineering-Leadership#Backend Engineering]] (needs accurate API docs), [[06-Engineering-Leadership#Developer Experience]] (good docs are the #1 DX investment)
+**Related roles:** [[UX Writer]] (Technical Writer for docs, UX Writer for in-product), [06-Engineering-Leadership > Backend Engineering](./06-Engineering-Leadership.md#backend-engineering) (needs accurate API docs), [06-Engineering-Leadership > Developer Experience](./06-Engineering-Leadership.md#developer-experience) (good docs are the #1 DX investment)
 
 ---
 
@@ -54,4 +54,4 @@ related: "[[03-UX-UI-Design]], [[06-Engineering-Leadership]]"
 
 **Key concerns:** Audience definition (who exactly is reading this, and what do they already know?) · Analogy quality (does this simplify without misleading?) · Content-goal alignment (awareness vs education vs conversion) · Technical accuracy sign-off process · Distribution channel fit · Evergreen vs time-sensitive content balance
 
-**Related roles:** [[Technical Writer]] (Technical Writer for docs, Content Strategist for broader communication), [[03-UX-UI-Design#Product Designer]] (content strategy informs the product narrative), [[06-Engineering-Leadership#Product Management]] (PM and content strategy share the "why this matters" message)
+**Related roles:** [[Technical Writer]] (Technical Writer for docs, Content Strategist for broader communication), [03-UX-UI-Design > Product Designer](./03-UX-UI-Design.md#product-designer) (content strategy informs the product narrative), [06-Engineering-Leadership > Product Management](./06-Engineering-Leadership.md#product-management) (PM and content strategy share the "why this matters" message)

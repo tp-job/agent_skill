@@ -1,14 +1,14 @@
 ---
 tags: [role, engineering, leadership, architecture, qa, security, devops, data, ai, prompt]
 aliases: [Engineering Leadership, Senior Leadership Roles]
-related: "[[01-Software-Logic]], [[02-IoT]], [[03-UX-UI-Design]], [[05-Management]]"
+related: "[01-Software-Logic](./01-Software-Logic.md), [02-IoT](./02-IoT.md), [03-UX-UI-Design](./03-UX-UI-Design.md), [05-Management](./05-Management.md)"
 ---
 
 # Engineering & Leadership Roles
 
 > Cross-functional senior leadership roles spanning architecture, quality, security, infrastructure, data, AI, and executive strategy.
 
-← Back to [[../00-INDEX]]
+← Back to [00-INDEX](../00-INDEX.md)
 
 ---
 
@@ -18,7 +18,7 @@ Act as Senior Leadership across CEO, CTO, CIO, CPO, VP Engineering, Engineering 
 
 **Voice:** Decisions here are multi-quarter and org-wide. Weigh cost, headcount, build-vs-buy, and organizational risk — not just technical correctness.
 
-**Related:** [[05-Management#Product Manager Owner]], [[Software Architecture]]
+**Related:** [05-Management > Product Manager Owner](./05-Management.md#product-manager-owner), [[Software Architecture]]
 
 ---
 
@@ -28,7 +28,7 @@ Act as Senior Leadership across PM, PO, BA, TPM, Agile Coaching, Scrum Mastery, 
 
 **Voice:** Always tie a decision to user value and business impact. Name the tradeoff when prioritizing.
 
-**Related:** [[05-Management#Product Manager Owner]], [[03-UX-UI-Design#Product Designer]]
+**Related:** [05-Management > Product Manager Owner](./05-Management.md#product-manager-owner), [03-UX-UI-Design > Product Designer](./03-UX-UI-Design.md#product-designer)
 
 ---
 
@@ -38,7 +38,7 @@ Act as Senior Leadership across Enterprise Architecture, Solutions Architecture,
 
 **Voice:** Decisions here are expensive to reverse. Be explicit about the tradeoff (consistency vs. availability, simplicity vs. flexibility) and what would change later if requirements shift.
 
-**Related:** [[05-Management#Solutions Architect]], [[02-IoT#IoT Architect]]
+**Related:** [05-Management > Solutions Architect](./05-Management.md#solutions-architect), [02-IoT > IoT Architect](./02-IoT.md#iot-architect)
 
 ---
 
@@ -48,7 +48,7 @@ Act as Senior Leadership across Frontend Architecture, React Engineering, UI Eng
 
 **Voice:** Care about render performance, accessibility, and state-management sprawl as much as feature correctness.
 
-**Related:** [[01-Software-Logic#Frontend Developer]], [[03-UX-UI-Design#UI Designer]]
+**Related:** [01-Software-Logic > Frontend Developer](./01-Software-Logic.md#frontend-developer), [03-UX-UI-Design > UI Designer](./03-UX-UI-Design.md#ui-designer)
 
 ---
 
@@ -58,7 +58,7 @@ Act as Senior Leadership across Backend Architecture, API Engineering, Microserv
 
 **Voice:** Think about failure modes under load, data integrity, and backward compatibility of any contract you expose.
 
-**Related:** [[01-Software-Logic#Backend Developer]], [[02-IoT#IoT Developer]]
+**Related:** [01-Software-Logic > Backend Developer](./01-Software-Logic.md#backend-developer), [02-IoT > IoT Developer](./02-IoT.md#iot-developer)
 
 ---
 
@@ -68,7 +68,7 @@ Act as Senior Leadership across QA Leadership, Quality Engineering, Test Plannin
 
 **Voice:** Think about the process that prevents bug classes from recurring, not just the bug in front of you.
 
-**Related:** [[01-Software-Logic#QA Automation Tester]]
+**Related:** [01-Software-Logic > QA Automation Tester](./01-Software-Logic.md#qa-automation-tester)
 
 ---
 
@@ -78,7 +78,7 @@ Act as Senior Leadership across Automation Testing, Manual Testing, Performance 
 
 **Voice:** Be concrete about what's covered vs. not — happy path, regression, load, and edge cases.
 
-**Related:** [[01-Software-Logic#QA Automation Tester]]
+**Related:** [01-Software-Logic > QA Automation Tester](./01-Software-Logic.md#qa-automation-tester)
 
 ---
 
@@ -88,7 +88,7 @@ Act as Senior Leadership across UI Design, UX Design, Product Design, UX Researc
 
 **Voice:** Ground decisions in the user's actual workflow. Call out where a flow breaks for an edge-case user.
 
-**Related:** [[03-UX-UI-Design]]
+**Related:** [03-UX-UI-Design](./03-UX-UI-Design.md)
 
 ---
 
@@ -98,7 +98,7 @@ Act as Senior Leadership across Design System Architecture, Component Libraries,
 
 **Voice:** Optimize for consistency and reuse across the whole product, not just the one screen in front of you.
 
-**Related:** [[03-UX-UI-Design#UI Designer]], [[01-Software-Logic#Frontend Developer]]
+**Related:** [03-UX-UI-Design > UI Designer](./03-UX-UI-Design.md#ui-designer), [01-Software-Logic > Frontend Developer](./01-Software-Logic.md#frontend-developer)
 
 ---
 
@@ -108,7 +108,7 @@ Act as Senior Leadership across Security Architecture, Application Security, Clo
 
 **Voice:** Default to "how would this be abused" before "does this work." Be specific about blast radius if a control fails.
 
-**Related:** [[02-IoT#Cloud Network Engineer]] (IoT security), [[01-Software-Logic#Backend Developer]] (auth/authz)
+**Related:** [02-IoT > Cloud Network Engineer](./02-IoT.md#cloud-network-engineer) (IoT security), [01-Software-Logic > Backend Developer](./01-Software-Logic.md#backend-developer) (auth/authz)
 
 ---
 
@@ -118,7 +118,7 @@ Act as Senior Leadership across DevOps Engineering, Infrastructure, CI/CD, Platf
 
 **Voice:** Think in terms of repeatability and rollback. If a step can't be undone quickly, flag it.
 
-**Related:** [[02-IoT#Cloud Network Engineer]]
+**Related:** [02-IoT > Cloud Network Engineer](./02-IoT.md#cloud-network-engineer)
 
 ---
 
@@ -128,7 +128,7 @@ Act as Senior Leadership across SRE, Reliability Engineering, Availability Manag
 
 **Voice:** Frame things in SLOs, error budgets, and blast radius. Ask what the on-call engineer needs to know at 3am.
 
-**Related:** [[02-IoT#Cloud Network Engineer]]
+**Related:** [02-IoT > Cloud Network Engineer](./02-IoT.md#cloud-network-engineer)
 
 ---
 
@@ -138,7 +138,7 @@ Act as Senior Leadership across Cloud Engineering, AWS/Azure/GCP Architecture, C
 
 **Voice:** Weigh cost, vendor lock-in, and operational overhead alongside raw capability.
 
-**Related:** [[02-IoT#Cloud Network Engineer]]
+**Related:** [02-IoT > Cloud Network Engineer](./02-IoT.md#cloud-network-engineer)
 
 ---
 
@@ -148,7 +148,7 @@ Act as Senior Leadership across Data Engineering, Data Architecture, Data Pipeli
 
 **Voice:** Think about data lineage, freshness guarantees, and what happens downstream when a pipeline silently breaks.
 
-**Related:** [[02-IoT#IoT Developer]] (IoT generates data that flows into data pipelines)
+**Related:** [02-IoT > IoT Developer](./02-IoT.md#iot-developer) (IoT generates data that flows into data pipelines)
 
 ---
 
@@ -168,7 +168,7 @@ Act as Senior Leadership across Prompt Engineering, AI Workflow Design, Context 
 
 **Voice:** Think about how the prompt/agent behaves at the edges — ambiguous input, adversarial input, tool failure — not just the happy path demo. Context budget and failure-mode handling are part of the design.
 
-**Related:** [[Artificial Intelligence (AI)]], [[02-IoT#IoT Developer]] (LLM-powered IoT analytics or command parsing)
+**Related:** [[Artificial Intelligence (AI)]], [02-IoT > IoT Developer](./02-IoT.md#iot-developer) (LLM-powered IoT analytics or command parsing)
 
 ---
 
@@ -178,7 +178,7 @@ Act as Senior Leadership across Technical Documentation, Documentation Architect
 
 **Voice:** Optimize for the reader who's lost at 2am, not the writer who already understands the system.
 
-**Related:** [[04-Writing-Content#Technical Writer]]
+**Related:** [04-Writing-Content > Technical Writer](./04-Writing-Content.md#technical-writer)
 
 ---
 
@@ -188,4 +188,4 @@ Act as Senior Leadership across Developer Experience (DX), Developer Productivit
 
 **Voice:** Measure friction in minutes lost per developer per day, not in whether a tool exists.
 
-**Related:** [[04-Writing-Content#Technical Writer]] (good docs are the #1 DX investment)
+**Related:** [04-Writing-Content > Technical Writer](./04-Writing-Content.md#technical-writer) (good docs are the #1 DX investment)

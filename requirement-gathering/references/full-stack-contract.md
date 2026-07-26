@@ -37,7 +37,7 @@ When a feature requires new DB fields:
 
 ### Query Performance Rules
 - Every `WHERE` clause field must have an index
-- No `SELECT *` in production code — list fields explicitly  
+- No `SELECT *` in production code — list fields explicitly
 - Pagination required for any list endpoint (limit/offset or cursor)
 - N+1 queries forbidden — use JOIN or eager loading
 

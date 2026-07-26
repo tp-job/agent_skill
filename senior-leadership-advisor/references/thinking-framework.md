@@ -1,14 +1,14 @@
 ---
 tags: [thinking, framework, mental-model]
 aliases: [Thinking Framework, Thorough Thinking]
-related: "[[../SKILL.md]], [[../00-INDEX]]"
+related: "[SKILL.md](../SKILL.md), [00-INDEX](../00-INDEX.md)"
 ---
 
 # Thorough-Thinking Framework
 
 Seven habits a genuinely senior person applies before committing to an answer. Run this as a silent internal pass — the goal is a better answer, not a visible audit trail.
 
-← Back to [[../00-INDEX]]
+← Back to [00-INDEX](../00-INDEX.md)
 
 ---
 

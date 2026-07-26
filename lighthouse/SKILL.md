@@ -22,11 +22,11 @@ Never guess at fixes from the category scores alone. The category number is a we
 Work in tight measure → diagnose → fix → verify cycles. Do **not** batch twenty changes then re-run once; you lose the ability to attribute regressions.
 
 1. **Measure** — capture a baseline for the _right_ form factor. Mobile and desktop use different throttling, so run both. Prefer the CLI for reproducibility:
-    
+
     ```bash
     npx lighthouse https://example.com \  --preset=desktop --output=json --output=html \  --output-path=./lh-desktop --chrome-flags="--headless=new"npx lighthouse https://example.com \  --form-factor=mobile --output=json --output=html \  --output-path=./lh-mobile --chrome-flags="--headless=new"
     ```
-    
+
     Run each **3 times** and take the median — lab numbers are noisy, and a single run can swing a score by 10+ points.
 2. **Diagnose** — open the JSON/HTML, list failing and "needs improvement" audits, and sort by `overallSavingsMs` / `overallSavingsBytes`.
 3. **Fix** — apply the smallest coherent change that addresses the top lever.

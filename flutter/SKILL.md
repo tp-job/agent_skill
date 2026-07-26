@@ -1,7 +1,7 @@
 ---
 name: flutter
 description: >-
-  Flutter application engineering skill covering architecture, layout debugging, responsive design, and widget previews. Use this skill when building, structuring, refactoring, or debugging Flutter/Dart apps. Also trigger for: "structure my Flutter project", "fix RenderFlex overflowed", "Vertical viewport was given unbounded height", "make this responsive on tablet and mobile", "add a widget preview", "Flutter architecture", "Flutter layout error", or any Flutter/Dart UI or structure request. Routes to the focused reference guides under refer/.
+  Flutter application engineering skill covering architecture, layout debugging, responsive design, and widget previews. Use this skill when building, structuring, refactoring, or debugging Flutter/Dart apps. Also trigger for: "structure my Flutter project", "fix RenderFlex overflowed", "Vertical viewport was given unbounded height", "make this responsive on tablet and mobile", "add a widget preview", "Flutter architecture", "Flutter layout error", or any Flutter/Dart UI or structure request. Routes to the focused reference guides under references/.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
@@ -24,10 +24,10 @@ This skill bundles focused Flutter/Dart guides. Read the reference that matches 
 
 | Guide | Use when |
 |---|---|
-| [refer/flutter-architecture.md](refer/flutter-architecture.md) | Architecting an app with the recommended layered approach (UI, Logic, Data) — new projects or scalability refactors. |
-| [refer/flutter-layout-issues.md](refer/flutter-layout-issues.md) | Fixing layout errors such as "RenderFlex overflowed" or "Vertical viewport was given unbounded height". |
-| [refer/flutter-responsive.md](refer/flutter-responsive.md) | Building responsive layouts with `LayoutBuilder`, `MediaQuery`, and `Expanded`/`Flexible` across form factors. |
-| [refer/flutter-preview.md](refer/flutter-preview.md) | Adding interactive widget previews via the `previews.dart` system when creating or updating UI. |
+| [references/flutter-architecture.md](references/flutter-architecture.md) | Architecting an app with the recommended layered approach (UI, Logic, Data) — new projects or scalability refactors. |
+| [references/flutter-layout-issues.md](references/flutter-layout-issues.md) | Fixing layout errors such as "RenderFlex overflowed" or "Vertical viewport was given unbounded height". |
+| [references/flutter-responsive.md](references/flutter-responsive.md) | Building responsive layouts with `LayoutBuilder`, `MediaQuery`, and `Expanded`/`Flexible` across form factors. |
+| [references/flutter-preview.md](references/flutter-preview.md) | Adding interactive widget previews via the `previews.dart` system when creating or updating UI. |
 
 ## How to work
 

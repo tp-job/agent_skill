@@ -1,14 +1,14 @@
 ---
 tags: [role, software, logic, backend, frontend, embedded, algorithm, qa]
 aliases: [Software Track, Logic Track]
-related: "[[02-IoT]], [[03-UX-UI-Design]], [[06-Engineering-Leadership]]"
+related: "[02-IoT](./02-IoT.md), [03-UX-UI-Design](./03-UX-UI-Design.md), [06-Engineering-Leadership](./06-Engineering-Leadership.md)"
 ---
 
 # สาย Software & Logic
 
 > Core software development roles covering server-side systems, user interfaces, algorithmic logic, hardware-level software, and quality assurance.
 
-← Back to [[../00-INDEX]]
+← Back to [00-INDEX](../00-INDEX.md)
 
 ---
 
@@ -22,7 +22,7 @@ related: "[[02-IoT]], [[03-UX-UI-Design]], [[06-Engineering-Leadership]]"
 
 **Key concerns:** Schema migration safety · API versioning · N+1 queries · Transaction boundaries · Secret/token hygiene · Rate limiting
 
-**Related roles:** [[02-IoT#IoT Developer]] (backend for IoT data), [[06-Engineering-Leadership#Software Architecture]] (backend at scale)
+**Related roles:** [02-IoT > IoT Developer](./02-IoT.md#iot-developer) (backend for IoT data), [06-Engineering-Leadership > Software Architecture](./06-Engineering-Leadership.md#software-architecture) (backend at scale)
 
 ---
 
@@ -36,7 +36,7 @@ related: "[[02-IoT]], [[03-UX-UI-Design]], [[06-Engineering-Leadership]]"
 
 **Key concerns:** Bundle size · Core Web Vitals · Component reuse vs. duplication · Accessibility (WCAG AA) · State management complexity · Cross-browser edge cases
 
-**Related roles:** [[03-UX-UI-Design#UI Designer]] (implements designs), [[03-UX-UI-Design#Interaction Designer]] (brings interactions to life)
+**Related roles:** [03-UX-UI-Design > UI Designer](./03-UX-UI-Design.md#ui-designer) (implements designs), [03-UX-UI-Design > Interaction Designer](./03-UX-UI-Design.md#interaction-designer) (brings interactions to life)
 
 ---
 
@@ -50,7 +50,7 @@ related: "[[02-IoT]], [[03-UX-UI-Design]], [[06-Engineering-Leadership]]"
 
 **Key concerns:** Time complexity (Big-O) · Edge cases at boundaries (zero, max, negative) · Floating-point precision · Numerical stability · Determinism for reproducible results
 
-**Related roles:** [[02-IoT#IoT Developer]] (real-time edge computation), [[06-Engineering-Leadership#Backend Engineering]] (algorithm in production systems)
+**Related roles:** [02-IoT > IoT Developer](./02-IoT.md#iot-developer) (real-time edge computation), [06-Engineering-Leadership > Backend Engineering](./06-Engineering-Leadership.md#backend-engineering) (algorithm in production systems)
 
 ---
 
@@ -64,7 +64,7 @@ related: "[[02-IoT]], [[03-UX-UI-Design]], [[06-Engineering-Leadership]]"
 
 **Key concerns:** Memory footprint (RAM/Flash) · Real-time constraints (RTOS task priority) · Interrupt safety · Watchdog/recovery design · OTA update strategy · Hardware abstraction layer (HAL) boundary · Boot sequence
 
-**Related roles:** [[02-IoT#IoT Architect]] (firmware sits inside the IoT stack), [[02-IoT#IoT Developer]] (firmware ↔ cloud protocol bridge)
+**Related roles:** [02-IoT > IoT Architect](./02-IoT.md#iot-architect) (firmware sits inside the IoT stack), [02-IoT > IoT Developer](./02-IoT.md#iot-developer) (firmware ↔ cloud protocol bridge)
 
 ---
 
@@ -78,4 +78,4 @@ related: "[[02-IoT]], [[03-UX-UI-Design]], [[06-Engineering-Leadership]]"
 
 **Key concerns:** Test pyramid balance (unit/integration/E2E) · Flaky test root causes · CI gate design · Coverage of edge cases, not just happy path · Performance regression detection · Test data management
 
-**Related roles:** [[06-Engineering-Leadership#Quality Assurance]] (QA strategy level), [[06-Engineering-Leadership#Software Testing]] (test execution and tooling)
+**Related roles:** [06-Engineering-Leadership > Quality Assurance](./06-Engineering-Leadership.md#quality-assurance) (QA strategy level), [06-Engineering-Leadership > Software Testing](./06-Engineering-Leadership.md#software-testing) (test execution and tooling)

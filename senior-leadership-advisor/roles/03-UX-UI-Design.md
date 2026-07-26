@@ -1,14 +1,14 @@
 ---
 tags: [role, ux, ui, design, research, interaction, product-design]
 aliases: [Design Track, UX Track]
-related: "[[01-Software-Logic]], [[04-Writing-Content]], [[06-Engineering-Leadership]]"
+related: "[01-Software-Logic](./01-Software-Logic.md), [04-Writing-Content](./04-Writing-Content.md), [06-Engineering-Leadership](./06-Engineering-Leadership.md)"
 ---
 
 # สาย UX/UI & Design
 
 > Roles spanning user research through visual design, interaction patterns, and end-to-end product design — all grounded in real user behavior.
 
-← Back to [[../00-INDEX]]
+← Back to [00-INDEX](../00-INDEX.md)
 
 ---
 
@@ -22,7 +22,7 @@ related: "[[01-Software-Logic]], [[04-Writing-Content]], [[06-Engineering-Leader
 
 **Key concerns:** Research question validity · Sample size and selection bias · Interview neutrality (no leading questions) · Quantitative vs qualitative balance · Insight prioritization by frequency and impact · Synthesis method (affinity mapping, thematic analysis) · Stakeholder communication of findings
 
-**Related roles:** [[04-Writing-Content#UX Writer]] (research informs what copy needs to say), [[UI Designer]] (research feeds visual design decisions), [[06-Engineering-Leadership#Product Management]] (PM decisions should be grounded in research)
+**Related roles:** [04-Writing-Content > UX Writer](./04-Writing-Content.md#ux-writer) (research informs what copy needs to say), [[UI Designer]] (research feeds visual design decisions), [06-Engineering-Leadership > Product Management](./06-Engineering-Leadership.md#product-management) (PM decisions should be grounded in research)
 
 ---
 
@@ -36,7 +36,7 @@ related: "[[01-Software-Logic]], [[04-Writing-Content]], [[06-Engineering-Leader
 
 **Key concerns:** WCAG 2.1 AA contrast ratios · Touch target size (minimum 44×44px) · Design token consistency · Dark mode parity · Responsive breakpoints · Component state coverage (hover, focus, disabled, loading, error) · Design-to-dev handoff completeness
 
-**Related roles:** [[01-Software-Logic#Frontend Developer]] (implements UI designs), [[Interaction Designer]] (UI + interaction are inseparable at the component level), [[06-Engineering-Leadership#Design Systems]] (UI work should feed into and draw from the design system)
+**Related roles:** [01-Software-Logic > Frontend Developer](./01-Software-Logic.md#frontend-developer) (implements UI designs), [[Interaction Designer]] (UI + interaction are inseparable at the component level), [06-Engineering-Leadership > Design Systems](./06-Engineering-Leadership.md#design-systems) (UI work should feed into and draw from the design system)
 
 ---
 
@@ -50,7 +50,7 @@ related: "[[01-Software-Logic]], [[04-Writing-Content]], [[06-Engineering-Leader
 
 **Key concerns:** Animation timing (150–400ms for micro-interactions) · Easing curves (ease-in for exits, ease-out for entrances) · Gesture conflict resolution (scroll vs swipe vs tap) · HMI safety (critical actions need confirmation) · Accessibility for reduced motion (`prefers-reduced-motion`) · Latency perception (skeleton loaders, optimistic UI)
 
-**Related roles:** [[UI Designer]] (interaction and visual design are co-designed), [[01-Software-Logic#Frontend Developer]] (implements interactions in code), [[02-IoT#IoT Developer]] (HMI for physical IoT device control panels)
+**Related roles:** [[UI Designer]] (interaction and visual design are co-designed), [01-Software-Logic > Frontend Developer](./01-Software-Logic.md#frontend-developer) (implements interactions in code), [02-IoT > IoT Developer](./02-IoT.md#iot-developer) (HMI for physical IoT device control panels)
 
 ---
 
@@ -64,4 +64,4 @@ related: "[[01-Software-Logic]], [[04-Writing-Content]], [[06-Engineering-Leader
 
 **Key concerns:** User journey completeness (not just screens, but transitions between them) · Information architecture clarity · Feature-value alignment (does each feature earn its complexity?) · Desirability-feasibility-viability balance · Edge case coverage in design (empty state, error, first-use, expert mode) · Handoff completeness for engineering
 
-**Related roles:** [[UX Researcher]] (research is the foundation of product design), [[06-Engineering-Leadership#Product Management]] (product designer and PM must be aligned), [[05-Management#Solutions Architect]] (product design must be feasible within the chosen tech stack)
+**Related roles:** [[UX Researcher]] (research is the foundation of product design), [06-Engineering-Leadership > Product Management](./06-Engineering-Leadership.md#product-management) (product designer and PM must be aligned), [05-Management > Solutions Architect](./05-Management.md#solutions-architect) (product design must be feasible within the chosen tech stack)

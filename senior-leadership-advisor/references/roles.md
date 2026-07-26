@@ -1,7 +1,7 @@
 ---
 tags: [reference, roles, catalog]
 aliases: [Role Catalog, Full Role List]
-related: "[[../00-INDEX]]"
+related: "[00-INDEX](../00-INDEX.md)"
 ---
 
 # Role Catalog (Full Reference)
@@ -10,12 +10,12 @@ Complete listing of all roles across all tracks. Agents use this for the "Act as
 
 For Obsidian graph view, the individual role files in `../roles/` are better — this file is the agent reference.
 
-← Back to [[../00-INDEX]]
+← Back to [00-INDEX](../00-INDEX.md)
 
 ---
 
 ## สาย Software & Logic
-→ Detailed notes: [[../roles/01-Software-Logic]]
+→ Detailed notes: [01-Software-Logic](../roles/01-Software-Logic.md)
 
 **Backend Developer** — เขียนโค้ดระบบหลังบ้าน จัดการฐานข้อมูลและ Logic หลัก
 Act as Senior Leadership across Backend Architecture, API Engineering, Database Engineering, Authentication, Authorization, Distributed Systems, and Backend Scalability. Think failure modes under load, data integrity, backward compatibility.
@@ -35,7 +35,7 @@ Act as Senior Leadership across QA Engineering, Test Automation, Regression Test
 ---
 
 ## สาย IoT (Internet of Things)
-→ Detailed notes: [[../roles/02-IoT]]
+→ Detailed notes: [02-IoT](../roles/02-IoT.md)
 
 **IoT Architect** — ผู้ออกแบบสถาปัตยกรรมระบบเชื่อมต่ออุปกรณ์อัจฉริยะ
 Act as Senior Leadership across IoT System Architecture, Protocol Design (MQTT/AMQP/CoAP), Device Management Architecture, Edge Computing Architecture, and Scalable IoT Platform Design. IoT architecture decisions are expensive to undo — they're baked into hardware.
@@ -49,7 +49,7 @@ Act as Senior Leadership across Cloud Infrastructure, Network Engineering, IoT C
 ---
 
 ## สาย UX/UI & Design
-→ Detailed notes: [[../roles/03-UX-UI-Design]]
+→ Detailed notes: [03-UX-UI-Design](../roles/03-UX-UI-Design.md)
 
 **UX Researcher** — วิจัยพฤติกรรมและหา Insight ของผู้ใช้งาน
 Act as Senior Leadership across UX Research, User Interviews, Usability Testing, Survey Design, Insight Synthesis, Personas, and Journey Mapping. Surface what users actually do, not what they say they do — those are often different.
@@ -66,7 +66,7 @@ Act as Senior Leadership across Product Design, End-to-End Experience Design, De
 ---
 
 ## สาย Writing & Content
-→ Detailed notes: [[../roles/04-Writing-Content]]
+→ Detailed notes: [04-Writing-Content](../roles/04-Writing-Content.md)
 
 **UX Writer** — เขียนข้อความและคำอธิบายสั้น ๆ บนหน้าจอแอปพลิเคชัน
 Act as Senior Leadership across UX Writing, Microcopy, In-App Copy, Error Messaging, Onboarding Copy, Empty States, and CTAs. Write for the panicked user, not the happy-path user. Formula: [What happened] + [Why] + [What to do next].
@@ -80,7 +80,7 @@ Act as Senior Leadership across Technology Content Strategy, Explainer Content, 
 ---
 
 ## สายบริหารจัดการและประสานงาน
-→ Detailed notes: [[../roles/05-Management]]
+→ Detailed notes: [05-Management](../roles/05-Management.md)
 
 **Product Manager / Owner** — วางทิศทาง คัดเลือกฟีเจอร์ และคุมภาพรวมซอฟต์แวร์
 Act as Senior Leadership across PM, PO, Business Analysis, TPM, Agile Coaching, Product Strategy, Roadmap Planning, and Stakeholder Management. Always tie decisions to user value and business impact. Name the tradeoff when prioritizing.
@@ -91,7 +91,7 @@ Act as Senior Leadership across Solutions Architecture, Technology Stack Design,
 ---
 
 ## Engineering & Leadership Roles (Original Set)
-→ Detailed notes: [[../roles/06-Engineering-Leadership]]
+→ Detailed notes: [06-Engineering-Leadership](../roles/06-Engineering-Leadership.md)
 
 **Executive Leadership** — CEO, CTO, CIO, CPO, VP Engineering, Engineering Director
 **Software Architecture** — Enterprise, Solutions, System, Cloud, Distributed Systems Architecture

@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json.schemastore.org/skill-index.json",
+  "version": "1.1.0",
+  "generated": "2026-07-26",
+  "root": "agent-skill",
+  "count": 29,
+  "skills": [
+    {
+      "name": "agent-skill-creator",
+      "path": "agent-skill-creator/SKILL.md",
+      "description": "Guide for creating, structuring, and organising AI agent skills — building a skill from scratch, setting up a .agents/ workspace, designing folder structures, and writing SKILL.md files with proper YAML frontmatter.",
+      "content": "Defines skill structure levels (single-file vs. multi-file with references vs. full workspace), when to use each, a quick-reference for frontmatter fields and folder layout, a how-to-use flow, and a link to the full reference document covering AGENT.md and agent rules/context."
+    },
+    {
+      "name": "ai-web-product-craft",
+      "path": "ai-web-product-craft/SKILL.md",
+      "description": "Guidance for web pages and apps that load images/iframes/embeds and/or include an AI feature (chatbot, agent, summarizer, recommender, generative UI). Combines HTML delivery performance (TTFB, caching, compression, CDNs, lazy loading, embed facades) with responsible AI product design (privacy, fairness, calibrated trust, AI UX pattern choice).",
+      "content": "Three parts plus a combined checklist: (1) HTML and resource-loading performance — TTFB, caching, compression, CDN, lazy loading images and iframes, third-party embed facades; (2) building AI features responsibly — privacy, fairness, transparency, calibrated trust, governance; (3) choosing the right AI UX pattern — background, constrained, or open-ended. Ends with a shipping checklist for putting an AI feature inside a normal page, and sources."
+    },
+    {
+      "name": "clean-code-javascript",
+      "path": "clean-code-javascript/SKILL.md",
+      "description": "Clean Code principles and best practices for JavaScript/TypeScript. Use when writing, reviewing, or refactoring JS/TS to improve readability, maintainability, and correctness — naming, function design, class structure, SOLID, error handling, testing patterns, formatting.",
+      "content": "Clean Code rules grouped into priority categories (naming, functions, objects/classes, SOLID, concurrency, error handling, comments, testing) with a quick-reference cheat sheet, guidance on which categories to apply for a given task, and a link to the full compiled reference."
+    },
+    {
+      "name": "cs-course-designer",
+      "path": "cs-course-designer/SKILL.md",
+      "description": "Research, plan, and write course/unit outlines, Course Learning Outcomes (CLOs), lesson/teaching plans, and assessments (quizzes, exams, rubrics, project briefs) for general CS, DBMS, SQL, Python, and C. Also reviews existing CLOs, lesson plans, and assessments for alignment. Not for other languages or live 1:1 tutoring.",
+      "content": "Scoped, scaled workflow: understand the task, research subject scope, plan structure, write measurable CLOs, then build teaching/lesson plans (objectives, prior knowledge, materials, warm-up, direct instruction, guided practice, independent lab) and aligned assessments. Adapts depth to audience level (university, bootcamp, high school, professional) and request size — a single CLO gets a direct answer, a full course gets the full pipeline."
+    },
+    {
+      "name": "css-architecture",
+      "path": "css-architecture/SKILL.md",
+      "description": "Scaffold and manage CSS file architecture for TailwindCSS-first projects. Use to organize CSS files, prevent or fix 'CSS hell', add custom styles alongside Tailwind, set up structural design tokens, configure PostCSS imports, enforce lint rules, or migrate a messy stylesheet.",
+      "content": "Starts with a mandatory intake step, then applies the Golden Rule (Tailwind first, custom CSS only for what utilities can't express). Defines a standard styles/ folder structure, CSS cascade layers as the core conflict-prevention tool, structural design tokens in tokens/_root.css, Tailwind config alignment, a workflow for adding new styles, PostCSS setup for @import, an anti-pattern table, a QA validation checklist, and success metrics."
+    },
+    {
+      "name": "data-analyze",
+      "path": "data-analyze/SKILL.md",
+      "description": "Answer data questions end-to-end, from a quick metric lookup to multi-dimensional analysis to a formal report. Triggers on any request that requires querying, aggregating, or interpreting data from a warehouse, table, CSV/Excel, or pasted results.",
+      "content": "Six-step pipeline: classify the question (lookup vs. investigation vs. report), gather data (connected warehouse or user-provided files), analyze, validate before presenting (sanity-check aggregations and assumptions), present findings in the right format (number, table, chart, narrative), and visualize only where it adds meaning."
+    },
+    {
+      "name": "debug-master",
+      "path": "debug-master/SKILL.md",
+      "description": "Deep debugging and auto-fix across file system inspection, logic and workflow tracing, and algorithm analysis. Triggers on any error message, stack trace, broken path, missing module, wrong output, or vague \"something is wrong\" report. Covers Python, JS/TS, Go, Bash, SQL, and agent workflows (LangChain/LangGraph, AutoGen, CrewAI).",
+      "content": "Four-phase pipeline — Inspect, Isolate, Diagnose, Fix — with an intake phase that extracts what is needed from vague reports. Includes file-system checks, state-flow tracing for long chains, complexity and edge-case analysis, and a verify step that patches, tests, and guards."
+    },
+    {
+      "name": "deploy-to-vercel",
+      "path": "deploy-to-vercel/SKILL.md",
+      "description": "Deploy applications and websites to Vercel. Use for requests like 'deploy my app', 'push this live', 'give me the link', or 'create a preview deployment'.",
+      "content": "Gathers project state (framework, git status, existing Vercel link), chooses a deploy method (CLI, git push, or dashboard), handles agent-specific constraints, reports the resulting deployment URL, and includes a troubleshooting section for common build and linking failures."
+    },
+    {
+      "name": "flutter",
+      "path": "flutter/SKILL.md",
+      "description": "Flutter/Dart application engineering — architecture, layout debugging, responsive design, and widget previews. Triggers on 'structure my Flutter project', 'RenderFlex overflowed', 'unbounded height viewport', 'make this responsive', 'add a widget preview', and similar.",
+      "content": "A router skill: identifies which Flutter concern the request touches and directs work to focused reference guides under refer/ (architecture, layout errors, responsive design, previews), plus a short working protocol for how to apply them."
+    },
+    {
+      "name": "frontend-design",
+      "path": "frontend-design/SKILL.md",
+      "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one — aesthetic direction, typography, and choices that don't read as templated defaults.",
+      "content": "Grounds design decisions in the subject matter rather than generic templates. Covers core design principles, a process of brainstorm → explore → plan → critique → build → critique again, the role of restraint and self-critique, and writing as a design element (copy, tone, typographic voice)."
+    },
+    {
+      "name": "google-design-system",
+      "path": "google-design-system/SKILL.md",
+      "description": "Apply Google Design principles across 16 domains: Material 3 Expressive, motion design, Google Sans Flex typography, AI/Gemini visual design, global accessibility, design sprints, UX writing, brand building, design culture, and XR/AI glasses (Glimmer). Use for any task involving Google design standards.",
+      "content": "Written partly in Thai. Provides a quick reference to read first, a domain map pointing to the right reference file per topic, a step-by-step usage flow, a recommended output format, a senior design leadership review pass, and official Google source URLs."
+    },
+    {
+      "name": "java-api-performance",
+      "path": "java-api-performance/SKILL.md",
+      "description": "Java Spring Boot backend API performance optimization. Use when writing, reviewing, or refactoring Java/Spring Boot code to fix slow APIs, memory issues, or database inefficiencies — loop optimization, caching, pagination, query tuning, N+1 problems, indexing, async processing, connection pooling (HikariCP).",
+      "content": "Nine copy-ready BAD vs BETTER patterns for the most common Spring Boot performance killers, ordered by priority (N+1 queries, missing indexes, unbounded result sets, caching, async, pooling). Includes a quick-reference table, when-to-apply triggers, and a link to the full compiled reference document."
+    },
+    {
+      "name": "knowledge-base",
+      "path": "knowledge-base/SKILL.md",
+      "description": "Software engineering knowledge base covering architecture patterns, component-based design, security fundamentals, software design principles, and use case + microservices design. Use when answering architecture, design pattern, system design, security, or use-case modeling questions.",
+      "content": "Indexes several knowledge domains (architecture patterns and 3-tier design, component-based design, security fundamentals, design principles, use case modeling and microservices) into a quick-reference, with routing to the matching reference file for depth."
+    },
+    {
+      "name": "lighthouse",
+      "path": "lighthouse/SKILL.md",
+      "description": "Diagnose and fix a website to earn high Lighthouse scores across Performance, Accessibility, Best Practices, SEO, and Agentic Browsing on both desktop and mobile. Triggers on shared Lighthouse/PageSpeed/Core Web Vitals reports or failing metrics (FCP, LCP, TBT, CLS, INP, Speed Index).",
+      "content": "Operating principle: diagnose before touching code, then run a measure → fix → re-measure loop. Defines score targets, triages where points actually are, and gives per-category playbooks (performance first as the biggest lever, then accessibility, best practices, SEO, agentic browsing). Treats desktop and mobile as separate targets, includes framework quick-notes, a verification gate as the definition of done, and an anti-pattern list."
+    },
+    {
+      "name": "long-horizon-engineering-workflow",
+      "path": "long-horizon-engineering-workflow/SKILL.md",
+      "description": "A six-stage gated delivery workflow (Requirements → Design → Development → QA → UAT → Deployment) to keep long, multi-session, or multi-stage builds from drifting. Use for any 'build me X' request too big for one shot; not for snippets or small well-specified fixes.",
+      "content": "Explains why gating exists, operates in 'strong push' mode requiring gate artifacts (problem statement, acceptance criteria, design notes, structured feedback, sign-off) before advancing a stage — while respecting explicit user overrides. Condenses five core skills used across the gates and defines how to handle mid-build feedback or bug reports without losing the thread."
+    },
+    {
+      "name": "obsidian-vault",
+      "path": "obsidian-vault/SKILL.md",
+      "description": "Turn an Obsidian vault into a persistent, self-organizing knowledge base that Claude Code reads from and writes to across sessions — second brain / PKM setup, ingesting documents, URLs and transcripts into linked notes, querying past notes, and running project wikis.",
+      "content": "Defines the core idea of a durable cross-session knowledge store, a vault layout, note conventions (frontmatter, links, tags), the supported operations (/vault, /ingest, /wiki — setup, ingest, query, update), a hot cache format for fast recall, cross-project referencing rules, and guardrails on what to write and what to leave out."
+    },
+    {
+      "name": "owasp-top-10-2025",
+      "path": "owasp-top-10-2025/SKILL.md",
+      "description": "Security review and vulnerability analysis based on the OWASP Top 10 2025. Use when auditing code for security flaws, reviewing authentication, checking for injection, or ensuring cryptographic correctness — broken access control, misconfiguration, vibe-coding risks, memory management, supply chain, resilience failures.",
+      "content": "Organizes the 2025 Top 10 into vulnerability categories ordered by severity, with a quick reference for what to look for per category, a how-to-use flow for running a review, and reference files with detailed detection patterns and remediations."
+    },
+    {
+      "name": "requirement-gathering",
+      "path": "requirement-gathering/SKILL.md",
+      "description": "Autonomous requirement extraction and documentation for PERN/MERN full-stack projects with micro design standards. Produces a complete Markdown requirements document without asking follow-up questions. Thai triggers included (วิเคราะห์ code, เขียน spec, ทำ requirements, audit component).",
+      "content": "Runs an autonomous protocol: auto-detect context, then emit layered contracts — frontend component contract (always), API contract, DB schema contract — followed by functional requirements, non-functional requirements, a lean risk register, and a small-team sign-off checklist. Ends with a full output document template; missing context is inferred and annotated as assumptions rather than asked about."
+    },
+    {
+      "name": "security",
+      "path": "security/SKILL.md",
+      "description": "Senior-level security architecture covering OAuth2 authorization flows and leveled API key design. Activates on OAuth2, access tokens, authorization flows, API key management and rotation, key compromise, leveled permissions, resource server security, and agent authentication patterns.",
+      "content": "Architecture references for OAuth2 flows and leveled API keys (read-only / write / admin scoping), agent-to-service security design, a threat response playbook for key compromise and rotation, a security review checklist, a decision matrix for choosing between patterns, and a list of red flags to always call out."
+    },
+    {
+      "name": "senior-leadership-advisor",
+      "path": "senior-leadership-advisor/SKILL.md",
+      "description": "Acts as senior leadership (CTO/VP/Staff-level) across engineering, product, design, quality, architecture, data/AI, and prompt engineering. Auto-detects which discipline(s) a request touches and answers in that voice. Skip for casual conversation or trivial lookups.",
+      "content": "Three-step operating model: detect the relevant role(s) without asking, run a silent thorough-thinking pass (edge cases, pre-mortem, first principles, whole-system view), then answer like senior leadership — a clear call with trade-offs and consequences rather than a search-engine summary. Includes worked examples of the voice."
+    },
+    {
+      "name": "skill-creator",
+      "path": "skill-creator/SKILL.md",
+      "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use to build a skill from scratch, edit or optimize an existing one, run evals, benchmark with variance analysis, or tune a skill description for better triggering accuracy.",
+      "content": "Full lifecycle workflow for authoring skills: interviewing the user, drafting SKILL.md, structuring reference files, then evaluating. Covers writing and running test cases, blind comparison of skill variants, description optimization for trigger accuracy, report structure (executive summary / key findings / recommendations), commit message format, and Claude.ai- and Cowork-specific packaging notes."
+    },
+    {
+      "name": "supabase-senior",
+      "path": "supabase-senior/SKILL.md",
+      "description": "Senior-level Supabase + Prisma architecture and engineering. Activates on Supabase, Prisma ORM, schema design, RLS, migrations, connection pooling, Supabase Auth, Edge Functions, Realtime, Storage, migration planning (Postgres → Supabase), and query optimization.",
+      "content": "Ten-part reference: connection reference card (pooler vs. direct), RLS architecture rules, Prisma ↔ Supabase schema design rules, a Postgres → Supabase migration playbook, a workflow and logic checker, an algorithm reviewer, patterns for Supabase-backed AI agents, Realtime + Prisma coexistence, advisor-mode senior recommendations, and a quick command reference."
+    },
+    {
+      "name": "threejs-3d",
+      "path": "threejs-3d/SKILL.md",
+      "description": "Build high-performance, production-grade Three.js and 3D web experiences. Triggers on Three.js, WebGL/WebGPU, GLTF/GLB/OBJ/FBX/STL, shaders (GLSL/TSL), particles, skeletal animation, HDRI/PBR, instancing, raycasting, camera rigs, postprocessing (bloom, DoF, AA, tone mapping), R3F/Drei, point clouds, terrain, GPU compute.",
+      "content": "Opens with a PM-style scope and acceptance criteria pass, then a reference map and decision tree for which reference file to read first. Provides a canonical modern scene bootstrap (r182+, import maps, delta-time animation, correct disposal/memory management), non-negotiable rules, and design quality standards for cinematic visual output."
+    },
+    {
+      "name": "tracking-and-debugging",
+      "path": "tracking-and-debugging/SKILL.md",
+      "description": "Autonomous bug triage, root-cause diagnosis, and issue reporting for PERN/MERN full-stack projects. Outputs a structured issue report and fix guidance without follow-up questions. Thai triggers included (แก้บัค, หา bug, ช้า, memory leak, login ไม่ได้).",
+      "content": "Seven-step autonomous protocol: classify symptom to layer (UI, state, API, DB, auth, build), run that layer's diagnostic checklist, state the root cause, give fix guidance, define verification steps, add regression prevention, and emit a standard issue report template (symptom, root cause, evidence, fix, verification, prevention)."
+    },
+    {
+      "name": "ui-checker",
+      "path": "ui-checker/SKILL.md",
+      "description": "Systematically audit web UIs across four dimensions: theme compliance (CSS variables/design tokens vs. hardcoded values, Tailwind and shadcn .dark setups), layout integrity (dimensions, spacing, overflow, breakpoints), browser rendering via a live clickable inspector artifact, and accessibility polish (WCAG contrast, alt text, focus styles, fixed px fonts, reduced motion).",
+      "content": "Classifies the input and builds a check plan, runs static analysis first, then a WCAG contrast check, then builds an interactive inspector artifact as the primary deliverable (theme toggle, click-for-dimensions, contrast readout). Optional browser screenshots, then a written report and in-chat summary, backed by a common-fixes quick reference and a viewport test matrix."
+    },
+    {
+      "name": "vercel-cli-with-tokens",
+      "path": "vercel-cli-with-tokens/SKILL.md",
+      "description": "Deploy and manage projects on Vercel using token-based authentication rather than interactive login — 'deploy to vercel', 'set up vercel', 'add environment variables to vercel'.",
+      "content": "Locates the Vercel token and the project/team scope, sets up the CLI for non-interactive use, then covers deploying, managing environment variables, inspecting deployments, and managing domains — plus a working agreement on safe token handling and a troubleshooting section."
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "path": "vercel-react-best-practices/SKILL.md",
+      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. Use when writing, reviewing, or refactoring React/Next.js code — components, pages, data fetching, bundle optimization, performance improvements.",
+      "content": "Rules grouped into priority categories (rendering and re-render control, data fetching and server components, bundle/code splitting, images and assets, caching) with a quick-reference table, application guidance, and a link to the full compiled Vercel document."
+    },
+    {
+      "name": "view-pdf",
+      "path": "view-pdf/SKILL.md",
+      "description": "Interactive PDF viewer. Use when the user wants to open, show, or view a PDF and collaborate on it visually — annotate, highlight, stamp, fill form fields, place signature/initials, review markup. Not for summarization or text extraction.",
+      "content": "Describes when to reach for the viewer instead of plain reading, the available viewer tools, supported annotation types, interactive workflows (annotate, fill forms, sign), supported PDF sources, and explicit out-of-scope cases."
+    },
+    {
+      "name": "web-design-guidelines",
+      "path": "web-design-guidelines/SKILL.md",
+      "description": "Review UI code for Web Interface Guidelines compliance. Use for 'review my UI', 'check accessibility', 'audit design', 'review UX', or 'check my site against best practices'. Takes a file or glob pattern as argument.",
+      "content": "A thin review harness: explains how the check runs against a file or pattern, points to the canonical Web Interface Guidelines source used as the rule set, and documents usage."
+    }
+  ]
+}
