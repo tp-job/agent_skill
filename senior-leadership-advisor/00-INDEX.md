@@ -12,9 +12,10 @@ Open in Obsidian → Graph View to see all role relationships as a network.
 
 ## 📚 Skill Files
 
-- [SKILL](./SKILL.md) — Main agent instructions (role detection, thinking process, answer style)
-- [roles](references/roles.md) — Full role catalog (~35 roles)
+- [SKILL](./SKILL.md) — Main agent instructions (role detection → assumption → team formation → answer style)
+- [roles](references/roles.md) — Full role catalog (~50 roles)
 - [thinking-framework](references/thinking-framework.md) — 7-point thinking discipline detail
+- [team-protocol](references/team-protocol.md) — role self-activation, lead/support seats, conflict ladder, handoff contracts
 
 ---
 
@@ -58,6 +59,41 @@ Open in Obsidian → Graph View to see all role relationships as a network.
 
 ---
 
+## 🔬 Silicon / Big-Tech Hardware Tracks
+
+Roles at an AMD / NVIDIA-class silicon company, ordered upstream → downstream.
+**Flow:** [R&D](roles/07-Silicon-RnD.md) → [TEST](roles/08-Silicon-Test.md) → [SELL](roles/09-Silicon-Sell.md) → [Client Service](roles/10-Silicon-Client-Service.md)
+
+### 7. สาย R&D (Research & Development)
+→ [07-Silicon-RnD](roles/07-Silicon-RnD.md)
+- [Silicon Architect / Microarchitect](roles/07-Silicon-RnD.md#silicon-architect-microarchitect)
+- [ASIC / RTL Design Engineer](roles/07-Silicon-RnD.md#asic-rtl-design-engineer)
+- [AI / Deep Learning Research Scientist](roles/07-Silicon-RnD.md#ai-deep-learning-research-scientist)
+- [Software / Compiler Engineer](roles/07-Silicon-RnD.md#software-compiler-engineer)
+
+### 8. สาย TEST (Verification & Quality Assurance)
+→ [08-Silicon-Test](roles/08-Silicon-Test.md)
+- [Design Verification (DV) Engineer](roles/08-Silicon-Test.md#design-verification-dv-engineer)
+- [Silicon Validation Engineer](roles/08-Silicon-Test.md#silicon-validation-engineer)
+- [Post-Silicon Test Engineer](roles/08-Silicon-Test.md#post-silicon-test-engineer)
+- [Quality Assurance (QA) Engineer](roles/08-Silicon-Test.md#quality-assurance-qa-engineer)
+
+### 9. สาย SELL (Sales, Marketing & Business)
+→ [09-Silicon-Sell](roles/09-Silicon-Sell.md)
+- [Technical Marketing Engineer](roles/09-Silicon-Sell.md#technical-marketing-engineer)
+- [Silicon Product Manager](roles/09-Silicon-Sell.md#silicon-product-manager)
+- [Strategic Account Manager / Enterprise Sales](roles/09-Silicon-Sell.md#strategic-account-manager-enterprise-sales)
+- [Business Development Manager](roles/09-Silicon-Sell.md#business-development-manager)
+
+### 10. สาย Client Service (Customer Support & Technical Services)
+→ [10-Silicon-Client-Service](roles/10-Silicon-Client-Service.md)
+- [Field Application Engineer (FAE)](roles/10-Silicon-Client-Service.md#field-application-engineer-fae)
+- [Solutions Architect / Systems Engineer](roles/10-Silicon-Client-Service.md#solutions-architect-systems-engineer)
+- [Customer Support Engineer](roles/10-Silicon-Client-Service.md#customer-support-engineer)
+- [Technical Account Manager (TAM)](roles/10-Silicon-Client-Service.md#technical-account-manager-tam)
+
+---
+
 ## 🔗 Cross-Track Relationships (Graph Edges)
 
 | From | To | Relationship |
@@ -69,6 +105,12 @@ Open in Obsidian → Graph View to see all role relationships as a network.
 | [05-Management](roles/05-Management.md) | [06-Engineering-Leadership](roles/06-Engineering-Leadership.md) | PM ↔ Engineering leadership |
 | [05-Management](roles/05-Management.md) | [02-IoT](roles/02-IoT.md) | Solutions Architect spans IoT+Software |
 | [04-Writing-Content](roles/04-Writing-Content.md) | [03-UX-UI-Design](roles/03-UX-UI-Design.md) | UX Writer ↔ UX Researcher |
+| [07-Silicon-RnD](roles/07-Silicon-RnD.md) | [08-Silicon-Test](roles/08-Silicon-Test.md) | RTL ↔ DV — adversarial by design |
+| [07-Silicon-RnD](roles/07-Silicon-RnD.md) | [01-Software-Logic](roles/01-Software-Logic.md) | Compiler/RTL ↔ Embedded + Algorithm |
+| [08-Silicon-Test](roles/08-Silicon-Test.md) | [09-Silicon-Sell](roles/09-Silicon-Sell.md) | Bin yields define the SKU stack |
+| [09-Silicon-Sell](roles/09-Silicon-Sell.md) | [10-Silicon-Client-Service](roles/10-Silicon-Client-Service.md) | Account Manager ↔ FAE / TAM pairing |
+| [10-Silicon-Client-Service](roles/10-Silicon-Client-Service.md) | [08-Silicon-Test](roles/08-Silicon-Test.md) | Field failures → RMA → RCCA loop |
+| [09-Silicon-Sell](roles/09-Silicon-Sell.md) | [05-Management](roles/05-Management.md) | Silicon PM ↔ software PM (different gates) |
 
 ---
 

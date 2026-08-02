@@ -1,6 +1,6 @@
 # Agent Skills
 
-A library of 29 Claude Code skills. Each lives in its own folder, named for the `name:` in its `SKILL.md`, with deep-dive material under `references/` and any executable helpers under `scripts/`.
+A library of 30 Claude Code skills. Each lives in its own folder, named for the `name:` in its `SKILL.md`, with deep-dive material under `references/` and any executable helpers under `scripts/`.
 
 Conventions and the authoring checklist are in [CLAUDE.md](CLAUDE.md). The machine-readable index is [skill.json](skill.json) — regenerate it with `python scripts/build-index.py` after adding or renaming a skill.
 
@@ -57,3 +57,9 @@ Conventions and the authoring checklist are in [CLAUDE.md](CLAUDE.md). The machi
 | [cs-course-designer](cs-course-designer/SKILL.md) | Research, plan, and write course/unit outlines, Course Learning Outcomes (CLOs), lesson/teaching plans, and assessments (quizzes, exams, rubrics, project briefs) for general CS, DBMS, SQL, Python, and C. Also reviews existing CLOs, lesson plans, and assessments for alignment. Not for other languages or live 1:1 tutoring. |
 | [obsidian-vault](obsidian-vault/SKILL.md) | Turn an Obsidian vault into a persistent, self-organizing knowledge base that Claude Code reads from and writes to across sessions — second brain / PKM setup, ingesting documents, URLs and transcripts into linked notes, querying past notes, and running project wikis. |
 | [view-pdf](view-pdf/SKILL.md) | Interactive PDF viewer. Use when the user wants to open, show, or view a PDF and collaborate on it visually — annotate, highlight, stamp, fill form fields, place signature/initials, review markup. Not for summarization or text extraction. |
+
+## Other
+
+| Skill | What it does |
+| --- | --- |
+| [project-file-structure](project-file-structure/SKILL.md) | Rules for naming and placing every file and folder in a React + TypeScript + Node + Prisma project whose documentation lives in an Obsidian vault, plus PDF handling. |

@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/skill-index.json",
   "version": "1.1.0",
-  "generated": "2026-07-26",
+  "generated": "2026-08-02",
   "root": "agent-skill",
-  "count": 29,
+  "count": 30,
   "skills": [
     {
       "name": "agent-skill-creator",
@@ -106,6 +106,12 @@
       "path": "owasp-top-10-2025/SKILL.md",
       "description": "Security review and vulnerability analysis based on the OWASP Top 10 2025. Use when auditing code for security flaws, reviewing authentication, checking for injection, or ensuring cryptographic correctness — broken access control, misconfiguration, vibe-coding risks, memory management, supply chain, resilience failures.",
       "content": "Organizes the 2025 Top 10 into vulnerability categories ordered by severity, with a quick reference for what to look for per category, a how-to-use flow for running a review, and reference files with detailed detection patterns and remediations."
+    },
+    {
+      "name": "project-file-structure",
+      "path": "project-file-structure/SKILL.md",
+      "description": "Rules for naming and placing every file and folder in a React + TypeScript + Node + Prisma project whose documentation lives in an Obsidian vault, plus PDF handling.",
+      "content": ""
     },
     {
       "name": "requirement-gathering",

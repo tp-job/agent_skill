@@ -1,19 +1,26 @@
 # QA, UAT & Deployment (Stages 4–6)
 
-## Stage 4 — QA
+## Stage 4 — Integration QA
 
-Testing happens against the use cases written in Stage 2. If a use case was never written, testing degrades into guesswork — go back and write it rather than testing blind.
+**This is not a re-run of Stage 3.** The inner loop already verified every feature against its own steps; repeating that is duplicated work and it finds nothing new. Stage 4 exists for the classes of failure that per-feature verification *structurally cannot* catch — the ones that only appear when features meet.
 
-- [ ] Every use case tested and the result recorded, even briefly.
-- [ ] Edge cases and error states from Stage 2 verified, not assumed to work because the happy path does.
-- [ ] Regression check on anything the change touches, not just the new surface.
+- [ ] **Cross-feature integration** — pairs and chains that pass alone and fail together. Shared state, shared stores, conflicting assumptions about the same data.
+- [ ] **Full user journeys** run end to end across several features, in one sitting, the way a real user would.
+- [ ] **Re-verify features that passed early.** A feature marked `true` at F005 has had forty commits land under it since. Spot-check the `critical` and `high` ones.
+- [ ] **Load, concurrency, and resource behavior** — parallel requests, repeated calls, long-running sessions. Single-feature checks never see these.
+- [ ] **The gap list** — everything the ledger records as never verified: stubbed features, accepted blockers, exclusions. State what is shipping unverified, explicitly.
+- [ ] Full regression suite green.
 - [ ] No critical or high-severity issues left open.
+
+If a Stage 2 use case was never written, testing here degrades into guesswork — go back and write it rather than testing blind.
 
 **Define and validate the output, before you call something done:** write down what the expected output actually is — the data shape, the UI state, the API response — *before* writing the function, and use that written definition as the test case at the end. Compare the actual output to it directly rather than eyeballing whether it "looks right." Where it matters, get a second look — a fresh read catches what the person who wrote the code stops seeing.
 
 ## Stage 5 — UAT
 
 UAT is not the first time the user sees the feature. If it is, the earlier stages were skipped, not skippable.
+
+**Don't stall the build waiting for sign-off.** On a build spanning days, a single synchronous gate at the end parks everything. Run UAT **per feature-group as groups complete** — a coherent slice the user can actually exercise — and hold one consolidated sign-off before Stage 6. That batches the user's attention instead of blocking on it, and surfaces a misread requirement while it's still cheap to fix.
 
 - [ ] UAT script prepared from the Stage 2 use cases, not written from scratch at this stage.
 - [ ] Tested in an environment that matches what's described as production-equivalent.

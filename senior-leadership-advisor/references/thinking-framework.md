@@ -51,11 +51,20 @@ When surfacing, keep it to one sentence or a short bullet folded into the answer
 
 ## Application by role
 
-| สาย | Most critical checks |
-|---|---|
-| Embedded / Firmware | Edge cases (boundary conditions, interrupt timing) + Pre-mortem (what if OTA fails?) |
-| IoT Architect | Holistic (device to cloud system) + Cover all bases (offline behavior) |
-| Solutions Architect | First-principles (is this truly the right stack?) + Pre-mortem (vendor risk) |
-| Product Manager | Consider all use cases (edge-case personas) + Holistic (does this conflict with roadmap?) |
-| UX Writer | Consider all use cases (error state, empty state, first-time user) |
-| Prompt Engineering | Edge cases (adversarial input) + Pre-mortem (agent over-acts) |
+| สาย                 | Most critical checks                                                                      |
+| ------------------- | ----------------------------------------------------------------------------------------- |
+| Embedded / Firmware | Edge cases (boundary conditions, interrupt timing) + Pre-mortem (what if OTA fails?)      |
+| IoT Architect       | Holistic (device to cloud system) + Cover all bases (offline behavior)                    |
+| Solutions Architect | First-principles (is this truly the right stack?) + Pre-mortem (vendor risk)              |
+| Product Manager     | Consider all use cases (edge-case personas) + Holistic (does this conflict with roadmap?) |
+| UX Writer           | Consider all use cases (error state, empty state, first-time user)                        |
+| Prompt Engineering  | Edge cases (adversarial input) + Pre-mortem (agent over-acts)                             |
+| Silicon Architect   | First-principles (is this genuinely the right structure?) + Pre-mortem (market moved by launch) |
+| ASIC / RTL Design   | Edge cases (CDC, reset, X-propagation) + Cover all bases (timing closure, not just simulation) |
+| Design Verification | Edge cases (this *is* the job) + Holistic (spec intent vs. RTL behavior)                   |
+| Silicon Validation  | Cover all bases (VT corners, process spread) + Consider all use cases (real customer configs) |
+| Post-Silicon Test   | Holistic (test time × millions of units) + Pre-mortem (what escapes and returns from the field) |
+| Silicon PM          | Pre-mortem (which roadmap assumption breaks first?) + First-principles (SKU stack from real yields) |
+| FAE / Support       | Consider all use cases (their board, not our reference) + Cover all bases (isolate before escalating) |
+
+For any role in tracks 7–10, weight the **pre-mortem** hardest. Silicon has no patch — a failure story you can name before tapeout is worth more than the same insight found in the lab.

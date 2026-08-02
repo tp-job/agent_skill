@@ -20,4 +20,4 @@ No development starts on a fuzzy requirement. If you can't write the items below
 
 ## Failure mode this prevents
 
-Starting development from a verbal description with no written, confirmed summary. The cost shows up later: rework on a misunderstood requirement typically runs 3–5× the cost of getting it right the first time, because the rework competes with whatever the team has moved on to.
+Starting development from a verbal description with no written, confirmed summary. The cost shows up later, and it is not symmetric: fixing a misunderstood requirement at Stage 1 costs a sentence, at Stage 3 costs the features built on it, and after release costs those plus the migration and whatever the team has already moved on to. That asymmetry — not any particular multiplier — is the argument for the gate.
