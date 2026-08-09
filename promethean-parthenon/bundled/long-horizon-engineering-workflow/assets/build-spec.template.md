@@ -1,0 +1,83 @@
+# <project name> — Build Spec
+
+The source of truth. Stage 1 and Stage 2 output, in one file, read at every session start.
+If the code and this document disagree, **stop and resolve it** — do not quietly follow the code.
+
+---
+
+## 1. Problem  *(Stage 1)*
+
+<1–3 sentences. The problem, not the feature. Who has it, and what it costs them.>
+
+## 2. Acceptance criteria  *(Stage 1)*
+
+Numbered and testable. "Fast" and "intuitive" are not criteria.
+
+1.
+2.
+3.
+
+## 3. Out of scope  *(Stage 1)*
+
+Explicit. Things that sound related and are not being built.
+
+-
+
+## 4. Inputs, outputs, dependencies  *(Stage 1)*
+
+- **Inputs:** <shape and types of what comes in>
+- **Outputs:** <shape and types of what goes out>
+- **Depends on:** <services, APIs, features this touches>
+
+## 5. Edge cases and error states  *(Stage 1)*
+
+- Empty / missing input →
+- Downstream failure or timeout →
+- Called twice / concurrently →
+- Unauthorized →
+
+---
+
+## 6. Architecture  *(Stage 2)*
+
+- **Stack:** <frontend, backend, data, infra>
+- **Components and boundaries:** <what talks to what, and across which contract>
+- **Data model / API contract:** <schemas and endpoint shapes, written out — not assumed>
+- **State ownership:** <who owns each piece of state; where the source of truth lives>
+- **Failure and fallback behavior:** <what happens when each boundary fails>
+
+## 7. Logic flow  *(Stage 2)*
+
+Happy path first, then every branch. A numbered list is enough; it only has to exist before the code does.
+
+1.
+
+## 8. UI  *(Stage 2, if user-facing)*
+
+<Wireframe, ASCII sketch, or written description of each screen and state — including empty, loading, and error states.>
+
+## 9. Non-functional  *(Stage 2)*
+
+- **Performance:** <targets, stated as numbers>
+- **Security:** <authn/authz model, trust boundaries, data sensitivity>
+- **Accessibility:** <target level>
+- **Testing:** <what "tested" means for this build>
+
+---
+
+## 10. Deployment  *(Stage 6, drafted early)*
+
+- **Environments:**
+- **Rollback plan:** <the exact steps, decided now rather than at 2am>
+- **Smoke test after deploy:**
+- **Who watches the release window:**
+
+---
+
+## Changelog
+
+Scope changes go here with a date and a reason. An undocumented scope change is indistinguishable from drift.
+
+| Date | Change | Why |
+| --- | --- | --- |
+| | | |

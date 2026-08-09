@@ -22,7 +22,7 @@ Seven points, run as one silent pass before committing to an answer:
 6. **First principles** — is this right because it's genuinely best, or just conventional?
 7. **Pre-mortem** — if this fails in six months, what's the most believable reason?
 
-Full treatment: [thinking-framework](../../senior-leadership-advisor/references/thinking-framework.md).
+Full treatment: [thinking-framework](../bundled/senior-leadership-advisor/references/thinking-framework.md).
 
 ### Where to spend it
 

@@ -16,12 +16,39 @@ Every skill is one top-level folder whose name **exactly matches** the `name:` i
 ├── references/       optional — deep-dive docs, loaded on demand
 ├── scripts/          optional — executable helpers
 ├── assets/           optional — templates, images, non-executable files
+├── bundled/          optional — verbatim copies of every skill this one links to
 └── README.md         optional — only for skills that are also standalone packages
 ```
 
 Fixed vocabulary. Do not introduce `refer/`, `resources/`, `docs/`, or `lib/` — a reader (human or model) should be able to guess a path without looking.
 
 Two skills deviate deliberately: `vercel-react-best-practices/rules/` holds ~68 single-rule files that are built into a rules bundle, and `senior-leadership-advisor/roles/` holds per-discipline role definitions. Both are documented in their own SKILL.md.
+
+---
+
+## Cross-skill links and `bundled/`
+
+**A skill folder must work when copied out of this library on its own.** That rules out `../other-skill/SKILL.md`: it resolves here and dangles everywhere else. So a skill that links to another skill carries a copy of it.
+
+```
+promethean-parthenon/
+├── SKILL.md                     links to bundled/agentic-engineering/SKILL.md
+└── bundled/
+    ├── agentic-engineering/     verbatim copy
+    ├── promethean-parthenon/    verbatim copy — see below
+    └── …
+```
+
+Rules:
+
+- **Bundle the whole link closure, not just direct targets.** A bundled copy keeps its own `../other-skill/` links, which resolve to its *siblings inside the bundle*. If a skill two hops away is missing, that copy dangles.
+- **The closure includes the host itself.** Bundled skills link back at their host, so `<host>/bundled/<host>/` has to exist. It nests one level and no further — copies are staged with `bundled/` excluded.
+- **Copies are verbatim.** The only permitted difference from the original is the depth of a relative link: a host at the library root writes `bundled/x/SKILL.md`, a copy inside a bundle writes `../x/SKILL.md`. Nothing else may differ — no summarising, no trimming.
+- **Never hand-edit a copy.** Change the source skill, then regenerate the bundles.
+
+Five skills currently bundle: `promethean-parthenon`, `agentic-engineering`, `long-horizon-engineering-workflow`, `senior-leadership-advisor`, `github-report`. They share one 11-skill closure. `scripts/build-index.py` globs `*/SKILL.md`, so nested copies are never indexed as skills.
+
+Verify with `python scripts/check-bundles.py` — it re-checks the closure, the copies, and every relative link in the repo.
 
 ---
 
@@ -75,7 +102,13 @@ Run the checks below before committing; they catch both problems.
 python scripts/build-index.py
 ```
 
-Regenerates `skill.json` and `README.md`, and reports any skill whose folder name, `name:`, or description is out of line. Exits non-zero when something is wrong. Run it after adding, renaming, or removing a skill — curated summaries in `skill.json` are preserved across rebuilds.
+Regenerates `skill.json` and `README.md`, and reports any skill whose folder name, `name:`, or description is out of line. Exits non-zero when something is wrong. Run it after adding, renaming, or removing a skill — curated summaries in `skill.json` are preserved across rebuilds. It globs `*/SKILL.md`, so copies under `bundled/` are never indexed as skills.
+
+```bash
+python scripts/build-bundles.py && python scripts/check-bundles.py
+```
+
+Rebuilds every `bundled/` directory from its sources, then verifies the closure, the fidelity of each copy, and every relative markdown link in the repository. Run it after editing any skill in the bundling cluster — a source edit does not reach the copies on its own. The build step is idempotent; the check step exits non-zero on any dangling link or drifted copy.
 
 Before committing a skill change, confirm:
 
@@ -83,9 +116,11 @@ Before committing a skill change, confirm:
 - [ ] `description` names what it does, when to use it, and literal trigger phrases
 - [ ] `license` and `metadata` blocks present
 - [ ] Every reference is a relative markdown link to a file that exists
+- [ ] No link leaves the skill folder — a cross-skill link points at `bundled/`, never `../`
 - [ ] `SKILL.md` routes rather than explains; depth lives in `references/`
 - [ ] No credentials, tokens, or personal paths in any file
 - [ ] `python scripts/build-index.py` exits clean
+- [ ] `python scripts/build-bundles.py && python scripts/check-bundles.py` exits clean
 
 ---
 

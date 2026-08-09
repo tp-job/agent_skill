@@ -4,7 +4,7 @@ A gate without an owner is a gate nobody closes. In a human team the seats are s
 
 The failure this prevents: the person who wrote the code is the worst possible person to verify it, and knows it least.
 
-This specializes the general role protocol from the sibling [senior-leadership-advisor](../../senior-leadership-advisor/SKILL.md) skill — lead selection, the conflict ladder, and handoff contracts are defined in its [team-protocol](../../senior-leadership-advisor/references/team-protocol.md), and its [roles catalog](../../senior-leadership-advisor/references/roles.md) has ~50 seats across software, IoT, design, content, management, and silicon tracks. Everything needed to run this workflow is restated below, so the cross-links are depth, not dependencies.
+This specializes the general role protocol from the sibling [senior-leadership-advisor](../bundled/senior-leadership-advisor/SKILL.md) skill — lead selection, the conflict ladder, and handoff contracts are defined in its [team-protocol](../bundled/senior-leadership-advisor/references/team-protocol.md), and its [roles catalog](../bundled/senior-leadership-advisor/references/roles.md) has ~50 seats across software, IoT, design, content, management, and silicon tracks. Everything needed to run this workflow is restated below, so the cross-links are depth, not dependencies.
 
 For how to allocate effort across seats — sub-agents, model tiers, where to spend deep thinking — see [delegation-and-models](./delegation-and-models.md).
 

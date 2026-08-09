@@ -1,6 +1,6 @@
 # Agent Skills
 
-A library of 30 Claude Code skills. Each lives in its own folder, named for the `name:` in its `SKILL.md`, with deep-dive material under `references/` and any executable helpers under `scripts/`.
+A library of 33 Claude Code skills. Each lives in its own folder, named for the `name:` in its `SKILL.md`, with deep-dive material under `references/` and any executable helpers under `scripts/`.
 
 Conventions and the authoring checklist are in [CLAUDE.md](CLAUDE.md). The machine-readable index is [skill.json](skill.json) — regenerate it with `python scripts/build-index.py` after adding or renaming a skill.
 
@@ -41,6 +41,8 @@ Conventions and the authoring checklist are in [CLAUDE.md](CLAUDE.md). The machi
 
 | Skill | What it does |
 | --- | --- |
+| [promethean-parthenon](promethean-parthenon/SKILL.md) | The operating doctrine for getting high-performance output out of an AI coding agent, and the router across the four skills that produce it: brief it (agentic-engineering), build it under gates and on-disk state (long-horizon-engineering-workflow), decide and critique like leadership (senior-leadership-advisor), and record what shipped (github-report). |
+| [agentic-engineering](agentic-engineering/SKILL.md) | Turns a one-line request into a brief an AI coding agent can execute without drifting. Applies four framing questions — what is being created, for whom, what are the limitations, how will it be proven complete and correct — then interrogates for the unstated rules (expiry, reuse, rate limits, concurrency, failure paths) that decide whether generated code is right or merely plausible. |
 | [long-horizon-engineering-workflow](long-horizon-engineering-workflow/SKILL.md) | A six-stage gated delivery workflow (Requirements → Design → Development → QA → UAT → Deployment) to keep long, multi-session, or multi-stage builds from drifting. Use for any 'build me X' request too big for one shot; not for snippets or small well-specified fixes. |
 | [requirement-gathering](requirement-gathering/SKILL.md) | Autonomous requirement extraction and documentation for PERN/MERN full-stack projects with micro design standards. Produces a complete Markdown requirements document without asking follow-up questions. Thai triggers included (วิเคราะห์ code, เขียน spec, ทำ requirements, audit component). |
 | [senior-leadership-advisor](senior-leadership-advisor/SKILL.md) | Acts as senior leadership (CTO/VP/Staff-level) across engineering, product, design, quality, architecture, data/AI, and prompt engineering. Auto-detects which discipline(s) a request touches and answers in that voice. Skip for casual conversation or trivial lookups. |
@@ -62,4 +64,5 @@ Conventions and the authoring checklist are in [CLAUDE.md](CLAUDE.md). The machi
 
 | Skill | What it does |
 | --- | --- |
-| [project-file-structure](project-file-structure/SKILL.md) | Rules for naming and placing every file and folder in a React + TypeScript + Node + Prisma project whose documentation lives in an Obsidian vault, plus PDF handling. |
+| [github-report](github-report/SKILL.md) | Turn GitHub activity — commits, pull requests, and issues — into a written report (.md) of completed work, grouped by sprint, feature, function, or section. Also defines the commit, PR, and issue conventions that make such a report possible. |
+| [project-file-structure](project-file-structure/SKILL.md) | Rules for naming and placing every file and folder in a React + TypeScript + Node + Prisma project whose documentation lives in an Obsidian vault, plus PDF handling. Applies when creating, renaming, or moving any file, writing a Prisma model or migration, adding a vault note, or reviewing a PR that adds files. |

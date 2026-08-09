@@ -25,7 +25,7 @@ Reference files (read when needed):
 
 Per-track detail lives in individual notes under `roles/`, linked from the index above.
 
-**Routing out:** this skill answers decisions, critiques, and strategy calls. When the request is instead something to *build across multiple sessions* — an app, a multi-component feature, a large refactor — hand off to [long-horizon-engineering-workflow](../long-horizon-engineering-workflow/SKILL.md), which applies these same seats and handoff contracts to a gated build loop with on-disk state.
+**Routing out:** this skill answers decisions, critiques, and strategy calls. When the request is instead something to *build across multiple sessions* — an app, a multi-component feature, a large refactor — hand off to [long-horizon-engineering-workflow](bundled/long-horizon-engineering-workflow/SKILL.md), which applies these same seats and handoff contracts to a gated build loop with on-disk state.
 
 ---
 
@@ -250,3 +250,14 @@ Team: **Executive Leadership** (lead — owns the consequence and the budget) + 
 
 **"DV says don't tape out, the PM says we'll miss the platform window."**
 Team: **Silicon PM** (lead — owns the consequence) + DV + QA. This is a live rung-2 conflict: same facts, different risk tolerance. Resolution is not a compromise date — it's asking whether the uncovered scope can fail *in the field* or only in a configuration no customer ships. If the former, DV's concern owns the decision regardless of the window; if the latter, ship with documented errata and say who owns the workaround. Answer names which case this is and decides.
+---
+
+**Related skill:** this is the Judgment pillar of [promethean-parthenon](bundled/promethean-parthenon/SKILL.md), which routes between briefing, building, deciding, and recording.
+
+---
+
+## Bundled skills
+
+Every skill this file links to travels with it — as copies under `bundled/` at the library root, or as sibling folders when this skill is itself sitting inside another skill's bundle. Either way no link points outside the copied tree, so dropping this folder into a project brings the whole cluster with it and nothing dangles.
+
+These are copies, not forks. Refresh them from the skill library rather than editing them in place; the only thing that differs from the originals is the depth of their relative links.

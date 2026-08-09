@@ -37,6 +37,7 @@ GROUPS = [
         "tracking-and-debugging",
     ]),
     ("Process & Delivery", [
+        "promethean-parthenon", "agentic-engineering",
         "long-horizon-engineering-workflow", "requirement-gathering",
         "senior-leadership-advisor", "deploy-to-vercel",
         "vercel-cli-with-tokens",

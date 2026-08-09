@@ -1,15 +1,21 @@
 {
   "$schema": "https://json.schemastore.org/skill-index.json",
   "version": "1.1.0",
-  "generated": "2026-08-02",
+  "generated": "2026-08-09",
   "root": "agent-skill",
-  "count": 30,
+  "count": 33,
   "skills": [
     {
       "name": "agent-skill-creator",
       "path": "agent-skill-creator/SKILL.md",
       "description": "Guide for creating, structuring, and organising AI agent skills — building a skill from scratch, setting up a .agents/ workspace, designing folder structures, and writing SKILL.md files with proper YAML frontmatter.",
       "content": "Defines skill structure levels (single-file vs. multi-file with references vs. full workspace), when to use each, a quick-reference for frontmatter fields and folder layout, a how-to-use flow, and a link to the full reference document covering AGENT.md and agent rules/context."
+    },
+    {
+      "name": "agentic-engineering",
+      "path": "agentic-engineering/SKILL.md",
+      "description": "Turns a one-line request into a brief an AI coding agent can execute without drifting. Applies four framing questions — what is being created, for whom, what are the limitations, how will it be proven complete and correct — then interrogates for the unstated rules (expiry, reuse, rate limits, concurrency, failure paths) that decide whether generated code is right or merely plausible.",
+      "content": "A five-step method: frame with the four questions, interrogate the answers against seven question banks (lifetime/reuse, volume/abuse, identity/permission, state/concurrency, failure/recovery, data lifecycle, integration) plus domain add-ons, write a one-page brief with numbered rules, prohibitions and proofs, confirm it, then build against it. Includes an adjective-to-limitation conversion table, a brief template, a full worked example (password reset from one sentence to ten proof lines), and rules for what counts as proof of done versus theater."
     },
     {
       "name": "ai-web-product-craft",
@@ -66,6 +72,12 @@
       "content": "Grounds design decisions in the subject matter rather than generic templates. Covers core design principles, a process of brainstorm → explore → plan → critique → build → critique again, the role of restraint and self-critique, and writing as a design element (copy, tone, typographic voice)."
     },
     {
+      "name": "github-report",
+      "path": "github-report/SKILL.md",
+      "description": "Turn GitHub activity — commits, pull requests, and issues — into a written report (.md) of completed work, grouped by sprint, feature, function, or section. Also defines the commit, PR, and issue conventions that make such a report possible.",
+      "content": "Two halves: the conventions that make history machine-readable, and the report built from it. Starts with a ground-truth check on git log to decide whether grouping will be reliable or inferred, pins scope (window as absolute dates, repo/branch, grouping axis, audience) before collecting, then collects via git and gh and writes the .md. Warns explicitly when conventions are absent rather than inventing structure the data does not contain."
+    },
+    {
       "name": "google-design-system",
       "path": "google-design-system/SKILL.md",
       "description": "Apply Google Design principles across 16 domains: Material 3 Expressive, motion design, Google Sans Flex typography, AI/Gemini visual design, global accessibility, design sprints, UX writing, brand building, design culture, and XR/AI glasses (Glimmer). Use for any task involving Google design standards.",
@@ -93,7 +105,7 @@
       "name": "long-horizon-engineering-workflow",
       "path": "long-horizon-engineering-workflow/SKILL.md",
       "description": "A six-stage gated delivery workflow (Requirements → Design → Development → QA → UAT → Deployment) to keep long, multi-session, or multi-stage builds from drifting. Use for any 'build me X' request too big for one shot; not for snippets or small well-specified fixes.",
-      "content": "Explains why gating exists, operates in 'strong push' mode requiring gate artifacts (problem statement, acceptance criteria, design notes, structured feedback, sign-off) before advancing a stage — while respecting explicit user overrides. Condenses five core skills used across the gates and defines how to handle mid-build feedback or bug reports without losing the thread."
+      "content": "Two loops: a gated outer loop (Requirements → Design → Development → Integration QA → UAT → Deployment) around a per-feature inner loop ending in a verified commit, backed by four harness files at the repo root (build-spec.md, feature-list.json, progress.md, init script) so state survives context loss. Stage 2 runs computational thinking as its method — decomposition into the feature ledger, pattern recognition for reuse, abstraction for the interface contract, algorithm design branch by branch, and data mapping at every boundary. Operates in 'strong push' mode requiring gate artifacts before advancing while respecting explicit overrides, and holds twelve hard invariants including an append-mostly ledger and never claiming an unobserved pass."
     },
     {
       "name": "obsidian-vault",
@@ -110,8 +122,14 @@
     {
       "name": "project-file-structure",
       "path": "project-file-structure/SKILL.md",
-      "description": "Rules for naming and placing every file and folder in a React + TypeScript + Node + Prisma project whose documentation lives in an Obsidian vault, plus PDF handling.",
-      "content": ""
+      "description": "Rules for naming and placing every file and folder in a React + TypeScript + Node + Prisma project whose documentation lives in an Obsidian vault, plus PDF handling. Applies when creating, renaming, or moving any file, writing a Prisma model or migration, adding a vault note, or reviewing a PR that adds files.",
+      "content": "Three governing rules — case is correct, files of one feature stay connected, and a name is findable in 10 seconds — expanded into naming tables per file type (components, pages, hooks, utils, types, routes, controllers, services, repositories, tests, PDF templates and generated PDFs), Prisma model and migration conventions, feature-folder colocation, and Obsidian vault note placement with links back to the code they describe."
+    },
+    {
+      "name": "promethean-parthenon",
+      "path": "promethean-parthenon/SKILL.md",
+      "description": "The operating doctrine for getting high-performance output out of an AI coding agent, and the router across the four skills that produce it: brief it (agentic-engineering), build it under gates and on-disk state (long-horizon-engineering-workflow), decide and critique like leadership (senior-leadership-advisor), and record what shipped (github-report).",
+      "content": "Four pillars — Foresight, Structure, Judgment, Record — with a load path where each hands the next a written artifact. Provides a routing table (by what you hold, by what went wrong, and sized to the work), the five levers that actually change agent output quality ranked by effect (target specificity, verification actually run, state outliving the conversation, effort placed at decisions, scope held still), a catalogue of twelve silent failure modes with their tells and cheapest detection, and explicit hand-offs to skills outside the set."
     },
     {
       "name": "requirement-gathering",
