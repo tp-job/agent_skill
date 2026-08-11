@@ -22,7 +22,7 @@ An agent resolves ambiguity by picking. It does not flag the pick. So every vagu
 
 **The sharpest form is a prohibition.** "Must never return the password hash" is more useful than any amount of positive description, because it is already a test and it fails loudly.
 
-**Where this lever lives:** Foresight. The brief's **Rules** and **Must never** sections are this lever, written down.
+**Where this lever lives:** Task — the brief's **Rules** and **Must never** sections are this lever, written down. When the target is an existing system, extraction supplies it instead: a contract you read beats a rule you guessed.
 
 ---
 
@@ -46,7 +46,7 @@ Ranked by strength — use the strongest the check permits, but a weaker check t
 
 **The reporting rule:** three permitted verdicts — passed, failed (with actual output), not run (with the reason). "Not run" is a legitimate outcome. Hiding it is not, and declaring victory over unverified work is the characteristic failure of an unsupervised agent.
 
-**Where this lever lives:** Foresight writes the proof list; Structure runs it and records the result in the ledger.
+**Where this lever lives:** Task — the brief writes the proof list; the build loop runs it and records the result in the ledger.
 
 ---
 
@@ -69,7 +69,7 @@ Git history is the fifth, and the only one a confused agent cannot silently rewr
 
 **The threshold:** below ~10 sub-tasks and one session, skip the harness — the gates carry it alone and the files are overhead. Above it, the absence of state is why session two contradicts session one.
 
-**Where this lever lives:** Structure.
+**Where this lever lives:** Task — the build harness.
 
 ---
 
@@ -90,7 +90,7 @@ Not "think harder" — *think harder in the right places*. Thinking budget is fi
 
 **The stop rule that saves the most time:** after three completed implement→verify cycles on the same thing, stop and re-read the requirement and the design. A fourth attempt will not find what three missed — the defect is upstream of where you are looking.
 
-**Where this lever lives:** Structure's gate placement, Judgment's four moments.
+**Where this lever lives:** Task — the build gates; Role — its four moments.
 
 ---
 
@@ -107,7 +107,7 @@ Two things look identical and are opposites:
 
 The ledger enforces this structurally: it is append-mostly. Only `passes` and `notes` change. Never delete a feature, edit a description, or loosen a verification step because it is failing. If the target is genuinely wrong, surface it and supersede — mark the old feature superseded in `notes`, append a corrected one with a new ID. Never silently.
 
-**Where this lever lives:** Structure's ledger invariants; Judgment when a criterion genuinely needs to change.
+**Where this lever lives:** Task — the ledger invariants; Role — when a criterion genuinely needs to change.
 
 ---
 

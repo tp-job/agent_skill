@@ -3,20 +3,20 @@
 The six gates run **once per build**. This loop runs **once per feature**, dozens of times, and it is where a long build is actually made or lost.
 
 ```
-     ┌──────────────────────────────────────────────────────────┐
-     │                                                          │
-     ▼                                                          │
-  AFFECTED ──► SELECT ──► IMPLEMENT ──► VERIFY ──► LEDGER ──► COMMIT
-   TESTS      (one, by    (smallest    (the        (passes:   (scoped
-   (scoped     priority)   change)      feature's   true)      paths)
-    to what                             own steps,               │
-    you touch)                          e2e)                     │
-                                                                 │
-                                          ┌──────────────────────┘
-                                          ▼
-                                   back to AFFECTED TESTS
-                                   (full suite at session start
-                                    and before the Stage 3 gate)
+     ┌────────────────────────────────────────────────────────────────────────┐
+     │                                                                        │
+     ▼                                                                        │
+  AFFECTED ─► SELECT ──► IMPLEMENT ─► VERIFY ────► REFACTOR ──► LEDGER ─► COMMIT
+   TESTS     (one, by    (smallest    (the         (clean what   (passes:  (scoped
+   (scoped    priority)   change)      feature's    this feature  true)     paths)
+    to what                            own steps,   touched, then            │
+    you touch)                         e2e)         re-run VERIFY)           │
+                                                                             │
+                                                  ┌──────────────────────────┘
+                                                  ▼
+                                           back to AFFECTED TESTS
+                                           (full suite at session start
+                                            and before the Stage 3 gate)
 ```
 
 Never skip a box. The loop's value is entirely in its being unbroken — a loop with an optional step is a suggestion.
@@ -137,6 +137,54 @@ The most common failure of a long-running agent is declaring victory. Guardrails
 BAD: *"Implemented password reset. The endpoint returns 200, so F014 passes."*
 
 BETTER: *"F014: ran all 5 steps. Step 4 (expired link) returned 500 instead of a clean error — fixed, re-ran, now 410 with a message. All 5 pass. Screenshot of the expired-link state attached."*
+
+---
+
+## Refactor: the last box, not an optional one
+
+Verification passing is not the end of the iteration. It is the moment the cleanup becomes *safe*, and it is the last moment you will have this much context on this diff. A build that skips this box passes every gate and still degrades — one small, individually-forgivable mess at a time.
+
+Refactor **after** green, never before. Cleaning code you have not yet verified means you cannot tell a refactoring mistake from an implementation mistake, and you will debug both at once.
+
+### The scope rule
+
+**Only what this feature touched.** The boundary is the feature's own diff — the files you changed, the functions you added, the seams you cut. Not "the module while I'm here", not the neighbouring class that has always bothered you.
+
+| In scope | Out of scope |
+| --- | --- |
+| Duplication *this feature* introduced | Duplication that predates it |
+| Dead code left over from your own attempts | Dead code someone else left |
+| Names that drifted from the target's vocabulary | Renaming across the codebase |
+| Scaffolding you added to make verification easy | Restructuring a module you merely read |
+| A function this feature grew past readable | A long function you did not touch |
+
+Anything out of scope that genuinely needs doing becomes **a `core` feature on the ledger** with its own verification steps. That is not a deferral tactic — it is the difference between debt you tracked and debt you absorbed silently.
+
+### The three rules
+
+1. **No behavior change.** If behavior changes, it is not a refactor. It is a new feature or a bug fix, and it goes on the ledger with its own steps.
+2. **Re-run the feature's own verification steps afterward.** Not a subset, not "it obviously still works". The refactor is not done until the same steps that went green before go green again. This is the entire safety argument for doing it here rather than later.
+3. **Stop when the cleanup is bigger than the feature.** If the tidy-up would exceed the change that prompted it, you have found a `core` feature, not a refactor. File it and move on.
+
+### What to actually look for
+
+Ordered by how much they cost if left:
+
+| Look for | Why it matters here |
+| --- | --- |
+| **Duplication you just created** | This is where the fourth copy of a utility is born — one plausible local decision at a time |
+| **The seam you cut in a hurry** | An interface written to get the test passing is an interface everything downstream will bind to |
+| **Scaffolding and debug residue** | Console logs, hardcoded fixtures, the temporary flag you added to reach a branch |
+| **Names that drifted** | The target says `resetToken`, the code says `tmpKey`; a vocabulary mismatch survives into every future search |
+| **A branch you never simplified** | The nested conditional that grew while you were chasing the edge case |
+
+### Commit boundary
+
+The refactor lands **in the feature's own commit**, because it is part of that feature's working state and one feature = one commit = one working state. If a cleanup feels large enough to want its own commit, that is the signal it was large enough to be its own ledger feature — see rule 3.
+
+BAD: *"F014 passes. Committing."* — with the debug logging still in, and the token helper duplicated because the existing one was two directories away.
+
+BETTER: *"F014: all 5 steps pass. Refactor — removed the debug logging, folded my `makeToken` into the existing `lib/tokens.ts` helper, renamed `tmpKey` to `resetToken` to match the spec. Re-ran all 5 steps, still green. Committing."*
 
 ---
 

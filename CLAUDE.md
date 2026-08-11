@@ -46,7 +46,7 @@ Rules:
 - **Copies are verbatim.** The only permitted difference from the original is the depth of a relative link: a host at the library root writes `bundled/x/SKILL.md`, a copy inside a bundle writes `../x/SKILL.md`. Nothing else may differ — no summarising, no trimming.
 - **Never hand-edit a copy.** Change the source skill, then regenerate the bundles.
 
-Five skills currently bundle: `promethean-parthenon`, `agentic-engineering`, `long-horizon-engineering-workflow`, `senior-leadership-advisor`, `github-report`. They share one 11-skill closure. `scripts/build-index.py` globs `*/SKILL.md`, so nested copies are never indexed as skills.
+Six skills currently bundle — the Role · Task · Format cluster routed by `promethean-parthenon`: `senior-leadership-advisor` (Role), `requirement-gathering` · `agentic-engineering` · `long-horizon-engineering-workflow` (Task), `github-report` (Format), plus the router itself. They share one 11-skill closure. `scripts/build-index.py` globs `*/SKILL.md`, so nested copies are never indexed as skills.
 
 Verify with `python scripts/check-bundles.py` — it re-checks the closure, the copies, and every relative link in the repo.
 

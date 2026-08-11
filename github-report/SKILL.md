@@ -12,7 +12,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.1.0"
   source: Github-report brief (compiled 2026)
 ---
 
@@ -133,7 +133,7 @@ Define these once, per repo, and the report becomes mechanical. Introduce them f
 
 ---
 
-**Related skill:** this is the Record pillar of [promethean-parthenon](bundled/promethean-parthenon/SKILL.md), which routes between briefing, building, deciding, and recording.
+**Related skill:** this is the **Format** pillar of [promethean-parthenon](bundled/promethean-parthenon/SKILL.md), which organises agent work as Role · Task · Format. Format is upstream of itself: the conventions in the first half of this file are what make the report in the second half possible, so the output shape is a decision to make *before* the build, not after it. The **Task** pillar produces the commits this reads — [long-horizon-engineering-workflow](bundled/long-horizon-engineering-workflow/SKILL.md) — and [senior-leadership-advisor](bundled/senior-leadership-advisor/SKILL.md) is **Role**.
 
 ---
 

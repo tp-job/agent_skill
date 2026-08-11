@@ -44,6 +44,7 @@ CLOSURE = [
 HOSTS = [
     "promethean-parthenon",
     "agentic-engineering",
+    "requirement-gathering",
     "long-horizon-engineering-workflow",
     "senior-leadership-advisor",
     "github-report",

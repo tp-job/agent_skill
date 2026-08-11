@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/skill-index.json",
   "version": "1.1.0",
-  "generated": "2026-08-09",
+  "generated": "2026-08-11",
   "root": "agent-skill",
   "count": 33,
   "skills": [
@@ -105,7 +105,7 @@
       "name": "long-horizon-engineering-workflow",
       "path": "long-horizon-engineering-workflow/SKILL.md",
       "description": "A six-stage gated delivery workflow (Requirements → Design → Development → QA → UAT → Deployment) to keep long, multi-session, or multi-stage builds from drifting. Use for any 'build me X' request too big for one shot; not for snippets or small well-specified fixes.",
-      "content": "Two loops: a gated outer loop (Requirements → Design → Development → Integration QA → UAT → Deployment) around a per-feature inner loop ending in a verified commit, backed by four harness files at the repo root (build-spec.md, feature-list.json, progress.md, init script) so state survives context loss. Stage 2 runs computational thinking as its method — decomposition into the feature ledger, pattern recognition for reuse, abstraction for the interface contract, algorithm design branch by branch, and data mapping at every boundary. Operates in 'strong push' mode requiring gate artifacts before advancing while respecting explicit overrides, and holds twelve hard invariants including an append-mostly ledger and never claiming an unobserved pass."
+      "content": "Two loops: a gated outer loop (Requirements → Design → Development → Integration QA → UAT → Deployment) around a per-feature inner loop that runs scoped regression → select → implement → verify → refactor what that feature touched → ledger → commit, backed by four harness files at the repo root (build-spec.md, feature-list.json, progress.md, init script) so state survives context loss. The refactor box is bounded to the feature's own diff, forbidden from changing behaviour, and re-verified against the same steps — which is what keeps a build that passes every gate from degrading one commit at a time. Stage 2 runs computational thinking as its method — decomposition into the feature ledger, pattern recognition for reuse, abstraction for the interface contract, algorithm design branch by branch, and data mapping at every boundary. Operates in 'strong push' mode requiring gate artifacts before advancing while respecting explicit overrides, and holds twelve hard invariants including an append-mostly ledger and never claiming an unobserved pass."
     },
     {
       "name": "obsidian-vault",
@@ -128,13 +128,13 @@
     {
       "name": "promethean-parthenon",
       "path": "promethean-parthenon/SKILL.md",
-      "description": "The operating doctrine for getting high-performance output out of an AI coding agent, and the router across the four skills that produce it: brief it (agentic-engineering), build it under gates and on-disk state (long-horizon-engineering-workflow), decide and critique like leadership (senior-leadership-advisor), and record what shipped (github-report).",
-      "content": "Four pillars — Foresight, Structure, Judgment, Record — with a load path where each hands the next a written artifact. Provides a routing table (by what you hold, by what went wrong, and sized to the work), the five levers that actually change agent output quality ranked by effect (target specificity, verification actually run, state outliving the conversation, effort placed at decisions, scope held still), a catalogue of twelve silent failure modes with their tells and cheapest detection, and explicit hand-offs to skills outside the set."
+      "description": "The operating doctrine for getting high-performance output out of an AI coding agent, and the router across the five skills that produce it, organised as Role · Task · Format: set the seat that answers (senior-leadership-advisor), write the target and build against it (requirement-gathering, agentic-engineering, long-horizon-engineering-workflow), and land the result in a record built from real data (github-report).",
+      "content": "Three pillars — Role, Task, Format — with a load path where each hands the next a written artifact. Task is the widest, carrying three skills and one ordering rule: you cannot build against a target you have not written down, so extract it with requirement-gathering when it lives in code, brief it with agentic-engineering when it lives in someone's head, then build against it under gates. Provides a routing table (by what you hold, by what went wrong, and sized to the work), the five levers that actually change agent output quality ranked by effect (target specificity, verification actually run, state outliving the conversation, effort placed at decisions, scope held still), a catalogue of fourteen silent failure modes with their tells and cheapest detection, and explicit hand-offs to skills outside the set."
     },
     {
       "name": "requirement-gathering",
       "path": "requirement-gathering/SKILL.md",
-      "description": "Autonomous requirement extraction and documentation for PERN/MERN full-stack projects with micro design standards. Produces a complete Markdown requirements document without asking follow-up questions. Thai triggers included (วิเคราะห์ code, เขียน spec, ทำ requirements, audit component).",
+      "description": "Autonomous requirement extraction and documentation for PERN/MERN full-stack projects with micro design standards — the 'extract' skill of the Promethean Parthenon Task pillar, for when requirements live in code rather than in someone's head. Produces a complete Markdown requirements document without asking follow-up questions. Thai triggers included (วิเคราะห์ code, เขียน spec, ทำ requirements, audit component).",
       "content": "Runs an autonomous protocol: auto-detect context, then emit layered contracts — frontend component contract (always), API contract, DB schema contract — followed by functional requirements, non-functional requirements, a lean risk register, and a small-team sign-off checklist. Ends with a full output document template; missing context is inferred and annotated as assumptions rather than asked about."
     },
     {

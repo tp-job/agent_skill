@@ -1,11 +1,11 @@
 ---
 name: long-horizon-engineering-workflow
 description: >
-  Runs long, multi-session engineering builds as a gated outer loop (Requirements → Design → Development → Integration QA → UAT → Deployment) wrapped around a per-feature inner loop (scoped regression → select → implement → verify → commit), backed by on-disk state that survives context loss. Stage 2 runs computational thinking as its method — decomposition, pattern recognition, abstraction, algorithm design, and data mapping — so also trigger on "break this down", "decompose this build", "how should I structure this", "map the data flow". Use this whenever a user asks Claude to build, develop, architect, extend, or ship something spanning multiple turns or sessions — a new app, a multi-component feature, a system with several moving parts, a refactor touching many files, or any "build me X" / "let's build out Y" request too big to land in one shot. Also trigger mid-build when the requirement, design, or feature ledger was never written down and the work is drifting, or when an agent starts declaring features done without verifying them. Push hard for gate artifacts and harness files before advancing, but respect an explicit user override to skip ahead. Do NOT trigger for single quick snippets, isolated one-off scripts, or small well-specified bug fixes — those don't need gates.
+  Runs long, multi-session engineering builds as a gated outer loop (Requirements → Design → Development → Integration QA → UAT → Deployment) wrapped around a per-feature inner loop (scoped regression → select → implement → verify → refactor what that feature touched → commit), backed by on-disk state that survives context loss. Also trigger on "clean up as we go", "refactor after each feature", "the code is getting messy as we build". Stage 2 runs computational thinking as its method — decomposition, pattern recognition, abstraction, algorithm design, and data mapping — so also trigger on "break this down", "decompose this build", "how should I structure this", "map the data flow". Use this whenever a user asks Claude to build, develop, architect, extend, or ship something spanning multiple turns or sessions — a new app, a multi-component feature, a system with several moving parts, a refactor touching many files, or any "build me X" / "let's build out Y" request too big to land in one shot. Also trigger mid-build when the requirement, design, or feature ledger was never written down and the work is drifting, or when an agent starts declaring features done without verifying them. Push hard for gate artifacts and harness files before advancing, but respect an explicit user override to skip ahead. Do NOT trigger for single quick snippets, isolated one-off scripts, or small well-specified bug fixes — those don't need gates.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.1.0"
+  version: "3.2.0"
   source: >
     Long-Horizon Engineering Workflow playbook (compiled 2026), merged with
     Anthropic "Effective harnesses for long-running agents", the
@@ -59,12 +59,14 @@ OUTER LOOP — once per build (the gates)
 └──────────────────────────────────────────────────────────────────┘
 
 INNER LOOP — once per feature, dozens of times (Stage 3)
-   affected tests → select → implement → verify
-        ▲                                   │
-        └──── commit ← update ledger ───────┘
+   affected tests → select → implement → verify → refactor
+        ▲                                            │
+        └──── commit ← update ledger ←───────────────┘
 ```
 
 Stage 1–2 produce the written contract. Stage 3 is not one long push — it is the inner loop turning over one sub-task at a time, each ending in a verified commit. Stages 4–6 test what per-feature verification structurally cannot, then ship.
+
+**The loop ends in a refactor, not in an implementation.** The moment a feature's steps pass you are holding exactly the safety net a cleanup needs, and you will never again have this much context on this diff. So the last move of every iteration is to clean what *this feature* touched — its own diff, no further — and re-run its own steps. Skipping it is how a build that passes every gate still degrades one commit at a time. Scope, stop rules, and what to look for: [feature-loop](references/feature-loop.md).
 
 **What Stage 1–2 fix is the acceptance criteria, not the implementation plan.** Criteria should be stable; the feature list is expected to grow as you learn. Growth is discovery working. A drifting acceptance criterion is the build going wrong.
 
@@ -196,7 +198,7 @@ A confirmed bug becomes a **new ledger feature** with verification steps, and if
 
 ---
 
-**Related skills:** [senior-leadership-advisor](bundled/senior-leadership-advisor/SKILL.md) supplies the role catalog and the general team protocol this workflow specializes. Reach for it when the request is a *decision or a critique*; reach for this skill when there is something to construct across sessions. [agentic-engineering](bundled/agentic-engineering/SKILL.md) produces the brief this workflow's Stage 1 consumes. This skill is the Structure pillar of [promethean-parthenon](bundled/promethean-parthenon/SKILL.md), which routes between all four.
+**Related skills:** this is the **build** skill of the **Task** pillar in [promethean-parthenon](bundled/promethean-parthenon/SKILL.md), which organises agent work as Role · Task · Format. Stage 1 consumes a written target produced by one of the other two Task skills — [agentic-engineering](bundled/agentic-engineering/SKILL.md) when the requirements live in someone's head, [requirement-gathering](bundled/requirement-gathering/SKILL.md) when they live in code that already exists. [senior-leadership-advisor](bundled/senior-leadership-advisor/SKILL.md) is the **Role** pillar: it supplies the role catalog and the general team protocol this workflow specializes, and it is what you reach for when the request is a *decision or a critique* rather than something to construct. [github-report](bundled/github-report/SKILL.md) is the **Format** pillar and turns the commits this loop produces into the record.
 
 ---
 

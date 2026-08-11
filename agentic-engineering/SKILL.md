@@ -17,7 +17,7 @@ description: >
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.1.0"
   source: Agentic Engineering briefing method (compiled 2026)
 ---
 
@@ -101,7 +101,7 @@ Before building, write down what is being created, for whom, under what limits, 
 
 ---
 
-**Related skill:** this is the Foresight pillar of [promethean-parthenon](bundled/promethean-parthenon/SKILL.md), which routes between briefing, building, deciding, and recording. Go there when you are unsure which of those the work needs.
+**Related skill:** this is the **brief** skill of the **Task** pillar in [promethean-parthenon](bundled/promethean-parthenon/SKILL.md), which organises agent work as Role · Task · Format. Its sibling in Task is [requirement-gathering](bundled/requirement-gathering/SKILL.md), which writes the target when it already lives in code rather than in someone's head; [long-horizon-engineering-workflow](bundled/long-horizon-engineering-workflow/SKILL.md) builds against whichever of the two produced it. Go to the router when you are unsure which pillar the work needs.
 
 ---
 
