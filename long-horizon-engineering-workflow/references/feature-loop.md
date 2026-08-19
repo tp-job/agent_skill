@@ -132,7 +132,12 @@ The most common failure of a long-running agent is declaring victory. Guardrails
 
 - A `curl` succeeding is not a UI working. A unit test passing is not a feature working.
 - Never script around the interface you are supposed to be testing.
-- Mark `passes: true` only when **every** step passed. Not most.
+- Mark `passes: true` only when **every** step passed. Not most. When a step is correct but this environment cannot run it, mark `"blocked"` with `blocked_reason` and `recheck_when` — never `true` with the gap admitted in `notes`.
+
+**Two checks that catch what step-by-step verification cannot:**
+
+- **Prove the instrument can fail.** A test that has never failed has proven nothing; neither has a scan that has never found anything. Break the thing on purpose — invert the assertion, feed the checker a known-bad input, point the path audit at a file you know is absent — watch it fail, then restore. A green suite you have never seen go red is an untested test suite. This is one minute and it is the difference between "the check passed" and "the check works".
+- **A script that writes in bulk must be safe to run twice.** Migrations, backfills, repairs, renames: run it, run it again, and confirm the second run changes nothing. A repair script once corrected 40 rows by a fixed offset, and 40 rows still matched its detection rule afterwards — a second run would have shifted them again. That was found *after* it had already run. If the operation cannot be made idempotent, it needs a ledger row recording that it ran, and a refusal to run again without an explicit override.
 
 BAD: *"Implemented password reset. The endpoint returns 200, so F014 passes."*
 
@@ -202,6 +207,10 @@ git commit -m "feat(F014): password reset via emailed one-time link
 ```
 
 Confirm it landed: `git status` clean, `git log --oneline -1` shows it. **A feature without a commit does not exist** — it is an uncommitted diff the next context window will not know about and may destroy.
+
+**One commit carries one reason to revert.** Verification passing for F014 is not permission to sweep in the refactor, the unrelated security fix and the rename you did while waiting. A commit once landed eight files spanning a layout rewrite, a rate-limit fix, a data-layer fix and a spec-driven rename, under the title `fix(prisma): pin session timezone to UTC` — three of the four are unfindable from history, and `git blame` sends you to the wrong change. If the tree holds work from several concerns, commit them separately, each with its own message.
+
+Message format, footers and the conventions a report is later generated from are defined elsewhere — by whichever reporting convention this project has adopted, not by this file. This is the step that has to honour them, and it is the step where they get skipped.
 
 ---
 

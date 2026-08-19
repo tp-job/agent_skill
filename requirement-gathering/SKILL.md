@@ -296,18 +296,6 @@ Read these only when deeper guidance is needed for that specific area.
 
 ---
 
-**Related skill:** this is the **extract** skill of the **Task** pillar in [promethean-parthenon](bundled/promethean-parthenon/SKILL.md), which organises agent work as Role · Task · Format. Task's rule is that you cannot build against a target you have not written down; which skill writes it depends on where the requirements currently live.
-
-- **In code that already exists** → this skill. REVERSE to document what is there, GAP to name the delta against what you want.
-- **In someone's head, one sentence long** → [agentic-engineering](bundled/agentic-engineering/SKILL.md).
-- **Extending a live system** → both, extraction first. A brief written in ignorance of the contracts the system already publishes produces work that has to be redone the moment it meets them.
-
-Either way the written target is what [long-horizon-engineering-workflow](bundled/long-horizon-engineering-workflow/SKILL.md) consumes at Stage 1. **What exists is evidence, not a specification** — a bug faithfully documented is still a bug, and deciding which extracted behavior is intended belongs to the **Role** pillar, [senior-leadership-advisor](bundled/senior-leadership-advisor/SKILL.md).
-
----
-
-## Bundled skills
-
-Every skill this file links to travels with it — as copies under `bundled/` at the library root, or as sibling folders when this skill is itself sitting inside another skill's bundle. Either way no link points outside the copied tree, so dropping this folder into a project brings the whole cluster with it and nothing dangles.
+**Where this fits:** use this skill when the requirements already live in code — REVERSE mode to document what is there, GAP mode to name the delta against a desired behavior. When the requirements instead live in someone's head as a one-line ask, a different tool writes that kind of target. **What exists is evidence, not a specification** — a bug faithfully documented is still a bug; deciding which extracted behavior is actually intended is a judgment call, not this skill's job.
 
 These are copies, not forks. Refresh them from the skill library rather than editing them in place; the only thing that differs from the originals is the depth of their relative links.

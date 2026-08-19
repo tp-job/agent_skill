@@ -133,12 +133,6 @@ Define these once, per repo, and the report becomes mechanical. Introduce them f
 
 ---
 
-**Related skill:** this is the **Format** pillar of [promethean-parthenon](../promethean-parthenon/SKILL.md), which organises agent work as Role · Task · Format. Format is upstream of itself: the conventions in the first half of this file are what make the report in the second half possible, so the output shape is a decision to make *before* the build, not after it. The **Task** pillar produces the commits this reads — [long-horizon-engineering-workflow](../long-horizon-engineering-workflow/SKILL.md) — and [senior-leadership-advisor](../senior-leadership-advisor/SKILL.md) is **Role**.
-
----
-
-## Bundled skills
-
-Every skill this file links to travels with it — as copies under `bundled/` at the library root, or as sibling folders when this skill is itself sitting inside another skill's bundle. Either way no link points outside the copied tree, so dropping this folder into a project brings the whole cluster with it and nothing dangles.
+**Where this fits:** this skill is upstream of itself — the conventions in the first half of this file are what make the report in the second half possible, so the output shape is a decision to make *before* the build that produces the commits, not after it.
 
 These are copies, not forks. Refresh them from the skill library rather than editing them in place; the only thing that differs from the originals is the depth of their relative links.

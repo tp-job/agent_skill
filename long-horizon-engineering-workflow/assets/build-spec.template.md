@@ -46,6 +46,26 @@ Explicit. Things that sound related and are not being built.
 - **State ownership:** <who owns each piece of state; where the source of truth lives>
 - **Failure and fallback behavior:** <what happens when each boundary fails>
 
+### Decisions, with the premise each rests on
+
+A conclusion on its own cannot be re-checked later. State what expires it, so a scope change is
+caught as an expiry rather than argued as a mistake. Re-read this table at every gate.
+
+| # | Decision | Premise it rests on | Expires if | Status |
+| --- | --- | --- | --- | --- |
+| D1 | <what was decided> | <the one sentence that makes it correct> | <the change that would end that> | live |
+| D2 | | | | live / **expired → superseded by D…** |
+
+### House mechanics *(answer from the repo, not from convention)*
+
+| Question | Answer | Evidence |
+| --- | --- | --- |
+| Schema changes applied how? | | <migrations dir present/absent; what prior changes did> |
+| Test / lint / typecheck / build commands | | <package manifest scripts> |
+| What CI runs, on which events | | <workflow file> |
+| Ignore patterns that could swallow state | | <ignore file> |
+| What a commit on this branch triggers | | <branch protection, deploy config> |
+
 ## 7. Logic flow  *(Stage 2)*
 
 Happy path first, then every branch. A numbered list is enough; it only has to exist before the code does.

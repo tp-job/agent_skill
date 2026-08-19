@@ -38,6 +38,40 @@ Terms are grouped by the decision they inform. Where a term has a common misuse,
 
 **Prompt injection** — Instructions embedded in content the system ingests (a web page, a document, a user upload) that attempt to redirect model behaviour. The mitigation is architectural — never let ingested content authorize a side effect — not textual. Telling the model to ignore injections is not a control.
 
+**Prompt caching** — Reusing the provider-side computation for a stable prefix across requests, billed at a fraction of fresh input. It is a **prefix** match: one changed byte anywhere early invalidates everything after it, so a timestamp or an unsorted JSON blob near the top silently costs you the whole cache. Order context stable-first, volatile-last. **Misuse:** treating it as a cost line item — the latency difference on a long system prompt is usually the bigger win.
+
+**Reasoning effort** — A setting that scales how much deliberation a model spends before answering, typically a small ladder from minimal to maximum. The practical lever for "think hard here, not there," and usually a better first move than switching models: it spans a wide quality range on one model, keeps a single set of behaviours in play, and does not invalidate the prompt cache the way a model swap does. Lower settings also produce terser output and fewer tool calls, which is often what a routine step actually wants.
+
+**Adaptive thinking** — The model deciding for itself when to reason and how deeply, rather than being handed a fixed token allowance. Has largely replaced the older "thinking budget" idea; a hard reasoning-token ceiling carried forward from an older integration is usually better expressed as an effort level.
+
+---
+
+## Managing a long context
+
+The terms below all address the same problem — a conversation that outgrows the window — and they are routinely confused, which matters because they lose different things.
+
+**Compaction** — Summarizing earlier conversation into a shorter form so the run can continue. Available as a provider-side feature and as something harnesses do themselves. It preserves the gist and **drops the specifics** — the exact limit you agreed, the reason you rejected the first approach. Anything that must survive belongs in a file, not in the transcript.
+
+**Context editing** — *Clearing* stale material outright (old tool results, superseded reasoning) rather than summarizing it. Cheaper and more predictable than compaction, and appropriate when the dropped material has no future value. Distinct from compaction: this forgets, it does not compress.
+
+**Memory (agent memory)** — Durable state the model reads and writes across sessions, outside the conversation. The only one of these three that survives the run ending. **Misuse:** treating a long context window as memory — the window is a working set, not storage.
+
+**Tool search / deferred tool loading** — Keeping a large tool catalogue out of the prompt and letting the model retrieve the definitions it needs. Relevant once a tool surface grows past a few dozen; below that, the retrieval step costs more than the tokens it saves.
+
+---
+
+## Agent architecture
+
+**MCP (Model Context Protocol)** — An open protocol for exposing tools, data, and prompts to a model host, so an integration written once works across clients. The practical effect is that "add a tool" becomes a server you run rather than glue inside one app. Treat an MCP server's output as untrusted content like any other ingested data — see **prompt injection**.
+
+**Agent skill** — A packaged, model-readable unit of instructions (and optionally scripts and templates) that a host loads on demand when its description matches the task. The description is the routing decision and the body is the method — a trigger phrase buried in the body is invisible at the moment it matters.
+
+**Sub-agent / fan-out** — Delegating a scoped piece of work to a separate agent with its own context. The real benefit is not parallelism but **context isolation**: a fresh agent cannot inherit the blind spot of the one that spawned it, which is why a verification sub-agent given only the spec is a stronger check than re-reading your own work. Read its report as evidence, not verdict — "all tests pass" without naming which tests has told you nothing.
+
+**Managed / hosted agent** — An agent whose loop and tool-execution sandbox the provider runs, rather than your own infrastructure. Trades control for not owning the loop, the state store, or the scheduler. Worth it when the alternative is rebuilding all three.
+
+**Task budget** — A token ceiling an agent is *aware of*, so it paces itself and finishes gracefully. Distinct from a hard response cap, which the model cannot see and which simply truncates it mid-thought.
+
 ---
 
 ## Quality and failure

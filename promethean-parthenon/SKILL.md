@@ -2,7 +2,7 @@
 name: promethean-parthenon
 description: >-
   The operating doctrine for getting high-performance output out of an AI coding agent,
-  and the router across the five skills that produce it, organised as Role · Task · Format:
+  and the router across the skills that produce it, organised as Role · Task · Format:
   set the seat that answers (senior-leadership-advisor), fix the target and build against it
   — extract requirements from code that already exists (requirement-gathering), brief a new
   ask (agentic-engineering), construct it under gates and on-disk state
@@ -19,7 +19,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "2.0.0"
+  version: "2.2.0"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,
@@ -116,6 +116,24 @@ Full decision table with tie-breakers: [routing](references/routing.md). The sho
 
 ---
 
+## The specialists
+
+Five more skills travel in this bundle. They are not pillars — they do not carry the load path — but each one owns a question the pillars will hit and answer worse on their own. **Open them by the trigger, mid-build, without leaving the pillar you are in.**
+
+| Trigger — the moment it applies | Skill |
+| --- | --- |
+| You are about to write auth, crypto, access control, input handling, secrets, or anything an adversary touches — **before** writing it, not at review | [owasp-top-10-2025](bundled/owasp-top-10-2025/SKILL.md) |
+| You changed anything visual: theme, contrast, dark mode, focus states, layout at a breakpoint | [ui-checker](bundled/ui-checker/SKILL.md) |
+| You are creating a file or folder and choosing where it goes or what it is called | [project-file-structure](bundled/project-file-structure/SKILL.md) |
+| You are writing or revising a skill — including these | [skill-creator](bundled/skill-creator/SKILL.md) |
+| A specific bug with a reproduction | [debug-master](bundled/debug-master/SKILL.md) |
+
+**These triggers fire inside the loop, not at a gate.** That placement is deliberate and was learned the expensive way: on a build that shipped envelope encryption, a rate-limit bypass fix and cross-user isolation checks, the security reference in this very bundle was never opened once, and the theme and contrast work was done by hand next to an unused WCAG checker. Nothing routed to them, so they may as well not have shipped. See [regression-cases](references/regression-cases.md) RC-06.
+
+A specialist that changes nothing stays shut. But *"did I even consider it"* is a question you can only answer if the trigger is written where you are working — which is here, not three files away.
+
+---
+
 ## The five levers
 
 What actually moves agent output quality, ranked by effect. Detail and the measurements behind the ranking: [output-quality](references/output-quality.md).
@@ -123,7 +141,7 @@ What actually moves agent output quality, ranked by effect. Detail and the measu
 1. **Specificity of the target.** The single largest lever, by a wide margin. A rule with a number in it beats a paragraph of adjectives. "Secure" is not a requirement; "an attacker with the email address cannot confirm the account exists" is.
 2. **Verification you actually ran.** A test that has never failed has proven nothing. Implementation errors get caught by verification; verification errors get caught by nothing.
 3. **State that outlives the conversation.** Anything living only in the transcript is not state. Compaction keeps the gist and drops the fact — and the fact is what you needed.
-4. **Effort placed at decisions, not iterations.** Deep thinking at the gates, at decomposition, and on anything that failed twice. Routine loop iterations were decided upstream; thinking hard there is spend with no return.
+4. **Effort placed at decisions, not iterations.** Deep thinking at the gates, at decomposition, and on anything that failed twice. Routine loop iterations were decided upstream; thinking hard there is spend with no return. On current models this is a literal setting — a reasoning effort level from `low` to `max` — so reach for it before reaching for a different model.
 5. **Scope held still.** A growing feature list is discovery working. A drifting acceptance criterion is the build going wrong. Know which one you are looking at.
 
 ---
@@ -178,6 +196,25 @@ Set the seat before you set the work; write the target down before you build aga
 
 ## Bundled skills
 
-Every skill this file links to travels with it — as copies under `bundled/` at the library root, or as sibling folders when this skill is itself sitting inside another skill's bundle. Either way no link points outside the copied tree, so dropping this folder into a project brings the whole cluster with it and nothing dangles.
+This is the one skill in the library allowed to link to others — it is the aggregator, and every skill it links to travels with it as a verbatim copy under `bundled/`. Dropping this folder into a project brings the whole cluster with it and nothing dangles. The skills it points at are standalone components in their own right and carry no links or bundles of their own; only this file combines them.
 
-These are copies, not forks. Refresh them from the skill library rather than editing them in place; the only thing that differs from the originals is the depth of their relative links.
+These are copies, not forks. Refresh them from the skill library rather than editing them in place.
+
+**When a bundled copy is actually broken, fix it and record the fix here.** "Never hand-edit `bundled/`" is the right default and a bad absolute: `skill-creator` shipped instructing eighteen scripts that do not exist in this bundle, which made the one skill responsible for repairing skills unable to run its own process. A rule that forbids repairing that leaves the break in place forever. Fix it, note it below, and carry the note into the next refresh so the upstream copy gets the same fix instead of silently reverting yours.
+
+**A local fix is a debt, not a state.** It is paid off by carrying the same fix to the source skill and regenerating, which is the only way it survives the next refresh. Until it is paid, record it below; once it is, the row goes away because the copy is verbatim again.
+
+**Local fixes outstanding:** none.
+
+| Skill | Fix | Paid to upstream |
+| --- | --- | --- |
+| `skill-creator` | Replaced the automated eval half with a manual loop — it referenced 18 scripts and 3 agent files, none of which ship in this library at all | Yes — `skill-creator` v1.1.0 |
+| `long-horizon-engineering-workflow` | Seven files carrying the RC-01…RC-08 fixes: the `git check-ignore` precheck, the ledger's third `blocked` state, decision premises and their expiry, Stage 2 house mechanics, prove-the-instrument-can-fail, idempotent bulk writes, one-concern commits | Yes — `long-horizon-engineering-workflow` v3.3.0 |
+
+The second row is the case that proves the rule: those fixes lived only in `bundled/` for two months, so the skill every other project actually installs never received them, and `check-bundles.py` reported them as drift to be overwritten. A fix that exists only in a copy is one rebuild away from being deleted.
+
+**One link did not survive the trip upstream.** The commit step's pointer to the reporting skill's commit conventions is legal here — the aggregator may link across skills — but illegal in the spoke, which must stand alone. It became plain prose in both. When propagating a bundled fix, expect any cross-skill link in it to need that conversion.
+
+### Verifying this skill
+
+Changes to any file in this package are checked against [regression-cases](references/regression-cases.md) — eight failures this skill has actually caused, each with a known correct answer. Add a case whenever it causes another, and write the case **before** the fix; a case written afterwards is shaped to fit the fix and stops being evidence.

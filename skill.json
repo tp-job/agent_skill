@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/skill-index.json",
   "version": "1.1.0",
-  "generated": "2026-08-11",
+  "generated": "2026-08-19",
   "root": "agent-skill",
   "count": 33,
   "skills": [

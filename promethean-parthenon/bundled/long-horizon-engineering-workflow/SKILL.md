@@ -5,7 +5,7 @@ description: >
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.2.0"
+  version: "3.3.0"
   source: >
     Long-Horizon Engineering Workflow playbook (compiled 2026), merged with
     Anthropic "Effective harnesses for long-running agents", the
@@ -141,6 +141,20 @@ Design is not a document you produce, it is a method you run. Five moves, in ord
 
 **Data Mapping is the one most often skipped and least often survivable.** Logic errors get caught by tests; a field named `user_id` on one side and `userId` on the other gets caught by a user.
 
+### Move zero: house mechanics
+
+Before any of the five, answer how **this** repo does the things your spec is about to name. Every answer cites evidence from the tree — a file, a script entry, a directory that exists or does not. Convention is not evidence, and neither is how the framework's documentation says it is usually done.
+
+| Question | Where the answer comes from | What a wrong guess costs |
+| --- | --- | --- |
+| How are schema changes applied? | presence or absence of a migrations directory; what previous changes did | **A destructive command.** A spec once said `prisma migrate dev` in a repo with no migrations directory — on a populated database that offers to reset it. |
+| How do tests, lint, typecheck and build run? | the package manifest's scripts, and CI config | A gate you believe is green because you ran a subset. Typecheck and build are not the same check. |
+| What does CI actually run, and on which events? | the workflow file | Lint failing on a branch you thought was clean, because your local gate never ran it |
+| Where do secrets live, and what is ignored? | the ignore file, read for the *patterns* not the paths | Harness or config written to an ignored path — silently |
+| What does a commit on this branch trigger? | branch protection, workflow triggers, deploy config | An unattended loop turning into a deployment pipeline |
+
+**Write the answers into `progress.md` under a heading that says they are not to be re-derived.** They cost a few minutes once and are wrong to guess twice.
+
 ---
 
 ## Sub-tasks
@@ -157,8 +171,10 @@ One feature = one commit = one working state. Never two in flight, except the sm
 
 Not tradeable against speed. Full statements in [safety-and-invariants](references/safety-and-invariants.md).
 
-1. **The ledger is append-mostly.** Only `passes` and `notes` change. Never delete a feature, edit a description, or loosen a step because it's failing. **If the target is genuinely wrong, surface it to the user and supersede** — mark the old feature superseded in `notes` and append a corrected one with a new ID. Never silently.
+1. **The ledger is append-mostly.** Only `passes` and `notes` change. Never delete a feature, edit a description, or loosen a step because it's failing. **If the target is genuinely wrong, surface it to the user and supersede** — mark the old feature superseded in `notes` and append a corrected one with a new ID. Never silently. A decision that was *correct* and whose premise has since changed is superseded the same way — see [design-and-architecture](references/design-and-architecture.md); it is not an error to correct, and pretending otherwise is why the framing gets invented mid-build.
 2. **Never claim a pass you did not observe.** "Implemented" ≠ "verified." Unit tests passing ≠ the feature working. Verify end to end through the interface your consumer actually touches.
+   - **This governs documents too, not only ledger rows.** A spec, brief or report that states how the system behaves is making the same kind of claim, and gets the same standard: measured, or visibly marked as inferred. A requirements doc once warned that a bug threatened calendar scheduling; measurement showed the field involved had never been affected, and the alarm had shipped several times louder than the fact.
+   - **When the environment cannot execute a correct step, record `"blocked"`** with `blocked_reason` and `recheck_when` — never `true` with the gap confessed in `notes`. Stage 4 reads its gap list from those fields.
 3. **`passes` moves both ways.** A regression gets recorded immediately, even when it's embarrassing.
 4. **Mid-feature at a boundary → scratch branch.** `wip/F0XX` with a WIP commit, noted in `progress.md`. Never partial work on the feature branch, never silently discarded.
 5. **Stage the paths you changed, not `-A`.** Commit before compaction, before delegating, before ending a session. A feature without a commit does not exist.
@@ -198,12 +214,6 @@ A confirmed bug becomes a **new ledger feature** with verification steps, and if
 
 ---
 
-**Related skills:** this is the **build** skill of the **Task** pillar in [promethean-parthenon](../promethean-parthenon/SKILL.md), which organises agent work as Role · Task · Format. Stage 1 consumes a written target produced by one of the other two Task skills — [agentic-engineering](../agentic-engineering/SKILL.md) when the requirements live in someone's head, [requirement-gathering](../requirement-gathering/SKILL.md) when they live in code that already exists. [senior-leadership-advisor](../senior-leadership-advisor/SKILL.md) is the **Role** pillar: it supplies the role catalog and the general team protocol this workflow specializes, and it is what you reach for when the request is a *decision or a critique* rather than something to construct. [github-report](../github-report/SKILL.md) is the **Format** pillar and turns the commits this loop produces into the record.
-
----
-
-## Bundled skills
-
-Every skill this file links to travels with it — as copies under `bundled/` at the library root, or as sibling folders when this skill is itself sitting inside another skill's bundle. Either way no link points outside the copied tree, so dropping this folder into a project brings the whole cluster with it and nothing dangles.
+**Where this fits:** this skill builds against a target that was written down elsewhere — a brief for new work, or an extracted contract for an existing system. Stage 1 consumes that target; it does not produce one. When the request is a decision or a critique rather than something to construct, that is a different mode of working than this one.
 
 These are copies, not forks. Refresh them from the skill library rather than editing them in place; the only thing that differs from the originals is the depth of their relative links.

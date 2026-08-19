@@ -30,6 +30,18 @@ Templates: [build-spec](../assets/build-spec.template.md), [feature-list](../ass
 
 Repo root, not `docs/`. A file the next session has to *search for* is a file the next session will skip.
 
+### Before writing a single harness file: prove the path is tracked
+
+```bash
+git check-ignore -v build-spec.md feature-list.json progress.md
+```
+
+**No output is the passing result.** Any output names the ignore rule that will swallow your state, and you stop and pick another path.
+
+This is one command because the failure is silent and total. A harness once went to `.agents/build/` in a repo whose ignore file carried a bare `build/` line — which matches at *any* depth, not just the root. Nothing was tracked. Invariants 7, 8 and 9 all reason from *"they're tracked, so…"*, so all three quietly stopped holding at once, and the next cold session would have bootstrapped into an empty room and started over.
+
+Run it again at teardown if you moved anything. An ignore file can also change under you.
+
 **Before the first commit, check whether this repo is public** — the ledger and progress log describe your security posture. See invariant 7 in [safety-and-invariants](./safety-and-invariants.md).
 
 ---

@@ -4,7 +4,7 @@ A gate without an owner is a gate nobody closes. In a human team the seats are s
 
 The failure this prevents: the person who wrote the code is the worst possible person to verify it, and knows it least.
 
-This specializes the general role protocol from the sibling [senior-leadership-advisor](../bundled/senior-leadership-advisor/SKILL.md) skill — lead selection, the conflict ladder, and handoff contracts are defined in its [team-protocol](../bundled/senior-leadership-advisor/references/team-protocol.md), and its [roles catalog](../bundled/senior-leadership-advisor/references/roles.md) has ~50 seats across software, IoT, design, content, management, and silicon tracks. Everything needed to run this workflow is restated below, so the cross-links are depth, not dependencies.
+This specializes a general role protocol — lead selection, a conflict ladder, and handoff contracts — that also exists elsewhere as a standalone catalog of roughly 50 seats across software, IoT, design, content, management, and silicon tracks. Everything needed to run this workflow is restated below; nothing here depends on that catalog existing.
 
 For how to allocate effort across seats — sub-agents, model tiers, where to spend deep thinking — see [delegation-and-models](./delegation-and-models.md).
 
@@ -23,6 +23,20 @@ For how to allocate effort across seats — sub-agents, model tiers, where to sp
 | 5 UAT | The actual user | "Does this do what I asked for?" | User sign-off |
 | 6 Deployment | Release Engineer | "How do I undo this at 2am?" | Named watcher |
 | Throughout | Security | "What does an adversary do with this?" | [safety-and-invariants](./safety-and-invariants.md) |
+| Throughout | **Harness Owner** | **"Will the next session find this, and believe it?"** | [harness-state](./harness-state.md) |
+
+**Why the Harness Owner is a seat and not a chore.** Every other seat on this map serves the
+build; this one serves the *next session*, which is the only participant who cannot speak up when
+something is missing. The gap is real and was measured: a harness was once written to a path the
+repo's `.gitignore` matched, so nothing was tracked. Invariants 7, 8 and 9 all reason from *"they're
+tracked, so…"* — every one of them quietly stopped holding, and a cold session would have
+bootstrapped into an empty room. Nobody noticed because the Release Engineer asks how to undo a
+deploy, not whether the state survives the conversation.
+
+This seat is occupied at three moments and no others: when the harness is created, when a feature
+is recorded, and at teardown. Its evidence is never prose — it is the `git check-ignore` that ran,
+the ledger field that says `blocked` rather than a passing note that admits a gap, and the commit
+that exists.
 
 Leads are selected by the standard rules — **deliverable owner, consequence owner, or whoever can isolate the cause** — never by who knows the most. Supports join only when a lens genuinely changes the recommendation, its risk, or its sequencing; a seat that changes nothing should be empty. Pull additional seats from the catalog when a build needs a discipline this table lacks: an IoT build wants the IoT Architect at Stage 2, a silicon-adjacent one wants DV at Stage 4.
 

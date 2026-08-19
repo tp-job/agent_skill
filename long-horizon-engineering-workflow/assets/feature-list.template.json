@@ -1,4 +1,10 @@
 {
+  "_schema": {
+    "passes": "true | false | \"blocked\" — three states, because reality has three. `true` means every step was observed to pass. `false` means it failed or has not been attempted. `\"blocked\"` means the step is correct and this environment cannot execute it — a headless browser that cannot emulate a media query, a CI run that only fires on a pull request, a clipboard that needs real user activation. Recording those as `true` with an apology in `notes` is the exact fudge invariant 2 exists to prevent, and it is what happened before this field had a third state.",
+    "blocked_reason": "Required when passes is \"blocked\". What specifically could not be observed, and why — the limitation, not the feature.",
+    "recheck_when": "Required when passes is \"blocked\". The condition under which this becomes verifiable: 'a real browser with reduced motion enabled', 'once a PR is open'. Stage 4 collects these; a blocked feature with no recheck condition is an abandoned one.",
+    "notes": "What was observed. Not what was intended."
+  },
   "project": {
     "name": "<project name>",
     "description": "<1-3 sentences: the problem being solved>",
@@ -29,7 +35,8 @@
       "steps": [
         "Config values load from environment, not literals",
         "Secret scan over the tracked tree returns clean",
-        ".env and equivalents are gitignored"
+        ".env and equivalents are gitignored",
+        "The harness path itself is NOT ignored — `git check-ignore -v <path>` finds no match"
       ],
       "depends_on": ["F001"],
       "passes": false,
@@ -44,6 +51,20 @@
       "depends_on": [],
       "passes": false,
       "notes": "Stub — specify steps before implementing. Empty steps cannot pass."
+    },
+    {
+      "id": "F004",
+      "category": "functional",
+      "priority": "medium",
+      "description": "<Example of a feature this environment cannot verify>",
+      "steps": [
+        "Panel stops animating when prefers-reduced-motion is set"
+      ],
+      "depends_on": [],
+      "passes": "blocked",
+      "blocked_reason": "This browser offers no way to emulate the media query, so the code path has never executed.",
+      "recheck_when": "A real browser with reduced motion enabled at OS level.",
+      "notes": "Implementation written and reviewed; behaviour unobserved. Do not mark true on the strength of the code reading correct."
     }
   ]
 }

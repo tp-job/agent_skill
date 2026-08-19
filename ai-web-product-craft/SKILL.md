@@ -5,7 +5,7 @@ description: >
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.1.0"
   source: Web Performance + Responsible AI guidelines (compiled 2026)
 ---
 

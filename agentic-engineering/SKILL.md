@@ -90,23 +90,13 @@ Equally: an agent that never asks anything about a genuinely ambiguous ask is no
 - **The ask is fully specified already** — a named bug with a repro, a typo, a version bump. Briefing it is ceremony.
 - **Exploration and spikes.** When the goal is to learn what is possible, a fixed brief works against you. Set a time or scope limit instead, and brief the real build afterward.
 - **The work already has a written spec.** Check the spec against the four questions, fill gaps, move on — do not rewrite it in this format.
-- **Multi-session builds** need more than a brief: they need on-disk state and gates. Brief the feature here, then run it through [long-horizon-engineering-workflow](bundled/long-horizon-engineering-workflow/SKILL.md).
-- **The requirements live in existing code** rather than in someone's head — that is extraction, not briefing. Use [requirement-gathering](bundled/requirement-gathering/SKILL.md).
+- **Multi-session builds** need more than a brief: they need on-disk state and gates. Brief the feature here, then hand the brief to whatever runs your gated build loop.
+- **The requirements live in existing code** rather than in someone's head — that is extraction, not briefing. A codebase scanner that documents what already exists is a different tool from this one.
 
 ---
 
 ## One-paragraph version
 
 Before building, write down what is being created, for whom, under what limits, and how you will know it is right. Then attack the limits section until it contains numbers and named failure cases instead of adjectives. Confirm it. Build against it. The cost of this is about ten minutes; the cost of not doing it is a rebuild you will mistake for a bug fix.
-
----
-
-**Related skill:** this is the **brief** skill of the **Task** pillar in [promethean-parthenon](bundled/promethean-parthenon/SKILL.md), which organises agent work as Role · Task · Format. Its sibling in Task is [requirement-gathering](bundled/requirement-gathering/SKILL.md), which writes the target when it already lives in code rather than in someone's head; [long-horizon-engineering-workflow](bundled/long-horizon-engineering-workflow/SKILL.md) builds against whichever of the two produced it. Go to the router when you are unsure which pillar the work needs.
-
----
-
-## Bundled skills
-
-Every skill this file links to travels with it — as copies under `bundled/` at the library root, or as sibling folders when this skill is itself sitting inside another skill's bundle. Either way no link points outside the copied tree, so dropping this folder into a project brings the whole cluster with it and nothing dangles.
 
 These are copies, not forks. Refresh them from the skill library rather than editing them in place; the only thing that differs from the originals is the depth of their relative links.

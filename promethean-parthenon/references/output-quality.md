@@ -75,7 +75,14 @@ Git history is the fifth, and the only one a confused agent cannot silently rewr
 
 ## Lever 4 — Effort placed at decisions, not iterations
 
-Not "think harder" — *think harder in the right places*. Thinking budget is finite, and spreading it evenly is the same as spending none of it where it counts.
+Not "think harder" — *think harder in the right places*. Attention is finite, and spreading it evenly is the same as spending none of it where it counts.
+
+**This lever now has a literal dial.** Current Claude models take a reasoning effort setting —
+`low` · `medium` · `high` · `xhigh` · `max` — so "spend depth here, not there" is a parameter
+rather than a wish. Reach for it before reaching for a different model: it moves depth further
+than most model swaps, and unlike a swap it keeps one set of behaviours in play. Thinking is
+adaptive on these models, so a fixed thinking-token budget is a retired concept; if you are
+carrying one forward, replace it with an effort level.
 
 **Spend it at:**
 
@@ -89,6 +96,8 @@ Not "think harder" — *think harder in the right places*. Thinking budget is fi
 **Do not spend it on:** routine loop iterations. Those decisions were made upstream. A pre-mortem on the fourth CRUD endpoint is ceremony.
 
 **The stop rule that saves the most time:** after three completed implement→verify cycles on the same thing, stop and re-read the requirement and the design. A fourth attempt will not find what three missed — the defect is upstream of where you are looking.
+
+**Low effort is a setting, not a downgrade.** It buys terser output and fewer, more consolidated tool calls — often what a routine iteration actually wants. Raising effort on a well-specified sub-task mostly buys deliberation over a decision that was already made upstream.
 
 **Where this lever lives:** Task — the build gates; Role — its four moments.
 

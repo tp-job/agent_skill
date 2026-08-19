@@ -26,29 +26,47 @@ Two skills deviate deliberately: `vercel-react-best-practices/rules/` holds ~68 
 
 ---
 
-## Cross-skill links and `bundled/`
+## Skills are components: hub-and-spoke, not mesh
 
-**A skill folder must work when copied out of this library on its own.** That rules out `../other-skill/SKILL.md`: it resolves here and dangles everywhere else. So a skill that links to another skill carries a copy of it.
+**A skill is a standalone component.** It must not link to another skill, and it must not carry a `bundled/` folder — full stop — unless it is itself an aggregator that routes between other skills. An ordinary skill's value has to be usable in complete isolation: copy the one folder into any project and it works, with no other skill present.
+
+**Only an aggregator combines skills, and today there is exactly one: `promethean-parthenon`.** It is allowed to link out to the skills it routes between, because routing *is* what it does. The skills it points at do not point back, and do not point at each other. That asymmetry is the whole rule:
+
+```
+   promethean-parthenon  ──links to──►  agentic-engineering
+                          ──links to──►  requirement-gathering
+                          ──links to──►  long-horizon-engineering-workflow
+                          ──links to──►  senior-leadership-advisor
+                          ──links to──►  github-report
+
+   agentic-engineering, requirement-gathering, long-horizon-engineering-workflow,
+   senior-leadership-advisor, github-report  ──link to──►  nothing outside themselves
+```
+
+If you are tempted to add "see also [other-skill]" inside one of the spokes, don't — mention the *concept* in plain prose if it helps ("this consumes a target written elsewhere"), never a markdown link to another skill's folder. A link is a dependency; a mention in prose is not.
+
+**Why:** the alternative is a mesh — every skill linking to every other skill it's ever used alongside — which forces every one of them to carry a full `bundled/` copy of the others just to stay portable. That was tried and reverted: five skills each bundling an 11-skill closure, 490+ duplicated files, all to preserve links that added no capability the plain-language mention doesn't. Hub-and-spoke gets the same "nothing dangles when copied out" property from one skill's `bundled/` folder instead of six.
+
+**A skill folder must still work when copied out of this library on its own.** For the aggregator, that rules out `../other-skill/SKILL.md`: it resolves here and dangles everywhere else. So the aggregator carries a verbatim copy of everything it links to.
 
 ```
 promethean-parthenon/
 ├── SKILL.md                     links to bundled/agentic-engineering/SKILL.md
 └── bundled/
     ├── agentic-engineering/     verbatim copy
-    ├── promethean-parthenon/    verbatim copy — see below
+    ├── requirement-gathering/   verbatim copy
     └── …
 ```
 
-Rules:
+Rules for the aggregator's `bundled/`:
 
-- **Bundle the whole link closure, not just direct targets.** A bundled copy keeps its own `../other-skill/` links, which resolve to its *siblings inside the bundle*. If a skill two hops away is missing, that copy dangles.
-- **The closure includes the host itself.** Bundled skills link back at their host, so `<host>/bundled/<host>/` has to exist. It nests one level and no further — copies are staged with `bundled/` excluded.
-- **Copies are verbatim.** The only permitted difference from the original is the depth of a relative link: a host at the library root writes `bundled/x/SKILL.md`, a copy inside a bundle writes `../x/SKILL.md`. Nothing else may differ — no summarising, no trimming.
-- **Never hand-edit a copy.** Change the source skill, then regenerate the bundles.
+- **Bundle every skill it links to, directly.** Because spokes never link onward, the closure is just the aggregator's own direct targets — no second-hop skills to chase.
+- **Copies are verbatim, with no self-copy.** A bundled copy is byte-for-byte the source skill; since a spoke carries no outbound links, it needs no link-depth rewriting either. The aggregator does not need to bundle a copy of itself, because nothing inside its bundle links back to it.
+- **Never hand-edit a copy.** Change the source skill, then regenerate the bundle.
 
-Six skills currently bundle — the Role · Task · Format cluster routed by `promethean-parthenon`: `senior-leadership-advisor` (Role), `requirement-gathering` · `agentic-engineering` · `long-horizon-engineering-workflow` (Task), `github-report` (Format), plus the router itself. They share one 11-skill closure. `scripts/build-index.py` globs `*/SKILL.md`, so nested copies are never indexed as skills.
+`promethean-parthenon` is currently the only skill with a `bundled/` folder, holding copies of the five skills in its Role · Task · Format cluster (`senior-leadership-advisor`, `requirement-gathering`, `agentic-engineering`, `long-horizon-engineering-workflow`, `github-report`) plus the leaf skills its routing table hands off to (`debug-master`, `owasp-top-10-2025`, `project-file-structure`, `skill-creator`, `ui-checker`). `scripts/build-index.py` globs `*/SKILL.md`, so the nested copies are never indexed as skills.
 
-Verify with `python scripts/check-bundles.py` — it re-checks the closure, the copies, and every relative link in the repo.
+Verify with `python scripts/check-bundles.py` — it checks that every spoke is link-free, that the aggregator's bundle matches its sources verbatim, and that every relative link in the repo resolves.
 
 ---
 
