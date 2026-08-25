@@ -210,7 +210,21 @@ Confirm it landed: `git status` clean, `git log --oneline -1` shows it. **A feat
 
 **One commit carries one reason to revert.** Verification passing for F014 is not permission to sweep in the refactor, the unrelated security fix and the rename you did while waiting. A commit once landed eight files spanning a layout rewrite, a rate-limit fix, a data-layer fix and a spec-driven rename, under the title `fix(prisma): pin session timezone to UTC` — three of the four are unfindable from history, and `git blame` sends you to the wrong change. If the tree holds work from several concerns, commit them separately, each with its own message.
 
+**Commit onto the phase branch, not onto `main` and not onto a branch of your own.** Which branch that is comes from the phase plan — one phase, one branch — and the answer should never be decided at the commit step. If you are about to commit and cannot name the phase this feature belongs to, the gap is upstream in Stage 2, not here. See [phases-and-branches](./phases-and-branches.md).
+
 Message format, footers and the conventions a report is later generated from are defined elsewhere — by whichever reporting convention this project has adopted, not by this file. This is the step that has to honour them, and it is the step where they get skipped.
+
+---
+
+## Closing a phase
+
+When the last feature in a phase passes, the loop stops turning and the phase closes. It is a gate
+in miniature — every feature `true` or explicitly `blocked`, full suite green on the branch, the
+phase's demonstrable outcome actually demonstrated — then merge and record the merge sha in the
+phase row. Full checklist: [phases-and-branches](./phases-and-branches.md).
+
+**Do not open the next phase's branch before this one merges.** Stacking phase 3 on an unmerged
+phase 2 rebuilds the coupling the phase structure exists to remove.
 
 ---
 

@@ -19,6 +19,7 @@ Task carries three skills, so a Task verdict always names which one: **extract**
 | A spec someone else wrote | **Task — brief**, in check mode | Test it against the four questions, fill gaps, do not rewrite |
 | A vague complaint that something is broken | **Task — build**, structured feedback | → debug-master once there is a repro |
 | A component nobody can safely change | **Task — extract** | The contract has to exist before the change does |
+| A written target too big to land in one branch | **Task — build**, phase plan first | Cut phases before features; one phase, one branch |
 
 ---
 
@@ -52,10 +53,12 @@ The pillars scale. Applying all three at full weight to a small change is the fa
 | Small feature, one session | — | Half-page brief, gates, no harness | Commit + PR body |
 | Multi-component, one session | At the design gate | Full brief, gates + ledger | PR body |
 | Change to an existing system | At the design gate | Extract first, then brief the delta, then build | PR body + contract diff |
-| Multi-session build | Gates, 2× failures, irreversibles | Full brief, gates + full harness | Full report |
+| Multi-session build | Gates, 2× failures, irreversibles | Full brief, gates + full harness, phases | Full report, grouped by phase |
 | Irreversible or public-facing | Mandatory, before commit | Full, plus security features on the ledger | Full report |
 
 **Rule of thumb:** skip the harness under ~10 sub-tasks and one session — below that, the gates carry it alone. Never skip writing the target down; size it down instead.
+
+**Phases scale the same way.** Under ~10 features, one branch and the feature loop is the whole answer; phases over a small build are ceremony. Past that, cut phases — one branch each — and the report's grouping comes out of the build instead of being imposed on it afterwards.
 
 ---
 

@@ -3,7 +3,13 @@
     "passes": "true | false | \"blocked\" — three states, because reality has three. `true` means every step was observed to pass. `false` means it failed or has not been attempted. `\"blocked\"` means the step is correct and this environment cannot execute it — a headless browser that cannot emulate a media query, a CI run that only fires on a pull request, a clipboard that needs real user activation. Recording those as `true` with an apology in `notes` is the exact fudge invariant 2 exists to prevent, and it is what happened before this field had a third state.",
     "blocked_reason": "Required when passes is \"blocked\". What specifically could not be observed, and why — the limitation, not the feature.",
     "recheck_when": "Required when passes is \"blocked\". The condition under which this becomes verifiable: 'a real browser with reduced motion enabled', 'once a PR is open'. Stage 4 collects these; a blocked feature with no recheck condition is an abandoned one.",
-    "notes": "What was observed. Not what was intended."
+    "notes": "What was observed. Not what was intended.",
+    "phases": "One phase (or sprint) per branch, always exactly one branch each. Cut at Stage 2 BEFORE the features, so a phase groups work that shares a premise rather than work that happened to be listed together. Sub-branches below the phase level are optional and each must have its reason written in progress.md.",
+    "phase": "Required on every feature — which phase owns it. A feature with no phase means the phase plan was skipped; add the phase rather than a null.",
+    "phase.demonstrable": "What a person can be shown at the end of this phase, and say yes or no to. A phase whose outcome cannot be demonstrated cannot be UAT'd either, and is usually a layer masquerading as a phase.",
+    "phase.premise": "The assumption the phase's features rest on. When it expires, the blast radius is this phase — that is the reason to group by premise.",
+    "phase.status": "planned | in_progress | merged | abandoned. `abandoned` is recorded, never deleted: a dropped phase is a decision, and invariant 1 supersedes decisions in place.",
+    "phase.merged_at": "The merge commit sha. This is what makes the phase revertable as a unit and what a sprint report is later built from. Null until merged."
   },
   "project": {
     "name": "<project name>",
@@ -12,9 +18,30 @@
     "created_at": "<YYYY-MM-DD>",
     "last_updated": "<YYYY-MM-DD>"
   },
+  "phases": [
+    {
+      "id": "P1",
+      "name": "<short slug: the demonstrable thing, not the layer>",
+      "branch": "phase/1-<slug>",
+      "demonstrable": "<what you can walk a person through when this merges>",
+      "premise": "<the assumption these features share>",
+      "status": "in_progress",
+      "merged_at": null
+    },
+    {
+      "id": "P2",
+      "name": "<…>",
+      "branch": "phase/2-<slug>",
+      "demonstrable": "<…>",
+      "premise": "<…>",
+      "status": "planned",
+      "merged_at": null
+    }
+  ],
   "features": [
     {
       "id": "F001",
+      "phase": "P1",
       "category": "core",
       "priority": "critical",
       "description": "Environment bootstraps from a clean checkout",
@@ -29,6 +56,7 @@
     },
     {
       "id": "F002",
+      "phase": "P1",
       "category": "security",
       "priority": "critical",
       "description": "No secrets present in tracked source",
@@ -44,6 +72,7 @@
     },
     {
       "id": "F003",
+      "phase": "P2",
       "category": "functional",
       "priority": "medium",
       "description": "<A stubbed feature: scope is known, verification is not yet writable>",
@@ -54,6 +83,7 @@
     },
     {
       "id": "F004",
+      "phase": "P2",
       "category": "functional",
       "priority": "medium",
       "description": "<Example of a feature this environment cannot verify>",

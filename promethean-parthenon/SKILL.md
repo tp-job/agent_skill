@@ -19,7 +19,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "2.2.0"
+  version: "2.3.0"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,
@@ -70,6 +70,8 @@ Task is the widest pillar because it carries three skills and one rule about the
 The first two are **two doors into the same room.** Point at a repository → requirement-gathering. Point at an idea → agentic-engineering. Extending an existing system with something new → both, extraction first, because the brief for the new part has to respect the contracts the old part already publishes.
 
 Then long-horizon carries construction. It consumes the written target at Stage 1 and does not re-derive it.
+
+**Construction is planned in phases, and a phase is a branch.** Between "the build" and "one feature" sits a middle unit — a phase, or a sprint when the cut is by date rather than by scope — and the ratio to branches is **one to one**. Below that level branching is open, and the obligation is that each sub-branch names why it exists. The 1:1 is what makes a phase a unit rather than a label: it bounds what a revert costs, gives Stage 3 a close-out that has to be *true* rather than asserted, and makes the phase a range a report can be built from. Cuts, sub-branch rationales, and the merge checklist live in [long-horizon-engineering-workflow](bundled/long-horizon-engineering-workflow/references/phases-and-branches.md).
 
 ---
 

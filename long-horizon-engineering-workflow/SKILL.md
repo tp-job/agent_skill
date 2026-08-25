@@ -1,11 +1,11 @@
 ---
 name: long-horizon-engineering-workflow
 description: >
-  Runs long, multi-session engineering builds as a gated outer loop (Requirements → Design → Development → Integration QA → UAT → Deployment) wrapped around a per-feature inner loop (scoped regression → select → implement → verify → refactor what that feature touched → commit), backed by on-disk state that survives context loss. Also trigger on "clean up as we go", "refactor after each feature", "the code is getting messy as we build". Stage 2 runs computational thinking as its method — decomposition, pattern recognition, abstraction, algorithm design, and data mapping — so also trigger on "break this down", "decompose this build", "how should I structure this", "map the data flow". Use this whenever a user asks Claude to build, develop, architect, extend, or ship something spanning multiple turns or sessions — a new app, a multi-component feature, a system with several moving parts, a refactor touching many files, or any "build me X" / "let's build out Y" request too big to land in one shot. Also trigger mid-build when the requirement, design, or feature ledger was never written down and the work is drifting, or when an agent starts declaring features done without verifying them. Push hard for gate artifacts and harness files before advancing, but respect an explicit user override to skip ahead. Do NOT trigger for single quick snippets, isolated one-off scripts, or small well-specified bug fixes — those don't need gates.
+  Runs long, multi-session engineering builds as a gated outer loop (Requirements → Design → Development → Integration QA → UAT → Deployment) wrapped around a per-phase middle loop (one phase or sprint = one branch, merged at its close) and a per-feature inner loop (scoped regression → select → implement → verify → refactor what that feature touched → commit), backed by on-disk state that survives context loss. Also trigger on "split this into phases", "sprint plan", "how should we branch this", "what branch should this go on", "phase plan", "one branch per sprint", "should this be its own branch". Also trigger on "clean up as we go", "refactor after each feature", "the code is getting messy as we build". Stage 2 runs computational thinking as its method — decomposition, pattern recognition, abstraction, algorithm design, and data mapping — so also trigger on "break this down", "decompose this build", "how should I structure this", "map the data flow". Use this whenever a user asks Claude to build, develop, architect, extend, or ship something spanning multiple turns or sessions — a new app, a multi-component feature, a system with several moving parts, a refactor touching many files, or any "build me X" / "let's build out Y" request too big to land in one shot. Also trigger mid-build when the requirement, design, or feature ledger was never written down and the work is drifting, or when an agent starts declaring features done without verifying them. Push hard for gate artifacts and harness files before advancing, but respect an explicit user override to skip ahead. Do NOT trigger for single quick snippets, isolated one-off scripts, or small well-specified bug fixes — those don't need gates.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.3.0"
+  version: "3.4.0"
   source: >
     Long-Horizon Engineering Workflow playbook (compiled 2026), merged with
     Anthropic "Effective harnesses for long-running agents", the
@@ -36,6 +36,7 @@ Gates fix the first. A harness fixes the second. This skill is both, and the joi
 | What has to be true before I write code? | [requirements-checklist](references/requirements-checklist.md) |
 | How do I design this before building it? | [design-and-architecture](references/design-and-architecture.md) |
 | How do I break it down / think it through? | [computational-thinking](references/computational-thinking.md) |
+| How do I split this into phases or sprints, and which branch does what? | [phases-and-branches](references/phases-and-branches.md) |
 | How do I run one feature end to end? | [feature-loop](references/feature-loop.md) |
 | I'm starting a session / running out of context | [harness-state](references/harness-state.md) |
 | Who verifies this, and what do I hand over? | [role-placement](references/role-placement.md) |
@@ -47,24 +48,32 @@ Gates fix the first. A harness fixes the second. This skill is both, and the joi
 
 ---
 
-## The two loops
+## The three loops
 
 ```
 OUTER LOOP — once per build (the gates)
 ┌──────────────────────────────────────────────────────────────────┐
-│  1 Requirements → 2 Design → [ INNER LOOP ] → 4 Integration QA
+│  1 Requirements → 2 Design → [ PHASE LOOP ] → 4 Integration QA
 │                       │                        → 5 UAT → 6 Deploy
 │                  writes build-spec.md
-│                  + feature-list.json
+│                  + feature-list.json (phases + features)
 └──────────────────────────────────────────────────────────────────┘
 
-INNER LOOP — once per feature, dozens of times (Stage 3)
+PHASE LOOP — once per phase or sprint, a handful of times (Stage 3)
+   cut branch → [ INNER LOOP × n ] → phase checks → merge → record sha
+        ▲                                                      │
+        └──────────────────────────────────────────────────────┘
+        one phase = one branch; next branch opens after this one merges
+
+INNER LOOP — once per feature, dozens of times
    affected tests → select → implement → verify → refactor
         ▲                                            │
         └──── commit ← update ledger ←───────────────┘
 ```
 
-Stage 1–2 produce the written contract. Stage 3 is not one long push — it is the inner loop turning over one sub-task at a time, each ending in a verified commit. Stages 4–6 test what per-feature verification structurally cannot, then ship.
+Stage 1–2 produce the written contract. Stage 3 is not one long push — it is a handful of phases, each a branch, each turning the inner loop over one sub-task at a time and ending in a merge. Stages 4–6 test what per-phase and per-feature verification structurally cannot, then ship.
+
+**One phase, one branch — and every branch below that level names why it exists.** The phase is the unit that bounds a revert and gives Stage 3 a close-out that has to be true rather than asserted; the sub-branch is optional and justified per case. Cuts, sub-branch rationales, the merge checklist, and when phases are ceremony: [phases-and-branches](references/phases-and-branches.md). On a build under about ten features, skip the middle loop entirely.
 
 **The loop ends in a refactor, not in an implementation.** The moment a feature's steps pass you are holding exactly the safety net a cleanup needs, and you will never again have this much context on this diff. So the last move of every iteration is to clean what *this feature* touched — its own diff, no further — and re-run its own steps. Skipping it is how a build that passes every gate still degrades one commit at a time. Scope, stop rules, and what to look for: [feature-loop](references/feature-loop.md).
 
@@ -90,8 +99,8 @@ You occupy the tech lead, architect, QA, and release engineer seats at once — 
 | # | Stage | Closes when | Detail |
 | --- | --- | --- | --- |
 | 1 | Requirements | Problem statement, numbered acceptance criteria, explicit out-of-scope, and edge cases exist in `build-spec.md` | [requirements-checklist](references/requirements-checklist.md) |
-| 2 | Design | Logic flow, data contract, failure behavior, and UI states written; critical path decomposed into `feature-list.json` | [design-and-architecture](references/design-and-architecture.md) · method: [computational-thinking](references/computational-thinking.md) |
-| 3 | Development | Every `critical` and `high` feature passes, **and** every remaining feature either passes or carries a documented blocker the user has accepted. Full suite green. | [feature-loop](references/feature-loop.md) |
+| 2 | Design | Logic flow, data contract, failure behavior, and UI states written; critical path decomposed into `feature-list.json` as phases, then features within them | [design-and-architecture](references/design-and-architecture.md) · [phases-and-branches](references/phases-and-branches.md) · method: [computational-thinking](references/computational-thinking.md) |
+| 3 | Development | Every phase merged with its sha recorded. Every `critical` and `high` feature passes, **and** every remaining feature either passes or carries a documented blocker the user has accepted. Full suite green. | [feature-loop](references/feature-loop.md) · [phases-and-branches](references/phases-and-branches.md) |
 | 4 | Integration QA | Cross-feature behavior verified — see below | [qa-uat-signoff](references/qa-uat-signoff.md) |
 | 5 | UAT | Script drawn from Stage 2 use cases; sign-off recorded | [qa-uat-signoff](references/qa-uat-signoff.md) |
 | 6 | Deployment | Rollback plan stated, smoke test named, watcher named | [qa-uat-signoff](references/qa-uat-signoff.md) |
@@ -138,6 +147,8 @@ Design is not a document you produce, it is a method you run. Five moves, in ord
 | **Data Mapping** | the data contract at every boundary | shape mismatches — the most common defect in agent-written integration code |
 
 **Decomposition is the load-bearing one**, because its output is the ledger and the ledger is what survives the session. The test of a good piece: you can write 3–7 observable verification steps for it right now, without building anything else first.
+
+**Decompose into phases first, then features within them.** Cutting features first and grouping them afterward produces phases that share nothing but their position in a list. A phase is well cut when it ends in something a person can be shown, and when its features rest on the same premise — so an expired premise costs one phase rather than the whole ledger. Boundaries, the branch rule, and the merge checklist: [phases-and-branches](references/phases-and-branches.md).
 
 **Data Mapping is the one most often skipped and least often survivable.** Logic errors get caught by tests; a field named `user_id` on one side and `userId` on the other gets caught by a user.
 

@@ -65,6 +65,25 @@ caught as an expiry rather than argued as a mistake. Re-read this table at every
 | What CI runs, on which events | | <workflow file> |
 | Ignore patterns that could swallow state | | <ignore file> |
 | What a commit on this branch triggers | | <branch protection, deploy config> |
+| Branching the repo already uses, and whether long-lived branches are allowed | | <existing branch names; protection rules> |
+
+### Phase plan *(Stage 2 — cut these before the feature list)*
+
+One phase, one branch. Each row's **demonstrable** is what a person will be walked through at the
+merge — write it before any of the phase's features are specified. Mirrored into
+`feature-list.json`; this table is the readable version.
+
+| # | Phase | Branch | Demonstrable at merge | Premise these features share | Status |
+| --- | --- | --- | --- | --- | --- |
+| P1 | <slug> | `phase/1-<slug>` | <what you can show> | <the shared assumption> | in_progress |
+| P2 | <slug> | `phase/2-<slug>` | | | planned |
+
+**Sub-branches below a phase** — each needs a reason at the moment it is cut, recorded in
+`progress.md`, not here:
+
+| Branch | Cut from | Reason it exists rather than a commit on the phase branch |
+| --- | --- | --- |
+| | | |
 
 ## 7. Logic flow  *(Stage 2)*
 

@@ -90,6 +90,8 @@ Two distinct failure classes, needing two distinct defenses. **Quality failures*
 
 **The inner loop ends in a refactor.** Implement → verify → **refactor what you just touched** → ledger → commit. The cleanup is bounded to the feature's own diff and re-verified against the feature's own steps, which is what keeps a long build from accumulating the debt every individual iteration was too small to notice. See [feature-loop](../bundled/long-horizon-engineering-workflow/references/feature-loop.md).
 
+**Between the build and the feature sits the phase — and a phase is a branch, one to one.** A sprint is the same unit cut by date instead of by scope. The ratio is fixed at that level and open below it: sub-branches are allowed, and each has to name the reason it exists rather than being a commit on the phase branch. The 1:1 buys three things — a revert whose cost is one merge, a close-out that has to be demonstrated rather than asserted, and a range a report can be generated from. Cut phases *before* features, grouped by shared premise, so an expired premise costs one phase and not the ledger. See [phases-and-branches](../bundled/long-horizon-engineering-workflow/references/phases-and-branches.md).
+
 **How it cracks:**
 
 | Crack | Tell | Fix |
@@ -100,6 +102,8 @@ Two distinct failure classes, needing two distinct defenses. **Quality failures*
 | Transcript-only state | Session two contradicts session one | `build-spec.md`, `feature-list.json`, `progress.md` at the repo root |
 | Layer-wise splitting | All models, then all controllers, then all UI | Nothing is verifiable until the end — that is the same as no ledger |
 | Refactor step skipped | Working code, and the module is worse every iteration | It is a loop box, not an optional one; scope it to the diff and re-run the steps |
+| No phase, or a phase with no branch | Everything on one long-lived branch, or straight onto `main` | One phase, one branch — otherwise "revert the phase" is archaeology |
+| Branches nobody can classify | A `wip/` or `spike/` branch the next session finds and cannot place | Every sub-branch's reason is written in `progress.md` when it is cut |
 
 **Cost of skipping:** on anything past ~10 sub-tasks or one session, the build silently stops matching its own record. Below that, the gates carry it alone and the harness is overhead.
 
@@ -114,6 +118,8 @@ Two distinct failure classes, needing two distinct defenses. **Quality failures*
 The pillar people treat as optional, and the one that decides whether the previous two compound or evaporate. Work nobody can see gets rebuilt. A decision nobody wrote down gets re-argued next quarter with less context than it had the first time.
 
 **Format is upstream of itself.** A report is only as good as the records it is built from, which makes this pillar partly retroactive: commit and PR conventions are what make a report possible at all. Deciding the output shape *before* the build is what makes the build produce data in that shape. If the history is `wip`, `fix`, `update`, say so and generate from what is actually there rather than inventing structure the data does not contain.
+
+**The phase is where this pillar's grouping comes from.** "Grouped by sprint" is only real if something in the build produced a sprint — one phase, one branch, one merge — and a report that groups by a sprint the build never had is a shape imposed on the data rather than read from it. This is the clearest case of Format reaching backwards into Task: the phase plan written at Stage 2 is what makes the report at the end derivable instead of remembered.
 
 **How it cracks:**
 
