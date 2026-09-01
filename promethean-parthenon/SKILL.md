@@ -19,7 +19,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "2.3.0"
+  version: "2.4.0"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,
@@ -71,7 +71,9 @@ The first two are **two doors into the same room.** Point at a repository → re
 
 Then long-horizon carries construction. It consumes the written target at Stage 1 and does not re-derive it.
 
-**Construction is planned in phases, and a phase is a branch.** Between "the build" and "one feature" sits a middle unit — a phase, or a sprint when the cut is by date rather than by scope — and the ratio to branches is **one to one**. Below that level branching is open, and the obligation is that each sub-branch names why it exists. The 1:1 is what makes a phase a unit rather than a label: it bounds what a revert costs, gives Stage 3 a close-out that has to be *true* rather than asserted, and makes the phase a range a report can be built from. Cuts, sub-branch rationales, and the merge checklist live in [long-horizon-engineering-workflow](bundled/long-horizon-engineering-workflow/references/phases-and-branches.md).
+**Construction is planned in phases, and a phase is a branch.** Between "the build" and "one feature" sits a middle unit — a phase, or a sprint when the cut is by date rather than by scope — and the ratio to branches is **one to one**. Below that level branching is open, and the obligation is that each sub-branch names why it exists. The 1:1 is what makes a phase a unit rather than a label: it bounds what a revert costs, gives Stage 3 a close-out that has to be *true* rather than asserted, and makes the phase a range a report can be built from.
+
+**Group by contract, not by topic.** What belongs in one phase is decided by one question — *does anything consume what this task produces?* A task that reads another's field, state shape, DOM node, token, route, or event is bound to it and cannot be split from it; tasks that each change an existing value with nothing reading their output are free to be grouped or not. "Both of these are colour" and "both are under this heading" are not coupling, and grouping on them is the most common way a phase plan goes wrong. Compressing phases to save merges is legitimate against that test and pays in rollback resolution — three phases on one branch is one revert handle where there were three, and it only helps if you already know which of the three to pull. Cuts, the compression test, sub-branch rationales, and the merge checklist: [long-horizon-engineering-workflow](bundled/long-horizon-engineering-workflow/references/phases-and-branches.md).
 
 ---
 

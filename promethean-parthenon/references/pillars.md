@@ -104,6 +104,8 @@ Two distinct failure classes, needing two distinct defenses. **Quality failures*
 | Refactor step skipped | Working code, and the module is worse every iteration | It is a loop box, not an optional one; scope it to the diff and re-run the steps |
 | No phase, or a phase with no branch | Everything on one long-lived branch, or straight onto `main` | One phase, one branch — otherwise "revert the phase" is archaeology |
 | Branches nobody can classify | A `wip/` or `spike/` branch the next session finds and cannot place | Every sub-branch's reason is written in `progress.md` when it is cut |
+| Phases grouped by topic | A branch named for a subject — `styling`, `cleanup`, `the header` | Group by contract: does anything consume what this task produces? Subject matter is not coupling |
+| Over-compressed branches | One branch holds three phases; something breaks and nothing isolates it | Compression is only safe across phases the dependency test found independent, and it always costs rollback resolution |
 
 **Cost of skipping:** on anything past ~10 sub-tasks or one session, the build silently stops matching its own record. Below that, the gates carry it alone and the harness is overhead.
 

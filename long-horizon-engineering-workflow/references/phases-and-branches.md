@@ -40,12 +40,19 @@ you have phases, and calling them sprints adds ceremony without adding a constra
 Decompose at Stage 2 into phases first, then features within them. Cutting features first and
 grouping them afterward produces phases that share nothing but their position in a list.
 
-A phase boundary is well-placed when all four hold:
+A phase boundary is well-placed when all five hold:
 
 - [ ] **It ends in something demonstrable** — a person can be shown the result and say yes or no. A phase whose output is "the data layer exists" cannot be demonstrated, and cannot be UAT'd either.
-- [ ] **Its features share a premise.** Group by the assumption they rest on, so that when a premise expires (see [design-and-architecture](./design-and-architecture.md)) the blast radius is one phase, not the whole ledger.
+- [ ] **No contract crosses the boundary mid-flight.** If a feature on one side reads a field, state shape, DOM node, token, route, or event name that a feature on the other side produces, they belong in the same phase. This is the objective test and it outranks the judgement calls below — run it first.
+- [ ] **Its features share a premise.** Among features the contract test leaves free to go either way, group by the assumption they rest on, so that when a premise expires (see [design-and-architecture](./design-and-architecture.md)) the blast radius is one phase, not the whole ledger.
 - [ ] **It merges before it drifts.** If the branch cannot plausibly merge within a session or two, it is not a phase — it is a build, and it needs cutting again.
 - [ ] **It is revertable as a unit.** "Undo the billing phase" should be one merge to undo, not an archaeology exercise.
+
+**The contract test and the premise test do different jobs.** A contract is coupling that exists
+*now* — split it and one branch merges broken. A premise is coupling to a future change — split it
+badly and an expiry costs you several phases instead of one. Where they disagree, the contract
+wins, because a premise that expires is a cost you might pay and a severed contract is a break you
+have already shipped.
 
 **The demonstrability test is the one that actually does work.** It rejects the phase cut everyone
 reaches for first — by layer. Schema → API → UI is three phases none of which can be shown to
@@ -57,6 +64,58 @@ every mistake in them.
 | `phase/1-database`, `phase/2-api`, `phase/3-ui` | `phase/1-signup`, `phase/2-billing`, `phase/3-admin-reports` |
 | Nothing is demonstrable until phase 3 | Each merge is something a user can be walked through |
 | One premise change touches all three | A premise change usually touches one |
+
+---
+
+## Compressing phases: merge by contract, never by topic
+
+Wanting fewer branches than the natural phase count is legitimate — four phases of small work
+is four merges of overhead. But **what may be merged is decided by dependency, not by subject
+matter**, and that is the distinction this section exists to hold.
+
+**The test is one question: does anything consume what this task produces?**
+
+| Between two tasks | Verdict | Why |
+| --- | --- | --- |
+| **D reads what B writes** — a field, a state shape, a DOM node, a token, a route, an event name | **Same branch, always.** Order them within it | They were never separable. Splitting them puts a branch in a state where one half is merged and the other is not, and the merged half is broken |
+| **A and C each change an existing value, and nothing reads their output** | **Safe to merge, or to leave apart** | No ordering constraint and no shared surface. The grouping is free, so choose it for convenience |
+| **A and C are "the same kind of thing"** — both colour, both under one heading, both "styling" | **Not an answer.** Run the dependency test instead | Topic is not coupling |
+
+**Sameness of subject is the trap.** Two colour changes in different components are independent
+and may be grouped or not. A colour change and a layout change *in the same component* may share
+a contract and may not be. The word "styling" over both tells you nothing about either.
+
+| BAD — compressed by topic | BETTER — compressed by contract |
+| --- | --- |
+| `branch/styling` — A, C, and the token rename that D depends on | `branch/1-tokens` — B then D, in order |
+| `branch/behaviour` — B and D, split across two branches | `branch/2-independent-edits` — A and C, any order |
+| Merged because the work "felt related" | Merged because nothing outside the group reads the group's output |
+
+### What compression costs, and it is always the same thing
+
+**Every phase you merge away is rollback resolution you no longer have.** Three phases on one
+branch is one revert handle where there were three — and the handle only helps if you already
+know which of the three to remove.
+
+This has a real cost, not a theoretical one. On a build that compressed three phases onto one
+branch, scroll-spy broke partway through. Because all three phases were committed together under
+one branch, "revert the phase" isolated nothing: there was no way to say which of the three
+introduced it without going back through the commits by hand. The compression saved two merges
+and spent far more than that on the first failure.
+
+**Before compressing, answer this:** *if this branch goes bad, will I still know which part to
+take out?* If the answer is no, the compression is buying convenience with the exact property the
+phase structure exists to provide.
+
+Two rules make a compressed branch survivable:
+
+- **One concern per commit, without exception.** When the branch stops isolating, the commits are the only granularity left. This is why the commit rule and the branch rule are the same rule at two scales.
+- **Keep the merged-away phases as rows in the ledger.** They still have `demonstrable` outcomes worth checking separately, even when they share a `branch` value. A compression is a branching decision, not a re-plan — do not delete phases to match the branch count.
+
+**Compress at most one level.** Merging pairs of adjacent independent phases is a judgement
+call. Collapsing an entire build to one or two branches is the no-phases case, and should be
+chosen deliberately with the [When not to use phases](#when-not-to-use-phases) reasoning — not
+arrived at by compressing three times.
 
 ---
 
@@ -110,7 +169,7 @@ And the anti-patterns, which are mostly the same rule over-applied:
 | --- | --- |
 | A branch per feature, by default | The commit already carries one reason to revert. A branch adds a merge and a name for no extra handle |
 | A branch that outlives its phase | It now belongs to no phase, so nothing merges it and nothing reverts it |
-| Two phases sharing one branch | The phases were never units; you have one long phase with two names |
+| Two phases sharing one branch **without the dependency test having been run** | Grouped by topic, not by contract — see [Compressing phases](#compressing-phases-merge-by-contract-never-by-topic). A deliberate compression of independent phases is fine; an accidental one is one long phase with two names |
 | A phase branch cut from another phase branch | Phase 2 cannot merge until phase 1 does, and a revert of 1 silently takes 2 |
 | A branch cut with no reason written | The next session cannot tell a spike from abandoned work from the current front |
 

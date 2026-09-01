@@ -5,7 +5,7 @@ description: >
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.4.0"
+  version: "3.5.0"
   source: >
     Long-Horizon Engineering Workflow playbook (compiled 2026), merged with
     Anthropic "Effective harnesses for long-running agents", the
