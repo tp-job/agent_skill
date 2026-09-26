@@ -20,6 +20,9 @@ Task carries three skills, so a Task verdict always names which one: **extract**
 | A vague complaint that something is broken | **Task — build**, structured feedback | → debug-master once there is a repro |
 | A component nobody can safely change | **Task — extract** | The contract has to exist before the change does |
 | A written target too big to land in one branch | **Task — build**, phase plan first | Cut phases before features; one phase, one branch |
+| A symptom, a wish, or a mess — no problem statement yet | **Foundation — frame** | → Task — brief the framed problem |
+| Several sources or experts that disagree | **Foundation — synthesize** | → Role to make the call |
+| A choice that turns on values, history, or stakes | **Foundation — consult** | Ask one question with a default; → Role |
 
 ---
 
@@ -40,6 +43,10 @@ Task carries three skills, so a Task verdict always names which one: **extract**
 | Thorough answer to a question nobody asked | **Role** | Wrong seat, competently occupied — re-detect the discipline |
 | Scope keeps growing | **Role** | Decide: is this discovery, or is the acceptance criterion drifting? |
 | "What did we ship?" is unanswerable | **Format** | No conventions in the history; fix forward |
+| Correct fix, complaint unchanged | **Foundation — frame** | The symptom was briefed instead of the problem |
+| A summary of sources, no decision | **Foundation — synthesize** | Sources listed, never graded or weighed |
+| Sound by every source, wrong for this team | **Foundation — consult** | Unwritten constraints were guessed, not asked |
+| Three failed attempts at the same thing | **Foundation — frame** | Re-frame and change the representation before a fourth try |
 
 ---
 
@@ -71,6 +78,10 @@ The pillars scale. Applying all three at full weight to a small change is the fa
 **Build vs. Role.** Build asks "is this built correctly?" Role asks "should this be built?" If you cannot tell, ask what a wrong answer costs: recoverable → build, expensive or irreversible → Role.
 
 **Brief vs. Role.** A brief *writes down* a decision. Role *makes* one. If the brief has an **Open questions** section with a real trade-off in it, that item belongs to Role; everything else in the brief belongs to Task.
+
+**Foundation vs. Task.** Can you state the problem in one sentence that names who is affected and how you would know it is fixed? Yes → Task. No → frame it first.
+
+**Synthesize vs. Role.** Synthesis weighs the evidence; Role makes the call on it. When one authoritative source settles the question, skip synthesis and go straight to the call.
 
 **Format vs. nothing.** If the work took more than a day or crossed a team boundary, it needs a record. Below that, the commit history is the record.
 

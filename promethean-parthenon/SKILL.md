@@ -7,23 +7,28 @@ description: >-
   — extract requirements from code that already exists (requirement-gathering), brief a new
   ask (agentic-engineering), construct it under gates and on-disk state
   (long-horizon-engineering-workflow) — then land the result in a shape that survives
-  (github-report). Trigger when: starting any non-trivial piece of work with an agent and
+  (github-report). Beneath the pillars sits a foundation of three thinking disciplines — frame
+  the real problem before briefing it, synthesize conflicting sources and expert advice into one
+  position, and ask the human for what only they know. Trigger when: starting any non-trivial piece of work with an agent and
   unsure where to begin, an agent produced code that runs but is wrong or off-target, output
   quality is degrading over a long session, you are about to say "just build it" on something
-  substantial, or you ask "how do I get better results from Claude / the agent", "which skill
+  substantial, a problem is still a symptom or a mess, several articles or experts disagree and a
+  decision hangs on them, or you ask "help me think this through", "what is the real problem here",
+  "synthesize these sources", "I'm stuck", "how do I get better results from Claude / the agent", "which skill
   should I use for this", "why does the agent keep drifting", "how do I set up role task
   format". Thai triggers: "ใช้ AI agent ยังไงให้ได้งานดี", "agent ทำงานหลุดประเด็น",
-  "ควรใช้ skill ไหน", "งานที่ได้ไม่ตรงที่สั่ง". Not itself a builder or a reviewer — it decides
+  "ควรใช้ skill ไหน", "งานที่ได้ไม่ตรงที่สั่ง", "ช่วยคิดแก้ปัญหานี้", "สรุปความเห็นจากหลายแหล่ง". Not itself a builder or a reviewer — it decides
   which pillar carries the work and hands off; go straight to a pillar when you already know
   which one.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "2.4.0"
+  version: "2.5.0"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,
-    long-horizon-engineering-workflow, and github-report skills (compiled 2026)
+    long-horizon-engineering-workflow, and github-report skills, plus a problem-framing,
+    source-synthesis and human-judgment foundation (compiled 2026)
 ---
 
 # Promethean Parthenon
@@ -54,6 +59,26 @@ None of these announce themselves. All three produce output that *looks* like su
 | **Format** | What shape does the output take, and what survives? | [github-report](bundled/github-report/SKILL.md) | invisible work, re-argued decisions |
 
 Depth on what each pillar holds and how it cracks: [pillars](references/pillars.md).
+
+---
+
+## The foundation: thinking before the pillars
+
+A temple's columns stand on a stylobate — the stepped platform that makes the ground level. Here that platform is three thinking disciplines. The pillars are process; process built on a wrong frame or an unweighed source is well-executed error.
+
+| Discipline | Use when | Hands to | Depth |
+| --- | --- | --- | --- |
+| **Frame** — find the real problem | The ask is a symptom, a wish, or a mess; or three attempts have failed | Task — brief | [problem-solving](references/problem-solving.md) |
+| **Synthesize** — many sources, one position | Articles, docs, experts or past decisions disagree and a call hangs on them | Role | [synthesis](references/synthesis.md) |
+| **Consult** — what only the human knows | The answer turns on values, history, stakes, or taste | Every gate | [human-judgment](references/human-judgment.md) |
+
+Three rules carry most of the weight:
+
+- **Measure before you theorize.** One number splits the hypothesis space; three theories only multiply it. A claim you did not measure is labelled *inferred*.
+- **Summary is not synthesis.** A synthesis ends in a position, the premise it rests on, and what would change it. "It depends" is only an answer when it names what it depends on and which way this case falls.
+- **Ask about values, never about facts you could check** — and attach the default you will take if nobody answers.
+
+Skip the foundation when the problem is already well-formed with a measured symptom, when one authoritative source settles it, or when everything is checkable. Otherwise it is the cheapest ten minutes in the system.
 
 ---
 
@@ -111,6 +136,8 @@ Full decision table with tie-breakers: [routing](references/routing.md). The sho
 | A written target, multi-session build | **Task** — long-horizon | The target exists; now it needs gates and state |
 | A written target, one small change | Just build it | Gates on a one-liner are ceremony |
 | A choice between two approaches | **Role** | This is a decision, not a construction |
+| A symptom or a mess, no clear problem yet | **Foundation** — frame | Briefing a symptom produces a fast fix for the wrong thing |
+| Sources or experts disagree, a call hangs on it | **Foundation** — synthesize, then Role | A digest of views is not a decision |
 | Work is finished, needs writing up | **Format** | — |
 | Agent output runs but is wrong | **Task** — agentic-engineering | The brief was the defect, not the code |
 | Agent lost the thread mid-build | **Task** — long-horizon | Missing harness state, not missing skill |
@@ -165,6 +192,9 @@ Symptom → cause → pillar. Expanded, with the tells for each: [failure-modes]
 | Fourth copy of an existing utility | Pattern recognition skipped, or the loop never refactored | Task — long-horizon, Stage 2 and the refactor step |
 | Shape mismatch at every integration | Data mapping skipped | Task — long-horizon, Stage 2 |
 | Confident answer, unnamed trade-offs | No role was set | Role |
+| Fast, correct fix; complaint unchanged | The symptom was briefed, not the problem | Foundation — frame |
+| A tidy summary of five articles and no decision | Sources were listed, not weighed | Foundation — synthesize |
+| Right by every source, wrong for this team | Unwritten constraints never asked for | Foundation — consult |
 | "What did we ship?" cannot be answered | No record, or no commit conventions | Format |
 
 **The meta-tell:** an agent that never pushes back on an ambiguous ask is not being efficient. It is guessing quietly, and you will find out later.
@@ -178,7 +208,7 @@ Symptom → cause → pillar. Expanded, with the tells for each: [failure-modes]
 - **One artifact per handoff.** A pillar handing off without its artifact is where the work leaks — and the next seat is usually a future session with no memory.
 - **Occupy the role, don't narrate it.** "As the architect, I would say…" is not the Role pillar. The switch changes the work, not the wording.
 - **Announce a skipped gate in one sentence, then comply.** Name the gate and the specific risk. If the user says go anyway, go — and do not re-raise it. A *new* risk later is fair; re-litigating the same one is not.
-- **Stop after three failed attempts at the same thing.** Re-read the target and the design. A fourth attempt will not find what three missed.
+- **Stop after three failed attempts at the same thing.** Re-read the target and the design, then re-frame: change the representation, list what is known to be true, ask the human one question. A fourth attempt will not find what three missed. [problem-solving](references/problem-solving.md) §When stuck
 - **The record is written from real data**, not from memory of what you think you did.
 
 ---
@@ -188,13 +218,13 @@ Symptom → cause → pillar. Expanded, with the tells for each: [failure-modes]
 - **You already know which pillar you need.** Go straight there. This skill is a router, and routing a decision you have already made is pure overhead.
 - **Trivial, fully-specified work** — a typo, a version bump, a named bug with a repro. Three pillars over a one-line change is architecture as theater.
 - **Exploration and spikes.** A fixed target works against you when the goal is to learn what is possible. Set a time or scope limit instead, then write the real target afterward.
-- **Non-engineering requests.** These pillars are for constructing software. A pure research, writing, or analysis task has different failure modes.
+- **Non-engineering requests.** The pillars are for constructing software. A pure research, writing, or analysis task has different failure modes — though the foundation's [synthesis](references/synthesis.md) discipline travels well to any decision that rests on conflicting sources.
 
 ---
 
 ## One-paragraph version
 
-Set the seat before you set the work; write the target down before you build against it — extracting it from the codebase when it already exists, briefing it when it does not; build behind gates that write state to disk; and land the result in a record built from real data. The three failures this prevents — the average answer, invented requirements followed by silent drift, and invisible work — all produce output that looks like success, which is exactly why you need structure rather than attention.
+Frame the real problem and weigh the sources before anything else, asking the human for what only they know; set the seat before you set the work; write the target down before you build against it — extracting it from the codebase when it already exists, briefing it when it does not; build behind gates that write state to disk; and land the result in a record built from real data. The failures this prevents — the right fix for the wrong problem, the average answer, invented requirements followed by silent drift, and invisible work — all produce output that looks like success, which is exactly why you need structure rather than attention.
 
 ---
 

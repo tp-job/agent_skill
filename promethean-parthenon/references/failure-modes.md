@@ -174,6 +174,42 @@ Each entry: the tell, the real cause, and the pillar that fixes it. Task verdict
 
 ---
 
+## 15. The right fix for the wrong problem
+
+**Tell:** the change is correct, fast, well-tested — and the person who asked is still unhappy. The dashboard loads in 200 ms and they still cannot tell which number to act on.
+
+**Cause:** the ask was a symptom or a proposed solution, and it was briefed as if it were the problem. Nobody asked why until the answer named a person and a consequence.
+
+**Fix:** **Foundation — frame.** Restate, ask why until the answer leaves software, label each clause as symptom, problem, or solution, and measure before theorizing. [problem-solving](problem-solving.md)
+
+**Cheapest detection:** ask the requester "what will you do differently once this ships?" If the answer does not follow from the change, the frame is wrong.
+
+---
+
+## 16. The digest that decides nothing
+
+**Tell:** a well-organised summary of every article, doc, and opinion, one paragraph each, ending in "it depends." Every source weighted the same; a vendor benchmark sitting next to an incident report.
+
+**Cause:** sources were listed, not graded, and the disagreement between them was reported rather than traced to its hinge — usually a different premise, version, or definition.
+
+**Fix:** **Foundation — synthesize**, then **Role**. Grade each source, map agreement and conflict, add the context no source could know, and write a position with its premise and a revisit trigger. [synthesis](synthesis.md)
+
+**Cheapest detection:** could the reader act without opening the sources? If not, it is a summary.
+
+---
+
+## 17. Right by the book, wrong for this team
+
+**Tell:** every source and every best practice supports the choice, and it still lands badly — the team cannot maintain it, it breaks a promise made to another group, it repeats something tried and abandoned last year.
+
+**Cause:** the constraints that decided the outcome were never written down, and nobody asked the one person who held them. The agent filled the gap with the general case.
+
+**Fix:** **Foundation — consult.** Ask about values, history, and stakes — never about facts you could check — and attach a default to every question. [human-judgment](human-judgment.md)
+
+**Cheapest detection:** list the premises the recommendation rests on. Any premise that no file, log, or source states was guessed.
+
+---
+
 ## The meta-tell
 
 **An agent that never pushes back on an ambiguous ask is not being efficient.** It is guessing quietly. Silence on a genuinely under-specified request is the single most reliable indicator that failure mode 1 is already in progress — and mode 1 is the one every other mode compounds on top of.
