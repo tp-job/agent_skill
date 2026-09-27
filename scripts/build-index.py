@@ -49,7 +49,7 @@ GROUPS = [
 ]
 
 
-REPO = 'https://github.com/tp-job/agent-skill.git'
+REPO = 'https://github.com/tp-job/agent_skill.git'
 
 INSTALL = [
     '## Install',
@@ -61,7 +61,7 @@ INSTALL = [
     'Run inside Claude Code:',
     '',
     '```',
-    '/plugin marketplace add tp-job/agent-skill',
+    '/plugin marketplace add tp-job/agent_skill',
     '/plugin install agent-skill@tp-job-skills',
     '```',
     '',
