@@ -5,8 +5,8 @@ description: >
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.1.0"
-  source: Supabase + Prisma documentation (compiled 2026)
+  version: "1.2.0"
+  source: Supabase + Prisma 7 documentation (compiled 2026, checked against Prisma 7.10)
 ---
 
 # Supabase Senior — Architecture & Engineering Lead
@@ -35,10 +35,57 @@ This is the single most common source of broken Supabase + Prisma setups. Intern
 |**Transaction Pooler**|6543|Runtime queries (serverless, Vercel, edge)|`postgresql://postgres.[ref]:pw@aws-0-[region].pooler.supabase.com:6543/postgres?pgbouncer=true`|
 |**Session Pooler**|5432|Runtime queries (long-lived servers)|`postgresql://postgres.[ref]:pw@aws-0-[region].pooler.supabase.com:5432/postgres`|
 
-### `schema.prisma` — canonical dual-URL setup
+### Prisma 7 (current stable) — canonical dual-URL setup
+
+**Check the version first:** `npx prisma --version`. Prisma 7 moved the URLs out of the schema; a v6 project needs the legacy block below.
 
 ```prisma
-// schema.prisma
+// prisma/schema.prisma — no url/directUrl here in v7 (deprecated)
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client"          // v7: replaces "prisma-client-js"
+  output   = "../src/generated/prisma" // v7: required
+}
+```
+
+```ts
+// prisma.config.ts — the CLI (migrate, db pull, studio) uses the DIRECT connection
+import 'dotenv/config'                 // v7: .env is no longer auto-loaded
+import { defineConfig, env } from 'prisma/config'
+
+export default defineConfig({
+  schema: 'prisma/schema.prisma',
+  migrations: { path: 'prisma/migrations' },
+  datasource: { url: env('DIRECT_URL') },
+})
+```
+
+```ts
+// runtime — Prisma Client uses the POOLED connection through a driver adapter
+import { PrismaPg } from '@prisma/adapter-pg'
+import { PrismaClient } from '../src/generated/prisma/client'
+
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL })
+export const prisma = new PrismaClient({ adapter })
+```
+
+```env
+# .env
+# Runtime: transaction pooler (serverless-safe)
+DATABASE_URL="postgresql://postgres.[ref]:[pw]@aws-0-[region].pooler.supabase.com:6543/postgres?pgbouncer=true"
+
+# CLI / migrations: session pooler or direct connection (bypasses transaction pooling)
+DIRECT_URL="postgresql://postgres.[ref]:[pw]@aws-0-[region].pooler.supabase.com:5432/postgres"
+```
+
+**Mapping rule:** runtime → `DATABASE_URL` (6543, pooled) via adapter; CLI → `DIRECT_URL` (5432) via `prisma.config.ts`. Swap them and migrations hang on the transaction pooler.
+
+<details><summary>Legacy — Prisma 6 and earlier</summary>
+
+```prisma
 datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")       // Transaction pooler — runtime queries
@@ -50,28 +97,8 @@ generator client {
 }
 ```
 
-```env
-# .env
-# Runtime: transaction pooler (serverless-safe)
-DATABASE_URL="postgresql://postgres.[ref]:[pw]@aws-0-[region].pooler.supabase.com:6543/postgres?pgbouncer=true"
-
-# Migrations: direct connection (bypasses pooler)
-DIRECT_URL="postgresql://postgres.[ref]:[pw]@aws-0-[region].pooler.supabase.com:5432/postgres"
-```
-
-> ⚠️ **Prisma v7+ note**: In Prisma 7.2+, `url`/`directUrl` may move to `prisma.config.ts`. Always check the installed Prisma version before advising the migration pattern.
-
-```ts
-// prisma.config.ts (Prisma v7+)
-import 'dotenv/config'
-import { defineConfig, env } from 'prisma/config'
-
-export default defineConfig({
-  schema: 'prisma/schema.prisma',
-  migrations: { path: 'prisma/migrations' },
-  datasource: { url: env('DIRECT_URL') }, // CLI uses direct
-})
-```
+Do not advise this block on a v7 project; do not advise the v7 layout on a v6 project without the upgrade (`prisma.config.ts`, adapter, generator output).
+</details>
 
 ---
 
@@ -165,7 +192,7 @@ Supabase has its own migration system (`supabase/migrations/`).
 Prisma has its own migration system (`prisma/migrations/`).
 **Never run both on the same project without a clear boundary.**
 
-### Recommended Strategy (2025)
+### Recommended Strategy
 
 **Option A — Prisma owns schema, Supabase owns runtime features**
 
@@ -294,7 +321,8 @@ For deeper dives, load the relevant reference file:
 |Topic|Reference|
 |---|---|
 |Postgres → Supabase migration (full steps)|[Supabase Migrate Docs](https://supabase.com/docs/guides/platform/migrating-to-supabase/postgres)|
-|Prisma + Supabase official guide|[Prisma Supabase Docs](https://www.prisma.io/docs/orm/v6/overview/databases/supabase)|
+|Prisma + Supabase official guide|[Prisma Supabase Docs](https://www.prisma.io/docs/orm/overview/databases/supabase)|
+|Upgrading a project to Prisma 7|[Upgrade to Prisma 7](https://www.prisma.io/docs/orm/more/upgrade-guides/upgrading-versions/upgrading-to-prisma-7)|
 |Prisma Postgres (managed)|[Prisma Postgres Overview](https://www.prisma.io/docs/postgres)|
 |Prisma + Supabase connection pooling via Accelerate|[Prisma Accelerate + Supabase](https://www.prisma.io/docs/guides/supabase-accelerate)|
 |Supabase RLS docs|[RLS Guide](https://supabase.com/docs/guides/database/postgres/row-level-security)|

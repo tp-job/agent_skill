@@ -271,7 +271,7 @@ mat.onBeforeCompile = shader => {
 // Update uniforms in render loop
 renderer.setAnimationLoop(() => {
   if (mat.userData.shader) {
-    mat.userData.shader.uniforms.uTime.value = clock.getElapsedTime();
+    mat.userData.shader.uniforms.uTime.value = timer.getElapsed();
   }
   renderer.render(scene, camera);
 });

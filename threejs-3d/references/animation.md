@@ -40,10 +40,12 @@ loader.load('character.glb', gltf => {
 
 // Update ALL mixers in render loop
 const mixers = [];
-const clock  = new THREE.Clock();
+const timer  = new THREE.Timer();   // r183+: Clock is deprecated
+timer.connect(document);
 
-renderer.setAnimationLoop(() => {
-  const delta = clock.getDelta();
+renderer.setAnimationLoop((time) => {
+  timer.update(time);
+  const delta = timer.getDelta();
   mixers.forEach(m => m.update(delta));   // REQUIRED every frame
   renderer.render(scene, camera);
 });
@@ -149,7 +151,7 @@ document.addEventListener('keyup', e => {
 });
 
 renderer.setAnimationLoop(() => {
-  anim.update(clock.getDelta());
+  anim.update(timer.getDelta());
   renderer.render(scene, camera);
 });
 ```
@@ -224,7 +226,7 @@ setMorph(face, 'blink', 1.0);
 
 // Animate morph procedurally
 renderer.setAnimationLoop(() => {
-  const t = clock.getElapsedTime();
+  const t = timer.getElapsed();
   setMorph(face, 'smile', (Math.sin(t) + 1) / 2);
   renderer.render(scene, camera);
 });
@@ -262,7 +264,7 @@ const head = skeleton.bones.find(b => b.name === 'Head');
 
 // Procedural bone override (runs ON TOP of mixer if weight < 1)
 renderer.setAnimationLoop(() => {
-  const delta = clock.getDelta();
+  const delta = timer.getDelta();
   mixer.update(delta);
 
   // Override head to track mouse
@@ -290,11 +292,13 @@ weapon.rotation.set(0, Math.PI / 2, 0);
 ## Procedural Animation Patterns
 
 ```js
-const clock = new THREE.Clock();
+const timer = new THREE.Timer();
+timer.connect(document);
 
-renderer.setAnimationLoop(() => {
-  const t  = clock.getElapsedTime();
-  const dt = clock.getDelta();
+renderer.setAnimationLoop((time) => {
+  timer.update(time);
+  const t  = timer.getElapsed();   // Timer reads have no side effects —
+  const dt = timer.getDelta();     // with Clock, getElapsedTime() reset getDelta() to ~0
 
   // Sine wave bob
   mesh.position.y = Math.sin(t * 2) * 0.5;

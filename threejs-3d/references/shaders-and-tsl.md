@@ -70,7 +70,7 @@ const mat = new THREE.ShaderMaterial({
 
 // Update uniforms in render loop
 renderer.setAnimationLoop(() => {
-  mat.uniforms.uTime.value = clock.getElapsedTime();
+  mat.uniforms.uTime.value = timer.getElapsed();
   renderer.render(scene, camera);
 });
 ```
@@ -163,7 +163,7 @@ mat.needsUpdate = true;
 // Loop update
 renderer.setAnimationLoop(() => {
   if (mat.userData.shader) {
-    mat.userData.shader.uniforms.uTime.value = clock.getElapsedTime();
+    mat.userData.shader.uniforms.uTime.value = timer.getElapsed();
   }
   renderer.render(scene, camera);
 });

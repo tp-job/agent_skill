@@ -128,7 +128,7 @@ const _rot = new THREE.Quaternion();
 const _scl = new THREE.Vector3();
 
 renderer.setAnimationLoop(() => {
-  const t = clock.getElapsedTime();
+  const t = timer.getElapsed();
   for (let i = 0; i < COUNT; i++) {
     mesh.getMatrixAt(i, _m4);
     _m4.decompose(_pos, _rot, _scl);

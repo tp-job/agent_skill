@@ -38,14 +38,16 @@ STEP 5 — SUMMARIZE
 ### Prisma Singleton Pattern (always enforce)
 
 ```ts
-// lib/prisma.ts — singleton for Next.js / serverless
-import { PrismaClient } from '@prisma/client'
+// lib/prisma.ts — singleton for Next.js / serverless (Prisma 7: adapter required)
+import { PrismaPg } from '@prisma/adapter-pg'
+import { PrismaClient } from '../generated/prisma/client'   // v6: from '@prisma/client', no adapter
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient }
 
 export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
+    adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL }),
     log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
   })
 
