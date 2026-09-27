@@ -5,7 +5,7 @@ description: >
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.1.0"
   source: Supabase + Prisma documentation (compiled 2026)
 ---
 
@@ -219,281 +219,40 @@ CREATE TRIGGER on_auth_user_created
 
 ## 4. MIGRATION PLAYBOOK — POSTGRES → SUPABASE
 
-### Pre-Migration Checklist
+Moving an existing Postgres database onto Supabase: checklist, the three paths, pg_dump/pg_restore, and the post-migration steps. Full procedure: [migration-playbook](references/migration-playbook.md).
 
-```sql
--- Run on SOURCE database before anything
-SELECT pg_size_pretty(pg_database_size(current_database())) AS db_size;
-SELECT version();
-SELECT extname FROM pg_extension ORDER BY extname;
-SELECT count(*) FROM pg_stat_activity;
--- Compare extensions against Supabase's available list
-SELECT name FROM pg_available_extensions ORDER BY name; -- (run on Supabase target)
-```
-
-### Three Migration Paths
-
-|Method|Downtime|Complexity|Best For|
-|---|---|---|---|
-|**Google Colab notebook**|~hours|Low|< 10 GB, guided|
-|**pg_dump / pg_restore**|Maintenance window|Medium|Any size|
-|**Logical Replication**|Near-zero|High|Postgres 10+, large prod DBs|
-
-### pg_dump / pg_restore (canonical)
-
-```bash
-# Step 1: Dump (always use --no-owner --no-privileges for Supabase)
-pg_dump \
-  --host=<source_host> --port=5432 \
-  --username=<user> --dbname=<db> \
-  --jobs=4 --format=directory \
-  --no-owner --no-privileges --no-subscriptions \
-  --verbose --file=./db_dump 2>&1 | tee dump.log
-
-# Step 2: Restore to Supabase (use session pooler port 5432)
-export SUPABASE_URL="postgresql://postgres.[ref]:[pw]@aws-0-[region].pooler.supabase.com:5432/postgres"
-pg_restore \
-  --host=... --port=5432 \
-  --username=postgres --dbname=postgres \
-  --jobs=4 --format=directory \
-  --no-owner --no-privileges \
-  --verbose ./db_dump 2>&1 | tee restore.log
-```
-
-### Post-Migration (always required)
-
-```sql
--- 1. Re-enable RLS on all tables (not migrated by pg_dump)
-SELECT 'ALTER TABLE "' || tablename || '" ENABLE ROW LEVEL SECURITY;'
-FROM pg_tables WHERE schemaname = 'public';
-
--- 2. Recreate roles / grants (not migrated)
--- 3. Re-create auth triggers
--- 4. Verify extensions installed on Supabase target
--- 5. Test RLS policies with anon key (not service_role)
-```
+Covers: Pre-Migration Checklist · Three Migration Paths · pg_dump / pg_restore (canonical) · Post-Migration (always required).
 
 ---
 
 ## 5. WORKFLOW & LOGIC CHECKER
 
-When asked to **check**, **review**, or **validate** a workflow, use this structured analysis:
+Reviewing a multi-step Supabase + Prisma workflow for ordering, transaction, and auth-boundary bugs, with the output format. Full procedure: [workflow-review](references/workflow-review.md).
 
-### Workflow Review Protocol
-
-```
-STEP 1 — MAP THE FLOW
-  Draw out each step: trigger → action → state change → output
-  Identify: What data moves? Which role executes each step?
-
-STEP 2 — AUTH BOUNDARY CHECK
-  At each step: Is this anon / authenticated / service_role?
-  Does the role match the RLS policy on the affected table?
-
-STEP 3 — CONNECTION CHECK
-  Is this a migration step? → Must use DIRECT_URL
-  Is this a runtime query? → Should use pooled DATABASE_URL
-  Is this an Edge Function? → Deno runtime, use supabase-js not Prisma directly
-
-STEP 4 — TRANSACTION SAFETY
-  Are there multi-step writes? → Wrap in Prisma $transaction or Postgres transaction
-  Can a partial failure corrupt state? → Add compensating rollback
-
-STEP 5 — IDEMPOTENCY CHECK
-  Can this workflow run twice safely?
-  If not: add idempotency key, deduplication logic, or upsert instead of insert
-
-STEP 6 — SCALE AUDIT
-  Does this query have N+1 patterns? (multiple queries inside a loop)
-  Are indexes present for all WHERE / JOIN / ORDER BY columns?
-  Does this workflow hold a connection open longer than needed?
-```
-
-### Workflow Output Format
-
-When reviewing a workflow, always output:
-
-```
-## Workflow: [name]
-### Flow Map
-  [step-by-step with roles annotated]
-
-### ✅ Correct
-  [what is right about it]
-
-### ⚠️ Warnings
-  [non-critical issues]
-
-### 🔴 Critical Issues
-  [security, data integrity, or correctness problems]
-
-### 🔧 Recommended Fix
-  [code or SQL with explanation]
-```
+Covers: Workflow Review Protocol · Workflow Output Format.
 
 ---
 
 ## 6. ALGORITHM REVIEWER
 
-When asked to **review**, **check**, or **summarize** an algorithm or query:
+Reviewing query-heavy code for N+1s, missing indexes, and pagination, plus the Prisma singleton rule. Full procedure: [algorithm-review](references/algorithm-review.md).
 
-### Algorithm Review Protocol
-
-```
-STEP 1 — COMPLEXITY ANALYSIS
-  Time: O(?) for the core loop / query
-  Space: O(?) for in-memory structures
-  DB: How many round-trips? Can they be batched?
-
-STEP 2 — CORRECTNESS CHECK
-  Edge cases: empty input, null values, concurrent writes
-  Boundary conditions: first/last item, zero rows, max rows
-
-STEP 3 — SUPABASE-SPECIFIC CHECKS
-  Does this rely on auth.uid() inside a non-auth context?
-  Does this aggregate across RLS-filtered rows correctly?
-  Does this use Realtime subscriptions in a way that leaks data?
-
-STEP 4 — PRISMA-SPECIFIC CHECKS
-  Are relations loaded with select/include (avoid over-fetching)?
-  Are findMany queries paginated (cursor or offset)?
-  Are raw queries ($queryRaw) sanitized against SQL injection?
-  Does Prisma Client get instantiated once (singleton) or per-request (memory leak)?
-
-STEP 5 — SUMMARIZE
-  One-paragraph plain English summary of what the algorithm does
-  One-line complexity verdict
-  Top 3 improvement recommendations ranked by impact
-```
-
-### Prisma Singleton Pattern (always enforce)
-
-```ts
-// lib/prisma.ts — singleton for Next.js / serverless
-import { PrismaClient } from '@prisma/client'
-
-const globalForPrisma = globalThis as unknown as { prisma: PrismaClient }
-
-export const prisma =
-  globalForPrisma.prisma ??
-  new PrismaClient({
-    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
-  })
-
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
-```
+Covers: Algorithm Review Protocol · Prisma Singleton Pattern (always enforce).
 
 ---
 
 ## 7. AGENT DESIGN — SUPABASE-BACKED AI AGENTS
 
-### Agent Auth Architecture
+Auth boundaries for agents, the Edge Function agent pattern, and multi-step agent workflows with Prisma. Full procedure: [agent-design](references/agent-design.md).
 
-```
-Agent Layer
-    │
-    ├── User-context agents  → use anon key + JWT forwarding → RLS enforced
-    │                           (chatbots, copilots acting on behalf of a user)
-    │
-    └── System agents        → use service_role            → RLS bypassed
-                                (data processing, cron, background jobs)
-```
-
-### Edge Function Agent Pattern
-
-```ts
-// supabase/functions/agent-handler/index.ts
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-
-Deno.serve(async (req) => {
-  // 1. Verify user JWT (anon client respects RLS)
-  const userClient = createClient(
-    Deno.env.get('SUPABASE_URL')!,
-    Deno.env.get('SUPABASE_ANON_KEY')!,
-    { global: { headers: { Authorization: req.headers.get('Authorization')! } } }
-  )
-  const { data: { user }, error } = await userClient.auth.getUser()
-  if (error || !user) return new Response('Unauthorized', { status: 401 })
-
-  // 2. Use service_role for privileged operations AFTER auth check
-  const adminClient = createClient(
-    Deno.env.get('SUPABASE_URL')!,
-    Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
-  )
-
-  // 3. Scope all admin operations explicitly to user
-  const { data } = await adminClient
-    .from('agent_logs')
-    .insert({ user_id: user.id, action: 'run', timestamp: new Date() })
-
-  return new Response(JSON.stringify({ ok: true }), {
-    headers: { 'Content-Type': 'application/json' },
-  })
-})
-```
-
-### Multi-Step Agent Workflow with Prisma
-
-```ts
-// Long workflow with transaction safety
-async function runAgentWorkflow(userId: string, payload: AgentPayload) {
-  return await prisma.$transaction(async (tx) => {
-    // Step 1: Reserve the job (atomic)
-    const job = await tx.agentJob.update({
-      where: { id: payload.jobId, status: 'pending' },
-      data: { status: 'running', startedAt: new Date() },
-    })
-
-    try {
-      // Step 2: Execute agent steps
-      const result = await executeSteps(job.steps)
-
-      // Step 3: Commit result
-      await tx.agentJob.update({
-        where: { id: job.id },
-        data: { status: 'completed', result, completedAt: new Date() },
-      })
-
-      return result
-    } catch (err) {
-      // Step 4: Rollback on failure — transaction auto-rolls back
-      // but log the error for observability
-      await tx.agentJob.update({
-        where: { id: job.id },
-        data: { status: 'failed', error: String(err) },
-      })
-      throw err
-    }
-  })
-}
-```
+Covers: Agent Auth Architecture · Edge Function Agent Pattern · Multi-Step Agent Workflow with Prisma.
 
 ---
 
 ## 8. SUPABASE REALTIME + PRISMA COEXISTENCE
 
-Realtime subscriptions use the anon key + RLS. Prisma mutations trigger those events.
-This is safe — Prisma writes hit Postgres, Supabase Realtime listens to the WAL.
+Running Realtime subscriptions alongside Prisma writes without fighting over the schema. Full procedure: [realtime-prisma](references/realtime-prisma.md).
 
-```ts
-// Client: subscribe with user-scoped filter
-const channel = supabase
-  .channel('user-updates')
-  .on(
-    'postgres_changes',
-    {
-      event: '*',
-      schema: 'public',
-      table: 'notifications',
-      filter: `user_id=eq.${userId}`,  // Always filter by user — never subscribe to whole table
-    },
-    (payload) => handleUpdate(payload)
-  )
-  .subscribe()
-```
-
-> **RLS on Realtime**: As of 2024+, Supabase enforces RLS on Realtime subscriptions.
-> Ensure the `authenticated` role has SELECT policy on any table being subscribed to.
 
 ---
 
