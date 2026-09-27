@@ -1,6 +1,6 @@
 # Setup & Renderer Reference
 
-Three.js r182+ · WebGLRenderer & WebGPURenderer setup, resize, controls.
+Three.js r186+ · WebGLRenderer & WebGPURenderer setup, resize, controls.
 
 ---
 
@@ -62,10 +62,10 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 // Shadows
 renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap; // best quality/perf balance
+renderer.shadowMap.type = THREE.PCFShadowMap; // best quality/perf balance (r186+)
 // THREE.BasicShadowMap   — fastest, jagged
-// THREE.PCFShadowMap     — soft, moderate cost
-// THREE.PCFSoftShadowMap — softer, slightly more cost (recommended)
+// THREE.PCFShadowMap     — soft, moderate cost (recommended); tune with light.shadow.radius
+// THREE.PCFSoftShadowMap — deprecated r186; WebGL warns and falls back to PCFShadowMap
 // THREE.VSMShadowMap     — variance shadow maps, smooth but light bleeding
 ```
 
@@ -109,29 +109,28 @@ const orthoCamera = new THREE.OrthographicCamera(
 ## Animation Loop — setAnimationLoop (mandatory)
 
 ```js
-const clock = new THREE.Clock();
+const timer = new THREE.Timer();   // r183+: THREE.Clock is deprecated
+timer.connect(document);           // Page Visibility API: no delta spike on tab return
 
 // CORRECT
-renderer.setAnimationLoop(() => {
-  const delta = clock.getDelta();     // seconds since last frame
-  const elapsed = clock.getElapsedTime(); // seconds since start
+function animate(time) {
+  timer.update(time);              // once per frame, before any read
+  const delta = timer.getDelta();     // seconds since last frame
+  const elapsed = timer.getElapsed(); // seconds since start
   controls.update();
   // update scene...
   renderer.render(scene, camera);
-});
+}
+renderer.setAnimationLoop(animate);
 
-// Stop the loop (e.g. page hidden, cleanup)
+// Stop the loop (e.g. cleanup)
 renderer.setAnimationLoop(null);
+timer.dispose();                   // also disconnects the visibility listener
 
-// Page Visibility API — pause when tab is hidden
+// Optional: also stop rendering while the tab is hidden (timer.connect already
+// keeps delta correct; this only saves GPU work)
 document.addEventListener('visibilitychange', () => {
-  if (document.hidden) {
-    renderer.setAnimationLoop(null);
-    clock.stop();
-  } else {
-    clock.start();
-    renderer.setAnimationLoop(animate);
-  }
+  renderer.setAnimationLoop(document.hidden ? null : animate);
 });
 ```
 

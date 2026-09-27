@@ -1,6 +1,11 @@
 ---
 name: project-file-structure
 description: Rules for naming and placing every file and folder in a React + TypeScript + Node + Prisma project whose documentation lives in an Obsidian vault, plus PDF handling. Use this skill whenever creating a new file, adding a new feature, renaming something, moving a file, writing a Prisma model or migration, adding a note to the vault, reviewing a pull request that adds files, or when the user asks where a file should go, what to call it, or says they cannot find a file. Apply it even when the user only asks "make a component" or "add an API route" without mentioning structure.
+license: MIT
+metadata:
+  author: tp-job (enhanced by Claude)
+  version: "1.0.0"
+  source: React + TypeScript + Node + Prisma project conventions with an Obsidian docs vault (compiled 2026)
 ---
 
 # Project File Structure

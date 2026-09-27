@@ -1,17 +1,17 @@
 ---
 name: threejs-3d
 description: >
-  Build high-performance, production-grade Three.js and 3D web experiences. ALWAYS use this skill when the user mentions: Three.js, WebGL, WebGPU, 3D scene, 3D model, GLTF, GLB, OBJ, FBX, STL, shader, GLSL, TSL, vertex shader, fragment shader, particle system, procedural geometry, 3D animation, skeletal animation, morph target, animation mixer, environment map, HDRI, PBR material, physically based rendering, shadow, ambient occlusion, instanced mesh, raycasting, picking, interaction in 3D, camera rig, orbit controls, postprocessing, bloom, depth of field, FXAA, SMAA, tone mapping, color grading, 3D product viewer, configurator, 3D background, WebGL demo, spinning cube, Three Fiber, R3F, Drei, canvas 3D, point cloud, terrain generation, procedural mesh, GPU particles, compute shader, or anything involving rendering 3D graphics in the browser. Also trigger for: "make it look cinematic", "add glow", "add reflections", "realistic materials", "game-like graphics", "3D interactive experience". Produces modern r182+ code with correct memory management, delta-time animation, import maps, and professional visual quality.
+  Build high-performance, production-grade Three.js and 3D web experiences. ALWAYS use this skill when the user mentions: Three.js, WebGL, WebGPU, 3D scene, 3D model, GLTF, GLB, OBJ, FBX, STL, shader, GLSL, TSL, vertex shader, fragment shader, particle system, procedural geometry, 3D animation, skeletal animation, morph target, animation mixer, environment map, HDRI, PBR material, physically based rendering, shadow, ambient occlusion, instanced mesh, raycasting, picking, interaction in 3D, camera rig, orbit controls, postprocessing, bloom, depth of field, FXAA, SMAA, tone mapping, color grading, 3D product viewer, configurator, 3D background, WebGL demo, spinning cube, Three Fiber, R3F, Drei, canvas 3D, point cloud, terrain generation, procedural mesh, GPU particles, compute shader, or anything involving rendering 3D graphics in the browser. Also trigger for: "make it look cinematic", "add glow", "add reflections", "realistic materials", "game-like graphics", "3D interactive experience". Produces modern r186+ code with correct memory management, delta-time animation, import maps, and professional visual quality.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
-  source: Three.js r182 documentation & best practices (compiled 2026)
+  version: "1.1.0"
+  source: Three.js r186 source, release notes & best practices (compiled 2026)
 ---
 
 # Three.js & 3D Web — Professional Skill
 
-Version: Three.js **r182** | Maintainer: Senior Leadership (FE + Design + QA + PM)
+Version: Three.js **r186** (min r183 for `Timer`) | Maintainer: Senior Leadership (FE + Design + QA + PM)
 
 ---
 
@@ -23,7 +23,7 @@ Every output from this skill MUST satisfy:
 |---|---|---|
 |1|Uses import maps (never old CDN `<script src>`)|Frontend|
 |2|Uses `renderer.setAnimationLoop()`, not manual RAF|Frontend|
-|3|All motion driven by `clock.getDelta()` (frame-rate independent)|Frontend|
+|3|All motion driven by `timer.getDelta()` after `timer.update(time)` (frame-rate independent)|Frontend|
 |4|Pixel ratio capped at `Math.min(devicePixelRatio, 2)`|Frontend|
 |5|Every created GPU object has an explicit `.dispose()` path|QA|
 |6|No heap allocations inside the render loop|QA|
@@ -115,7 +115,7 @@ const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'hi
 renderer.setSize(innerWidth, innerHeight);
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.type = THREE.PCFShadowMap;   // r186+: PCFSoftShadowMap removed
 renderer.toneMapping = THREE.ACESFilmicToneMapping;  // ← cinematic look
 renderer.toneMappingExposure = 1.0;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -152,9 +152,11 @@ window.addEventListener('resize', () => {
 });
 
 /* ── Render loop (delta-time driven) ───────────────────── */
-const clock = new THREE.Clock();
-renderer.setAnimationLoop(() => {
-  const delta = clock.getDelta();
+const timer = new THREE.Timer();   // r183+: THREE.Clock is deprecated
+timer.connect(document);           // freezes delta while the tab is hidden
+renderer.setAnimationLoop((time) => {
+  timer.update(time);              // must run first, once per frame
+  const delta = timer.getDelta();
   controls.update();
   // ← put your per-frame updates here, always using delta
   renderer.render(scene, camera);
@@ -193,8 +195,8 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.0;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-// Soft shadows (always when shadows are needed)
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+// Soft shadows (always when shadows are needed) — soften further with light.shadow.radius
+renderer.shadowMap.type = THREE.PCFShadowMap;
 
 // Environment-based reflections (for any metallic/glossy surface)
 // → see materials-and-textures.md: PMREMGenerator

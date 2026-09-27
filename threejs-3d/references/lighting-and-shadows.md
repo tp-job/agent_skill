@@ -110,7 +110,7 @@ function configureShadow(light, radius = 10, mapSize = 1024) {
   light.shadow.bias = -0.001;           // tweak until acne disappears
   light.shadow.normalBias = 0.02;       // for thin geometry (grass, leaves)
 
-  // Radius (PCFSoft only) — soft shadow edge
+  // Radius (PCFShadowMap, r186+) — soft shadow edge
   light.shadow.radius = 4;
 
   light.shadow.camera.updateProjectionMatrix();

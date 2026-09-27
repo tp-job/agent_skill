@@ -28,7 +28,7 @@ export default function App() {
         outputColorSpace: THREE.SRGBColorSpace,
       }}
       onCreated={({ gl }) => {
-        gl.shadowMap.type = THREE.PCFSoftShadowMap;
+        gl.shadowMap.type = THREE.PCFShadowMap;
       }}
     >
       <ambientLight intensity={0.5} />
@@ -266,9 +266,11 @@ export function ThreeCanvas() {
     ro.observe(mount);
 
     // Loop
-    const clock = new THREE.Clock();
-    renderer.setAnimationLoop(() => {
-      mesh.rotation.y += clock.getDelta();
+    const timer = new THREE.Timer();
+    timer.connect(document);
+    renderer.setAnimationLoop((time) => {
+      timer.update(time);
+      mesh.rotation.y += timer.getDelta();
       renderer.render(scene, camera);
     });
 
@@ -304,7 +306,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import * as THREE from 'three';
 
 const container = ref(null);
-let renderer, clock, animId;
+let renderer, timer, animId;
 
 onMounted(() => {
   const mount = container.value;
@@ -324,9 +326,11 @@ onMounted(() => {
   const mesh = new THREE.Mesh(geo, mat);
   scene.add(mesh);
 
-  clock = new THREE.Clock();
-  renderer.setAnimationLoop(() => {
-    mesh.rotation.y += clock.getDelta();
+  timer = new THREE.Timer();
+  timer.connect(document);
+  renderer.setAnimationLoop((time) => {
+    timer.update(time);
+    mesh.rotation.y += timer.getDelta();
     renderer.render(scene, camera);
   });
 });
