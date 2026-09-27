@@ -2,11 +2,11 @@
 name: ui-checker
 description: >
   Audit web UIs across four dimensions: theme compliance (colors, borders, shadows follow CSS variables/design tokens, incl. Tailwind and shadcn `.dark` setups, instead of hardcoded values), layout integrity (dimensions, spacing, overflow, breakpoints), browser rendering (a live clickable inspector artifact to toggle themes, measure elements, check contrast), and accessibility polish (WCAG contrast, alt text, focus styles, fixed px fonts, reduced motion). Also reviews UI code against the Vercel Web Interface Guidelines with `file:line` findings.
-  Trigger for: "check UI colors", "audit my theme", "does dark mode work", "find hardcoded colors", "check CSS variables", "layout dimensions", "responsive check", "WCAG contrast", "color audit", "UI QA", "inspect my design", "theme compliance", "check my Tailwind dark mode", "review my UI", "check accessibility", "audit design", "review UX", "check my site against best practices", or pasted HTML/CSS with "does this look right" / "why doesn't my dark mode work" / "what's wrong with my layout".
+  Trigger for: "check UI colors", "audit my theme", "does dark mode work", "find hardcoded colors", "check CSS variables", "layout dimensions", "responsive check", "WCAG contrast", "color audit", "UI QA", "inspect my design", "theme compliance", "check my Tailwind dark mode", "review my UI", "check accessibility", "audit design", "review UX", "check my site against best practices", or pasted HTML/CSS with "does this look right" / "why doesn't my dark mode work" / "what's wrong with my layout". Not for choosing a new aesthetic direction or applying a design system from scratch — this audits what is already built.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.1.0"
+  version: "1.1.1"
   source: UI Inspection & WCAG guidelines (compiled 2026)
 ---
 

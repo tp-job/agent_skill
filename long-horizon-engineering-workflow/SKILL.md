@@ -1,7 +1,18 @@
 ---
 name: long-horizon-engineering-workflow
-description: >
-  Runs long, multi-session engineering builds as a gated outer loop (Requirements → Design → Development → Integration QA → UAT → Deployment) wrapped around a per-phase middle loop (one phase or sprint = one branch, merged at its close) and a per-feature inner loop (scoped regression → select → implement → verify → refactor what that feature touched → commit), backed by on-disk state that survives context loss. Also trigger on "split this into phases", "sprint plan", "how should we branch this", "what branch should this go on", "phase plan", "one branch per sprint", "should this be its own branch". Also trigger on "clean up as we go", "refactor after each feature", "the code is getting messy as we build". Stage 2 runs computational thinking as its method — decomposition, pattern recognition, abstraction, algorithm design, and data mapping — so also trigger on "break this down", "decompose this build", "how should I structure this", "map the data flow". Use this whenever a user asks Claude to build, develop, architect, extend, or ship something spanning multiple turns or sessions — a new app, a multi-component feature, a system with several moving parts, a refactor touching many files, or any "build me X" / "let's build out Y" request too big to land in one shot. Also trigger mid-build when the requirement, design, or feature ledger was never written down and the work is drifting, or when an agent starts declaring features done without verifying them. Push hard for gate artifacts and harness files before advancing, but respect an explicit user override to skip ahead. Do NOT trigger for single quick snippets, isolated one-off scripts, or small well-specified bug fixes — those don't need gates.
+description: >-
+  Runs long, multi-session builds — a new app, a multi-component feature, a refactor touching many
+  files, any "build me X" too big for one shot — as a gated outer loop (Requirements → Design →
+  Development → Integration QA → UAT → Deployment), a per-phase middle loop (one phase or sprint =
+  one branch, merged at close) and a per-feature inner loop (scoped regression → implement → verify
+  → refactor what it touched → commit), backed by on-disk state that survives context loss. Stage 2
+  decomposes with computational thinking: decomposition, pattern recognition, abstraction, algorithm
+  design, data mapping. Trigger on: "split this into phases", "sprint plan", "how should we branch
+  this", "one branch per sprint", "clean up as we go", "the code is getting messy as we build",
+  "break this down", "decompose this build", "map the data flow"; and mid-build when no requirement,
+  design or feature ledger was written and work is drifting, or features are declared done without
+  verification. Push for gate artifacts before advancing, but respect an explicit user override. Not
+  for quick snippets, one-off scripts, or small well-specified bug fixes — those need no gates.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)

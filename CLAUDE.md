@@ -141,10 +141,16 @@ python scripts/build-bundles.py && python scripts/check-bundles.py
 
 Rebuilds every `bundled/` directory from its sources, then verifies the closure, the fidelity of each copy, and every relative markdown link in the repository. Run it after editing any skill in the bundling cluster — a source edit does not reach the copies on its own. The build step is idempotent; the check step exits non-zero on any dangling link or drifted copy.
 
+```bash
+python scripts/lint-skills.py
+```
+
+Checks what the other two cannot: description over the 1,536-character listing cap, no negative scope in the description, orphaned reference files, broken `#heading` anchors (GitHub slugs — `## Cloud & Network` is `#cloud--network`), Obsidian wikilinks, skill frontmatter left inside a reference file, mojibake, personal paths, and credential-shaped strings. Exits non-zero on any finding.
+
 Before committing a skill change, confirm:
 
 - [ ] Folder name == `name:` in frontmatter
-- [ ] `description` names what it does, when to use it, and literal trigger phrases
+- [ ] `description` names what it does, when to use it, literal trigger phrases, and what it is **not** for — within 1,536 characters
 - [ ] `license` and `metadata` blocks present
 - [ ] Every reference is a relative markdown link to a file that exists
 - [ ] No link leaves the skill folder — a cross-skill link points at `bundled/`, never `../`
@@ -152,6 +158,7 @@ Before committing a skill change, confirm:
 - [ ] No credentials, tokens, or personal paths in any file
 - [ ] `python scripts/build-index.py` exits clean
 - [ ] `python scripts/build-bundles.py && python scripts/check-bundles.py` exits clean
+- [ ] `python scripts/lint-skills.py` exits clean
 
 ---
 

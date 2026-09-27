@@ -7,7 +7,7 @@ A comprehensive skill for managing and scaling CSS in TailwindCSS-first projects
 ```
 design:css-architecture/
 ├── README.md                          ← You are here
-├── IMPLEMENTATION-CHECKLIST.md        ← Quick setup guide
+├── implementation-checklist.md        ← Quick setup guide
 ├── SKILL.md                           ← Main skill (387 lines)
 │
 ├── references/                        ← Read as needed
@@ -53,7 +53,7 @@ design:css-architecture/
 | **folder-templates.md** | Project structure variants | Choosing folder layout |
 | **anti-patterns.md** | 10 CSS hell patterns | Code review or self-audit |
 | **main.css.template** | Starter configuration | Copying into new projects |
-| **IMPLEMENTATION-CHECKLIST.md** | Setup checklist | Following through implementation |
+| **implementation-checklist.md** | Setup checklist | Following through implementation |
 
 ---
 
@@ -151,7 +151,7 @@ After implementing this skill across your project:
 
 1. **Download all 8 files** — Use the links above
 2. **Store in project** — Create `skills/design:css-architecture/` or similar
-3. **Follow IMPLEMENTATION-CHECKLIST.md** — Phase by phase
+3. **Follow implementation-checklist.md** — Phase by phase
 4. **Share with team** — Make it discoverable
 5. **Monitor metrics** — Track progress monthly
 

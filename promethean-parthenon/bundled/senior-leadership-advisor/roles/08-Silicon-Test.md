@@ -28,7 +28,7 @@ related: "[07-Silicon-RnD](./07-Silicon-RnD.md), [09-Silicon-Sell](./09-Silicon-
 
 **Signoff artifact:** Coverage report + list of exclusions with rationale + known-issue list with severity + explicit statement of unverified scope.
 
-**Related roles:** [07-Silicon-RnD > ASIC RTL Design Engineer](./07-Silicon-RnD.md#asic-rtl-design-engineer) (adversarial partner by design), [07-Silicon-RnD > Silicon Architect Microarchitect](./07-Silicon-RnD.md#silicon-architect-microarchitect) (spec is the source of truth for the verification plan), [[Post-Silicon Test Engineer]] (escaped-bug feedback loop — every post-silicon bug is a DV plan gap), [01-Software-Logic > QA Automation Tester](./01-Software-Logic.md#qa-automation-tester) (software analogue of the same discipline)
+**Related roles:** [07-Silicon-RnD > ASIC RTL Design Engineer](./07-Silicon-RnD.md#asic--rtl-design-engineer) (adversarial partner by design), [07-Silicon-RnD > Silicon Architect Microarchitect](./07-Silicon-RnD.md#silicon-architect--microarchitect) (spec is the source of truth for the verification plan), [Post-Silicon Test Engineer](#post-silicon-test-engineer) (escaped-bug feedback loop — every post-silicon bug is a DV plan gap), [01-Software-Logic > QA Automation Tester](./01-Software-Logic.md#qa--automation-tester) (software analogue of the same discipline)
 
 ---
 
@@ -42,7 +42,7 @@ related: "[07-Silicon-RnD](./07-Silicon-RnD.md), [09-Silicon-Sell](./09-Silicon-
 
 **Key concerns:** Bring-up order (power sequencing → clocks → reset → basic I/O → boot → functional) · VT margin: shmoo across voltage and temperature, not just nominal · Thermal behavior under sustained load, throttling behavior, hot-spot location · Process corner spread across parts (one good die proves nothing) · Signal integrity on high-speed interfaces · Distinguishing silicon bug vs. board bug vs. firmware bug · Reproducibility rate (intermittent at 1-in-10⁶ is still a shipping blocker) · Errata: what gets documented and worked around vs. what forces a respin
 
-**Related roles:** [[Design Verification DV Engineer]] (hands off known-issue list into bring-up), [[Post-Silicon Test Engineer]] (production-test counterpart of the same silicon), [07-Silicon-RnD > ASIC RTL Design Engineer](./07-Silicon-RnD.md#asic-rtl-design-engineer) (owns the fix or the errata), [01-Software-Logic > Embedded Firmware Engineer](./01-Software-Logic.md#embedded-firmware-engineer) (bring-up firmware and workarounds)
+**Related roles:** [Design Verification (DV) Engineer](#design-verification-dv-engineer) (hands off known-issue list into bring-up), [Post-Silicon Test Engineer](#post-silicon-test-engineer) (production-test counterpart of the same silicon), [07-Silicon-RnD > ASIC RTL Design Engineer](./07-Silicon-RnD.md#asic--rtl-design-engineer) (owns the fix or the errata), [01-Software-Logic > Embedded Firmware Engineer](./01-Software-Logic.md#embedded--firmware-engineer) (bring-up firmware and workarounds)
 
 ---
 
@@ -56,7 +56,7 @@ related: "[07-Silicon-RnD](./07-Silicon-RnD.md), [09-Silicon-Sell](./09-Silicon-
 
 **Key concerns:** Test escape rate (DPPM) vs. test time cost per unit · Coverage from scan/ATPG and MBIST, and what structural test cannot catch · Binning strategy and speed-grade yield mix (this directly sets the product SKU stack and margin) · Yield learning: systematic vs. random defect signatures, wafer maps · Guard-banding for VT and aging · Correlation between ATE results and system-level behavior · Test hardware (load board, probe card) as a failure source · Reliability screening: burn-in, HTOL, what actually predicts field failure
 
-**Related roles:** [[Silicon Validation Engineer]] (lab characterization sets the test limits), [[Design Verification DV Engineer]] (escaped bugs feed back into verification plans), [07-Silicon-RnD > ASIC RTL Design Engineer](./07-Silicon-RnD.md#asic-rtl-design-engineer) (DFT structures must be designed in), [09-Silicon-Sell > Silicon Product Manager](./09-Silicon-Sell.md#silicon-product-manager) (binning yield determines the SKU lineup and pricing)
+**Related roles:** [Silicon Validation Engineer](#silicon-validation-engineer) (lab characterization sets the test limits), [Design Verification (DV) Engineer](#design-verification-dv-engineer) (escaped bugs feed back into verification plans), [07-Silicon-RnD > ASIC RTL Design Engineer](./07-Silicon-RnD.md#asic--rtl-design-engineer) (DFT structures must be designed in), [09-Silicon-Sell > Silicon Product Manager](./09-Silicon-Sell.md#silicon-product-manager) (binning yield determines the SKU lineup and pricing)
 
 ---
 
@@ -70,4 +70,4 @@ related: "[07-Silicon-RnD](./07-Silicon-RnD.md), [09-Silicon-Sell](./09-Silicon-
 
 **Key concerns:** Qualification completeness for the target market (consumer vs. automotive vs. datacenter have different bars — AEC-Q100 grades, mission profiles) · Failure analysis rigor: 8D / 5-Why / fishbone to actual root cause, not to "customer misuse" · Corrective action effectiveness verification (did the fix hold?) · Supplier/foundry and OSAT quality gates · RMA trend analysis as an early warning system · Documentation and traceability for audits · Cost of quality: prevention vs. appraisal vs. failure cost · Release criteria agreed *before* the schedule pressure arrives
 
-**Related roles:** [[Post-Silicon Test Engineer]] (production test data is QA's primary signal), [[Silicon Validation Engineer]] (reliability and qual test execution), [01-Software-Logic > QA Automation Tester](./01-Software-Logic.md#qa-automation-tester) (software-side quality), [10-Silicon-Client-Service > Customer Support Engineer](./10-Silicon-Client-Service.md#customer-support-engineer) (field failure intake), [06-Engineering-Leadership > Quality Assurance](./06-Engineering-Leadership.md#quality-assurance) (org-level quality leadership)
+**Related roles:** [Post-Silicon Test Engineer](#post-silicon-test-engineer) (production test data is QA's primary signal), [Silicon Validation Engineer](#silicon-validation-engineer) (reliability and qual test execution), [01-Software-Logic > QA Automation Tester](./01-Software-Logic.md#qa--automation-tester) (software-side quality), [10-Silicon-Client-Service > Customer Support Engineer](./10-Silicon-Client-Service.md#customer-support-engineer) (field failure intake), [06-Engineering-Leadership > Quality Assurance](./06-Engineering-Leadership.md#quality-assurance) (org-level quality leadership)

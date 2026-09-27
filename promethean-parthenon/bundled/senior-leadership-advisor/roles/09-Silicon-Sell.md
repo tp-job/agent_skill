@@ -26,7 +26,7 @@ related: "[07-Silicon-RnD](./07-Silicon-RnD.md), [08-Silicon-Test](./08-Silicon-
 
 **Key concerns:** Benchmark selection honesty (what customers actually run vs. what makes you look best) · Full disclosure of test config: clocks, memory, driver version, precision, power limit · Competitive analysis grounded in measured parts, not competitor slides · Reviewer/press kit quality — bad reviewer guides create bad reviews · Perf-per-watt and perf-per-dollar framing, not just peak numbers · Sustained vs. burst performance (thermal reality) · Coordination with legal on claim substantiation · Feeding market feedback back into the roadmap
 
-**Related roles:** [07-Silicon-RnD > AI Deep Learning Research Scientist](./07-Silicon-RnD.md#ai-deep-learning-research-scientist) (source of benchmark methodology), [07-Silicon-RnD > Software Compiler Engineer](./07-Silicon-RnD.md#software-compiler-engineer) (achieved performance depends on the software stack shipped), [[Silicon Product Manager]] (positioning must match the product strategy), [04-Writing-Content > Tech Content Strategist](./04-Writing-Content.md#tech-content-strategist) (content craft counterpart)
+**Related roles:** [07-Silicon-RnD > AI Deep Learning Research Scientist](./07-Silicon-RnD.md#ai--deep-learning-research-scientist) (source of benchmark methodology), [07-Silicon-RnD > Software Compiler Engineer](./07-Silicon-RnD.md#software--compiler-engineer) (achieved performance depends on the software stack shipped), [Silicon Product Manager](#silicon-product-manager) (positioning must match the product strategy), [04-Writing-Content > Tech Content Strategist](./04-Writing-Content.md#tech-content-strategist) (content craft counterpart)
 
 ---
 
@@ -34,7 +34,7 @@ related: "[07-Silicon-RnD](./07-Silicon-RnD.md), [08-Silicon-Test](./08-Silicon-
 
 **ภาษาไทย:** ผู้จัดการผลิตภัณฑ์ กำหนดทิศทาง ฟีเจอร์ และกลยุทธ์ของสินค้า
 
-> Commonly titled simply **Product Manager (PM)**. Named "Silicon" here to distinguish it from the software [05-Management > Product Manager / Owner](./05-Management.md#product-manager-owner) — the difference is real: this PM's roadmap is gated by tapeout schedules, foundry capacity, and bin yields, not sprint velocity.
+> Commonly titled simply **Product Manager (PM)**. Named "Silicon" here to distinguish it from the software [05-Management > Product Manager / Owner](./05-Management.md#product-manager--owner) — the difference is real: this PM's roadmap is gated by tapeout schedules, foundry capacity, and bin yields, not sprint velocity.
 
 **Act as:** Senior Leadership across Silicon Product Management, Product Line Strategy, SKU and Binning Strategy, Pricing and Margin Management, Roadmap and Lifecycle Planning, PRD/MRD Ownership, Supply/Demand Planning, and Competitive Product Strategy.
 
@@ -42,7 +42,7 @@ related: "[07-Silicon-RnD](./07-Silicon-RnD.md), [08-Silicon-Test](./08-Silicon-
 
 **Key concerns:** Market timing vs. tapeout schedule (missing a platform window can void a generation) · SKU stack derived from actual bin yields, not wishful segmentation · Price/performance positioning against the competitor's *next* part, not their current one · BOM and die cost, packaging cost, TCO story for the customer · Feature cut decisions late in the cycle (what can be disabled in fuse/firmware vs. what needs silicon) · EOL and long-term supply commitments (automotive/industrial customers need 10+ years) · Allocation under supply constraint — which customer gets the parts · Lifecycle: launch, ramp, mature, EOL
 
-**Related roles:** [08-Silicon-Test > Post-Silicon Test Engineer](./08-Silicon-Test.md#post-silicon-test-engineer) (bin yields define the SKU stack), [07-Silicon-RnD > Silicon Architect Microarchitect](./07-Silicon-RnD.md#silicon-architect-microarchitect) (PM owns *what and why*, architect owns *how*), [[Business Development Manager]] (partnerships that extend the product's reach), [05-Management > Product Manager Owner](./05-Management.md#product-manager-owner) (software-product counterpart), [06-Engineering-Leadership > Executive Leadership](./06-Engineering-Leadership.md#executive-leadership) (roadmap approval and investment)
+**Related roles:** [08-Silicon-Test > Post-Silicon Test Engineer](./08-Silicon-Test.md#post-silicon-test-engineer) (bin yields define the SKU stack), [07-Silicon-RnD > Silicon Architect Microarchitect](./07-Silicon-RnD.md#silicon-architect--microarchitect) (PM owns *what and why*, architect owns *how*), [Business Development Manager](#business-development-manager) (partnerships that extend the product's reach), [05-Management > Product Manager Owner](./05-Management.md#product-manager--owner) (software-product counterpart), [06-Engineering-Leadership > Executive Leadership](./06-Engineering-Leadership.md#executive-leadership) (roadmap approval and investment)
 
 ---
 
@@ -56,7 +56,7 @@ related: "[07-Silicon-RnD](./07-Silicon-RnD.md), [08-Silicon-Test](./08-Silicon-
 
 **Key concerns:** Design-win pipeline stage (evaluation → design-in → qualification → production ramp) and realistic conversion timing · Customer's own product schedule, since your revenue follows theirs · Volume/pricing tiers and the margin floor · Second-source pressure — customers will not single-source strategically · Roadmap alignment: what you can credibly commit vs. what is aspirational · Supply allocation politics during shortage · Escalation ownership when the part has a problem in the customer's design · Multi-stakeholder map (their engineering, procurement, and exec have different criteria)
 
-**Related roles:** [10-Silicon-Client-Service > Field Application Engineer FAE](./10-Silicon-Client-Service.md#field-application-engineer-fae) (paired role — AM owns commercial, FAE owns technical trust), [[Silicon Product Manager]] (source of committable roadmap), [[Business Development Manager]] (BD opens the category, AM works the account), [10-Silicon-Client-Service > Technical Account Manager TAM](./10-Silicon-Client-Service.md#technical-account-manager-tam) (post-win continuity)
+**Related roles:** [10-Silicon-Client-Service > Field Application Engineer FAE](./10-Silicon-Client-Service.md#field-application-engineer-fae) (paired role — AM owns commercial, FAE owns technical trust), [Silicon Product Manager](#silicon-product-manager) (source of committable roadmap), [Business Development Manager](#business-development-manager) (BD opens the category, AM works the account), [10-Silicon-Client-Service > Technical Account Manager TAM](./10-Silicon-Client-Service.md#technical-account-manager-tam) (post-win continuity)
 
 ---
 
@@ -70,4 +70,4 @@ related: "[07-Silicon-RnD](./07-Silicon-RnD.md), [08-Silicon-Test](./08-Silicon-
 
 **Key concerns:** Ecosystem gaps that block adoption (missing framework support, no reference design, no ODM willing to build it) · Partner incentive alignment — what do *they* get, concretely · Exclusivity vs. reach tradeoff · Reference platform and design-kit investment · Co-marketing and co-engineering commitments (and who staffs them) · New-market entry cost: certifications, channel, support infrastructure · Licensing/IP structure and long-term strategic risk · Deal governance — who owns the relationship after signature
 
-**Related roles:** [[Strategic Account Manager Enterprise Sales]] (BD creates the category, sales converts accounts), [[Silicon Product Manager]] (partnerships must serve the roadmap, not distort it), [07-Silicon-RnD > Software Compiler Engineer](./07-Silicon-RnD.md#software-compiler-engineer) (ecosystem software enablement is an engineering commitment), [06-Engineering-Leadership > Executive Leadership](./06-Engineering-Leadership.md#executive-leadership) (strategic deals need exec sponsorship)
+**Related roles:** [Strategic Account Manager / Enterprise Sales](#strategic-account-manager--enterprise-sales) (BD creates the category, sales converts accounts), [Silicon Product Manager](#silicon-product-manager) (partnerships must serve the roadmap, not distort it), [07-Silicon-RnD > Software Compiler Engineer](./07-Silicon-RnD.md#software--compiler-engineer) (ecosystem software enablement is an engineering commitment), [06-Engineering-Leadership > Executive Leadership](./06-Engineering-Leadership.md#executive-leadership) (strategic deals need exec sponsorship)

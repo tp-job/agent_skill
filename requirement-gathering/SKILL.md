@@ -10,11 +10,11 @@ description: >
   "เช็ค design system", "สร้าง acceptance criteria", "document API contract".
   ALWAYS run autonomously — infer missing context, annotate assumptions, never ask to proceed.
   This is the "extract" half of writing a target: use it when the requirements already live in
-  code, and agentic-engineering when they live in someone's head.
+  code, and agentic-engineering when they live in someone's head. Not for a brand-new idea with no code yet — brief that instead.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.1.0"
+  version: "1.1.1"
   source: PERN/MERN requirement extraction methodology (compiled 2026)
 ---
 

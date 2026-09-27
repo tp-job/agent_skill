@@ -1,12 +1,12 @@
 ---
 name: debug-master
 description: >-
-  Deep debug and auto-fix skill covering file system inspection, logic tracing, algorithm analysis, and AI workflow debugging. Trigger this skill whenever the user shares an error message, stack trace, broken file path, missing module, wrong output, or describes unexpected behavior in any codebase or workflow. Also trigger for: "why is this not working", "fix this bug", "check my paths", "trace this logic", "analyze this algorithm", "my workflow is broken", "find the error", "debug this agent", "check folder structure", "validate these files", "summarize this algorithm's complexity", or any variant of these. Use this skill even for vague reports like "something is wrong" — the skill's intake phase will extract what's needed. Covers Python, JavaScript/TypeScript, Go, Bash, SQL, LangChain/LangGraph, AutoGen, CrewAI, and generic AI agent workflows. Also covers PERN/MERN full-stack bug triage with a structured issue report (Thai triggers: "แก้บัค", "หา bug", "ช้า", "memory leak", "login ไม่ได้", "ส่ง API ไม่ได้"). This skill is intentionally broad — when in doubt, use it.
+  Deep debug and auto-fix skill covering file system inspection, logic tracing, algorithm analysis, and AI workflow debugging. Trigger this skill whenever the user shares an error message, stack trace, broken file path, missing module, wrong output, or describes unexpected behavior in any codebase or workflow. Also trigger for: "why is this not working", "fix this bug", "check my paths", "trace this logic", "analyze this algorithm", "my workflow is broken", "find the error", "debug this agent", "check folder structure", "validate these files", "summarize this algorithm's complexity", or any variant of these. Use this skill even for vague reports like "something is wrong" — the skill's intake phase will extract what's needed. Covers Python, JavaScript/TypeScript, Go, Bash, SQL, LangChain/LangGraph, AutoGen, CrewAI, and generic AI agent workflows. Also covers PERN/MERN full-stack bug triage with a structured issue report (Thai triggers: "แก้บัค", "หา bug", "ช้า", "memory leak", "login ไม่ได้", "ส่ง API ไม่ได้"). This skill is intentionally broad — when in doubt, use it. Not for tuning code that already works correctly, or for a security audit.
 argument-hint: "<error, path, file, or workflow to debug>"
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.2.0"
+  version: "1.2.1"
   source: Multi-layer debugging methodology (compiled 2026)
 ---
 

@@ -1,11 +1,11 @@
 ---
 name: owasp-top-10-2025
 description: >-
-  Security review and vulnerability analysis based on the OWASP Top 10 2025. Use this skill when auditing code for security flaws, reviewing authentication, checking for injection vulnerabilities, or ensuring cryptographic correctness. Triggers on tasks involving broken access control, injection attacks, security misconfiguration, cryptographic failures, vibe coding risks, memory management, supply chain security, or resilience failures. Also trigger for: "security review", "find vulnerabilities", "check authentication", "SQL injection", "audit my API", "secure this code", "OWASP compliance", "check my auth", "is this secure", or any security-related code review request. Also covers auth architecture: OAuth2 flows and token types, leveled API-key design, key rotation, secrets storage, agent-to-service auth, and compromise response ("design API keys", "rotate a leaked key", "OAuth2 flow").
+  Security review and vulnerability analysis based on the OWASP Top 10 2025. Use this skill when auditing code for security flaws, reviewing authentication, checking for injection vulnerabilities, or ensuring cryptographic correctness. Triggers on tasks involving broken access control, injection attacks, security misconfiguration, cryptographic failures, vibe coding risks, memory management, supply chain security, or resilience failures. Also trigger for: "security review", "find vulnerabilities", "check authentication", "SQL injection", "audit my API", "secure this code", "OWASP compliance", "check my auth", "is this secure", or any security-related code review request. Also covers auth architecture: OAuth2 flows and token types, leveled API-key design, key rotation, secrets storage, agent-to-service auth, and compromise response ("design API keys", "rotate a leaked key", "OAuth2 flow"). Not for general architecture or design-pattern questions with no code, auth flow or credential to review.
 license: MIT
 metadata:
   author: nevinas06 (enhanced by Claude)
-  version: "1.1.0"
+  version: "1.1.1"
   source: OWASP Top 10 2025 (compiled 2026)
 ---
 

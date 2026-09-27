@@ -1,16 +1,10 @@
-# CSS Architecture Skill — Implementation Checklist
+# CSS Architecture — Implementation Checklist
 
 Copy this checklist to your project. Check off as you implement.
 
 ---
 
 ## Setup Checklist
-
-### Phase 0 — Skill Installation
-- [ ] Download all 7 files from the skill deliverable
-- [ ] Create directory structure: `design:css-architecture/` with [SKILL.md](../SKILL.md) and `references/` folder
-- [ ] Store in project repo or team documentation system
-- [ ] Share with team — make it discoverable
 
 ### Phase 1 — Folder Structure (Pick Your Starting Point)
 
@@ -29,7 +23,7 @@ Copy this checklist to your project. Check off as you implement.
 - [ ] Create separate files per component (not one combined file)
 - [ ] Create `_vendor-map.md` documenting every third-party override
 
-### Phase 2 — PostCSC Setup (Required for Tailwind v3)
+### Phase 2 — PostCSS Setup (Required for Tailwind v3)
 - [ ] Run `npm install -D postcss-import` (v3 only)
 - [ ] Update `postcss.config.js` to load `postcss-import` BEFORE `tailwindcss`
 - [ ] Verify `@import` chains in `main.css` resolve correctly

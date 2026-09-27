@@ -15,11 +15,11 @@ description: >-
   requirements", "plan this build", "which approach should we take", "write a sprint report", "agent
   keeps drifting", "I'm stuck", "which skill should I use". Thai: "แก้บัค", "หา bug", "ควรใช้ skill
   ไหน", "agent ทำงานหลุดประเด็น", "ช่วยคิดแก้ปัญหานี้". On a specialist trigger, open that bundled
-  skill at once — do not walk the doctrine for a one-line fix.
+  skill at once — do not walk the doctrine for a one-line fix. Not for trivial fully-specified edits, or domain work another skill owns (3D, CSS, deploys).
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.0.0"
+  version: "3.0.1"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,

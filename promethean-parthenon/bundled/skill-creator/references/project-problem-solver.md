@@ -1,17 +1,8 @@
----
-name: project-problem-solver
-description: >
-  A skill for diagnosing, debugging, and permanently solving problems that arise
-  during project development — and automatically generating a reusable sub-skill
-  from every fix so the same problem never needs to be solved twice.
-  Trigger on: error messages, stack traces, broken builds, failing tests, unexpected
-  behavior, "it's not working", "how do I fix", "debug this", "why is this failing",
-  or any pasted log output. Also trigger when the user asks to capture a fix as a
-  reusable skill, prevent a recurring bug, or build a library of project-specific
-  debugging skills. Always use this skill before attempting to debug freehand.
----
-
 # Project Problem Solver
+
+> **Use when:** A skill for diagnosing, debugging, and permanently solving problems that arise during project development — and automatically generating a reusable sub-skill from every fix so the same problem never needs to be solved twice. Trigger on: error messages, stack traces, broken builds, failing tests, unexpected behavior, "it's not working", "how do I fix", "debug this", "why is this failing", or any pasted log output. Also trigger when the user asks to capture a fix as a reusable skill, prevent a recurring bug, or build a library of project-specific debugging skills. Always use this skill before attempting to debug freehand.
+>
+> *Provenance: imported as `project-problem-solver`.*
 
 A two-part skill:
 1. **Debug & Fix** — structured diagnosis and resolution of any project problem.
