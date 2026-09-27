@@ -49,6 +49,52 @@ GROUPS = [
 ]
 
 
+REPO = 'https://github.com/tp-job/agent_skill.git'
+
+INSTALL = [
+    '## Install',
+    '',
+    'Claude Code loads a skill from `<skills-dir>/<name>/SKILL.md`, one level deep. '
+    'Pick one of the three routes below.',
+    '',
+    '**1. As a plugin (recommended).** Claude Code clones the repo and keeps it updated. '
+    'Run inside Claude Code:',
+    '',
+    '```',
+    '/plugin marketplace add tp-job/agent_skill',
+    '/plugin install agent-skill@tp-job-skills',
+    '```',
+    '',
+    'Skills are then namespaced, e.g. `agent-skill:debug-master`. '
+    'Update later with `/plugin marketplace update tp-job-skills`.',
+    '',
+    '**2. Clone and link.** Keeps a normal git checkout you can `git pull`; '
+    'each skill is linked into `~/.claude/skills/` without touching skills already there.',
+    '',
+    '```bash',
+    'git clone %s ~/.claude/agent-skill' % REPO,
+    'sh ~/.claude/agent-skill/scripts/install.sh',
+    '```',
+    '',
+    'On Windows PowerShell:',
+    '',
+    '```powershell',
+    'git clone %s $HOME\\.claude\\agent-skill' % REPO,
+    'powershell -ExecutionPolicy Bypass -File $HOME\\.claude\\agent-skill\\scripts\\install.ps1',
+    '```',
+    '',
+    'Pass a path to install into one project instead: '
+    '`sh scripts/install.sh ./.claude/skills` or `install.ps1 .\\.claude\\skills`.',
+    '',
+    '**3. Clone straight into a skills folder.** Only works when that folder does not exist yet:',
+    '',
+    '```bash',
+    'git clone %s .claude/skills' % REPO,
+    '```',
+    '',
+]
+
+
 def parse_frontmatter(path):
     """Minimal YAML frontmatter reader — enough for the fields we index."""
     text = open(path, encoding='utf-8').read()
@@ -139,7 +185,7 @@ def main():
         'The machine-readable index is [skill.json](skill.json) — regenerate it with '
         '`python scripts/build-index.py` after adding or renaming a skill.',
         '',
-    ]
+    ] + INSTALL
     for title, members in GROUPS:
         present = [m for m in members if m in by_name]
         if not present:
