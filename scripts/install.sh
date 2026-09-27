@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# Link every skill in this repository into a Claude Code skills directory.
+# Link the active skills of this repository into a Claude Code skills directory.
 #
 #   sh scripts/install.sh                  -> ~/.claude/skills   (all projects)
 #   sh scripts/install.sh ./.claude/skills -> one project only
@@ -12,9 +12,11 @@ ROOT=$(cd "$(dirname "$0")/.." && pwd)
 TARGET=${1:-"$HOME/.claude/skills"}
 mkdir -p "$TARGET"
 
-for skill in "$ROOT"/*/SKILL.md; do
-  dir=$(dirname "$skill")
-  name=$(basename "$dir")
+# Only the active set from .claude-plugin/plugin.json; core spokes load via promethean-parthenon.
+ACTIVE=$(grep -o '"\./[a-z0-9-]*"' "$ROOT/.claude-plugin/plugin.json" | tr -d '"./')
+
+for name in $ACTIVE; do
+  dir="$ROOT/$name"
   dest="$TARGET/$name"
   if [ -L "$dest" ]; then
     rm "$dest"

@@ -1,11 +1,11 @@
 ---
 name: owasp-top-10-2025
 description: >-
-  Security review and vulnerability analysis based on the OWASP Top 10 2025. Use this skill when auditing code for security flaws, reviewing authentication, checking for injection vulnerabilities, or ensuring cryptographic correctness. Triggers on tasks involving broken access control, injection attacks, security misconfiguration, cryptographic failures, vibe coding risks, memory management, supply chain security, or resilience failures. Also trigger for: "security review", "find vulnerabilities", "check authentication", "SQL injection", "audit my API", "secure this code", "OWASP compliance", "check my auth", "is this secure", or any security-related code review request.
+  Security review and vulnerability analysis based on the OWASP Top 10 2025. Use this skill when auditing code for security flaws, reviewing authentication, checking for injection vulnerabilities, or ensuring cryptographic correctness. Triggers on tasks involving broken access control, injection attacks, security misconfiguration, cryptographic failures, vibe coding risks, memory management, supply chain security, or resilience failures. Also trigger for: "security review", "find vulnerabilities", "check authentication", "SQL injection", "audit my API", "secure this code", "OWASP compliance", "check my auth", "is this secure", or any security-related code review request. Also covers auth architecture: OAuth2 flows and token types, leveled API-key design, key rotation, secrets storage, agent-to-service auth, and compromise response ("design API keys", "rotate a leaked key", "OAuth2 flow").
 license: MIT
 metadata:
   author: nevinas06 (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.1.0"
   source: OWASP Top 10 2025 (compiled 2026)
 ---
 
@@ -152,3 +152,14 @@ authentication-failures.md — Login, session, MFA patterns
 | [mishandling-of-exceptional-conditions](references/mishandling-of-exceptional-conditions.md) | Error handling and exception paths |
 | [lack-of-application-resilience](references/lack-of-application-resilience.md) | Fault tolerance and reliability |
 | [vibe-coding](references/vibe-coding.md) | AI-assisted code review |
+
+### Auth architecture (design, not just review)
+
+| File | Read When |
+|------|------------|
+| [oauth2-and-api-keys](references/oauth2-and-api-keys.md) | Designing OAuth2 flows or a leveled API-key scheme — start here |
+| [oauth2-deep](references/oauth2-deep.md) | PKCE, token lifetimes, refresh rotation, resource-server checks |
+| [key-rotation](references/key-rotation.md) | Rotating keys without downtime |
+| [secrets-management](references/secrets-management.md) | Where keys and tokens live, per environment |
+| [agent-threat-model](references/agent-threat-model.md) | Credentials held by AI agents and multi-agent systems |
+| [threat-response](references/threat-response.md) | A key is compromised or token activity looks wrong |

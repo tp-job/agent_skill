@@ -1,22 +1,7 @@
----
-name: tracking-and-debugging
-description: >
-  Autonomous bug triage, root-cause diagnosis, and issue reporting for PERN/MERN full-stack
-  projects. Immediately outputs a structured issue report and fix guidance WITHOUT asking
-  follow-up questions. Trigger when: a component/API/DB bug is described, visual glitch reported,
-  performance degrades, crash or error log provided, animation/shader misbehaves, API fails,
-  DB query is slow, auth breaks, or regression is suspected.
-  Thai triggers: "แก้บัค", "หา bug", "debug", "ทำไม X ไม่ทำงาน", "crash", "error",
-  "ช้า", "memory leak", "ไม่แสดงผล", "ส่ง API ไม่ได้", "login ไม่ได้".
-  ALWAYS triage autonomously — classify layer, diagnose cause, produce issue report immediately.
-license: MIT
-metadata:
-  author: tp-job (enhanced by Claude)
-  version: "1.0.0"
-  source: PERN/MERN bug triage & debugging methodology (compiled 2026)
----
+# PERN/MERN Bug Triage & Issue Report
 
-# SKILL: Autonomous Bug Triage & Debugging
+> Merged from the former standalone `tracking-and-debugging` skill (v1.0.0) into `debug-master` on 2026-09-27. Content unchanged apart from link paths.
+
 **Stack:** PERN / MERN · **Team:** 1–5 · **Output:** Markdown Issue Report
 
 ---
@@ -387,5 +372,5 @@ For a 1–5 person team, escalate when:
 
 ## Reference Files
 
-- [known-issues](references/known-issues.md) — Documented issues for the Nocturnal Atelier Loading component
-- [full-stack-debug-deep-dive](references/full-stack-debug-deep-dive.md) — Deep-dive debugging for L8/L9/L10 full-stack layers
+- [known-issues](known-issues.md) — Documented issues for the Nocturnal Atelier Loading component
+- [full-stack-debug-deep-dive](full-stack-debug-deep-dive.md) — Deep-dive debugging for L8/L9/L10 full-stack layers

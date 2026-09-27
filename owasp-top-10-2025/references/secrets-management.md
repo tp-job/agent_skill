@@ -1,6 +1,6 @@
 # Secrets Manager Integration Patterns
 
-Deep reference for [security](../SKILL.md). Read this when the task involves storing, injecting, or auditing secrets — not when it is about OAuth2 flow design (see [oauth2-deep](oauth2-deep.md)) or agent trust boundaries (see [agent-threat-model](agent-threat-model.md)).
+Deep reference for [security](oauth2-and-api-keys.md). Read this when the task involves storing, injecting, or auditing secrets — not when it is about OAuth2 flow design (see [oauth2-deep](oauth2-deep.md)) or agent trust boundaries (see [agent-threat-model](agent-threat-model.md)).
 
 ---
 

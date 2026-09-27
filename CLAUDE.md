@@ -70,6 +70,19 @@ Verify with `python scripts/check-bundles.py` — it checks that every spoke is 
 
 ---
 
+## Active set: what actually loads
+
+Every skill description sits in the model's context in every session, so the plugin loads **only the active set** — every skill except the aggregator's spokes. The ten names in `CLOSURE` (`scripts/build-bundles.py`) stay as top-level source folders, because the bundle is built from them, but they load only through `promethean-parthenon`, whose description carries their triggers and whose fast-path table opens them directly.
+
+- `.claude-plugin/plugin.json` → `skills` is **generated** by `build-index.py`. Do not hand-edit it; change `CLOSURE` instead.
+- `scripts/install.sh` / `install.ps1` read the same list, so every install route loads the same set.
+- Adding a spoke to `CLOSURE` deactivates it as a standalone skill. Its trigger phrases must then be added to the aggregator's description and fast-path table, or nothing will route to it.
+- A description is truncated at **1,536 characters** in the skill listing. The aggregator's description is the tightest; measure it after every change.
+
+**Before adding a new skill, check whether an active skill or a core specialist already owns its triggers.** If one does, add the content as a `references/` file of that skill instead. `security`, `tracking-and-debugging`, `agent-skill-creator` and `web-design-guidelines` were merged this way into `owasp-top-10-2025`, `debug-master`, `skill-creator` and `ui-checker`.
+
+---
+
 ## SKILL.md frontmatter
 
 ```yaml
