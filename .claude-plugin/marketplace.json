@@ -1,0 +1,12 @@
+{
+  "name": "tp-job-skills",
+  "owner": { "name": "tp-job" },
+  "description": "tp-job's Claude Code skill library, installable as one plugin.",
+  "plugins": [
+    {
+      "name": "agent-skill",
+      "source": "./",
+      "description": "Every skill in this repository, loaded from the repo root."
+    }
+  ]
+}

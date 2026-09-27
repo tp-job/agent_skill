@@ -1,0 +1,8 @@
+{
+  "name": "agent-skill",
+  "description": "A library of Claude Code skills — frontend, backend, security, debugging, process, and authoring. Every top-level folder with a SKILL.md is one skill.",
+  "author": { "name": "tp-job" },
+  "repository": "https://github.com/tp-job/agent-skill",
+  "license": "MIT",
+  "skills": "./"
+}
