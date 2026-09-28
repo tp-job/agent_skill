@@ -1,6 +1,6 @@
 # Agent Skill Library — Conventions
 
-This repository is a library of Claude Code skills. There is no application code here: every folder is one skill, and the deliverable is the skills themselves.
+This repository is a library of Claude Code skills. There is no application code here: every skill folder is one skill, and the deliverable is the skills themselves.
 
 Browse them in [README.md](README.md). The machine-readable index is [skill.json](skill.json).
 
@@ -8,7 +8,22 @@ Browse them in [README.md](README.md). The machine-readable index is [skill.json
 
 ## Layout
 
-Every skill is one top-level folder whose name **exactly matches** the `name:` in its `SKILL.md`:
+The repository root holds only the **hubs** — the few skills a user is expected to remember — and five **realm** folders. Every other skill lives inside exactly one realm. A realm is a plain directory, never a skill:
+
+```
+promethean-parthenon/   hub — engineering; routes to olympian-pantheon/
+daedalus-atelier/       hub — design; routes to heliconian-muses/
+hermes-agora/           hub — AI agents and MCP; routes to nothing
+olympian-pantheon/      the gods of Olympus in the Parthenon — promethean-parthenon's spokes
+heliconian-muses/       the Muses of Mount Helicon — daedalus-atelier's spokes
+mercurial-forum/        swift Mercury in the forum — web delivery and quality
+hephaestian-forge/      the smith god's forge — application stacks
+athenian-academy/       Athena's academy — knowledge, notes, analysis, teaching
+```
+
+Every hub and realm is named in the library's Greek and Roman register as **two words, like `promethean-parthenon`**: the power or quality first, then its place. Keep new ones in that form. Skill folders inside a realm keep plain descriptive names — they are found by description, not remembered. The list, the hubs and each hub's spokes live in one file, `scripts/skills_layout.py` — every build and check script reads it, so change the layout there and nowhere else. `build-index.py` fails on a non-hub skill at the top level or a skill in an unknown realm.
+
+Each skill folder's name **exactly matches** the `name:` in its `SKILL.md`, and the folder is self-contained — copy it out of its realm into any project and it works:
 
 ```
 <skill-name>/
@@ -22,7 +37,7 @@ Every skill is one top-level folder whose name **exactly matches** the `name:` i
 
 Fixed vocabulary. Do not introduce `refer/`, `resources/`, `docs/`, or `lib/` — a reader (human or model) should be able to guess a path without looking.
 
-Two skills deviate deliberately: `vercel-react-best-practices/rules/` holds ~68 single-rule files that are built into a rules bundle, and `senior-leadership-advisor/roles/` holds per-discipline role definitions. Both are documented in their own SKILL.md.
+Two skills deviate deliberately: `mercurial-forum/vercel-react-best-practices/rules/` holds ~68 single-rule files that are built into a rules bundle, and `olympian-pantheon/senior-leadership-advisor/roles/` holds per-discipline role definitions. Both are documented in their own SKILL.md.
 
 ---
 
@@ -30,7 +45,7 @@ Two skills deviate deliberately: `vercel-react-best-practices/rules/` holds ~68 
 
 **A skill is a standalone component.** It must not link to another skill, and it must not carry a `bundled/` folder — full stop — unless it is itself an aggregator that routes between other skills. An ordinary skill's value has to be usable in complete isolation: copy the one folder into any project and it works, with no other skill present.
 
-**Only an aggregator combines skills, and today there is exactly one: `promethean-parthenon`.** It is allowed to link out to the skills it routes between, because routing *is* what it does. The skills it points at do not point back, and do not point at each other. That asymmetry is the whole rule:
+**Only an aggregator (a hub) combines skills, and there are exactly two: `promethean-parthenon` for engineering and `daedalus-atelier` for design.** A hub is allowed to link out to the skills it routes between, because routing *is* what it does. The skills it points at do not point back, and do not point at each other. That asymmetry is the whole rule:
 
 ```
    promethean-parthenon  ──links to──►  agentic-engineering
@@ -47,7 +62,7 @@ If you are tempted to add "see also [other-skill]" inside one of the spokes, don
 
 **Why:** the alternative is a mesh — every skill linking to every other skill it's ever used alongside — which forces every one of them to carry a full `bundled/` copy of the others just to stay portable. That was tried and reverted: five skills each bundling an 11-skill closure, 490+ duplicated files, all to preserve links that added no capability the plain-language mention doesn't. Hub-and-spoke gets the same "nothing dangles when copied out" property from one skill's `bundled/` folder instead of six.
 
-**A skill folder must still work when copied out of this library on its own.** For the aggregator, that rules out `../other-skill/SKILL.md`: it resolves here and dangles everywhere else. So the aggregator carries a verbatim copy of everything it links to.
+**A skill folder must still work when copied out of this library on its own.** For a hub, that rules out `../olympian-pantheon/other-skill/SKILL.md`: it resolves here and dangles everywhere else. So each hub carries a verbatim copy of everything it links to.
 
 ```
 promethean-parthenon/
@@ -58,26 +73,28 @@ promethean-parthenon/
     └── …
 ```
 
-Rules for the aggregator's `bundled/`:
+Rules for a hub's `bundled/`:
 
 - **Bundle every skill it links to, directly.** Because spokes never link onward, the closure is just the aggregator's own direct targets — no second-hop skills to chase.
 - **Copies are verbatim, with no self-copy.** A bundled copy is byte-for-byte the source skill; since a spoke carries no outbound links, it needs no link-depth rewriting either. The aggregator does not need to bundle a copy of itself, because nothing inside its bundle links back to it.
 - **Never hand-edit a copy.** Change the source skill, then regenerate the bundle.
 
-`promethean-parthenon` is currently the only skill with a `bundled/` folder, holding copies of the five skills in its Role · Task · Format cluster (`senior-leadership-advisor`, `requirement-gathering`, `agentic-engineering`, `long-horizon-engineering-workflow`, `github-report`) plus the leaf skills its routing table hands off to (`debug-master`, `owasp-top-10-2025`, `project-file-structure`, `skill-creator`, `ui-checker`). `scripts/build-index.py` globs `*/SKILL.md`, so the nested copies are never indexed as skills.
+The two hubs are the only skills with a `bundled/` folder. `promethean-parthenon` holds the five skills in its Role · Task · Format cluster (`senior-leadership-advisor`, `requirement-gathering`, `agentic-engineering`, `long-horizon-engineering-workflow`, `github-report`) plus the leaf skills its routing table hands off to (`debug-master`, `owasp-top-10-2025`, `project-file-structure`, `skill-creator`, `ui-checker`) — all ten filed in `olympian-pantheon/`. `daedalus-atelier` holds the four design specialists filed in `heliconian-muses/` (`frontend-design`, `google-design-system`, `css-architecture`, `threejs-3d`). Discovery skips anything under `bundled/`, so the copies are never indexed as skills.
 
-Verify with `python scripts/check-bundles.py` — it checks that every spoke is link-free, that the aggregator's bundle matches its sources verbatim, and that every relative link in the repo resolves.
+**Adding a third hub is a deliberate change**, not a convenience: it costs a bundle, a description that must carry every spoke's triggers within the cap, and a trigger-eval run. Only add one when a cluster of skills genuinely shares one front door, as design did.
+
+Verify with `python scripts/check-bundles.py` — it checks that every non-hub skill is link-free, that each hub links only into its own `bundled/`, that every bundle matches its sources verbatim, and that every relative link in the repo resolves.
 
 ---
 
 ## Active set: what actually loads
 
-Every skill description sits in the model's context in every session, so the plugin loads **only the active set** — every skill except the aggregator's spokes. The ten names in `CLOSURE` (`scripts/build-bundles.py`) stay as top-level source folders, because the bundle is built from them, but they load only through `promethean-parthenon`, whose description carries their triggers and whose fast-path table opens them directly.
+Every skill description sits in the model's context in every session, so the plugin loads **only the active set** — every skill except the hubs' spokes. The spokes listed in `HUBS` (`scripts/skills_layout.py`) stay as source folders in their realm, because the bundles are built from them, but they load only through their hub, whose description carries their triggers and whose fast-path table opens them directly.
 
-- `.claude-plugin/plugin.json` → `skills` is **generated** by `build-index.py`. Do not hand-edit it; change `CLOSURE` instead.
+- `.claude-plugin/plugin.json` → `skills` is **generated** by `build-index.py`. Do not hand-edit it; change `HUBS` in `scripts/skills_layout.py` instead. Entries are `./<hub>` or `./<realm>/<skill>`.
 - `scripts/install.sh` / `install.ps1` read the same list, so every install route loads the same set.
-- Adding a spoke to `CLOSURE` deactivates it as a standalone skill. Its trigger phrases must then be added to the aggregator's description and fast-path table, or nothing will route to it.
-- A description is truncated at **1,536 characters** in the skill listing. The aggregator's description is the tightest; measure it after every change.
+- Adding a spoke to a hub in `HUBS` deactivates it as a standalone skill. Its trigger phrases must then be added to the aggregator's description and fast-path table, or nothing will route to it.
+- A description is truncated at **1,536 characters** in the skill listing. The hubs' descriptions are the tightest; measure them after every change.
 
 **Before adding a new skill, check whether an active skill or a core specialist already owns its triggers.** If one does, add the content as a `references/` file of that skill instead. `security`, `tracking-and-debugging`, `agent-skill-creator` and `web-design-guidelines` were merged this way into `owasp-top-10-2025`, `debug-master`, `skill-creator` and `ui-checker`.
 
@@ -133,7 +150,7 @@ Run the checks below before committing; they catch both problems.
 python scripts/build-index.py
 ```
 
-Regenerates `skill.json` and `README.md`, and reports any skill whose folder name, `name:`, or description is out of line. Exits non-zero when something is wrong. Run it after adding, renaming, or removing a skill — curated summaries in `skill.json` are preserved across rebuilds. It globs `*/SKILL.md`, so copies under `bundled/` are never indexed as skills.
+Regenerates `skill.json` and `README.md`, and reports any skill whose folder name, `name:`, or description is out of line. Exits non-zero when something is wrong. Run it after adding, renaming, or removing a skill — curated summaries in `skill.json` are preserved across rebuilds. It discovers hubs at the top level and skills one level inside each realm, and never indexes copies under `bundled/`.
 
 ```bash
 python scripts/build-bundles.py && python scripts/check-bundles.py

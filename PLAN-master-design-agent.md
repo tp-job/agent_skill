@@ -148,3 +148,25 @@ Everything that could be tested without a human or a real account was tested; ea
 2. Hallway test of the example draft with real receptionists — needs people, not tooling.
 4. Confirm the interactive approval path end to end: open `claude` in a trusted folder, approve a project server, re-run `inventory.py` and expect `approved, unverified`.
 3. Consider trimming master-design's description (1,373 chars, 2nd longest) if the budget tightens.
+
+---
+
+## 7. Realms and the second hub (2026-09-28)
+
+Requested by the owner: fewer names to remember, category folders named in the Parthenon's Greek and Roman register. This reverses the Phase 5 decision against Option C deliberately: design now has its own front door.
+
+| Change | Before | After |
+| --- | --- | --- |
+| Folders at the repository root | 31 skill folders | 3 hubs + 5 realms (`pantheon`, `muses`, `mercury`, `hephaestus`, `athena`) |
+| Skills that load on their own | 21 | **16** (`view-pdf` retired as a duplicate of the pdf-viewer plugin's own skill; the 4 design specialists now open through `master-design`) |
+| Hubs (aggregators) | 1 | 2 — `promethean-parthenon` (10 spokes), `master-design` (4 spokes) |
+| Layout source of truth | `CLOSURE` in `build-bundles.py`, flat globs in four scripts | `scripts/skills_layout.py`, read by every script |
+
+**Trigger evals after the change** (blind, 16 active descriptions, 45 prompts): master-design 15/15 should-fire, including all five prompts that used to belong to its new spokes. The first run had 1/10 false fires ("implement this Figma frame in React"); after adding "implementing a finished design in code" to the negative scope, a fresh grader scored 0/10. master-agent 10/10 and 0/10 on both runs.
+
+**Kept as they are, at the owner's request:** the four synced claude.ai skills that duplicate library skills (`lighthouse-score-optimizer`, `obsidian-vault`, `project-file-structure`, `skill-creator`).
+**Not done:** merging the two Vercel deploy skills (step D) — optional, later.
+
+**Renamed (same day, at the owner's request):** `master-design` → **`daedalus-atelier`** and `master-agent` → **`hermes-agora`**, so all three hubs share promethean-parthenon's register. This file keeps the old names above because it is a dated record; everywhere else uses the new ones.
+
+**Realms renamed (same day, at the owner's request)** to the two-word form of promethean-parthenon: `pantheon` → `olympian-pantheon`, `muses` → `heliconian-muses`, `mercury` → `mercurial-forum`, `hephaestus` → `hephaestian-forge`, `athena` → `athenian-academy`. `build-index.py` now rejects a hub or realm name that is not two words.

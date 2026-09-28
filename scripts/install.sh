@@ -12,11 +12,13 @@ ROOT=$(cd "$(dirname "$0")/.." && pwd)
 TARGET=${1:-"$HOME/.claude/skills"}
 mkdir -p "$TARGET"
 
-# Only the active set from .claude-plugin/plugin.json; core spokes load via promethean-parthenon.
-ACTIVE=$(grep -o '"\./[a-z0-9-]*"' "$ROOT/.claude-plugin/plugin.json" | tr -d '"./')
+# Only the active set from .claude-plugin/plugin.json; a hub's spokes load through that hub.
+# Entries are ./<hub> or ./<realm>/<skill>; the link is named for the skill folder alone.
+ACTIVE=$(grep -o '"\./[a-z0-9/-]*"' "$ROOT/.claude-plugin/plugin.json" | tr -d '"' | sed 's#^\./##')
 
-for name in $ACTIVE; do
-  dir="$ROOT/$name"
+for rel in $ACTIVE; do
+  name=$(basename "$rel")
+  dir="$ROOT/$rel"
   dest="$TARGET/$name"
   if [ -L "$dest" ]; then
     rm "$dest"
