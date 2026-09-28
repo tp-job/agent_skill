@@ -32,7 +32,7 @@ HUBS = {
         "skill-creator",
         "ui-checker",
     ],
-    "master-design": [
+    "daedalus-atelier": [
         "css-architecture",
         "frontend-design",
         "google-design-system",
@@ -48,7 +48,7 @@ REALMS = {
     ),
     "muses": (
         "Muses — the design specialists",
-        "The Muses inspire the arts: each is reached through master-design.",
+        "The Muses inspire the arts: each is reached through daedalus-atelier.",
     ),
     "mercury": (
         "Mercury — web delivery and quality",
@@ -66,8 +66,8 @@ REALMS = {
 
 HUB_NOTE = {
     "promethean-parthenon": "engineering",
-    "master-design": "design",
-    "master-agent": "AI agents and MCP",
+    "daedalus-atelier": "design",
+    "hermes-agora": "AI agents and MCP",
 }
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Tests for inventory.py. Standard library only:
 
-    python -m unittest master-agent/scripts/test_inventory.py -v
+    python -m unittest hermes-agora/scripts/test_inventory.py -v
 """
 import json
 import sys

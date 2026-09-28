@@ -30,6 +30,12 @@
       "content": "Defines the core idea of a durable cross-session knowledge store, a vault layout, note conventions (frontmatter, links, tags), the supported operations (/vault, /ingest, /wiki — setup, ingest, query, update), a hot cache format for fast recall, cross-project referencing rules, and guardrails on what to write and what to leave out."
     },
     {
+      "name": "daedalus-atelier",
+      "path": "daedalus-atelier/SKILL.md",
+      "description": "Runs a whole design job from a one-line ask to a handoff-ready draft, in four disciplines taken in order: architecture (information architecture, screen inventory, design-system token structure), art direction (a written visual thesis,…",
+      "content": ""
+    },
+    {
       "name": "flutter",
       "path": "hephaestus/flutter/SKILL.md",
       "description": "Flutter/Dart application engineering — architecture, layout debugging, responsive design, and widget previews. Triggers on 'structure my Flutter project', 'RenderFlex overflowed', 'unbounded height viewport', 'make this responsive', 'add a widget preview', and similar.",
@@ -48,15 +54,9 @@
       "content": "Ten-part reference: connection reference card (pooler vs. direct), RLS architecture rules, Prisma ↔ Supabase schema design rules, a Postgres → Supabase migration playbook, a workflow and logic checker, an algorithm reviewer, patterns for Supabase-backed AI agents, Realtime + Prisma coexistence, advisor-mode senior recommendations, and a quick command reference."
     },
     {
-      "name": "master-agent",
-      "path": "master-agent/SKILL.md",
+      "name": "hermes-agora",
+      "path": "hermes-agora/SKILL.md",
       "description": "Operates the AI side of an agent session as one managed system: inventories what is actually loaded (skills, MCP servers and their tools, subagents, models), triages MCP server state (connected, deferred, needs auth, failed), routes each…",
-      "content": ""
-    },
-    {
-      "name": "master-design",
-      "path": "master-design/SKILL.md",
-      "description": "Runs a whole design job from a one-line ask to a handoff-ready draft, in four disciplines taken in order: architecture (information architecture, screen inventory, design-system token structure), art direction (a written visual thesis,…",
       "content": ""
     },
     {

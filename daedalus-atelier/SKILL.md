@@ -1,5 +1,5 @@
 ---
-name: master-design
+name: daedalus-atelier
 description: >-
   Single entry point to design work and to four bundled design specialists. Runs a whole job from a
   one-line ask to a handoff-ready draft in four stages: architecture (IA, screen inventory, token
@@ -19,13 +19,16 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "2.0.0"
+  version: "3.0.0"
   source: >-
     Promethean-Parthenon Role · Task · Format doctrine applied to design practice; information
     architecture, art-direction and double-diamond ideation methods (compiled 2026)
 ---
 
-# Master Design
+# Daedalus Atelier
+
+**Daedalus** — the master craftsman of myth: architect of the labyrinth, sculptor, inventor. Every stage here is his trade — structure, art, invention, the drawing before the build.
+**Atelier** — the workshop where the Muses' crafts are practised: the four design specialists in `bundled/` work here.
 
 ## Fast path — read this first
 

@@ -1,6 +1,6 @@
 {
-  "skill_name": "master-agent",
-  "note": "Trigger evals: judged from skill descriptions alone. should_trigger=true means master-agent must be picked; false means another skill (or none) must be picked.",
+  "skill_name": "hermes-agora",
+  "note": "Trigger evals: judged from skill descriptions alone. should_trigger=true means hermes-agora must be picked; false means another skill (or none) must be picked.",
   "evals": [
     {"id": 1,  "should_trigger": true,  "prompt": "I've got about twenty MCP servers connected and no idea which one to use for syncing tasks to Linear. Which tool should I use?"},
     {"id": 2,  "should_trigger": true,  "prompt": "Why can't Claude see my Notion MCP server? It says it needs authentication."},

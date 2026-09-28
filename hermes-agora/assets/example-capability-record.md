@@ -1,6 +1,6 @@
 # Capability record — worked example
 
-One server taken through the master-agent loop — inventory, triage, route, verify, record — in a real session on 2026-09-28. The server was chosen because it is public and read-only, so verifying it touched no one's account or data.
+One server taken through the hermes-agora loop — inventory, triage, route, verify, record — in a real session on 2026-09-28. The server was chosen because it is public and read-only, so verifying it touched no one's account or data.
 
 ---
 

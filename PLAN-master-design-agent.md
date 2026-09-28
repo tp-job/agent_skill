@@ -166,3 +166,5 @@ Requested by the owner: fewer names to remember, category folders named in the P
 
 **Kept as they are, at the owner's request:** the four synced claude.ai skills that duplicate library skills (`lighthouse-score-optimizer`, `obsidian-vault`, `project-file-structure`, `skill-creator`).
 **Not done:** merging the two Vercel deploy skills (step D) — optional, later.
+
+**Renamed (same day, at the owner's request):** `master-design` → **`daedalus-atelier`** and `master-agent` → **`hermes-agora`**, so all three hubs share promethean-parthenon's register. This file keeps the old names above because it is a dated record; everywhere else uses the new ones.

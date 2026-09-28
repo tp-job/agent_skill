@@ -31,12 +31,12 @@ jobs:
 
       - name: Generated files are committed up to date
         # skill.json is left out: build-index stamps today's date into it.
-        run: git diff --exit-code -- README.md .claude-plugin/plugin.json promethean-parthenon/bundled
+        run: git diff --exit-code -- README.md .claude-plugin/plugin.json promethean-parthenon/bundled daedalus-atelier/bundled
 
-      - name: master-agent inventory tests
-        run: python -m unittest master-agent/scripts/test_inventory.py -v
+      - name: hermes-agora inventory tests
+        run: python -m unittest hermes-agora/scripts/test_inventory.py -v
 
-      - name: master-agent MCP sandbox (write / refusal checklist)
+      - name: hermes-agora MCP sandbox (write / refusal checklist)
         run: |
           pip install "mcp>=1.26,<2"
-          python master-agent/scripts/verify_sandbox.py
+          python hermes-agora/scripts/verify_sandbox.py

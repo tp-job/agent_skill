@@ -16,10 +16,10 @@ Only three names are worth remembering — the hubs below. Everything else is op
 | `owasp-top-10-2025` | "is this secure" | promethean-parthenon |
 | `ui-checker` | "does dark mode work on this page" | promethean-parthenon |
 | `agentic-engineering` / `requirement-gathering` | "plan this build" | promethean-parthenon |
-| `frontend-design` | "make this page look less generic" | master-design |
-| `css-architecture` | "organise my Tailwind CSS" | master-design |
-| `threejs-3d` | "build a 3D scene with three.js" | master-design |
-| `master-agent` | "which MCP server should handle this" | itself |
+| `frontend-design` | "make this page look less generic" | daedalus-atelier |
+| `css-architecture` | "organise my Tailwind CSS" | daedalus-atelier |
+| `threejs-3d` | "build a 3D scene with three.js" | daedalus-atelier |
+| `hermes-agora` | "which MCP server should handle this" | itself |
 | `deploy-to-vercel` | "deploy this app" | itself |
 
 Unsure which skill fits, or the request spans several? Say that — "which skill should I use" is itself a promethean-parthenon trigger. A name is only needed to invoke an *active* skill directly by its namespaced form (`agent-skill:promethean-parthenon`), which is optional; a hub's specialists have no namespaced entry of their own.
@@ -64,8 +64,8 @@ git clone https://github.com/tp-job/agent_skill.git .claude/skills
 | Skill | Opens | What it does |
 | --- | --- | --- |
 | [promethean-parthenon](promethean-parthenon/SKILL.md) | engineering: agentic-engineering, debug-master, github-report, long-horizon-engineering-workflow, owasp-top-10-2025, project-file-structure, requirement-gathering, senior-leadership-advisor, skill-creator, ui-checker | The operating doctrine for getting high-performance output out of an AI coding agent, and the router across the five skills that produce it, organised as Role · Task · Format: set the seat that answers (senior-leadership-advisor), write the target and build against it (requirement-gathering, agentic-engineering, long-horizon-engineering-workflow), and land the result in a record built from real data (github-report). |
-| [master-design](master-design/SKILL.md) | design: css-architecture, frontend-design, google-design-system, threejs-3d | Runs a whole design job from a one-line ask to a handoff-ready draft, in four disciplines taken in order: architecture (information architecture, screen inventory, design-system token structure), art direction (a written visual thesis,… |
-| [master-agent](master-agent/SKILL.md) | AI agents and MCP: — | Operates the AI side of an agent session as one managed system: inventories what is actually loaded (skills, MCP servers and their tools, subagents, models), triages MCP server state (connected, deferred, needs auth, failed), routes each… |
+| [daedalus-atelier](daedalus-atelier/SKILL.md) | design: css-architecture, frontend-design, google-design-system, threejs-3d | Runs a whole design job from a one-line ask to a handoff-ready draft, in four disciplines taken in order: architecture (information architecture, screen inventory, design-system token structure), art direction (a written visual thesis,… |
+| [hermes-agora](hermes-agora/SKILL.md) | AI agents and MCP: — | Operates the AI side of an agent session as one managed system: inventories what is actually loaded (skills, MCP servers and their tools, subagents, models), triages MCP server state (connected, deferred, needs auth, failed), routes each… |
 
 ## Pantheon — the engineering specialists
 
@@ -86,14 +86,14 @@ git clone https://github.com/tp-job/agent_skill.git .claude/skills
 
 ## Muses — the design specialists
 
-*The Muses inspire the arts: each is reached through master-design.*
+*The Muses inspire the arts: each is reached through daedalus-atelier.*
 
 | Skill | What it does |
 | --- | --- |
-| [css-architecture](muses/css-architecture/SKILL.md) | Scaffold and manage CSS file architecture for TailwindCSS-first projects. Use to organize CSS files, prevent or fix 'CSS hell', add custom styles alongside Tailwind, set up structural design tokens, configure PostCSS imports, enforce lint rules, or migrate a messy stylesheet. *Via master-design.* |
-| [frontend-design](muses/frontend-design/SKILL.md) | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one — aesthetic direction, typography, and choices that don't read as templated defaults. *Via master-design.* |
-| [google-design-system](muses/google-design-system/SKILL.md) | Apply Google Design principles across 16 domains: Material 3 Expressive, motion design, Google Sans Flex typography, AI/Gemini visual design, global accessibility, design sprints, UX writing, brand building, design culture, and XR/AI glasses (Glimmer). Use for any task involving Google design standards. *Via master-design.* |
-| [threejs-3d](muses/threejs-3d/SKILL.md) | Build high-performance, production-grade Three.js and 3D web experiences. Triggers on Three.js, WebGL/WebGPU, GLTF/GLB/OBJ/FBX/STL, shaders (GLSL/TSL), particles, skeletal animation, HDRI/PBR, instancing, raycasting, camera rigs, postprocessing (bloom, DoF, AA, tone mapping), R3F/Drei, point clouds, terrain, GPU compute. *Via master-design.* |
+| [css-architecture](muses/css-architecture/SKILL.md) | Scaffold and manage CSS file architecture for TailwindCSS-first projects. Use to organize CSS files, prevent or fix 'CSS hell', add custom styles alongside Tailwind, set up structural design tokens, configure PostCSS imports, enforce lint rules, or migrate a messy stylesheet. *Via daedalus-atelier.* |
+| [frontend-design](muses/frontend-design/SKILL.md) | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one — aesthetic direction, typography, and choices that don't read as templated defaults. *Via daedalus-atelier.* |
+| [google-design-system](muses/google-design-system/SKILL.md) | Apply Google Design principles across 16 domains: Material 3 Expressive, motion design, Google Sans Flex typography, AI/Gemini visual design, global accessibility, design sprints, UX writing, brand building, design culture, and XR/AI glasses (Glimmer). Use for any task involving Google design standards. *Via daedalus-atelier.* |
+| [threejs-3d](muses/threejs-3d/SKILL.md) | Build high-performance, production-grade Three.js and 3D web experiences. Triggers on Three.js, WebGL/WebGPU, GLTF/GLB/OBJ/FBX/STL, shaders (GLSL/TSL), particles, skeletal animation, HDRI/PBR, instancing, raycasting, camera rigs, postprocessing (bloom, DoF, AA, tone mapping), R3F/Drei, point clouds, terrain, GPU compute. *Via daedalus-atelier.* |
 
 ## Mercury — web delivery and quality
 

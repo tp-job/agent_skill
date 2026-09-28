@@ -12,10 +12,10 @@ The repository root holds only the **hubs** — the few skills a user is expecte
 
 ```
 promethean-parthenon/   hub — engineering; routes to pantheon/
-master-design/          hub — design; routes to muses/
-master-agent/           hub — AI agents and MCP; routes to nothing
+daedalus-atelier/          hub — design; routes to muses/
+hermes-agora/           hub — AI agents and MCP; routes to nothing
 pantheon/     the gods who dwell in the Parthenon — promethean-parthenon's spokes
-muses/        the Muses of the arts — master-design's spokes
+muses/        the Muses of the arts — daedalus-atelier's spokes
 mercury/      the swift messenger — web delivery and quality
 hephaestus/   the smith of the gods — application stacks
 athena/       wisdom — knowledge, notes, analysis, teaching
@@ -45,7 +45,7 @@ Two skills deviate deliberately: `mercury/vercel-react-best-practices/rules/` ho
 
 **A skill is a standalone component.** It must not link to another skill, and it must not carry a `bundled/` folder — full stop — unless it is itself an aggregator that routes between other skills. An ordinary skill's value has to be usable in complete isolation: copy the one folder into any project and it works, with no other skill present.
 
-**Only an aggregator (a hub) combines skills, and there are exactly two: `promethean-parthenon` for engineering and `master-design` for design.** A hub is allowed to link out to the skills it routes between, because routing *is* what it does. The skills it points at do not point back, and do not point at each other. That asymmetry is the whole rule:
+**Only an aggregator (a hub) combines skills, and there are exactly two: `promethean-parthenon` for engineering and `daedalus-atelier` for design.** A hub is allowed to link out to the skills it routes between, because routing *is* what it does. The skills it points at do not point back, and do not point at each other. That asymmetry is the whole rule:
 
 ```
    promethean-parthenon  ──links to──►  agentic-engineering
@@ -79,7 +79,7 @@ Rules for a hub's `bundled/`:
 - **Copies are verbatim, with no self-copy.** A bundled copy is byte-for-byte the source skill; since a spoke carries no outbound links, it needs no link-depth rewriting either. The aggregator does not need to bundle a copy of itself, because nothing inside its bundle links back to it.
 - **Never hand-edit a copy.** Change the source skill, then regenerate the bundle.
 
-The two hubs are the only skills with a `bundled/` folder. `promethean-parthenon` holds the five skills in its Role · Task · Format cluster (`senior-leadership-advisor`, `requirement-gathering`, `agentic-engineering`, `long-horizon-engineering-workflow`, `github-report`) plus the leaf skills its routing table hands off to (`debug-master`, `owasp-top-10-2025`, `project-file-structure`, `skill-creator`, `ui-checker`) — all ten filed in `pantheon/`. `master-design` holds the four design specialists filed in `muses/` (`frontend-design`, `google-design-system`, `css-architecture`, `threejs-3d`). Discovery skips anything under `bundled/`, so the copies are never indexed as skills.
+The two hubs are the only skills with a `bundled/` folder. `promethean-parthenon` holds the five skills in its Role · Task · Format cluster (`senior-leadership-advisor`, `requirement-gathering`, `agentic-engineering`, `long-horizon-engineering-workflow`, `github-report`) plus the leaf skills its routing table hands off to (`debug-master`, `owasp-top-10-2025`, `project-file-structure`, `skill-creator`, `ui-checker`) — all ten filed in `pantheon/`. `daedalus-atelier` holds the four design specialists filed in `muses/` (`frontend-design`, `google-design-system`, `css-architecture`, `threejs-3d`). Discovery skips anything under `bundled/`, so the copies are never indexed as skills.
 
 **Adding a third hub is a deliberate change**, not a convenience: it costs a bundle, a description that must carry every spoke's triggers within the cap, and a trigger-eval run. Only add one when a cluster of skills genuinely shares one front door, as design did.
 

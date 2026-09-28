@@ -1,6 +1,6 @@
 {
-  "skill_name": "master-design",
-  "note": "Trigger evals: judged from active skill descriptions alone. should_trigger=true means master-design must be picked (\"via\" names the bundled specialist its fast path should open); false means another skill (or none) must be picked. v2: master-design became the hub for frontend-design, google-design-system, css-architecture and threejs-3d.",
+  "skill_name": "daedalus-atelier",
+  "note": "Trigger evals: judged from active skill descriptions alone. should_trigger=true means daedalus-atelier must be picked (\"via\" names the bundled specialist its fast path should open); false means another skill (or none) must be picked. v2: daedalus-atelier became the hub for frontend-design, google-design-system, css-architecture and threejs-3d.",
   "evals": [
     {
       "id": 1,
@@ -116,7 +116,7 @@
       "id": 21,
       "should_trigger": false,
       "prompt": "Set up the Figma MCP server so Claude can read my design files.",
-      "expected_skill": "master-agent"
+      "expected_skill": "hermes-agora"
     },
     {
       "id": 22,

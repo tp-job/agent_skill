@@ -1,5 +1,5 @@
 ---
-name: master-agent
+name: hermes-agora
 description: >-
   Operates the AI side of an agent session as one managed system: inventories what is actually
   loaded (skills, MCP servers and their tools, subagents, models), triages MCP server state
@@ -18,14 +18,17 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.1.0"
+  version: "2.0.0"
   source: >-
     Promethean-Parthenon Role · Task · Format doctrine applied to agent orchestration; Model
     Context Protocol specification revision 2025-11-25 and Claude Code MCP configuration
     (compiled 2026)
 ---
 
-# Master Agent
+# Hermes Agora
+
+**Hermes** — messenger between gods and mortals, guide of travellers across every boundary: the one who carries a request to the capability that can answer it.
+**Agora** — the assembly where everyone meets: the skills, MCP servers, tools and subagents of a session, gathered in one place to be counted, checked and routed.
 
 An agent session is a system of components — skills, MCP servers, tools, subagents, a model at an effort level — and it fails the same three silent ways as any other system:
 

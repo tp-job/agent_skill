@@ -182,7 +182,7 @@ def build(project, home):
     out.append("")
     out.append("Date:        %s" % datetime.date.today().isoformat())
     out.append("Model:       <model id> @ effort <level>")
-    out.append("Generated:   master-agent/scripts/inventory.py — configured state only; nothing below is verified")
+    out.append("Generated:   hermes-agora/scripts/inventory.py — configured state only; nothing below is verified")
     out.append("")
     out.append("## MCP servers")
     out.append("")
