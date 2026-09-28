@@ -1,6 +1,6 @@
 # MCP lifecycle — configure, connect, triage
 
-Written against MCP specification revision **2025-11-25** and Claude Code's MCP configuration as of 2026. Verify flags against `claude mcp --help` on the installed version before quoting them.
+Written against MCP specification revision **2025-11-25**. Every Claude Code behaviour marked *observed* was checked on **Claude Code 2.1.278** with the Python `mcp` SDK **1.26.0** (2026-09-28). Verify flags against `claude mcp --help` on the installed version before quoting them.
 
 ---
 
@@ -40,7 +40,27 @@ claude mcp add --transport http notion https://mcp.notion.com/mcp
 }
 ```
 
-**Never commit a secret into `.mcp.json`.** Reference an environment variable (`${DB_URL}`) and document the variable's name, not its value.
+**Never commit a secret into `.mcp.json`.** Reference an environment variable (`${DB_URL}`, or `${MODE:-dev}` for a default) and document the variable's name, not its value. *Observed:* when a referenced variable is unset, `claude mcp list` warns `Missing environment variables: DB_URL` rather than failing silently; a variable written with a `:-default` raises no warning.
+
+**The `-e` trap.** `claude mcp add --scope project NAME -e TOKEN=abc -- cmd` writes `"TOKEN": "abc"` in plain text into `.mcp.json` — the file the project scope exists to commit (*observed*). For project scope, add the server, then change the value to `"${TOKEN}"` by hand; or keep secret-bearing servers in local scope.
+
+| BAD — committed | BETTER |
+| --- | --- |
+| `"env": { "TOKEN": "abc123" }` | `"env": { "TOKEN": "${TOKEN}" }` |
+| `"url": "https://x/mcp?key=abc123"` | a header: `"Authorization": "Bearer ${API_TOKEN}"` |
+
+---
+
+## 2a. Approval — project servers start pending
+
+A server that arrives through `.mcp.json` does **not** connect until someone approves it. *Observed:* `claude mcp get` shows `⏸ Pending approval (run 'claude' to approve)`. This is deliberate — a cloned repository cannot start processes on your machine by itself.
+
+| Where approval lives | Notes |
+| --- | --- |
+| The interactive prompt in `claude` | the normal path; recorded per project in the user's `~/.claude.json` (`enabledMcpjsonServers` / `disabledMcpjsonServers`) |
+| `enabledMcpjsonServers`, `disabledMcpjsonServers`, `enableAllProjectMcpServers` in `.claude/settings(.local).json` | *observed:* **not honoured** in a folder whose trust dialog had not been accepted |
+
+The folder's trust flag is `hasTrustDialogAccepted` in the same project entry. The inventory script (`scripts/inventory.py` in this skill) reads all of these and reports `pending approval (folder not trusted)`, `pending approval`, `approved, unverified` or `disabled`.
 
 ---
 
@@ -50,6 +70,8 @@ claude mcp add --transport http notion https://mcp.notion.com/mcp
 | --- | --- | --- |
 | Tool name known but calling it errors on input validation | **deferred** — schema not loaded | load the schema first |
 | Server listed as "still connecting" | **starting** | search for its tools once; they may appear |
+| `⏸ Pending approval` | **unapproved project server** | open `claude` in the trusted folder and approve it — see §2a |
+| `Missing environment variables: …` warning | **unset `${VAR}`** | export the named variable before starting the client |
 | Listed as "requires authentication" | **unauthorised** | the user authorises in connector settings or an interactive `/mcp`; never ask for codes or tokens in chat |
 | "Failed to connect" with a cached-retry note | **failed** | report the diagnostic; suggest fixing the config or waiting for the retry |
 | Connected, but the tool you expected is absent | **wrong server version or scope** | list the server's tools; compare against its docs |

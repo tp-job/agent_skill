@@ -34,4 +34,24 @@ Route: dedicated MCP tools, loaded by exact name in **one** batched schema load 
 | biorxiv | plugin | (plugin)  | connected | get_categories, get_preprint | 27 categories + structured not-found error, 2026-09-28 |
 ```
 
-**What this example does not prove:** write and refusal behaviour. Prove those on a server that has write tools, against a sandbox or with the user's yes for one real write.
+---
+
+## Second server — a local sandbox, for the checks bioRxiv could not cover
+
+Write and refusal cannot be proven on a read-only server, and proving them on a real account needs the user's yes. So a throwaway note-store server ([sandbox_server.py](../scripts/sandbox_server.py), rerun with [verify_sandbox.py](../scripts/verify_sandbox.py)) was written by following [building-mcp-servers](../references/building-mcp-servers.md) literally (FastMCP, `mcp` SDK 1.26.0, state in a local JSON file), then driven over real stdio by an SDK client.
+
+| Check | Observed | Result |
+| --- | --- | --- |
+| Tools listed; annotations reach the client | 3 tools; `destructiveHint=True` on delete, `readOnlyHint=True` on find | ✅ |
+| Read succeeds | `{"count": 0, "ids": [], "truncated": false}` | ✅ |
+| Write succeeds **and is visible outside the server** | `create_note` → the JSON file on disk holds the note | ✅ |
+| Duplicate write refused with a teaching error | `isError: true`, names the next step | ✅ |
+| Destructive call refused without confirmation | `delete_note` without `confirm` → `isError: true`, note still on disk | ✅ |
+| Wrong-typed argument rejected before the tool runs | `limit="many"` → validation error | ✅ |
+| Confirmed delete succeeds; not-found names a real tool | note gone; `"call find_notes first"` | ✅ |
+
+**10 / 10 passed.** The run also caught a defect *in the sandbox itself*: its duplicate-write error told the model to "use update_note", a tool that did not exist. Fixed, and added to the build checklist as "every tool name mentioned in an error exists on this server".
+
+**Registered through the real CLI** (`claude mcp add --scope project`), the same server showed two behaviours now written into [mcp-lifecycle](../references/mcp-lifecycle.md): it sat at `⏸ Pending approval` — approval keys in the project's settings files were not honoured because the folder's trust dialog had never been accepted — and `-e TOKEN=value` wrote the value in plain text into the committed `.mcp.json`.
+
+**Still not proven:** write and refusal against a real, remote, OAuth-protected service. That needs the user's yes for one real write.

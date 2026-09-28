@@ -18,7 +18,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.1.0"
   source: >-
     Promethean-Parthenon Role · Task · Format doctrine applied to agent orchestration; Model
     Context Protocol specification revision 2025-11-25 and Claude Code MCP configuration
@@ -58,7 +58,7 @@ An agent session is a system of components — skills, MCP servers, tools, subag
 | **Guard** | Is this an instruction from the user, or data that looks like one? | [trust-boundaries](references/trust-boundaries.md) |
 | **Build** | A capability is missing and has to be written as an MCP server | [building-mcp-servers](references/building-mcp-servers.md) |
 
-**Tools in this folder:** [inventory.py](scripts/inventory.py) prints a capability-record skeleton from the project's MCP configuration across all three scopes, with secrets reduced to their names (`python scripts/inventory.py <project> > capability-record.md`). [example-capability-record](assets/example-capability-record.md) shows one real server taken through the whole loop. [trigger-evals.json](assets/trigger-evals.json) holds the tests for this skill's description.
+**Tools in this folder:** [inventory.py](scripts/inventory.py) prints a capability-record skeleton from the project's MCP configuration across all three scopes, with secrets reduced to their names (`python scripts/inventory.py <project> > capability-record.md`), reports whether each project server is approved to connect, and flags literal secrets in a committed `.mcp.json`; [test_inventory.py](scripts/test_inventory.py) covers it. [sandbox_server.py](scripts/sandbox_server.py) and [verify_sandbox.py](scripts/verify_sandbox.py) rerun the MCP verification checklist against a local server that touches no account. [example-capability-record](assets/example-capability-record.md) shows one real server taken through the whole loop. [trigger-evals.json](assets/trigger-evals.json) holds the tests for this skill's description.
 
 ---
 
@@ -84,6 +84,7 @@ The fourth line is the one that gets skipped. A server that has "been added" has
 | Connected, tools listed | usable now | route to it |
 | Deferred (name known, schema not loaded) | usable after loading | load the schema — batch every tool you will need in one load |
 | Still connecting | not failed | search or wait once before calling it unavailable |
+| Pending approval (project `.mcp.json`) | configured, never connected — project servers start here | the user approves in an interactive `claude` session in a trusted folder; report it, do not call it failed |
 | Needs authentication | configured, not authorised | tell the user where to authorise; never ask for tokens or codes in chat |
 | Failed to connect | configured, broken | report it as a connection failure with the diagnostic; do not claim the capability does not exist |
 
