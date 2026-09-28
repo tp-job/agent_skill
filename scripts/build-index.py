@@ -46,7 +46,7 @@ GROUPS = [
     ]),
     ("Knowledge & Authoring", [
         "knowledge-base", "skill-creator", "project-file-structure",
-        "cs-course-designer", "obsidian-vault", "view-pdf",
+        "cs-course-designer", "obsidian-vault",
     ]),
 ]
 

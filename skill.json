@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "generated": "2026-09-28",
   "root": "agent-skill",
-  "count": 31,
+  "count": 30,
   "skills": [
     {
       "name": "agentic-engineering",
@@ -184,12 +184,6 @@
       "path": "vercel-react-best-practices/SKILL.md",
       "description": "React and Next.js performance optimization guidelines from Vercel Engineering. Use when writing, reviewing, or refactoring React/Next.js code — components, pages, data fetching, bundle optimization, performance improvements.",
       "content": "Rules grouped into priority categories (rendering and re-render control, data fetching and server components, bundle/code splitting, images and assets, caching) with a quick-reference table, application guidance, and a link to the full compiled Vercel document."
-    },
-    {
-      "name": "view-pdf",
-      "path": "view-pdf/SKILL.md",
-      "description": "Interactive PDF viewer. Use when the user wants to open, show, or view a PDF and collaborate on it visually — annotate, highlight, stamp, fill form fields, place signature/initials, review markup. Not for summarization or text extraction.",
-      "content": "Describes when to reach for the viewer instead of plain reading, the available viewer tools, supported annotation types, interactive workflows (annotate, fill forms, sign), supported PDF sources, and explicit out-of-scope cases."
     }
   ]
 }

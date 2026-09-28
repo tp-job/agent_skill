@@ -26,7 +26,6 @@
     "./supabase-senior",
     "./threejs-3d",
     "./vercel-cli-with-tokens",
-    "./vercel-react-best-practices",
-    "./view-pdf"
+    "./vercel-react-best-practices"
   ]
 }
