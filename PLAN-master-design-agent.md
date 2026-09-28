@@ -114,8 +114,37 @@ A clinic "Today" screen taken through all four stages. Observed checks: 12 contr
 **Premise:** ~660 tokens per session is an acceptable cost for two domains that previously had no skill.
 **Expires when:** the active set passes ~25,000 characters, or a trigger eval shows either skill mis-firing on more than 1 in 10 near-misses. Either one reopens B.
 
+### Testing pass (after Phase 5)
+
+Everything that could be tested without a human or a real account was tested; each defect found was fixed and the fix re-tested.
+
+| Area | Test | Result |
+| --- | --- | --- |
+| CLI claims in master-agent | compared against `claude mcp --help` (Claude Code 2.1.278) | `--transport`, `-e`, `-H`, `local / project / user` scopes all match |
+| Write + refusal | local sandbox server driven over real stdio by the SDK client | 10 / 10 checks pass (`verify_sandbox.py`) |
+| `${VAR}` and `${VAR:-default}` | unset variables under `claude mcp list` | plain form warns by name; `:-default` form does not — both as documented |
+| `inventory.py` | 14 unit tests, then 8 deliberate regressions | 14 / 14 pass; all 8 regressions caught |
+| Dark mode via the OS setting | localhost preview, `prefers-color-scheme: dark` emulated | tokens resolve correctly; light override guard works; focus ring visible on keyboard Tab |
+| All three repo checks | `build-index`, `build-bundles && check-bundles`, `lint-skills` | clean |
+
+**Defects found and fixed**
+
+| # | Where | Defect | Fix |
+| --- | --- | --- | --- |
+| 1 | master-agent triage | no **Pending approval** state — project `.mcp.json` servers start there and never connect until approved | added to SKILL.md triage and mcp-lifecycle §2a |
+| 2 | mcp-lifecycle | no warning that `claude mcp add --scope project -e K=v` writes the secret into the committed `.mcp.json` | documented as "the `-e` trap", with BAD/BETTER |
+| 3 | inventory.py | never read approvals stored in `~/.claude.json`; ignored `enableAllProjectMcpServers` | reads all three sources |
+| 4 | inventory.py | reported a pending server as "unverified", hiding that it will not connect | reports `pending approval (folder not trusted)` / `pending approval` / `approved, unverified` / `disabled`, matching `claude mcp list` |
+| 5 | inventory.py | `disabledMcpjsonServers` also disabled same-named servers in user and local scope | applied to project scope only |
+| 6 | inventory.py | crashed on a config whose top level is a list, or on non-list `args` / non-dict `env` | malformed input is skipped |
+| 7 | inventory.py | case-folded paths on POSIX, where paths are case-sensitive | case-folds on Windows only |
+| 8 | inventory.py | secret-looking command args printed as-is (found during Phase 4, fixed then) | redacted |
+| 9 | inventory.py (new) | nothing flagged a literal secret committed in `.mcp.json` | warns by name for env, header, URL query and URL password |
+| 10 | the sandbox server | an error message pointed at a tool that did not exist | fixed; rule added to the build checklist |
+
 ### Follow-ups (not blocking)
 
-1. Prove write and refusal on a write-capable MCP server — needs the owner's yes for one real write or a sandbox.
-2. Dark mode via the OS `prefers-color-scheme` setting, and a hallway test for the example draft.
+1. Prove write and refusal against a real remote, OAuth-protected server — needs the owner's yes for one real write (the local sandbox already covers the mechanics).
+2. Hallway test of the example draft with real receptionists — needs people, not tooling.
+4. Confirm the interactive approval path end to end: open `claude` in a trusted folder, approve a project server, re-run `inventory.py` and expect `approved, unverified`.
 3. Consider trimming master-design's description (1,373 chars, 2nd longest) if the budget tightens.

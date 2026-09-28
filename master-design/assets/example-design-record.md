@@ -79,12 +79,14 @@ Only checks actually observed are listed.
 | Contrast, computed with the WCAG 2.x relative-luminance formula | light: text 17.06 · muted 7.24 · action on bg 5.23 · white on action 5.47 · danger 6.18. dark: text 15.19 · muted 7.30 · muted on surface 6.76 · action 10.06 · text on action 10.06 · danger 6.77. **All ≥ 4.5:1** |
 | Touch targets | every button measured at 44px tall in a 375×667 browser viewport |
 | 375×667, light | no horizontal scroll (scrollWidth 375 = viewport); all four slots end by y=584 < 667 — the "next four slots visible" criterion passes |
+| Dark via the OS setting (`prefers-color-scheme: dark` emulated, page served over localhost, no attribute) at 375×667 | media query matched; bg `#0B1220`, surface `#111A2E`, text `#E2E8F0`, muted `#94A3B8`, action `#2DD4BF` with `#0B1220` label, late `#F87171` — every pair is one of the computed ratios above; last row still ends at y=584 |
+| `data-theme="light"` while the OS is dark | page stays light (bg `#F8FAFC`, text `#0F172A`, action `#0F766E`) — the override guard works |
+| Keyboard focus | Tab order Walk-in → Reschedule; `:focus-visible` gives a solid 3px outline, 2px offset, in the action colour (10.06:1 on the dark background) |
 | 1440×900, dark (forced via `data-theme`) | no horizontal scroll; content capped at 960px; tokens resolve to bg `#0B1220`, text `#E2E8F0`, action `#2DD4BF` |
 
 ## Open
 
 | Question | Owner |
 | --- | --- |
-| Dark mode via the OS `prefers-color-scheme` setting (only the forced attribute was checked) | next session |
 | Hallway test: time to find "Reschedule" for a named patient | clinic owner |
 | Empty-day, loading and error states | next design round |
