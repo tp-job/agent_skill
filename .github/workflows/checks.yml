@@ -1,0 +1,42 @@
+name: checks
+
+# Runs every gate from CLAUDE.md §Checks on each push and pull request, so a
+# forgotten local run cannot land a dangling link, a drifted bundle, or a
+# README that names a skill that does not load.
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Index (names, descriptions, plugin.json)
+        run: python scripts/build-index.py
+
+      - name: Bundles (closure, fidelity, every relative link)
+        run: python scripts/build-bundles.py && python scripts/check-bundles.py
+
+      - name: Lint (description cap, anchors, secrets, active-skill references)
+        run: python scripts/lint-skills.py
+
+      - name: Generated files are committed up to date
+        # skill.json is left out: build-index stamps today's date into it.
+        run: git diff --exit-code -- README.md .claude-plugin/plugin.json promethean-parthenon/bundled
+
+      - name: master-agent inventory tests
+        run: python -m unittest master-agent/scripts/test_inventory.py -v
+
+      - name: master-agent MCP sandbox (write / refusal checklist)
+        run: |
+          pip install "mcp>=1.26,<2"
+          python master-agent/scripts/verify_sandbox.py

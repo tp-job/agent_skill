@@ -105,6 +105,22 @@ def main():
             if os.path.isfile(dest) and anchor.lower() not in anchors(dest):
                 found['broken heading anchor'].append('%s -> %s#%s' % (path, target, anchor))
 
+    # A namespaced `agent-skill:<name>` only exists for skills in the active set, and a
+    # lookup row saying a skill opens "itself" is only true of an active skill; core
+    # spokes load through the aggregator. Both slipped into README once — keep them out.
+    active = {p.strip('./') for p in re.findall(r'"(\./[a-z0-9-]+)"',
+              open(os.path.join('.claude-plugin', 'plugin.json'), encoding='utf-8').read())}
+    scanned = ['README.md', 'CLAUDE.md'] + glob.glob('scripts/*.py') + [
+        p for p in glob.glob('*/**/*.md', recursive=True) if '/bundled/' not in p.replace(os.sep, '/')]
+    for path in scanned:
+        text = open(path, encoding='utf-8').read()
+        for name in sorted(set(re.findall(r'agent-skill:([a-z0-9-]+)', text))):
+            if name not in active:
+                found['namespaced example names an inactive skill'].append('%s -> agent-skill:%s' % (path, name))
+    for name in re.findall(r'^\| `([a-z0-9-]+)`[^\n]*\| itself \|$', open('README.md', encoding='utf-8').read(), re.M):
+        if name not in active:
+            found['lookup says a core spoke opens by itself'].append(name)
+
     total = sum(len(v) for v in found.values())
     for kind in sorted(found):
         print('%s: %d' % (kind, len(found[kind])))
