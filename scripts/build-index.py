@@ -10,7 +10,6 @@ preserved and re-keyed by skill name, so hand-written summaries survive a
 rebuild. A skill with no curated entry falls back to its frontmatter
 description, truncated at the first sentence.
 """
-import glob
 import json
 import os
 import re
@@ -21,34 +20,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INDEX = os.path.join(ROOT, 'skill.json')
 README = os.path.join(ROOT, 'README.md')
 
-# Grouping is editorial — a skill not listed here lands in "Other".
-GROUPS = [
-    ("Design & Agent Orchestration", [
-        "master-design", "master-agent",
-    ]),
-    ("Frontend & UI", [
-        "frontend-design", "google-design-system",
-        "css-architecture", "ui-checker", "vercel-react-best-practices",
-        "threejs-3d", "flutter",
-    ]),
-    ("Backend & Data", [
-        "java-api-performance", "supabase-senior", "data-analyze",
-    ]),
-    ("Quality, Security & Performance", [
-        "owasp-top-10-2025", "clean-code-javascript",
-        "lighthouse", "ai-web-product-craft", "debug-master",
-    ]),
-    ("Process & Delivery", [
-        "promethean-parthenon", "agentic-engineering",
-        "long-horizon-engineering-workflow", "requirement-gathering",
-        "senior-leadership-advisor", "deploy-to-vercel",
-        "vercel-cli-with-tokens", "github-report",
-    ]),
-    ("Knowledge & Authoring", [
-        "knowledge-base", "skill-creator", "project-file-structure",
-        "cs-course-designer", "obsidian-vault",
-    ]),
-]
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from skills_layout import HUB_NOTE, HUBS, REALMS, active, discover, spokes  # noqa: E402
 
 # Inserted verbatim right after the intro, before Install. Skills fire from their
 # `description` automatically — a user should never need to remember a folder name to
@@ -56,10 +29,9 @@ GROUPS = [
 FINDING = [
     "## Finding a skill without knowing its name",
     "",
-    "You do not need to remember any name on this page. Claude Code reads each active skill's "
-    "`description` and opens the matching one on its own; the *Core* skills are opened by "
-    "[promethean-parthenon](promethean-parthenon/SKILL.md), whose description carries their "
-    "triggers. Either way, describe the task in plain language and let it pick.",
+    "Only three names are worth remembering — the hubs below. Everything else is opened for "
+    "you: Claude Code reads each active skill's `description` and opens the match, and a hub "
+    "opens the specialists filed under it. Describe the task in plain language and let it pick.",
     "",
     "| Instead of recalling… | Just say… | Opens via |",
     "| --- | --- | --- |",
@@ -67,14 +39,16 @@ FINDING = [
     "| `owasp-top-10-2025` | \"is this secure\" | promethean-parthenon |",
     "| `ui-checker` | \"does dark mode work on this page\" | promethean-parthenon |",
     "| `agentic-engineering` / `requirement-gathering` | \"plan this build\" | promethean-parthenon |",
-    "| `master-design` | \"design this screen from scratch\" | itself |",
+    "| `frontend-design` | \"make this page look less generic\" | master-design |",
+    "| `css-architecture` | \"organise my Tailwind CSS\" | master-design |",
+    "| `threejs-3d` | \"build a 3D scene with three.js\" | master-design |",
     "| `master-agent` | \"which MCP server should handle this\" | itself |",
     "| `deploy-to-vercel` | \"deploy this app\" | itself |",
     "",
     "Unsure which skill fits, or the request spans several? Say that — "
     "\"which skill should I use\" is itself a promethean-parthenon trigger. A name is only "
     "needed to invoke an *active* skill directly by its namespaced form "
-    "(`agent-skill:promethean-parthenon`), which is optional; *Core* skills have no "
+    "(`agent-skill:promethean-parthenon`), which is optional; a hub's specialists have no "
     "namespaced entry of their own.",
     "",
 ]
@@ -162,23 +136,15 @@ def first_sentence(text, limit=240):
 PLUGIN = os.path.join(ROOT, '.claude-plugin', 'plugin.json')
 
 
-def core_spokes():
-    """Skills reached only through the aggregator: the CLOSURE list in build-bundles.py."""
-    src = open(os.path.join(ROOT, 'scripts', 'build-bundles.py'), encoding='utf-8').read()
-    start = src.index('CLOSURE = [')
-    return re.findall(r'"([a-z0-9-]+)"', src[start:src.index(']', start)])
-
-
-def write_plugin_skills(names):
-    """Active set = every skill except the core spokes, which load via promethean-parthenon."""
-    spokes = set(core_spokes())
+def write_plugin_skills(found):
+    """Active set = every skill except the hubs' spokes, which load via their hub."""
     with open(PLUGIN, encoding='utf-8') as f:
         manifest = json.load(f)
-    manifest['skills'] = ['./' + n for n in sorted(names) if n not in spokes]
+    manifest['skills'] = ['./' + found[n] for n in active(found)]
     with open(PLUGIN, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(manifest, f, indent=2, ensure_ascii=False)
         f.write('\n')
-    return len(manifest['skills']), len(spokes)
+    return len(manifest['skills']), len(spokes())
 
 
 def main():
@@ -192,10 +158,17 @@ def main():
 
     skills = []
     problems = []
-    for path in sorted(glob.glob('*/SKILL.md')):
-        rel = path.replace(os.sep, '/')
-        folder = rel.split('/')[0]
-        fm = parse_frontmatter(path)
+    found = discover()
+    inner = spokes()
+    for name_dir, folder_rel in sorted(found.items(), key=lambda kv: kv[1]):
+        rel = folder_rel + '/SKILL.md'
+        folder = name_dir
+        parts = folder_rel.split('/')
+        if len(parts) == 1 and folder not in HUB_NOTE:
+            problems.append('%s: only a hub sits at the top level — file it under a realm' % rel)
+        if len(parts) == 2 and parts[0] not in REALMS:
+            problems.append('%s: %s/ is not a realm in skills_layout.REALMS' % (rel, parts[0]))
+        fm = parse_frontmatter(rel)
         if not fm or 'name' not in fm:
             problems.append('%s: missing or unreadable frontmatter' % rel)
             continue
@@ -226,52 +199,52 @@ def main():
         f.write('\n')
 
     by_name = {s['name']: s for s in skills}
-    spokes = set(core_spokes())
-    placed = set()
+    n_active = len(active(found))
     lines = [
         '# Agent Skills',
         '',
-        'A library of %d Claude Code skills. Each lives in its own folder, named for the '
-        '`name:` in its `SKILL.md`, with deep-dive material under `references/` and any '
-        'executable helpers under `scripts/`.' % len(skills),
+        'A library of %d Claude Code skills. Three hubs sit at the top level; every other skill '
+        'is filed under a realm folder named for the power that governs its kind of work. Each '
+        'skill folder is named for the `name:` in its `SKILL.md`, with deep-dive material under '
+        '`references/` and any executable helpers under `scripts/`.' % len(skills),
         '',
-        '**%d skills load on their own**; the %d marked *Core* are reached through '
-        '[promethean-parthenon](promethean-parthenon/SKILL.md), which routes to them. '
-        'The active list lives in `.claude-plugin/plugin.json` and is regenerated by `build-index.py`.' % (len(skills) - len(spokes), len(spokes)),
+        '**%d skills load on their own**; the %d marked *via* a hub are opened by that hub, which '
+        'routes to them. The active list lives in `.claude-plugin/plugin.json` and is regenerated '
+        'by `build-index.py`.' % (n_active, len(inner)),
         '',
         'Conventions and the authoring checklist are in [CLAUDE.md](CLAUDE.md). '
         'The machine-readable index is [skill.json](skill.json) — regenerate it with '
         '`python scripts/build-index.py` after adding or renaming a skill.',
         '',
     ] + FINDING + INSTALL
-    for title, members in GROUPS:
-        present = [m for m in members if m in by_name]
-        if not present:
-            continue
-        lines.append('## %s' % title)
-        lines.append('')
-        lines.append('| Skill | What it does |')
-        lines.append('| --- | --- |')
-        for m in present:
-            s = by_name[m]
-            placed.add(m)
-            note = ' *Core — loads via promethean-parthenon.*' if m in spokes else ''
-            lines.append('| [%s](%s) | %s%s |' % (s['name'], s['path'], s['description'], note))
-        lines.append('')
 
-    rest = [s for s in skills if s['name'] not in placed]
-    if rest:
-        lines += ['## Other', '', '| Skill | What it does |', '| --- | --- |']
-        for s in rest:
-            lines.append('| [%s](%s) | %s |' % (s['name'], s['path'], s['description']))
+    def row(s):
+        hub = inner.get(s['name'])
+        note = ' *Via %s.*' % hub if hub else ''
+        return '| [%s](%s) | %s%s |' % (s['name'], s['path'], s['description'], note)
+
+    lines += ['## Hubs — the three names to remember', '',
+              '| Skill | Opens | What it does |', '| --- | --- | --- |']
+    for hub, area in HUB_NOTE.items():
+        if hub in by_name:
+            s = by_name[hub]
+            routes = ', '.join(HUBS.get(hub, [])) or '—'
+            lines.append('| [%s](%s) | %s: %s | %s |' % (s['name'], s['path'], area, routes, s['description']))
+    lines.append('')
+    for realm, (heading, meaning) in REALMS.items():
+        members = [s for s in skills if s['path'].startswith(realm + '/')]
+        if not members:
+            continue
+        lines += ['## %s' % heading, '', '*%s*' % meaning, '', '| Skill | What it does |', '| --- | --- |']
+        lines += [row(s) for s in members]
         lines.append('')
 
     with open(README, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(lines))
 
     print('indexed %d skills -> skill.json, README.md' % len(skills))
-    active, spokes = write_plugin_skills([s['name'] for s in skills])
-    print('plugin.json: %d active skills, %d core spokes via promethean-parthenon' % (active, spokes))
+    n, m = write_plugin_skills(found)
+    print('plugin.json: %d active skills, %d spokes via %d hubs' % (n, m, len(HUBS)))
     if problems:
         print('\n%d problem(s):' % len(problems))
         for p in problems:

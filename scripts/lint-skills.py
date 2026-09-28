@@ -17,6 +17,8 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from skills_layout import active as active_skills, discover  # noqa: E402
 DESC_LIMIT = 1536       # Claude Code truncates description + when_to_use at this length
 LINE_LIMIT = 400        # CLAUDE.md: SKILL.md is a router, keep it under ~400 lines
 FENCE = re.compile(r'```.*?```', re.S)
@@ -58,7 +60,7 @@ def main():
     os.chdir(ROOT)
     found = collections.defaultdict(list)
 
-    for skill in sorted(os.path.dirname(p) for p in glob.glob('*/SKILL.md')):
+    for skill in sorted(discover().values()):
         text = open(os.path.join(skill, 'SKILL.md'), encoding='utf-8').read()
         fm = frontmatter(text) or ''
         desc = description(fm)
@@ -108,8 +110,7 @@ def main():
     # A namespaced `agent-skill:<name>` only exists for skills in the active set, and a
     # lookup row saying a skill opens "itself" is only true of an active skill; core
     # spokes load through the aggregator. Both slipped into README once — keep them out.
-    active = {p.strip('./') for p in re.findall(r'"(\./[a-z0-9-]+)"',
-              open(os.path.join('.claude-plugin', 'plugin.json'), encoding='utf-8').read())}
+    active = set(active_skills())
     scanned = ['README.md', 'CLAUDE.md'] + glob.glob('scripts/*.py') + [
         p for p in glob.glob('*/**/*.md', recursive=True) if '/bundled/' not in p.replace(os.sep, '/')]
     for path in scanned:

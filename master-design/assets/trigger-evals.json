@@ -1,26 +1,146 @@
 {
   "skill_name": "master-design",
-  "note": "Trigger evals: judged from skill descriptions alone. should_trigger=true means master-design must be picked; false means another skill (or none) must be picked.",
+  "note": "Trigger evals: judged from active skill descriptions alone. should_trigger=true means master-design must be picked (\"via\" names the bundled specialist its fast path should open); false means another skill (or none) must be picked. v2: master-design became the hub for frontend-design, google-design-system, css-architecture and threejs-3d.",
   "evals": [
-    {"id": 1,  "should_trigger": true,  "prompt": "I'm starting a booking app for a small clinic. Where does the design work even begin? Help me design it from scratch."},
-    {"id": 2,  "should_trigger": true,  "prompt": "Give me three genuinely different design concepts for a coffee subscription site and tell me which one wins."},
-    {"id": 3,  "should_trigger": true,  "prompt": "Wireframe the onboarding flow for our budgeting app, including the empty and error states."},
-    {"id": 4,  "should_trigger": true,  "prompt": "Write an art direction for our indie game studio's new website — mood, palette, type, the lot."},
-    {"id": 5,  "should_trigger": true,  "prompt": "How should I structure the design tokens and screen inventory for a new SaaS product before we pick colours?"},
-    {"id": 6,  "should_trigger": true,  "prompt": "We've redesigned this dashboard four times and it still isn't right. Can you run the design process properly this time?"},
-    {"id": 7,  "should_trigger": true,  "prompt": "Make a moodboard and a visual thesis for a poster series about Bangkok night markets."},
-    {"id": 8,  "should_trigger": true,  "prompt": "ช่วยคิดคอนเซปต์ดีไซน์สำหรับแอปจองคิวร้านตัดผม ตั้งแต่โครงสร้างหน้าจนถึง wireframe"},
-    {"id": 9,  "should_trigger": true,  "prompt": "ออกแบบทั้งระบบให้เว็บพอร์ตโฟลิโอของฉันหน่อย ทั้ง IA, mood และ draft"},
-    {"id": 10, "should_trigger": true,  "prompt": "What should this product look like? Draft the layout for the main screens so we can review them tomorrow."},
-    {"id": 11, "should_trigger": false, "prompt": "This pricing card looks generic. Make it feel more distinctive — better typography and a bolder aesthetic.", "expected_skill": "frontend-design"},
-    {"id": 12, "should_trigger": false, "prompt": "Make our Android settings screen follow Material 3 Expressive guidelines.", "expected_skill": "google-design-system"},
-    {"id": 13, "should_trigger": false, "prompt": "Our Tailwind project has CSS everywhere. Organise the stylesheets and set up token files.", "expected_skill": "css-architecture"},
-    {"id": 14, "should_trigger": false, "prompt": "Dark mode text is unreadable on the settings page — check the contrast.", "expected_skill": "promethean-parthenon"},
-    {"id": 15, "should_trigger": false, "prompt": "Build a rotating 3D globe with three.js for our hero section.", "expected_skill": "threejs-3d"},
-    {"id": 16, "should_trigger": false, "prompt": "Design the microservice architecture for our order system — services, queues and databases.", "expected_skill": "knowledge-base"},
-    {"id": 17, "should_trigger": false, "prompt": "Our Lighthouse performance score is 42 on mobile. Fix it.", "expected_skill": "lighthouse"},
-    {"id": 18, "should_trigger": false, "prompt": "Write a course outline for an intro to UX design unit with CLOs.", "expected_skill": "cs-course-designer"},
-    {"id": 19, "should_trigger": false, "prompt": "Implement this Figma frame as a React component.", "expected_skill": "none"},
-    {"id": 20, "should_trigger": false, "prompt": "ปุ่มนี้ดูธรรมดาไป ช่วยทำให้สวยและมีเอกลักษณ์ขึ้นหน่อย", "expected_skill": "frontend-design"}
+    {
+      "id": 1,
+      "should_trigger": true,
+      "prompt": "I'm starting a booking app for a small clinic. Where does the design work even begin? Help me design it from scratch."
+    },
+    {
+      "id": 2,
+      "should_trigger": true,
+      "prompt": "Give me three genuinely different design concepts for a coffee subscription site and tell me which one wins."
+    },
+    {
+      "id": 3,
+      "should_trigger": true,
+      "prompt": "Wireframe the onboarding flow for our budgeting app, including the empty and error states."
+    },
+    {
+      "id": 4,
+      "should_trigger": true,
+      "prompt": "Write an art direction for our indie game studio's new website — mood, palette, type, the lot."
+    },
+    {
+      "id": 5,
+      "should_trigger": true,
+      "prompt": "How should I structure the design tokens and screen inventory for a new SaaS product before we pick colours?"
+    },
+    {
+      "id": 6,
+      "should_trigger": true,
+      "prompt": "We've redesigned this dashboard four times and it still isn't right. Can you run the design process properly this time?"
+    },
+    {
+      "id": 7,
+      "should_trigger": true,
+      "prompt": "Make a moodboard and a visual thesis for a poster series about Bangkok night markets."
+    },
+    {
+      "id": 8,
+      "should_trigger": true,
+      "prompt": "ช่วยคิดคอนเซปต์ดีไซน์สำหรับแอปจองคิวร้านตัดผม ตั้งแต่โครงสร้างหน้าจนถึง wireframe"
+    },
+    {
+      "id": 9,
+      "should_trigger": true,
+      "prompt": "ออกแบบทั้งระบบให้เว็บพอร์ตโฟลิโอของฉันหน่อย ทั้ง IA, mood และ draft"
+    },
+    {
+      "id": 10,
+      "should_trigger": true,
+      "prompt": "What should this product look like? Draft the layout for the main screens so we can review them tomorrow."
+    },
+    {
+      "id": 11,
+      "should_trigger": true,
+      "prompt": "This pricing card looks generic. Make it feel more distinctive — better typography and a bolder aesthetic.",
+      "via": "frontend-design"
+    },
+    {
+      "id": 12,
+      "should_trigger": true,
+      "prompt": "Make our Android settings screen follow Material 3 Expressive guidelines.",
+      "via": "google-design-system"
+    },
+    {
+      "id": 13,
+      "should_trigger": true,
+      "prompt": "Our Tailwind project has CSS everywhere. Organise the stylesheets and set up token files.",
+      "via": "css-architecture"
+    },
+    {
+      "id": 14,
+      "should_trigger": false,
+      "prompt": "Dark mode text is unreadable on the settings page — check the contrast.",
+      "expected_skill": "promethean-parthenon"
+    },
+    {
+      "id": 15,
+      "should_trigger": true,
+      "prompt": "Build a rotating 3D globe with three.js for our hero section.",
+      "via": "threejs-3d"
+    },
+    {
+      "id": 16,
+      "should_trigger": false,
+      "prompt": "Design the microservice architecture for our order system — services, queues and databases.",
+      "expected_skill": "knowledge-base"
+    },
+    {
+      "id": 17,
+      "should_trigger": false,
+      "prompt": "Our Lighthouse performance score is 42 on mobile. Fix it.",
+      "expected_skill": "lighthouse"
+    },
+    {
+      "id": 18,
+      "should_trigger": false,
+      "prompt": "Write a course outline for an intro to UX design unit with CLOs.",
+      "expected_skill": "cs-course-designer"
+    },
+    {
+      "id": 19,
+      "should_trigger": false,
+      "prompt": "Implement this Figma frame as a React component.",
+      "expected_skill": "none"
+    },
+    {
+      "id": 20,
+      "should_trigger": true,
+      "prompt": "ปุ่มนี้ดูธรรมดาไป ช่วยทำให้สวยและมีเอกลักษณ์ขึ้นหน่อย",
+      "via": "frontend-design"
+    },
+    {
+      "id": 21,
+      "should_trigger": false,
+      "prompt": "Set up the Figma MCP server so Claude can read my design files.",
+      "expected_skill": "master-agent"
+    },
+    {
+      "id": 22,
+      "should_trigger": false,
+      "prompt": "This React list re-renders on every keystroke — fix the performance.",
+      "expected_skill": "vercel-react-best-practices"
+    },
+    {
+      "id": 23,
+      "should_trigger": false,
+      "prompt": "Deploy this portfolio site and give me the preview link.",
+      "expected_skill": "deploy-to-vercel"
+    },
+    {
+      "id": 24,
+      "should_trigger": false,
+      "prompt": "Rename these confusing variables and split this 200-line JS function.",
+      "expected_skill": "clean-code-javascript"
+    },
+    {
+      "id": 25,
+      "should_trigger": false,
+      "prompt": "Is the login form on this page vulnerable to XSS?",
+      "expected_skill": "promethean-parthenon"
+    }
   ]
 }

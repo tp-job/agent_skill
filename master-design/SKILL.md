@@ -1,31 +1,44 @@
 ---
 name: master-design
 description: >-
-  Runs a whole design job from a one-line ask to a handoff-ready draft, in four disciplines taken
-  in order: architecture (information architecture, screen inventory, design-system token
-  structure), art direction (a written visual thesis, mood, palette and type rationale), creativity
-  (divergent concepts under stated constraints, then a scored convergence), and drafting
-  (wireframes, diagrams, spec drafts and prototypes in the cheapest medium that answers the open
-  question — paper-grade ASCII, HTML, Figma, Canva or Blender). Built on the Promethean-Parthenon
-  Role · Task · Format doctrine: set the design seat, write the design target before drawing, land a
-  design record. Use when starting a new product, site, brand or scene and unsure where the design
-  work begins; when several design skills could apply and the job needs one plan; when a design
-  keeps getting redone; or when asked "design this from scratch", "art direction for", "give me
-  concepts", "wireframe this", "draft the layout", "what should this look like", "design system
-  structure", "moodboard", "ออกแบบทั้งระบบ", "ช่วยคิดคอนเซปต์ดีไซน์". Not for polishing the
-  aesthetics of one component (frontend-design), applying Material or Google rules
-  (google-design-system), organising CSS files (css-architecture), auditing a built UI for contrast
-  or dark-mode bugs, 3D scene code, or software/system architecture.
+  Single entry point to design work and to four bundled design specialists. Runs a whole job from a
+  one-line ask to a handoff-ready draft in four stages: architecture (IA, screen inventory, token
+  tiers), art direction (a written visual thesis), creativity (divergent concepts, scored), drafting
+  (wireframes, prototypes, Figma, Canva, Blender), under the Promethean-Parthenon Role · Task ·
+  Format doctrine. Routes to: a distinctive look for one page or component, typography, less
+  templated UI (frontend-design); Material 3 Expressive, Google design, motion, UX writing, Google
+  Sans (google-design-system); Tailwind-first CSS files, CSS hell, specificity, design tokens,
+  PostCSS (css-architecture); three.js, WebGL/WebGPU, shaders, GLTF/GLB, R3F, 3D scenes, product
+  viewers (threejs-3d). Trigger for: "design this from scratch", "art direction for", "give me
+  concepts", "wireframe this", "moodboard", "what should this look like", "make this look less
+  generic", "follow Material 3", "organise my Tailwind CSS", "build a 3D scene", "ออกแบบทั้งระบบ",
+  "ช่วยคิดคอนเซปต์ดีไซน์", "ทำเว็บ 3D". On a specialist trigger, open that bundled skill at once —
+  do not run the four stages for a one-component tweak. Not for implementing a finished design (a Figma
+  frame, a mockup) in code, auditing a built UI for contrast or dark-mode bugs, or software and
+  system architecture.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "2.0.0"
   source: >-
     Promethean-Parthenon Role · Task · Format doctrine applied to design practice; information
     architecture, art-direction and double-diamond ideation methods (compiled 2026)
 ---
 
 # Master Design
+
+## Fast path — read this first
+
+This skill is the **only** entry point to the four skills under `bundled/`; none of them loads on its own. When the request already names its specialist, skip everything below and open it:
+
+| The request is… | Open now |
+| --- | --- |
+| A distinctive look for one page or component, typography, "less generic" | [frontend-design](bundled/frontend-design/SKILL.md) |
+| Material 3, Google design standards, motion, UX writing | [google-design-system](bundled/google-design-system/SKILL.md) |
+| Tailwind-first CSS files, CSS hell, specificity, token files, PostCSS | [css-architecture](bundled/css-architecture/SKILL.md) |
+| three.js, WebGL/WebGPU, shaders, GLTF, R3F, a 3D scene | [threejs-3d](bundled/threejs-3d/SKILL.md) |
+
+Everything else — a new product, site, brand or scene, an unclear design ask, a design that keeps being redone — reads on.
 
 A design job fails in the same three silent ways an engineering job does, and this skill carries the same three defenses:
 
@@ -95,14 +108,14 @@ Applying all four stages at full weight to a small change is this skill's failur
 
 ## Handing off
 
-This skill plans and drafts. When a stage needs deeper craft and the matching skill is installed, hand that stage over and keep the plan here. These are mentions, not dependencies — every stage works without them.
+This skill plans and drafts. When a stage needs deeper craft, open the bundled specialist mid-stage and keep the plan here.
 
-| The stage needs… | Hand to (if installed) |
+| The stage needs… | Open |
 | --- | --- |
-| A distinctive visual identity for one page or component | the frontend-design skill |
-| Material 3 / Google design conformance | the google-design-system skill |
-| Tailwind-first CSS file and token layout | the css-architecture skill |
-| A 3D scene in three.js | the threejs-3d skill |
+| A distinctive visual identity for one page or component | [frontend-design](bundled/frontend-design/SKILL.md) |
+| Material 3 / Google design conformance | [google-design-system](bundled/google-design-system/SKILL.md) |
+| Tailwind-first CSS file and token layout — the *files* behind the token tiers from architecture | [css-architecture](bundled/css-architecture/SKILL.md) |
+| A 3D scene in three.js | [threejs-3d](bundled/threejs-3d/SKILL.md) |
 | An audit of the built result — contrast, dark mode, focus states | a UI-review skill (in this library, via the promethean-parthenon router) |
 | Figma, Canva or Blender tool calls | that tool's own skill or MCP instructions — see [drafting](references/drafting.md) §Media |
 
@@ -120,9 +133,15 @@ This skill plans and drafts. When a stage needs deeper craft and the matching sk
 
 ---
 
+## Bundled skills
+
+This is an aggregator, like promethean-parthenon: every skill it links to travels with it as a verbatim copy under `bundled/`, so dropping this folder into a project brings the design cluster with it and nothing dangles. The copies are regenerated by `scripts/build-bundles.py` from the sources in the library's `muses/` folder — change the source, never the copy.
+
+---
+
 ## When not to use this
 
 - **The design already exists and needs building.** That is engineering; write the build target instead.
-- **One component needs to look better.** A four-stage plan over a button is ceremony — use a visual-identity skill directly.
+- **One component needs to look better.** A four-stage plan over a button is ceremony — open [frontend-design](bundled/frontend-design/SKILL.md) from the fast path instead.
 - **Pure exploration or mood play.** Time-box it, skip the scorecard, and write the target afterward if something is worth keeping.
 - **Software architecture** (services, data models, APIs). "Architecture" here means the architecture of a design.
