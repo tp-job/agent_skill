@@ -15,11 +15,11 @@ description: >-
   requirements", "plan this build", "which approach should we take", "write a sprint report", "agent
   keeps drifting", "I'm stuck", "which skill should I use". Thai: "แก้บัค", "หา bug", "ควรใช้ skill
   ไหน", "agent ทำงานหลุดประเด็น", "ช่วยคิดแก้ปัญหานี้". On a specialist trigger, open that bundled
-  skill at once — do not walk the doctrine for a one-line fix. Not for trivial fully-specified edits, or domain work another skill owns (3D, CSS, deploys).
+  skill at once — do not walk the doctrine for a one-line fix. Not for trivial fully-specified edits, or domain work another skill owns (3D, CSS, deploys, design craft, MCP ops).
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.0.1"
+  version: "3.1.0"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,
@@ -155,6 +155,8 @@ Full decision table with tie-breakers: [routing](references/routing.md). The sho
 | Agent output runs but is wrong | **Task** — agentic-engineering | The brief was the defect, not the code |
 | Agent lost the thread mid-build | **Task** — long-horizon | Missing harness state, not missing skill |
 | A specific bug with a repro | None of these | Use [debug-master](bundled/debug-master/SKILL.md) |
+| A design job — IA, art direction, concepts, drafts | Outside the pillars | The master-design skill runs this doctrine for design |
+| Which tool, MCP server or subagent; a server that fails or needs auth | Outside the pillars | The master-agent skill runs this doctrine for orchestration |
 
 **Default when genuinely unsure: the front of Task.** Writing the target down is the cheapest move in the system and the most expensive to skip — ten minutes against a rebuild you will mistake for a bug fix.
 

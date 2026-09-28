@@ -19,6 +19,8 @@
     "./java-api-performance",
     "./knowledge-base",
     "./lighthouse",
+    "./master-agent",
+    "./master-design",
     "./obsidian-vault",
     "./promethean-parthenon",
     "./supabase-senior",
