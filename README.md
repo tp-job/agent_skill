@@ -6,6 +6,22 @@ A library of 31 Claude Code skills. Each lives in its own folder, named for the 
 
 Conventions and the authoring checklist are in [CLAUDE.md](CLAUDE.md). The machine-readable index is [skill.json](skill.json) — regenerate it with `python scripts/build-index.py` after adding or renaming a skill.
 
+## Finding a skill without knowing its name
+
+You do not need to remember any name on this page. Claude Code reads every skill's `description` and opens the matching one on its own — describe the task in plain language and let it pick.
+
+| Instead of recalling… | Just say… |
+| --- | --- |
+| `debug-master` | "why is this throwing an error" |
+| `owasp-top-10-2025` | "is this endpoint secure" |
+| `ui-checker` | "check dark mode / contrast on this page" |
+| `master-design` | "design this screen from scratch" |
+| `master-agent` | "which MCP server should handle this" |
+| `agentic-engineering` / `requirement-gathering` | "help me plan this build" |
+| `deploy-to-vercel` | "deploy this app" |
+
+Unsure which of several skills fits, or the request spans more than one? Say so — [promethean-parthenon](promethean-parthenon/SKILL.md) routes across the *Core* skills below for exactly that case. A skill name is only ever needed to invoke one directly by its namespaced form (`agent-skill:debug-master`), which is optional.
+
 ## Install
 
 Claude Code loads a skill from `<skills-dir>/<name>/SKILL.md`, one level deep. Pick one of the three routes below.
@@ -40,6 +56,13 @@ Pass a path to install into one project instead: `sh scripts/install.sh ./.claud
 ```bash
 git clone https://github.com/tp-job/agent_skill.git .claude/skills
 ```
+
+## Design & Agent Orchestration
+
+| Skill | What it does |
+| --- | --- |
+| [master-design](master-design/SKILL.md) | Runs a whole design job from a one-line ask to a handoff-ready draft, in four disciplines taken in order: architecture (information architecture, screen inventory, design-system token structure), art direction (a written visual thesis,… |
+| [master-agent](master-agent/SKILL.md) | Operates the AI side of an agent session as one managed system: inventories what is actually loaded (skills, MCP servers and their tools, subagents, models), triages MCP server state (connected, deferred, needs auth, failed), routes each… |
 
 ## Frontend & UI
 
@@ -82,6 +105,7 @@ git clone https://github.com/tp-job/agent_skill.git .claude/skills
 | [senior-leadership-advisor](senior-leadership-advisor/SKILL.md) | Acts as senior leadership (CTO/VP/Staff-level) across engineering, product, design, quality, architecture, data/AI, and prompt engineering. Auto-detects which discipline(s) a request touches and answers in that voice. Skip for casual conversation or trivial lookups. *Core — loads via promethean-parthenon.* |
 | [deploy-to-vercel](deploy-to-vercel/SKILL.md) | Deploy applications and websites to Vercel. Use for requests like 'deploy my app', 'push this live', 'give me the link', or 'create a preview deployment'. |
 | [vercel-cli-with-tokens](vercel-cli-with-tokens/SKILL.md) | Deploy and manage projects on Vercel using token-based authentication rather than interactive login — 'deploy to vercel', 'set up vercel', 'add environment variables to vercel'. |
+| [github-report](github-report/SKILL.md) | Turn GitHub activity — commits, pull requests, and issues — into a written report (.md) of completed work, grouped by sprint, feature, function, or section. Also defines the commit, PR, and issue conventions that make such a report possible. *Core — loads via promethean-parthenon.* |
 
 ## Knowledge & Authoring
 
@@ -89,15 +113,7 @@ git clone https://github.com/tp-job/agent_skill.git .claude/skills
 | --- | --- |
 | [knowledge-base](knowledge-base/SKILL.md) | Software engineering knowledge base covering architecture patterns, component-based design, security fundamentals, software design principles, and use case + microservices design. Use when answering architecture, design pattern, system design, security, or use-case modeling questions. |
 | [skill-creator](skill-creator/SKILL.md) | Create new skills, modify and improve existing skills, and measure skill performance. Use to build a skill from scratch, edit or optimize an existing one, run evals, benchmark with variance analysis, or tune a skill description for better triggering accuracy. *Core — loads via promethean-parthenon.* |
+| [project-file-structure](project-file-structure/SKILL.md) | Rules for naming and placing every file and folder in a React + TypeScript + Node + Prisma project whose documentation lives in an Obsidian vault, plus PDF handling. Applies when creating, renaming, or moving any file, writing a Prisma model or migration, adding a vault note, or reviewing a PR that adds files. *Core — loads via promethean-parthenon.* |
 | [cs-course-designer](cs-course-designer/SKILL.md) | Research, plan, and write course/unit outlines, Course Learning Outcomes (CLOs), lesson/teaching plans, and assessments (quizzes, exams, rubrics, project briefs) for general CS, DBMS, SQL, Python, and C. Also reviews existing CLOs, lesson plans, and assessments for alignment. Not for other languages or live 1:1 tutoring. |
 | [obsidian-vault](obsidian-vault/SKILL.md) | Turn an Obsidian vault into a persistent, self-organizing knowledge base that Claude Code reads from and writes to across sessions — second brain / PKM setup, ingesting documents, URLs and transcripts into linked notes, querying past notes, and running project wikis. |
 | [view-pdf](view-pdf/SKILL.md) | Interactive PDF viewer. Use when the user wants to open, show, or view a PDF and collaborate on it visually — annotate, highlight, stamp, fill form fields, place signature/initials, review markup. Not for summarization or text extraction. |
-
-## Other
-
-| Skill | What it does |
-| --- | --- |
-| [github-report](github-report/SKILL.md) | Turn GitHub activity — commits, pull requests, and issues — into a written report (.md) of completed work, grouped by sprint, feature, function, or section. Also defines the commit, PR, and issue conventions that make such a report possible. |
-| [master-agent](master-agent/SKILL.md) | Operates the AI side of an agent session as one managed system: inventories what is actually loaded (skills, MCP servers and their tools, subagents, models), triages MCP server state (connected, deferred, needs auth, failed), routes each… |
-| [master-design](master-design/SKILL.md) | Runs a whole design job from a one-line ask to a handoff-ready draft, in four disciplines taken in order: architecture (information architecture, screen inventory, design-system token structure), art direction (a written visual thesis,… |
-| [project-file-structure](project-file-structure/SKILL.md) | Rules for naming and placing every file and folder in a React + TypeScript + Node + Prisma project whose documentation lives in an Obsidian vault, plus PDF handling. Applies when creating, renaming, or moving any file, writing a Prisma model or migration, adding a vault note, or reviewing a PR that adds files. |

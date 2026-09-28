@@ -23,6 +23,9 @@ README = os.path.join(ROOT, 'README.md')
 
 # Grouping is editorial — a skill not listed here lands in "Other".
 GROUPS = [
+    ("Design & Agent Orchestration", [
+        "master-design", "master-agent",
+    ]),
     ("Frontend & UI", [
         "frontend-design", "google-design-system",
         "css-architecture", "ui-checker", "vercel-react-best-practices",
@@ -39,12 +42,39 @@ GROUPS = [
         "promethean-parthenon", "agentic-engineering",
         "long-horizon-engineering-workflow", "requirement-gathering",
         "senior-leadership-advisor", "deploy-to-vercel",
-        "vercel-cli-with-tokens",
+        "vercel-cli-with-tokens", "github-report",
     ]),
     ("Knowledge & Authoring", [
-        "knowledge-base", "skill-creator",
+        "knowledge-base", "skill-creator", "project-file-structure",
         "cs-course-designer", "obsidian-vault", "view-pdf",
     ]),
+]
+
+# Inserted verbatim right after the intro, before Install. Skills fire from their
+# `description` automatically — a user should never need to remember a folder name to
+# get one. Keep this short; it is a pointer to that fact, not a full lookup table.
+FINDING = [
+    "## Finding a skill without knowing its name",
+    "",
+    "You do not need to remember any name on this page. Claude Code reads every skill's "
+    "`description` and opens the matching one on its own — describe the task in plain "
+    "language and let it pick.",
+    "",
+    "| Instead of recalling… | Just say… |",
+    "| --- | --- |",
+    "| `debug-master` | \"why is this throwing an error\" |",
+    "| `owasp-top-10-2025` | \"is this endpoint secure\" |",
+    "| `ui-checker` | \"check dark mode / contrast on this page\" |",
+    "| `master-design` | \"design this screen from scratch\" |",
+    "| `master-agent` | \"which MCP server should handle this\" |",
+    "| `agentic-engineering` / `requirement-gathering` | \"help me plan this build\" |",
+    "| `deploy-to-vercel` | \"deploy this app\" |",
+    "",
+    "Unsure which of several skills fits, or the request spans more than one? Say so — "
+    "[promethean-parthenon](promethean-parthenon/SKILL.md) routes across the *Core* skills "
+    "below for exactly that case. A skill name is only ever needed to invoke one directly "
+    "by its namespaced form (`agent-skill:debug-master`), which is optional.",
+    "",
 ]
 
 
@@ -211,7 +241,7 @@ def main():
         'The machine-readable index is [skill.json](skill.json) — regenerate it with '
         '`python scripts/build-index.py` after adding or renaming a skill.',
         '',
-    ] + INSTALL
+    ] + FINDING + INSTALL
     for title, members in GROUPS:
         present = [m for m in members if m in by_name]
         if not present:
