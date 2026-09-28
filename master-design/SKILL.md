@@ -74,6 +74,8 @@ Then set the **Role**: name who has final taste (the user, a brand owner, or you
 | **Creativity** | 3–5 divergent concepts, one scored winner, the runner-up's best idea salvaged | the scorecard picks a concept the lead accepts | [creative-process](references/creative-process.md) |
 | **Drafting** | wireframes, diagrams, a clickable or rendered draft, the design record | the draft answers the open question and the record lets someone rebuild it | [drafting](references/drafting.md) |
 
+**Worked example:** one small job taken through every stage — target, inventory, thesis, scored concepts with a lead override, a hi-fi draft and a record listing only the checks actually run: [example-design-record](assets/example-design-record.md) · [example-draft.html](assets/example-draft.html). Trigger tests for this skill's description: [trigger-evals.json](assets/trigger-evals.json).
+
 ---
 
 ## Sizing: how much design for how much work
