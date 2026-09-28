@@ -9,8 +9,9 @@ Layout (see CLAUDE.md §Layout):
     <hub>/SKILL.md                 an aggregator, top level — the names a user remembers
     <realm>/<skill>/SKILL.md       every other skill, filed under one realm folder
 
-A realm is a plain directory, never a skill. Realms are named in the library's
-Greek and Roman register, after the power that governs that kind of work.
+A realm is a plain directory, never a skill. Hubs and realms are named in the
+library's Greek and Roman register as two words, like promethean-parthenon: the
+power or quality that governs that kind of work, then its place.
 """
 from pathlib import Path
 
@@ -42,25 +43,25 @@ HUBS = {
 
 # Realm folder -> (heading, what it holds, why the name). Order is the README order.
 REALMS = {
-    "pantheon": (
-        "Pantheon — the engineering specialists",
-        "The gods who dwell in the Parthenon: each specialist is reached through promethean-parthenon.",
+    "olympian-pantheon": (
+        "Olympian Pantheon — the engineering specialists",
+        "The gods of Olympus, who dwell in the Parthenon: each specialist is reached through promethean-parthenon.",
     ),
-    "muses": (
-        "Muses — the design specialists",
-        "The Muses inspire the arts: each is reached through daedalus-atelier.",
+    "heliconian-muses": (
+        "Heliconian Muses — the design specialists",
+        "The Muses of Mount Helicon, who inspire the arts: each is reached through daedalus-atelier.",
     ),
-    "mercury": (
-        "Mercury — web delivery and quality",
-        "Mercury, swift messenger and god of trade: speed, shipping and the quality of what reaches the user.",
+    "mercurial-forum": (
+        "Mercurial Forum — web delivery and quality",
+        "Swift Mercury in the Roman forum, god of messengers and trade: speed, shipping and the quality of what reaches the user.",
     ),
-    "hephaestus": (
-        "Hephaestus — application stacks",
-        "Hephaestus, smith of the gods: the forge where a particular stack is built well.",
+    "hephaestian-forge": (
+        "Hephaestian Forge — application stacks",
+        "The forge of Hephaestus, smith of the gods: where a particular stack is built well.",
     ),
-    "athena": (
-        "Athena — knowledge and teaching",
-        "Athena, goddess of wisdom: reference knowledge, notes, analysis and course design.",
+    "athenian-academy": (
+        "Athenian Academy — knowledge and teaching",
+        "The academy of Athena's city, goddess of wisdom: reference knowledge, notes, analysis and course design.",
     ),
 }
 

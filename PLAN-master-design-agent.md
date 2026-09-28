@@ -168,3 +168,5 @@ Requested by the owner: fewer names to remember, category folders named in the P
 **Not done:** merging the two Vercel deploy skills (step D) — optional, later.
 
 **Renamed (same day, at the owner's request):** `master-design` → **`daedalus-atelier`** and `master-agent` → **`hermes-agora`**, so all three hubs share promethean-parthenon's register. This file keeps the old names above because it is a dated record; everywhere else uses the new ones.
+
+**Realms renamed (same day, at the owner's request)** to the two-word form of promethean-parthenon: `pantheon` → `olympian-pantheon`, `muses` → `heliconian-muses`, `mercury` → `mercurial-forum`, `hephaestus` → `hephaestian-forge`, `athena` → `athenian-academy`. `build-index.py` now rejects a hub or realm name that is not two words.

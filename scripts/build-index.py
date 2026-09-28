@@ -160,6 +160,11 @@ def main():
     problems = []
     found = discover()
     inner = spokes()
+    # Hubs and realms carry the library's two-word mythic form, like promethean-parthenon.
+    for kind, names in (('hub', HUB_NOTE), ('realm', REALMS)):
+        for n in names:
+            if not re.fullmatch(r'[a-z]+-[a-z]+', n):
+                problems.append('%s name %r must be two words, like promethean-parthenon' % (kind, n))
     for name_dir, folder_rel in sorted(found.items(), key=lambda kv: kv[1]):
         rel = folder_rel + '/SKILL.md'
         folder = name_dir

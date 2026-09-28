@@ -11,17 +11,17 @@ Browse them in [README.md](README.md). The machine-readable index is [skill.json
 The repository root holds only the **hubs** — the few skills a user is expected to remember — and five **realm** folders. Every other skill lives inside exactly one realm. A realm is a plain directory, never a skill:
 
 ```
-promethean-parthenon/   hub — engineering; routes to pantheon/
-daedalus-atelier/          hub — design; routes to muses/
+promethean-parthenon/   hub — engineering; routes to olympian-pantheon/
+daedalus-atelier/       hub — design; routes to heliconian-muses/
 hermes-agora/           hub — AI agents and MCP; routes to nothing
-pantheon/     the gods who dwell in the Parthenon — promethean-parthenon's spokes
-muses/        the Muses of the arts — daedalus-atelier's spokes
-mercury/      the swift messenger — web delivery and quality
-hephaestus/   the smith of the gods — application stacks
-athena/       wisdom — knowledge, notes, analysis, teaching
+olympian-pantheon/      the gods of Olympus in the Parthenon — promethean-parthenon's spokes
+heliconian-muses/       the Muses of Mount Helicon — daedalus-atelier's spokes
+mercurial-forum/        swift Mercury in the forum — web delivery and quality
+hephaestian-forge/      the smith god's forge — application stacks
+athenian-academy/       Athena's academy — knowledge, notes, analysis, teaching
 ```
 
-Realms are named in the library's Greek and Roman register, after the power that governs that kind of work; keep new ones in that register. The list, the hubs and each hub's spokes live in one file, `scripts/skills_layout.py` — every build and check script reads it, so change the layout there and nowhere else. `build-index.py` fails on a non-hub skill at the top level or a skill in an unknown realm.
+Every hub and realm is named in the library's Greek and Roman register as **two words, like `promethean-parthenon`**: the power or quality first, then its place. Keep new ones in that form. Skill folders inside a realm keep plain descriptive names — they are found by description, not remembered. The list, the hubs and each hub's spokes live in one file, `scripts/skills_layout.py` — every build and check script reads it, so change the layout there and nowhere else. `build-index.py` fails on a non-hub skill at the top level or a skill in an unknown realm.
 
 Each skill folder's name **exactly matches** the `name:` in its `SKILL.md`, and the folder is self-contained — copy it out of its realm into any project and it works:
 
@@ -37,7 +37,7 @@ Each skill folder's name **exactly matches** the `name:` in its `SKILL.md`, and 
 
 Fixed vocabulary. Do not introduce `refer/`, `resources/`, `docs/`, or `lib/` — a reader (human or model) should be able to guess a path without looking.
 
-Two skills deviate deliberately: `mercury/vercel-react-best-practices/rules/` holds ~68 single-rule files that are built into a rules bundle, and `pantheon/senior-leadership-advisor/roles/` holds per-discipline role definitions. Both are documented in their own SKILL.md.
+Two skills deviate deliberately: `mercurial-forum/vercel-react-best-practices/rules/` holds ~68 single-rule files that are built into a rules bundle, and `olympian-pantheon/senior-leadership-advisor/roles/` holds per-discipline role definitions. Both are documented in their own SKILL.md.
 
 ---
 
@@ -62,7 +62,7 @@ If you are tempted to add "see also [other-skill]" inside one of the spokes, don
 
 **Why:** the alternative is a mesh — every skill linking to every other skill it's ever used alongside — which forces every one of them to carry a full `bundled/` copy of the others just to stay portable. That was tried and reverted: five skills each bundling an 11-skill closure, 490+ duplicated files, all to preserve links that added no capability the plain-language mention doesn't. Hub-and-spoke gets the same "nothing dangles when copied out" property from one skill's `bundled/` folder instead of six.
 
-**A skill folder must still work when copied out of this library on its own.** For a hub, that rules out `../pantheon/other-skill/SKILL.md`: it resolves here and dangles everywhere else. So each hub carries a verbatim copy of everything it links to.
+**A skill folder must still work when copied out of this library on its own.** For a hub, that rules out `../olympian-pantheon/other-skill/SKILL.md`: it resolves here and dangles everywhere else. So each hub carries a verbatim copy of everything it links to.
 
 ```
 promethean-parthenon/
@@ -79,7 +79,7 @@ Rules for a hub's `bundled/`:
 - **Copies are verbatim, with no self-copy.** A bundled copy is byte-for-byte the source skill; since a spoke carries no outbound links, it needs no link-depth rewriting either. The aggregator does not need to bundle a copy of itself, because nothing inside its bundle links back to it.
 - **Never hand-edit a copy.** Change the source skill, then regenerate the bundle.
 
-The two hubs are the only skills with a `bundled/` folder. `promethean-parthenon` holds the five skills in its Role · Task · Format cluster (`senior-leadership-advisor`, `requirement-gathering`, `agentic-engineering`, `long-horizon-engineering-workflow`, `github-report`) plus the leaf skills its routing table hands off to (`debug-master`, `owasp-top-10-2025`, `project-file-structure`, `skill-creator`, `ui-checker`) — all ten filed in `pantheon/`. `daedalus-atelier` holds the four design specialists filed in `muses/` (`frontend-design`, `google-design-system`, `css-architecture`, `threejs-3d`). Discovery skips anything under `bundled/`, so the copies are never indexed as skills.
+The two hubs are the only skills with a `bundled/` folder. `promethean-parthenon` holds the five skills in its Role · Task · Format cluster (`senior-leadership-advisor`, `requirement-gathering`, `agentic-engineering`, `long-horizon-engineering-workflow`, `github-report`) plus the leaf skills its routing table hands off to (`debug-master`, `owasp-top-10-2025`, `project-file-structure`, `skill-creator`, `ui-checker`) — all ten filed in `olympian-pantheon/`. `daedalus-atelier` holds the four design specialists filed in `heliconian-muses/` (`frontend-design`, `google-design-system`, `css-architecture`, `threejs-3d`). Discovery skips anything under `bundled/`, so the copies are never indexed as skills.
 
 **Adding a third hub is a deliberate change**, not a convenience: it costs a bundle, a description that must carry every spoke's triggers within the cap, and a trigger-eval run. Only add one when a cluster of skills genuinely shares one front door, as design did.
 

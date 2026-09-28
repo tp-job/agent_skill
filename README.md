@@ -67,64 +67,64 @@ git clone https://github.com/tp-job/agent_skill.git .claude/skills
 | [daedalus-atelier](daedalus-atelier/SKILL.md) | design: css-architecture, frontend-design, google-design-system, threejs-3d | Runs a whole design job from a one-line ask to a handoff-ready draft, in four disciplines taken in order: architecture (information architecture, screen inventory, design-system token structure), art direction (a written visual thesis,… |
 | [hermes-agora](hermes-agora/SKILL.md) | AI agents and MCP: — | Operates the AI side of an agent session as one managed system: inventories what is actually loaded (skills, MCP servers and their tools, subagents, models), triages MCP server state (connected, deferred, needs auth, failed), routes each… |
 
-## Pantheon — the engineering specialists
+## Olympian Pantheon — the engineering specialists
 
-*The gods who dwell in the Parthenon: each specialist is reached through promethean-parthenon.*
-
-| Skill | What it does |
-| --- | --- |
-| [agentic-engineering](pantheon/agentic-engineering/SKILL.md) | Turns a one-line request into a brief an AI coding agent can execute without drifting. Applies four framing questions — what is being created, for whom, what are the limitations, how will it be proven complete and correct — then interrogates for the unstated rules (expiry, reuse, rate limits, concurrency, failure paths) that decide whether generated code is right or merely plausible. *Via promethean-parthenon.* |
-| [debug-master](pantheon/debug-master/SKILL.md) | Deep debugging and auto-fix across file system inspection, logic and workflow tracing, and algorithm analysis. Triggers on any error message, stack trace, broken path, missing module, wrong output, or vague "something is wrong" report. Covers Python, JS/TS, Go, Bash, SQL, and agent workflows (LangChain/LangGraph, AutoGen, CrewAI). *Via promethean-parthenon.* |
-| [github-report](pantheon/github-report/SKILL.md) | Turn GitHub activity — commits, pull requests, and issues — into a written report (.md) of completed work, grouped by sprint, feature, function, or section. Also defines the commit, PR, and issue conventions that make such a report possible. *Via promethean-parthenon.* |
-| [long-horizon-engineering-workflow](pantheon/long-horizon-engineering-workflow/SKILL.md) | A six-stage gated delivery workflow (Requirements → Design → Development → QA → UAT → Deployment) to keep long, multi-session, or multi-stage builds from drifting. Use for any 'build me X' request too big for one shot; not for snippets or small well-specified fixes. *Via promethean-parthenon.* |
-| [owasp-top-10-2025](pantheon/owasp-top-10-2025/SKILL.md) | Security review and vulnerability analysis based on the OWASP Top 10 2025. Use when auditing code for security flaws, reviewing authentication, checking for injection, or ensuring cryptographic correctness — broken access control, misconfiguration, vibe-coding risks, memory management, supply chain, resilience failures. *Via promethean-parthenon.* |
-| [project-file-structure](pantheon/project-file-structure/SKILL.md) | Rules for naming and placing every file and folder in a React + TypeScript + Node + Prisma project whose documentation lives in an Obsidian vault, plus PDF handling. Applies when creating, renaming, or moving any file, writing a Prisma model or migration, adding a vault note, or reviewing a PR that adds files. *Via promethean-parthenon.* |
-| [requirement-gathering](pantheon/requirement-gathering/SKILL.md) | Autonomous requirement extraction and documentation for PERN/MERN full-stack projects with micro design standards — the 'extract' skill of the Promethean Parthenon Task pillar, for when requirements live in code rather than in someone's head. Produces a complete Markdown requirements document without asking follow-up questions. Thai triggers included (วิเคราะห์ code, เขียน spec, ทำ requirements, audit component). *Via promethean-parthenon.* |
-| [senior-leadership-advisor](pantheon/senior-leadership-advisor/SKILL.md) | Acts as senior leadership (CTO/VP/Staff-level) across engineering, product, design, quality, architecture, data/AI, and prompt engineering. Auto-detects which discipline(s) a request touches and answers in that voice. Skip for casual conversation or trivial lookups. *Via promethean-parthenon.* |
-| [skill-creator](pantheon/skill-creator/SKILL.md) | Create new skills, modify and improve existing skills, and measure skill performance. Use to build a skill from scratch, edit or optimize an existing one, run evals, benchmark with variance analysis, or tune a skill description for better triggering accuracy. *Via promethean-parthenon.* |
-| [ui-checker](pantheon/ui-checker/SKILL.md) | Systematically audit web UIs across four dimensions: theme compliance (CSS variables/design tokens vs. hardcoded values, Tailwind and shadcn .dark setups), layout integrity (dimensions, spacing, overflow, breakpoints), browser rendering via a live clickable inspector artifact, and accessibility polish (WCAG contrast, alt text, focus styles, fixed px fonts, reduced motion). *Via promethean-parthenon.* |
-
-## Muses — the design specialists
-
-*The Muses inspire the arts: each is reached through daedalus-atelier.*
+*The gods of Olympus, who dwell in the Parthenon: each specialist is reached through promethean-parthenon.*
 
 | Skill | What it does |
 | --- | --- |
-| [css-architecture](muses/css-architecture/SKILL.md) | Scaffold and manage CSS file architecture for TailwindCSS-first projects. Use to organize CSS files, prevent or fix 'CSS hell', add custom styles alongside Tailwind, set up structural design tokens, configure PostCSS imports, enforce lint rules, or migrate a messy stylesheet. *Via daedalus-atelier.* |
-| [frontend-design](muses/frontend-design/SKILL.md) | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one — aesthetic direction, typography, and choices that don't read as templated defaults. *Via daedalus-atelier.* |
-| [google-design-system](muses/google-design-system/SKILL.md) | Apply Google Design principles across 16 domains: Material 3 Expressive, motion design, Google Sans Flex typography, AI/Gemini visual design, global accessibility, design sprints, UX writing, brand building, design culture, and XR/AI glasses (Glimmer). Use for any task involving Google design standards. *Via daedalus-atelier.* |
-| [threejs-3d](muses/threejs-3d/SKILL.md) | Build high-performance, production-grade Three.js and 3D web experiences. Triggers on Three.js, WebGL/WebGPU, GLTF/GLB/OBJ/FBX/STL, shaders (GLSL/TSL), particles, skeletal animation, HDRI/PBR, instancing, raycasting, camera rigs, postprocessing (bloom, DoF, AA, tone mapping), R3F/Drei, point clouds, terrain, GPU compute. *Via daedalus-atelier.* |
+| [agentic-engineering](olympian-pantheon/agentic-engineering/SKILL.md) | Turns a one-line request into a brief an AI coding agent can execute without drifting. Applies four framing questions — what is being created, for whom, what are the limitations, how will it be proven complete and correct — then interrogates for the unstated rules (expiry, reuse, rate limits, concurrency, failure paths) that decide whether generated code is right or merely plausible. *Via promethean-parthenon.* |
+| [debug-master](olympian-pantheon/debug-master/SKILL.md) | Deep debugging and auto-fix across file system inspection, logic and workflow tracing, and algorithm analysis. Triggers on any error message, stack trace, broken path, missing module, wrong output, or vague "something is wrong" report. Covers Python, JS/TS, Go, Bash, SQL, and agent workflows (LangChain/LangGraph, AutoGen, CrewAI). *Via promethean-parthenon.* |
+| [github-report](olympian-pantheon/github-report/SKILL.md) | Turn GitHub activity — commits, pull requests, and issues — into a written report (.md) of completed work, grouped by sprint, feature, function, or section. Also defines the commit, PR, and issue conventions that make such a report possible. *Via promethean-parthenon.* |
+| [long-horizon-engineering-workflow](olympian-pantheon/long-horizon-engineering-workflow/SKILL.md) | A six-stage gated delivery workflow (Requirements → Design → Development → QA → UAT → Deployment) to keep long, multi-session, or multi-stage builds from drifting. Use for any 'build me X' request too big for one shot; not for snippets or small well-specified fixes. *Via promethean-parthenon.* |
+| [owasp-top-10-2025](olympian-pantheon/owasp-top-10-2025/SKILL.md) | Security review and vulnerability analysis based on the OWASP Top 10 2025. Use when auditing code for security flaws, reviewing authentication, checking for injection, or ensuring cryptographic correctness — broken access control, misconfiguration, vibe-coding risks, memory management, supply chain, resilience failures. *Via promethean-parthenon.* |
+| [project-file-structure](olympian-pantheon/project-file-structure/SKILL.md) | Rules for naming and placing every file and folder in a React + TypeScript + Node + Prisma project whose documentation lives in an Obsidian vault, plus PDF handling. Applies when creating, renaming, or moving any file, writing a Prisma model or migration, adding a vault note, or reviewing a PR that adds files. *Via promethean-parthenon.* |
+| [requirement-gathering](olympian-pantheon/requirement-gathering/SKILL.md) | Autonomous requirement extraction and documentation for PERN/MERN full-stack projects with micro design standards — the 'extract' skill of the Promethean Parthenon Task pillar, for when requirements live in code rather than in someone's head. Produces a complete Markdown requirements document without asking follow-up questions. Thai triggers included (วิเคราะห์ code, เขียน spec, ทำ requirements, audit component). *Via promethean-parthenon.* |
+| [senior-leadership-advisor](olympian-pantheon/senior-leadership-advisor/SKILL.md) | Acts as senior leadership (CTO/VP/Staff-level) across engineering, product, design, quality, architecture, data/AI, and prompt engineering. Auto-detects which discipline(s) a request touches and answers in that voice. Skip for casual conversation or trivial lookups. *Via promethean-parthenon.* |
+| [skill-creator](olympian-pantheon/skill-creator/SKILL.md) | Create new skills, modify and improve existing skills, and measure skill performance. Use to build a skill from scratch, edit or optimize an existing one, run evals, benchmark with variance analysis, or tune a skill description for better triggering accuracy. *Via promethean-parthenon.* |
+| [ui-checker](olympian-pantheon/ui-checker/SKILL.md) | Systematically audit web UIs across four dimensions: theme compliance (CSS variables/design tokens vs. hardcoded values, Tailwind and shadcn .dark setups), layout integrity (dimensions, spacing, overflow, breakpoints), browser rendering via a live clickable inspector artifact, and accessibility polish (WCAG contrast, alt text, focus styles, fixed px fonts, reduced motion). *Via promethean-parthenon.* |
 
-## Mercury — web delivery and quality
+## Heliconian Muses — the design specialists
 
-*Mercury, swift messenger and god of trade: speed, shipping and the quality of what reaches the user.*
-
-| Skill | What it does |
-| --- | --- |
-| [ai-web-product-craft](mercury/ai-web-product-craft/SKILL.md) | Guidance for web pages and apps that load images/iframes/embeds and/or include an AI feature (chatbot, agent, summarizer, recommender, generative UI). Combines HTML delivery performance (TTFB, caching, compression, CDNs, lazy loading, embed facades) with responsible AI product design (privacy, fairness, calibrated trust, AI UX pattern choice). |
-| [clean-code-javascript](mercury/clean-code-javascript/SKILL.md) | Clean Code principles and best practices for JavaScript/TypeScript. Use when writing, reviewing, or refactoring JS/TS to improve readability, maintainability, and correctness — naming, function design, class structure, SOLID, error handling, testing patterns, formatting. |
-| [deploy-to-vercel](mercury/deploy-to-vercel/SKILL.md) | Deploy applications and websites to Vercel. Use for requests like 'deploy my app', 'push this live', 'give me the link', or 'create a preview deployment'. |
-| [lighthouse](mercury/lighthouse/SKILL.md) | Diagnose and fix a website to earn high Lighthouse scores across Performance, Accessibility, Best Practices, SEO, and Agentic Browsing on both desktop and mobile. Triggers on shared Lighthouse/PageSpeed/Core Web Vitals reports or failing metrics (FCP, LCP, TBT, CLS, INP, Speed Index). |
-| [vercel-cli-with-tokens](mercury/vercel-cli-with-tokens/SKILL.md) | Deploy and manage projects on Vercel using token-based authentication rather than interactive login — 'deploy to vercel', 'set up vercel', 'add environment variables to vercel'. |
-| [vercel-react-best-practices](mercury/vercel-react-best-practices/SKILL.md) | React and Next.js performance optimization guidelines from Vercel Engineering. Use when writing, reviewing, or refactoring React/Next.js code — components, pages, data fetching, bundle optimization, performance improvements. |
-
-## Hephaestus — application stacks
-
-*Hephaestus, smith of the gods: the forge where a particular stack is built well.*
+*The Muses of Mount Helicon, who inspire the arts: each is reached through daedalus-atelier.*
 
 | Skill | What it does |
 | --- | --- |
-| [flutter](hephaestus/flutter/SKILL.md) | Flutter/Dart application engineering — architecture, layout debugging, responsive design, and widget previews. Triggers on 'structure my Flutter project', 'RenderFlex overflowed', 'unbounded height viewport', 'make this responsive', 'add a widget preview', and similar. |
-| [java-api-performance](hephaestus/java-api-performance/SKILL.md) | Java Spring Boot backend API performance optimization. Use when writing, reviewing, or refactoring Java/Spring Boot code to fix slow APIs, memory issues, or database inefficiencies — loop optimization, caching, pagination, query tuning, N+1 problems, indexing, async processing, connection pooling (HikariCP). |
-| [supabase-senior](hephaestus/supabase-senior/SKILL.md) | Senior-level Supabase + Prisma architecture and engineering. Activates on Supabase, Prisma ORM, schema design, RLS, migrations, connection pooling, Supabase Auth, Edge Functions, Realtime, Storage, migration planning (Postgres → Supabase), and query optimization. |
+| [css-architecture](heliconian-muses/css-architecture/SKILL.md) | Scaffold and manage CSS file architecture for TailwindCSS-first projects. Use to organize CSS files, prevent or fix 'CSS hell', add custom styles alongside Tailwind, set up structural design tokens, configure PostCSS imports, enforce lint rules, or migrate a messy stylesheet. *Via daedalus-atelier.* |
+| [frontend-design](heliconian-muses/frontend-design/SKILL.md) | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one — aesthetic direction, typography, and choices that don't read as templated defaults. *Via daedalus-atelier.* |
+| [google-design-system](heliconian-muses/google-design-system/SKILL.md) | Apply Google Design principles across 16 domains: Material 3 Expressive, motion design, Google Sans Flex typography, AI/Gemini visual design, global accessibility, design sprints, UX writing, brand building, design culture, and XR/AI glasses (Glimmer). Use for any task involving Google design standards. *Via daedalus-atelier.* |
+| [threejs-3d](heliconian-muses/threejs-3d/SKILL.md) | Build high-performance, production-grade Three.js and 3D web experiences. Triggers on Three.js, WebGL/WebGPU, GLTF/GLB/OBJ/FBX/STL, shaders (GLSL/TSL), particles, skeletal animation, HDRI/PBR, instancing, raycasting, camera rigs, postprocessing (bloom, DoF, AA, tone mapping), R3F/Drei, point clouds, terrain, GPU compute. *Via daedalus-atelier.* |
 
-## Athena — knowledge and teaching
+## Mercurial Forum — web delivery and quality
 
-*Athena, goddess of wisdom: reference knowledge, notes, analysis and course design.*
+*Swift Mercury in the Roman forum, god of messengers and trade: speed, shipping and the quality of what reaches the user.*
 
 | Skill | What it does |
 | --- | --- |
-| [cs-course-designer](athena/cs-course-designer/SKILL.md) | Research, plan, and write course/unit outlines, Course Learning Outcomes (CLOs), lesson/teaching plans, and assessments (quizzes, exams, rubrics, project briefs) for general CS, DBMS, SQL, Python, and C. Also reviews existing CLOs, lesson plans, and assessments for alignment. Not for other languages or live 1:1 tutoring. |
-| [data-analyze](athena/data-analyze/SKILL.md) | Answer data questions end-to-end, from a quick metric lookup to multi-dimensional analysis to a formal report. Triggers on any request that requires querying, aggregating, or interpreting data from a warehouse, table, CSV/Excel, or pasted results. |
-| [knowledge-base](athena/knowledge-base/SKILL.md) | Software engineering knowledge base covering architecture patterns, component-based design, security fundamentals, software design principles, and use case + microservices design. Use when answering architecture, design pattern, system design, security, or use-case modeling questions. |
-| [obsidian-vault](athena/obsidian-vault/SKILL.md) | Turn an Obsidian vault into a persistent, self-organizing knowledge base that Claude Code reads from and writes to across sessions — second brain / PKM setup, ingesting documents, URLs and transcripts into linked notes, querying past notes, and running project wikis. |
+| [ai-web-product-craft](mercurial-forum/ai-web-product-craft/SKILL.md) | Guidance for web pages and apps that load images/iframes/embeds and/or include an AI feature (chatbot, agent, summarizer, recommender, generative UI). Combines HTML delivery performance (TTFB, caching, compression, CDNs, lazy loading, embed facades) with responsible AI product design (privacy, fairness, calibrated trust, AI UX pattern choice). |
+| [clean-code-javascript](mercurial-forum/clean-code-javascript/SKILL.md) | Clean Code principles and best practices for JavaScript/TypeScript. Use when writing, reviewing, or refactoring JS/TS to improve readability, maintainability, and correctness — naming, function design, class structure, SOLID, error handling, testing patterns, formatting. |
+| [deploy-to-vercel](mercurial-forum/deploy-to-vercel/SKILL.md) | Deploy applications and websites to Vercel. Use for requests like 'deploy my app', 'push this live', 'give me the link', or 'create a preview deployment'. |
+| [lighthouse](mercurial-forum/lighthouse/SKILL.md) | Diagnose and fix a website to earn high Lighthouse scores across Performance, Accessibility, Best Practices, SEO, and Agentic Browsing on both desktop and mobile. Triggers on shared Lighthouse/PageSpeed/Core Web Vitals reports or failing metrics (FCP, LCP, TBT, CLS, INP, Speed Index). |
+| [vercel-cli-with-tokens](mercurial-forum/vercel-cli-with-tokens/SKILL.md) | Deploy and manage projects on Vercel using token-based authentication rather than interactive login — 'deploy to vercel', 'set up vercel', 'add environment variables to vercel'. |
+| [vercel-react-best-practices](mercurial-forum/vercel-react-best-practices/SKILL.md) | React and Next.js performance optimization guidelines from Vercel Engineering. Use when writing, reviewing, or refactoring React/Next.js code — components, pages, data fetching, bundle optimization, performance improvements. |
+
+## Hephaestian Forge — application stacks
+
+*The forge of Hephaestus, smith of the gods: where a particular stack is built well.*
+
+| Skill | What it does |
+| --- | --- |
+| [flutter](hephaestian-forge/flutter/SKILL.md) | Flutter/Dart application engineering — architecture, layout debugging, responsive design, and widget previews. Triggers on 'structure my Flutter project', 'RenderFlex overflowed', 'unbounded height viewport', 'make this responsive', 'add a widget preview', and similar. |
+| [java-api-performance](hephaestian-forge/java-api-performance/SKILL.md) | Java Spring Boot backend API performance optimization. Use when writing, reviewing, or refactoring Java/Spring Boot code to fix slow APIs, memory issues, or database inefficiencies — loop optimization, caching, pagination, query tuning, N+1 problems, indexing, async processing, connection pooling (HikariCP). |
+| [supabase-senior](hephaestian-forge/supabase-senior/SKILL.md) | Senior-level Supabase + Prisma architecture and engineering. Activates on Supabase, Prisma ORM, schema design, RLS, migrations, connection pooling, Supabase Auth, Edge Functions, Realtime, Storage, migration planning (Postgres → Supabase), and query optimization. |
+
+## Athenian Academy — knowledge and teaching
+
+*The academy of Athena's city, goddess of wisdom: reference knowledge, notes, analysis and course design.*
+
+| Skill | What it does |
+| --- | --- |
+| [cs-course-designer](athenian-academy/cs-course-designer/SKILL.md) | Research, plan, and write course/unit outlines, Course Learning Outcomes (CLOs), lesson/teaching plans, and assessments (quizzes, exams, rubrics, project briefs) for general CS, DBMS, SQL, Python, and C. Also reviews existing CLOs, lesson plans, and assessments for alignment. Not for other languages or live 1:1 tutoring. |
+| [data-analyze](athenian-academy/data-analyze/SKILL.md) | Answer data questions end-to-end, from a quick metric lookup to multi-dimensional analysis to a formal report. Triggers on any request that requires querying, aggregating, or interpreting data from a warehouse, table, CSV/Excel, or pasted results. |
+| [knowledge-base](athenian-academy/knowledge-base/SKILL.md) | Software engineering knowledge base covering architecture patterns, component-based design, security fundamentals, software design principles, and use case + microservices design. Use when answering architecture, design pattern, system design, security, or use-case modeling questions. |
+| [obsidian-vault](athenian-academy/obsidian-vault/SKILL.md) | Turn an Obsidian vault into a persistent, self-organizing knowledge base that Claude Code reads from and writes to across sessions — second brain / PKM setup, ingesting documents, URLs and transcripts into linked notes, querying past notes, and running project wikis. |
