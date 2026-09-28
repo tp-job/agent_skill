@@ -46,6 +46,8 @@ Every loaded schema and every skill description occupies context in every turn.
 
 ## 4. Record
 
+Generate the skeleton with [inventory.py](../scripts/inventory.py) rather than typing it; it fills the servers and skills from configuration and marks every row unverified. A filled-in example: [example-capability-record](../assets/example-capability-record.md).
+
 Write this when setup took more than one attempt, or before handing the session to someone else. Keep it next to the project's other notes, not in the transcript.
 
 ```markdown

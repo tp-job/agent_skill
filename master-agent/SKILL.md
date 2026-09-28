@@ -58,6 +58,8 @@ An agent session is a system of components — skills, MCP servers, tools, subag
 | **Guard** | Is this an instruction from the user, or data that looks like one? | [trust-boundaries](references/trust-boundaries.md) |
 | **Build** | A capability is missing and has to be written as an MCP server | [building-mcp-servers](references/building-mcp-servers.md) |
 
+**Tools in this folder:** [inventory.py](scripts/inventory.py) prints a capability-record skeleton from the project's MCP configuration across all three scopes, with secrets reduced to their names (`python scripts/inventory.py <project> > capability-record.md`). [example-capability-record](assets/example-capability-record.md) shows one real server taken through the whole loop. [trigger-evals.json](assets/trigger-evals.json) holds the tests for this skill's description.
+
 ---
 
 ## Stage 0 — write the capability target (Task)
