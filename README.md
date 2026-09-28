@@ -8,19 +8,19 @@ Conventions and the authoring checklist are in [CLAUDE.md](CLAUDE.md). The machi
 
 ## Finding a skill without knowing its name
 
-You do not need to remember any name on this page. Claude Code reads every skill's `description` and opens the matching one on its own — describe the task in plain language and let it pick.
+You do not need to remember any name on this page. Claude Code reads each active skill's `description` and opens the matching one on its own; the *Core* skills are opened by [promethean-parthenon](promethean-parthenon/SKILL.md), whose description carries their triggers. Either way, describe the task in plain language and let it pick.
 
-| Instead of recalling… | Just say… |
-| --- | --- |
-| `debug-master` | "why is this throwing an error" |
-| `owasp-top-10-2025` | "is this endpoint secure" |
-| `ui-checker` | "check dark mode / contrast on this page" |
-| `master-design` | "design this screen from scratch" |
-| `master-agent` | "which MCP server should handle this" |
-| `agentic-engineering` / `requirement-gathering` | "help me plan this build" |
-| `deploy-to-vercel` | "deploy this app" |
+| Instead of recalling… | Just say… | Opens via |
+| --- | --- | --- |
+| `debug-master` | "why is this not working" | promethean-parthenon |
+| `owasp-top-10-2025` | "is this secure" | promethean-parthenon |
+| `ui-checker` | "does dark mode work on this page" | promethean-parthenon |
+| `agentic-engineering` / `requirement-gathering` | "plan this build" | promethean-parthenon |
+| `master-design` | "design this screen from scratch" | itself |
+| `master-agent` | "which MCP server should handle this" | itself |
+| `deploy-to-vercel` | "deploy this app" | itself |
 
-Unsure which of several skills fits, or the request spans more than one? Say so — [promethean-parthenon](promethean-parthenon/SKILL.md) routes across the *Core* skills below for exactly that case. A skill name is only ever needed to invoke one directly by its namespaced form (`agent-skill:debug-master`), which is optional.
+Unsure which skill fits, or the request spans several? Say that — "which skill should I use" is itself a promethean-parthenon trigger. A name is only needed to invoke an *active* skill directly by its namespaced form (`agent-skill:promethean-parthenon`), which is optional; *Core* skills have no namespaced entry of their own.
 
 ## Install
 
@@ -33,7 +33,7 @@ Claude Code loads a skill from `<skills-dir>/<name>/SKILL.md`, one level deep. P
 /plugin install agent-skill@tp-job-skills
 ```
 
-Skills are then namespaced, e.g. `agent-skill:debug-master`. Update later with `/plugin marketplace update tp-job-skills`.
+Active skills are then namespaced, e.g. `agent-skill:promethean-parthenon`. Update later with `/plugin marketplace update tp-job-skills`.
 
 **2. Clone and link.** Keeps a normal git checkout you can `git pull`; each skill is linked into `~/.claude/skills/` without touching skills already there.
 
