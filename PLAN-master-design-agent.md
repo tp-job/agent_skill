@@ -1,7 +1,7 @@
 # Plan — Master Design and Master Agent on the Promethean-Parthenon foundation
 
-Status: **Phase 1 complete (2026-09-28)** · Phases 2–5 open
-Branch: one branch per phase (Parthenon rule: a phase is a branch)
+Status: **All five phases complete (2026-09-28)** · follow-ups listed in §6
+Branch: `consolidate-skills` — the owner chose to keep all phases on the existing branch (one commit per phase instead of one branch per phase)
 
 ---
 
@@ -52,11 +52,11 @@ Branch: one branch per phase (Parthenon rule: a phase is a branch)
 
 | # | Phase | Deliverables | Gate (proof) | Status |
 | --- | --- | --- | --- | --- |
-| 1 | **Foundation** | `master-design/` (SKILL.md + 4 references), `master-agent/` (SKILL.md + 5 references), Parthenon routing rows + v3.1.0, regenerated index/plugin.json | all three checks exit 0 | ✅ done |
-| 2 | **Trigger evals** | 10 should-trigger + 10 near-miss prompts per skill (EN + TH); run manually through the skill-creator eval loop; tune descriptions | ≥ 9/10 hits, ≤ 1/10 false fires, no regression in Parthenon RC-06 (skills that never fire) | open |
-| 3 | **Design depth** | worked example end-to-end (target → IA → thesis → 3 concepts + scorecard → HTML draft → design record) as `master-design/assets/example-design-record.md`; Figma/Canva/Blender drafting checklists validated against the live servers | one real job run through all four stages; record rebuildable by a fresh session | open |
-| 4 | **Agent operations** | `master-agent/scripts/inventory.py` — reads `.mcp.json` + settings, emits a capability-record skeleton; `master-agent/assets/capability-record.md` template; MCP server test checklist exercised against one real server | script runs clean on this repo; one server proven with read, write and refused-call rows | open |
-| 5 | **Review & decide** | measure description budget of the active set; decide whether to keep Option A, fold into `CLOSURE` (B), or change the rule for sub-aggregators (C); `github-report` write-up of phases 1–4 | a written decision with premise and expiry, signed off by the owner | open |
+| 1 | **Foundation** | `master-design/` (SKILL.md + 4 references), `master-agent/` (SKILL.md + 5 references), Parthenon routing rows + v3.1.0, regenerated index/plugin.json | all three checks exit 0 | ✅ done — `ef87a87` |
+| 2 | **Trigger evals** | 10 should-trigger + 10 near-miss prompts per skill (EN + TH); run manually through the skill-creator eval loop; tune descriptions | ≥ 9/10 hits, ≤ 1/10 false fires, no regression in Parthenon RC-06 (skills that never fire) | ✅ done — `49abe48` |
+| 3 | **Design depth** | worked example end-to-end (target → IA → thesis → 3 concepts + scorecard → HTML draft → design record) as `master-design/assets/example-design-record.md`; Figma/Canva/Blender drafting checklists validated against the live servers | one real job run through all four stages; record rebuildable by a fresh session | ✅ done — `6c99932` |
+| 4 | **Agent operations** | `master-agent/scripts/inventory.py` — reads `.mcp.json` + settings, emits a capability-record skeleton; `master-agent/assets/capability-record.md` template; MCP server test checklist exercised against one real server | script runs clean on this repo; one server proven with read, write and refused-call rows | ✅ done — `c07e3f8` |
+| 5 | **Review & decide** | measure description budget of the active set; decide whether to keep Option A, fold into `CLOSURE` (B), or change the rule for sub-aggregators (C); `github-report` write-up of phases 1–4 | a written decision with premise and expiry, signed off by the owner | ✅ done — this file |
 
 Phases 2 and 3/4 are independent — 3 and 4 can run in parallel branches once 2 has fixed the descriptions.
 
@@ -78,3 +78,44 @@ Phases 2 and 3/4 are independent — 3 and 4 can run in parallel branches once 2
 1. Keep both as active standalone skills (default), or fold them behind Parthenon now? — default: keep standalone until Phase 5 data.
 2. Should Master Design carry an opinionated default art direction for this vault's own artifacts? — default: no; the thesis is written per job.
 3. Is changing CLAUDE.md to allow sub-aggregators on the table at all? — default: no.
+
+---
+
+## 6. Results
+
+### Phase 2 — trigger evals
+
+Blind run: a subagent saw only the 21 active skill descriptions and 40 shuffled prompts, with no labels. Cases are in `master-design/assets/trigger-evals.json` and `master-agent/assets/trigger-evals.json`.
+
+| Skill | Should trigger → hit | Near-miss → false fire | Gate |
+| --- | --- | --- | --- |
+| master-design | 10 / 10 | 0 / 10 | ✅ (≥ 9, ≤ 1) |
+| master-agent | 10 / 10 | 0 / 10 | ✅ |
+
+**Watch list, not failures:** master-agent was the *runner-up* on two drift / "which skill" prompts (correctly routed to promethean-parthenon), and master-design was runner-up on a one-button Thai prompt (correctly routed to frontend-design). Descriptions left unchanged: the gate passed with margin, and editing without a failing case would be tuning to taste. **Caveat:** the grader is a model reading descriptions, which approximates the real skill selector but is not the same thing.
+
+### Phase 3 — design depth
+
+A clinic "Today" screen taken through all four stages. Observed checks: 12 contrast pairs computed (lowest 5.23:1, all ≥ 4.5:1 AA); 44px touch targets measured; no horizontal scroll at 375×667 or 1440×900; the four-slots-visible criterion passes (last row ends at y=584); dark tokens resolve correctly when forced. **Not checked:** dark mode via the OS setting, hallway test.
+
+### Phase 4 — agent operations
+
+`inventory.py` ran clean on this repo (it correctly reports no file-configured servers). A fixture with secrets in env, headers, the URL query and args leaked **0** of them. One real server (bioRxiv, public, read-only) passed the read and teaching-error checks. **Not proven:** write and refusal behaviour — no write-capable server was tested without the owner's yes. Dropped from the plan: a separate `capability-record.md` template, because the script's output *is* the template and a second copy would drift.
+
+### Phase 5 — decision
+
+| Measure | Value |
+| --- | --- |
+| Active descriptions, total | 17,035 chars across 21 skills (~4.3k tokens every session) |
+| Added by the two new skills | 2,640 chars (~660 tokens, +18%) |
+| promethean-parthenon description | 1,484 / 1,536 — 52 chars of headroom |
+
+**Decision: keep Option A (standalone, named in Parthenon's routing).** Option B would need ~2,600 characters of triggers inside a description with 52 to spare, which means deleting existing routing to make room. Option C stays off the table: nothing here needs a second aggregator.
+**Premise:** ~660 tokens per session is an acceptable cost for two domains that previously had no skill.
+**Expires when:** the active set passes ~25,000 characters, or a trigger eval shows either skill mis-firing on more than 1 in 10 near-misses. Either one reopens B.
+
+### Follow-ups (not blocking)
+
+1. Prove write and refusal on a write-capable MCP server — needs the owner's yes for one real write or a sandbox.
+2. Dark mode via the OS `prefers-color-scheme` setting, and a hallway test for the example draft.
+3. Consider trimming master-design's description (1,373 chars, 2nd longest) if the budget tightens.
