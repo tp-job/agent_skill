@@ -1,10 +1,10 @@
 ---
 name: skill-creator
-description: Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.
+description: Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy. Also for laying out a skill folder — SKILL.md, references/, scripts/, assets/ — and organising a library of agent skills. Not for writing application code or product documentation.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.1.0"
+  version: "1.2.1"
   source: Claude Code Skill Creator pattern (compiled 2026)
 ---
 
@@ -330,6 +330,8 @@ packaging script in this bundle; do not instruct anyone to run one.
 - [index](references/index.md) — what else lives in this skill
 - [project-problem-solver](references/project-problem-solver.md) — diagnosing a skill that is
   technically correct but not helping
+- [agent-skill-structure](references/agent-skill-structure.md) — folder layout and organisation of agent skills
+- [agent-skill](references/agent-skill.md) — agent skill anatomy, in depth
 
 ---
 

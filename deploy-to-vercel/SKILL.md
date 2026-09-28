@@ -1,10 +1,10 @@
 ---
 name: deploy-to-vercel
-description: Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".
+description: Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment". Not for token-based, CI, or other non-interactive deploys with no logged-in CLI.
 license: MIT
 metadata:
   author: vercel (enhanced by Claude)
-  version: "3.0.0"
+  version: "3.0.1"
   source: Vercel deployment documentation (compiled 2026)
 ---
 

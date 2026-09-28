@@ -8,11 +8,11 @@ description: >
   file, or metric that needs to be looked up rather than reasoned about from code. Covers
   gathering data (via a connected warehouse or user-provided files/pasted results), analysis,
   validation before presenting, and choosing the right output format (number, table, chart,
-  narrative report).
+  narrative report). Not for profiling slow code or designing a schema — this answers questions about the data itself.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.0.1"
   source: Data analysis workflow (compiled 2026)
 ---
 

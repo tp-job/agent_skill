@@ -99,6 +99,13 @@ These pillars cover *constructing software with an agent*. Requests that touch a
 | Where does this file go, what is it called | [project-file-structure](../bundled/project-file-structure/SKILL.md) |
 | Writing or improving a skill itself | [skill-creator](../bundled/skill-creator/SKILL.md) |
 
+Two active skills apply this same doctrine to other kinds of work. They are standalone, not bundled — named here in prose, not linked, so each stays usable on its own:
+
+| Request | Skill (by name) | Its Role · Task · Format |
+| --- | --- | --- |
+| Design from scratch — information architecture, art direction, concepts, wireframes, drafts | **master-design** | design lead · a written design target and visual thesis · a design record |
+| Which tool, skill, MCP server or subagent to use; MCP setup, auth or failure; building an MCP server | **master-agent** | orchestrator · a capability target with a proof line · a capability record |
+
 Route out early. A pillar applied to work it was not built for produces confident output about the wrong dimension — which is the exact failure this skill exists to prevent.
 
 ---

@@ -1,4 +1,4 @@
-# Link every skill in this repository into a Claude Code skills directory.
+# Link the active skills of this repository into a Claude Code skills directory.
 #
 #   powershell -File scripts\install.ps1                    -> ~\.claude\skills   (all projects)
 #   powershell -File scripts\install.ps1 .\.claude\skills   -> one project only
@@ -12,7 +12,10 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 New-Item -ItemType Directory -Force -Path $Target | Out-Null
 
-Get-ChildItem -Path $root -Directory | Where-Object { Test-Path (Join-Path $_.FullName 'SKILL.md') } | ForEach-Object {
+# Only the active set from .claude-plugin/plugin.json; core spokes load via promethean-parthenon.
+$active = (Get-Content (Join-Path $root '.claude-plugin\plugin.json') -Raw | ConvertFrom-Json).skills | ForEach-Object { $_.TrimStart('.', '/') }
+
+$active | ForEach-Object { Get-Item (Join-Path $root $_) } | ForEach-Object {
     $dest = Join-Path $Target $_.Name
     $existing = Get-Item -LiteralPath $dest -Force -ErrorAction SilentlyContinue
     if ($existing) {

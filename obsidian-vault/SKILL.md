@@ -9,12 +9,12 @@ description: >
   wiki, or wants notes that persist and cross-reference between Claude Code
   sessions. Triggers on: "obsidian vault", "second brain", "knowledge base",
   "PKM", "set up a wiki", "ingest this into my notes", "query my notes",
-  "note-taking system", "/vault", "/ingest", "/wiki".
+  "note-taking system", "/vault", "/ingest", "/wiki". Not for software-architecture or design-pattern reference questions — this manages the user's own notes.
 allowed-tools: Read Write Edit Glob Grep Bash
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.0.1"
   source: Obsidian PKM / LLM Wiki pattern (compiled 2026)
 ---
 

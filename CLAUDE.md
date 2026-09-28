@@ -70,6 +70,19 @@ Verify with `python scripts/check-bundles.py` — it checks that every spoke is 
 
 ---
 
+## Active set: what actually loads
+
+Every skill description sits in the model's context in every session, so the plugin loads **only the active set** — every skill except the aggregator's spokes. The ten names in `CLOSURE` (`scripts/build-bundles.py`) stay as top-level source folders, because the bundle is built from them, but they load only through `promethean-parthenon`, whose description carries their triggers and whose fast-path table opens them directly.
+
+- `.claude-plugin/plugin.json` → `skills` is **generated** by `build-index.py`. Do not hand-edit it; change `CLOSURE` instead.
+- `scripts/install.sh` / `install.ps1` read the same list, so every install route loads the same set.
+- Adding a spoke to `CLOSURE` deactivates it as a standalone skill. Its trigger phrases must then be added to the aggregator's description and fast-path table, or nothing will route to it.
+- A description is truncated at **1,536 characters** in the skill listing. The aggregator's description is the tightest; measure it after every change.
+
+**Before adding a new skill, check whether an active skill or a core specialist already owns its triggers.** If one does, add the content as a `references/` file of that skill instead. `security`, `tracking-and-debugging`, `agent-skill-creator` and `web-design-guidelines` were merged this way into `owasp-top-10-2025`, `debug-master`, `skill-creator` and `ui-checker`.
+
+---
+
 ## SKILL.md frontmatter
 
 ```yaml
@@ -128,10 +141,16 @@ python scripts/build-bundles.py && python scripts/check-bundles.py
 
 Rebuilds every `bundled/` directory from its sources, then verifies the closure, the fidelity of each copy, and every relative markdown link in the repository. Run it after editing any skill in the bundling cluster — a source edit does not reach the copies on its own. The build step is idempotent; the check step exits non-zero on any dangling link or drifted copy.
 
+```bash
+python scripts/lint-skills.py
+```
+
+Checks what the other two cannot: description over the 1,536-character listing cap, no negative scope in the description, orphaned reference files, broken `#heading` anchors (GitHub slugs — `## Cloud & Network` is `#cloud--network`), Obsidian wikilinks, skill frontmatter left inside a reference file, mojibake, personal paths, and credential-shaped strings. Exits non-zero on any finding.
+
 Before committing a skill change, confirm:
 
 - [ ] Folder name == `name:` in frontmatter
-- [ ] `description` names what it does, when to use it, and literal trigger phrases
+- [ ] `description` names what it does, when to use it, literal trigger phrases, and what it is **not** for — within 1,536 characters
 - [ ] `license` and `metadata` blocks present
 - [ ] Every reference is a relative markdown link to a file that exists
 - [ ] No link leaves the skill folder — a cross-skill link points at `bundled/`, never `../`
@@ -139,6 +158,7 @@ Before committing a skill change, confirm:
 - [ ] No credentials, tokens, or personal paths in any file
 - [ ] `python scripts/build-index.py` exits clean
 - [ ] `python scripts/build-bundles.py && python scripts/check-bundles.py` exits clean
+- [ ] `python scripts/lint-skills.py` exits clean
 
 ---
 

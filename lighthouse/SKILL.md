@@ -1,11 +1,11 @@
 ---
 name: lighthouse
 description: >-
-  Diagnose and fix a website so it earns high Lighthouse scores across all five categories — Performance, Accessibility, Best Practices, SEO, and Agentic Browsing — on BOTH desktop and mobile. Use this skill whenever the user shares a Lighthouse / PageSpeed / Core Web Vitals report, screenshot, or score; asks to "improve my Lighthouse score", "make my site faster", "fix my performance score", "pass Core Web Vitals", "get green scores", or mentions failing metrics like FCP, LCP, TBT, CLS, INP, or Speed Index — even if they don't say the word "Lighthouse". Also trigger for pre-launch audits and for hosting/cold-start slowness (e.g. Render/Heroku/Fly free tiers) that tanks load-time metrics.
+  Diagnose and fix a website so it earns high Lighthouse scores across all five categories — Performance, Accessibility, Best Practices, SEO, and Agentic Browsing — on BOTH desktop and mobile. Use this skill whenever the user shares a Lighthouse / PageSpeed / Core Web Vitals report, screenshot, or score; asks to "improve my Lighthouse score", "make my site faster", "fix my performance score", "pass Core Web Vitals", "get green scores", or mentions failing metrics like FCP, LCP, TBT, CLS, INP, or Speed Index — even if they don't say the word "Lighthouse". Also trigger for pre-launch audits and for hosting/cold-start slowness (e.g. Render/Heroku/Fly free tiers) that tanks load-time metrics. Not for designing an AI feature or choosing a caching/CDN architecture up front — this repairs measured scores.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.0.1"
   source: Lighthouse Score Optimizer guidelines (compiled 2026)
 ---
 

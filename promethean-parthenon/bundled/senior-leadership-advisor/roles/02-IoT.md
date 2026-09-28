@@ -22,7 +22,7 @@ related: "[01-Software-Logic](./01-Software-Logic.md), [06-Engineering-Leadershi
 
 **Key concerns:** Protocol selection (MQTT vs AMQP vs CoAP vs HTTP) · Broker topology (centralized vs federated) · Device identity and provisioning at scale · OTA update strategy · Edge vs cloud processing split · Security model (device certs, mutual TLS) · Scalability ceiling
 
-**Related roles:** [01-Software-Logic > Embedded Firmware Engineer](./01-Software-Logic.md#embedded-firmware-engineer) (architect sets constraints the firmware must meet), [[Cloud Network Engineer]] (architect defines what cloud infra must support)
+**Related roles:** [01-Software-Logic > Embedded Firmware Engineer](./01-Software-Logic.md#embedded--firmware-engineer) (architect sets constraints the firmware must meet), [Cloud / Network Engineer](#cloud--network-engineer) (architect defines what cloud infra must support)
 
 ---
 
@@ -36,7 +36,7 @@ related: "[01-Software-Logic](./01-Software-Logic.md), [06-Engineering-Leadershi
 
 **Key concerns:** Sensor calibration and drift · Data buffering at edge · Timestamp accuracy (NTP sync, clock drift) · Message deduplication · QoS levels for MQTT · Schema evolution across firmware versions · Payload size (battery/bandwidth)
 
-**Related roles:** [01-Software-Logic > Backend Developer](./01-Software-Logic.md#backend-developer) (the cloud-side API that receives device data), [01-Software-Logic > Logic Algorithm Engineer](./01-Software-Logic.md#logic-algorithm-engineer) (edge computation and data filtering), [01-Software-Logic > Embedded Firmware Engineer](./01-Software-Logic.md#embedded-firmware-engineer) (the device-side counterpart)
+**Related roles:** [01-Software-Logic > Backend Developer](./01-Software-Logic.md#backend-developer) (the cloud-side API that receives device data), [01-Software-Logic > Logic Algorithm Engineer](./01-Software-Logic.md#logic--algorithm-engineer) (edge computation and data filtering), [01-Software-Logic > Embedded Firmware Engineer](./01-Software-Logic.md#embedded--firmware-engineer) (the device-side counterpart)
 
 ---
 
@@ -50,4 +50,4 @@ related: "[01-Software-Logic](./01-Software-Logic.md), [06-Engineering-Leadershi
 
 **Key concerns:** MQTT broker scaling (connection limits, not just CPU) · Network topology (VPC, subnets, NAT) · Ingress cost at scale · Latency for time-sensitive sensor data · TLS termination overhead · Observability (connection metrics, message lag, DLQ depth) · Multi-region failover
 
-**Related roles:** [[IoT Architect]] (architect defines what the network must support), [06-Engineering-Leadership > DevOps Infrastructure](./06-Engineering-Leadership.md#devops-infrastructure) (CI/CD for cloud infra), [06-Engineering-Leadership > SRE](./06-Engineering-Leadership.md#sre) (reliability and on-call for IoT cloud)
+**Related roles:** [IoT Architect](#iot-architect) (architect defines what the network must support), [06-Engineering-Leadership > DevOps Infrastructure](./06-Engineering-Leadership.md#devops--infrastructure) (CI/CD for cloud infra), [06-Engineering-Leadership > SRE](./06-Engineering-Leadership.md#site-reliability-engineering-sre) (reliability and on-call for IoT cloud)

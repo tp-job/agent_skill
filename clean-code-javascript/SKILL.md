@@ -1,11 +1,11 @@
 ---
 name: clean-code-javascript
 description: >-
-  Clean Code principles and best practices for JavaScript. Use this skill when writing, reviewing, or refactoring JavaScript/TypeScript code to improve readability, maintainability, and correctness. Triggers on tasks involving naming conventions, function design, class structure, SOLID principles, error handling, testing patterns, or code formatting. Also trigger for: "clean up my code", "make this readable", "refactor this function", "bad variable names", "code review", "improve code quality", "apply SOLID", "JavaScript best practices", or any request to improve JS/TS code quality.
+  Clean Code principles and best practices for JavaScript. Use this skill when writing, reviewing, or refactoring JavaScript/TypeScript code to improve readability, maintainability, and correctness. Triggers on tasks involving naming conventions, function design, class structure, SOLID principles, error handling, testing patterns, or code formatting. Also trigger for: "clean up my code", "make this readable", "refactor this function", "bad variable names", "code review", "improve code quality", "apply SOLID", "JavaScript best practices", or any request to improve JS/TS code quality. Not for React/Next.js rendering or bundle performance, or for hunting a specific bug.
 license: MIT
 metadata:
   author: nevinas06 (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.0.1"
   source: Clean Code by Robert C. Martin — JS/TS adaptation (compiled 2026)
 ---
 

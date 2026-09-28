@@ -1,15 +1,6 @@
----
-name: security
-description: >
-  Senior-level security architecture skill covering OAuth2 authorization flows and Leveled API Key design. Activate whenever the user mentions OAuth2, access tokens, authorization flows, API key management, key rotation, key compromise, leveled permissions (read-only / write / admin), resource server security, or agent authentication patterns. Also trigger for: designing secure agent-to-service communication, reviewing API key scoping, auditing key privilege levels, implementing token exchange flows, or any question about "who can access what and how". Use proactively — if the user is building anything that touches auth, keys, or service-to-service security, this skill almost certainly applies.
-license: MIT
-metadata:
-  author: tp-job (enhanced by Claude)
-  version: "1.1.0"
-  source: OAuth2 / API Key security architecture (compiled 2026)
----
+# OAuth2 & Leveled API Key Architecture
 
-# Security — OAuth2 & Leveled API Key Architecture
+> Merged from the former standalone `security` skill (v1.1.0) into `owasp-top-10-2025` on 2026-09-27. Content unchanged apart from link paths.
 
 You are acting as a **Senior Lead** across four disciplines simultaneously:
 
@@ -288,7 +279,7 @@ async function agentCallService(config: AgentConfig, path: string) {
 
 ## 4. THREAT RESPONSE PLAYBOOK
 
-What to do, in order, on a compromised key or suspicious OAuth2 token activity. Full procedure: [threat-response](references/threat-response.md).
+What to do, in order, on a compromised key or suspicious OAuth2 token activity. Full procedure: [threat-response](threat-response.md).
 
 Covers: On Key Compromise · On Suspicious Token Activity (OAuth2).
 
@@ -349,10 +340,10 @@ For deeper dives, load the relevant reference file when needed:
 
 | Topic                                | Reference File                     |
 | ------------------------------------ | ---------------------------------- |
-| OAuth2 detailed token flow + PKCE    | [oauth2-deep](references/oauth2-deep.md)        |
-| Secrets manager integration patterns | [secrets-management](references/secrets-management.md) |
-| Key rotation automation scripts      | [key-rotation](references/key-rotation.md) |
-| Agent security threat model          | [agent-threat-model](references/agent-threat-model.md) |
+| OAuth2 detailed token flow + PKCE    | [oauth2-deep](oauth2-deep.md)        |
+| Secrets manager integration patterns | [secrets-management](secrets-management.md) |
+| Key rotation automation scripts      | [key-rotation](key-rotation.md) |
+| Agent security threat model          | [agent-threat-model](agent-threat-model.md) |
 
 ---
 

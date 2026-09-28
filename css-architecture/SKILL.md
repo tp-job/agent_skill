@@ -1,11 +1,11 @@
 ---
 name: css-architecture
 description: >-
-  Scaffold and manage CSS file architecture for TailwindCSS-first projects. Use this skill whenever the user needs to organize CSS files, prevent or fix CSS hell, add custom styles alongside Tailwind, create a styles folder, set up structural design tokens, configure PostCSS for CSS imports, enforce CSS linting rules, migrate a messy stylesheet to a clean structure, or when CSS is growing out of control and causing conflicts. Trigger on any of these: "css structure", "css folder", "css hell", "css mess", "custom css with tailwind", "css organization", "css architecture", "stylesheet management", "css conflicts", "css specificity", or any request to set up, audit, fix, or improve CSS organization. Use this skill even when the user casually says "my CSS is getting messy" or "styles are conflicting" or "how should I organize my styles".
+  Scaffold and manage CSS file architecture for TailwindCSS-first projects. Use this skill whenever the user needs to organize CSS files, prevent or fix CSS hell, add custom styles alongside Tailwind, create a styles folder, set up structural design tokens, configure PostCSS for CSS imports, enforce CSS linting rules, migrate a messy stylesheet to a clean structure, or when CSS is growing out of control and causing conflicts. Trigger on any of these: "css structure", "css folder", "css hell", "css mess", "custom css with tailwind", "css organization", "css architecture", "stylesheet management", "css conflicts", "css specificity", or any request to set up, audit, fix, or improve CSS organization. Use this skill even when the user casually says "my CSS is getting messy" or "styles are conflicting" or "how should I organize my styles". Not for choosing an aesthetic direction or auditing rendered colors and contrast — this organizes the stylesheet files.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.0.1"
   source: CSS Architecture / TailwindCSS best practices (compiled 2026)
 ---
 
@@ -390,4 +390,5 @@ A well-structured CSS codebase should achieve:
 | [anti-patterns](references/anti-patterns.md) | Auditing existing CSS or diagnosing CSS hell |
 | [linting-setup](references/linting-setup.md) | Setting up Stylelint for automated enforcement |
 | [migration-guide](references/migration-guide.md) | Migrating an existing messy codebase incrementally |
+| [implementation-checklist](references/implementation-checklist.md) | Rolling the architecture out in a project, phase by phase, with success metrics |
 | `assets/main.css.template` | Starter `main.css` ready to copy into a project |

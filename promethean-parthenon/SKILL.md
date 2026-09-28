@@ -1,29 +1,25 @@
 ---
 name: promethean-parthenon
 description: >-
-  The operating doctrine for getting high-performance output out of an AI coding agent,
-  and the router across the skills that produce it, organised as Role · Task · Format:
-  set the seat that answers (senior-leadership-advisor), fix the target and build against it
-  — extract requirements from code that already exists (requirement-gathering), brief a new
-  ask (agentic-engineering), construct it under gates and on-disk state
-  (long-horizon-engineering-workflow) — then land the result in a shape that survives
-  (github-report). Beneath the pillars sits a foundation of three thinking disciplines — frame
-  the real problem before briefing it, synthesize conflicting sources and expert advice into one
-  position, and ask the human for what only they know. Trigger when: starting any non-trivial piece of work with an agent and
-  unsure where to begin, an agent produced code that runs but is wrong or off-target, output
-  quality is degrading over a long session, you are about to say "just build it" on something
-  substantial, a problem is still a symptom or a mess, several articles or experts disagree and a
-  decision hangs on them, or you ask "help me think this through", "what is the real problem here",
-  "synthesize these sources", "I'm stuck", "how do I get better results from Claude / the agent", "which skill
-  should I use for this", "why does the agent keep drifting", "how do I set up role task
-  format". Thai triggers: "ใช้ AI agent ยังไงให้ได้งานดี", "agent ทำงานหลุดประเด็น",
-  "ควรใช้ skill ไหน", "งานที่ได้ไม่ตรงที่สั่ง", "ช่วยคิดแก้ปัญหานี้", "สรุปความเห็นจากหลายแหล่ง". Not itself a builder or a reviewer — it decides
-  which pillar carries the work and hands off; go straight to a pillar when you already know
-  which one.
+  Single entry point to a bundled engineering skill set for AI coding agents, organised as Role ·
+  Task · Format. Routes to: leadership calls and trade-offs (senior-leadership-advisor);
+  requirements from existing code (requirement-gathering); a brief for a new ask
+  (agentic-engineering); multi-session builds under gates, phases and a ledger
+  (long-horizon-engineering-workflow); reports of shipped work from commits and PRs (github-report).
+  Specialists: any bug, error, stack trace or "something is wrong" (debug-master); security review,
+  auth, OAuth2, API keys, OWASP (owasp-top-10-2025); UI theme, dark mode, contrast, layout, UI
+  review (ui-checker); where a file goes or what to call it (project-file-structure); writing or
+  improving a skill (skill-creator). Also frames messy problems and synthesizes conflicting sources
+  into one position. Trigger for: "fix this bug", "why is this not working", "is this secure",
+  "review my UI", "does dark mode work", "where should this file go", "create a skill", "extract the
+  requirements", "plan this build", "which approach should we take", "write a sprint report", "agent
+  keeps drifting", "I'm stuck", "which skill should I use". Thai: "แก้บัค", "หา bug", "ควรใช้ skill
+  ไหน", "agent ทำงานหลุดประเด็น", "ช่วยคิดแก้ปัญหานี้". On a specialist trigger, open that bundled
+  skill at once — do not walk the doctrine for a one-line fix. Not for trivial fully-specified edits, or domain work another skill owns (3D, CSS, deploys, design craft, MCP ops).
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "2.5.0"
+  version: "3.1.0"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,
@@ -35,6 +31,23 @@ metadata:
 
 **Promethean** — foresight. The thinking happens before the fire, not after the building burns.
 **Parthenon** — pillars carrying one roof. Remove any pillar and the load does not redistribute; the roof comes down.
+
+## Fast path — read this first
+
+This skill is the **only** entry point to the ten skills under `bundled/`; none of them loads on its own. When the request already names its specialist, skip everything below and open it:
+
+| The request is… | Open now |
+| --- | --- |
+| A bug, error, stack trace, crash, slow query, or "something is wrong" | [debug-master](bundled/debug-master/SKILL.md) |
+| Security review, auth, OAuth2, API keys, secrets, "is this secure" | [owasp-top-10-2025](bundled/owasp-top-10-2025/SKILL.md) |
+| Theme, dark mode, contrast, layout, "review my UI" | [ui-checker](bundled/ui-checker/SKILL.md) |
+| Where a file goes, what to name it | [project-file-structure](bundled/project-file-structure/SKILL.md) |
+| Write, fix, or evaluate a skill | [skill-creator](bundled/skill-creator/SKILL.md) |
+| A report of shipped work from commits/PRs | [github-report](bundled/github-report/SKILL.md) |
+
+Everything else — an unclear ask, a build, a decision, a request that output keeps coming back wrong — reads on.
+
+---
 
 ## The problem this solves
 
@@ -142,6 +155,8 @@ Full decision table with tie-breakers: [routing](references/routing.md). The sho
 | Agent output runs but is wrong | **Task** — agentic-engineering | The brief was the defect, not the code |
 | Agent lost the thread mid-build | **Task** — long-horizon | Missing harness state, not missing skill |
 | A specific bug with a repro | None of these | Use [debug-master](bundled/debug-master/SKILL.md) |
+| A design job — IA, art direction, concepts, drafts | Outside the pillars | The master-design skill runs this doctrine for design |
+| Which tool, MCP server or subagent; a server that fails or needs auth | Outside the pillars | The master-agent skill runs this doctrine for orchestration |
 
 **Default when genuinely unsure: the front of Task.** Writing the target down is the cheapest move in the system and the most expensive to skip — ten minutes against a rebuild you will mistake for a bug fix.
 
@@ -215,7 +230,7 @@ Symptom → cause → pillar. Expanded, with the tells for each: [failure-modes]
 
 ## When not to use this
 
-- **You already know which pillar you need.** Go straight there. This skill is a router, and routing a decision you have already made is pure overhead.
+- **You already know which pillar you need.** Open its `bundled/` SKILL.md directly and skip the rest of this file. This skill is a router, and routing a decision you have already made is pure overhead.
 - **Trivial, fully-specified work** — a typo, a version bump, a named bug with a repro. Three pillars over a one-line change is architecture as theater.
 - **Exploration and spikes.** A fixed target works against you when the goal is to learn what is possible. Set a time or scope limit instead, then write the real target afterward.
 - **Non-engineering requests.** The pillars are for constructing software. A pure research, writing, or analysis task has different failure modes — though the foundation's [synthesis](references/synthesis.md) discipline travels well to any decision that rests on conflicting sources.

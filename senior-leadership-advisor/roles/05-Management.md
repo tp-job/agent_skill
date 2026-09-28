@@ -26,7 +26,7 @@ related: "[02-IoT](./02-IoT.md), [01-Software-Logic](./01-Software-Logic.md), [0
 
 **Prioritization frameworks:** RICE (Reach × Impact × Confidence / Effort) · ICE · MoSCoW · User story mapping · Jobs-to-be-Done
 
-**Related roles:** [06-Engineering-Leadership > Executive Leadership](./06-Engineering-Leadership.md#executive-leadership) (PM reports into or aligns with exec leadership), [[Solutions Architect]] (PM defines what, Solutions Architect defines how), [03-UX-UI-Design > Product Designer](./03-UX-UI-Design.md#product-designer) (PM + designer co-own the product experience)
+**Related roles:** [06-Engineering-Leadership > Executive Leadership](./06-Engineering-Leadership.md#executive-leadership) (PM reports into or aligns with exec leadership), [Solutions Architect](#solutions-architect) (PM defines what, Solutions Architect defines how), [03-UX-UI-Design > Product Designer](./03-UX-UI-Design.md#product-designer) (PM + designer co-own the product experience)
 
 ---
 
@@ -42,4 +42,4 @@ related: "[02-IoT](./02-IoT.md), [01-Software-Logic](./01-Software-Logic.md), [0
 
 **Deliverable types:** Architecture diagrams (C4 model preferred) · Technology selection rationale · Risk register · PoC scope definition · Phasing plan (MVP → Scale → Optimize)
 
-**Related roles:** [02-IoT > IoT Architect](./02-IoT.md#iot-architect) (Solutions Architect for IoT-heavy engagements), [01-Software-Logic > Backend Developer](./01-Software-Logic.md#backend-developer) (Solutions Architect designs what Backend Dev builds), [[Product Manager Owner]] (PM owns what, Solutions Architect owns how), [06-Engineering-Leadership > Software Architecture](./06-Engineering-Leadership.md#software-architecture) (enterprise-level version of this role)
+**Related roles:** [02-IoT > IoT Architect](./02-IoT.md#iot-architect) (Solutions Architect for IoT-heavy engagements), [01-Software-Logic > Backend Developer](./01-Software-Logic.md#backend-developer) (Solutions Architect designs what Backend Dev builds), [Product Manager / Owner](#product-manager--owner) (PM owns what, Solutions Architect owns how), [06-Engineering-Leadership > Software Architecture](./06-Engineering-Leadership.md#software-architecture) (enterprise-level version of this role)

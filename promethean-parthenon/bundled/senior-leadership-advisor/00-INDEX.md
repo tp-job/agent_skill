@@ -25,15 +25,15 @@ Open in Obsidian → Graph View to see all role relationships as a network.
 → [01-Software-Logic](roles/01-Software-Logic.md)
 - [Backend Developer](roles/01-Software-Logic.md#backend-developer)
 - [Frontend Developer](roles/01-Software-Logic.md#frontend-developer)
-- [Logic / Algorithm Engineer](roles/01-Software-Logic.md#logic-algorithm-engineer)
-- [Embedded / Firmware Engineer](roles/01-Software-Logic.md#embedded-firmware-engineer)
-- [QA / Automation Tester](roles/01-Software-Logic.md#qa-automation-tester)
+- [Logic / Algorithm Engineer](roles/01-Software-Logic.md#logic--algorithm-engineer)
+- [Embedded / Firmware Engineer](roles/01-Software-Logic.md#embedded--firmware-engineer)
+- [QA / Automation Tester](roles/01-Software-Logic.md#qa--automation-tester)
 
 ### 2. สาย IoT (Internet of Things)
 → [02-IoT](roles/02-IoT.md)
 - [IoT Architect](roles/02-IoT.md#iot-architect)
 - [IoT Developer](roles/02-IoT.md#iot-developer)
-- [Cloud / Network Engineer](roles/02-IoT.md#cloud-network-engineer)
+- [Cloud / Network Engineer](roles/02-IoT.md#cloud--network-engineer)
 
 ### 3. สาย UX/UI & Design
 → [03-UX-UI-Design](roles/03-UX-UI-Design.md)
@@ -50,7 +50,7 @@ Open in Obsidian → Graph View to see all role relationships as a network.
 
 ### 5. สายบริหารจัดการและประสานงาน (Management)
 → [05-Management](roles/05-Management.md)
-- [Product Manager / Owner](roles/05-Management.md#product-manager-owner)
+- [Product Manager / Owner](roles/05-Management.md#product-manager--owner)
 - [Solutions Architect](roles/05-Management.md#solutions-architect)
 
 ### 6. Engineering & Leadership (Original Roles)
@@ -66,10 +66,10 @@ Roles at an AMD / NVIDIA-class silicon company, ordered upstream → downstream.
 
 ### 7. สาย R&D (Research & Development)
 → [07-Silicon-RnD](roles/07-Silicon-RnD.md)
-- [Silicon Architect / Microarchitect](roles/07-Silicon-RnD.md#silicon-architect-microarchitect)
-- [ASIC / RTL Design Engineer](roles/07-Silicon-RnD.md#asic-rtl-design-engineer)
-- [AI / Deep Learning Research Scientist](roles/07-Silicon-RnD.md#ai-deep-learning-research-scientist)
-- [Software / Compiler Engineer](roles/07-Silicon-RnD.md#software-compiler-engineer)
+- [Silicon Architect / Microarchitect](roles/07-Silicon-RnD.md#silicon-architect--microarchitect)
+- [ASIC / RTL Design Engineer](roles/07-Silicon-RnD.md#asic--rtl-design-engineer)
+- [AI / Deep Learning Research Scientist](roles/07-Silicon-RnD.md#ai--deep-learning-research-scientist)
+- [Software / Compiler Engineer](roles/07-Silicon-RnD.md#software--compiler-engineer)
 
 ### 8. สาย TEST (Verification & Quality Assurance)
 → [08-Silicon-Test](roles/08-Silicon-Test.md)
@@ -82,13 +82,13 @@ Roles at an AMD / NVIDIA-class silicon company, ordered upstream → downstream.
 → [09-Silicon-Sell](roles/09-Silicon-Sell.md)
 - [Technical Marketing Engineer](roles/09-Silicon-Sell.md#technical-marketing-engineer)
 - [Silicon Product Manager](roles/09-Silicon-Sell.md#silicon-product-manager)
-- [Strategic Account Manager / Enterprise Sales](roles/09-Silicon-Sell.md#strategic-account-manager-enterprise-sales)
+- [Strategic Account Manager / Enterprise Sales](roles/09-Silicon-Sell.md#strategic-account-manager--enterprise-sales)
 - [Business Development Manager](roles/09-Silicon-Sell.md#business-development-manager)
 
 ### 10. สาย Client Service (Customer Support & Technical Services)
 → [10-Silicon-Client-Service](roles/10-Silicon-Client-Service.md)
 - [Field Application Engineer (FAE)](roles/10-Silicon-Client-Service.md#field-application-engineer-fae)
-- [Solutions Architect / Systems Engineer](roles/10-Silicon-Client-Service.md#solutions-architect-systems-engineer)
+- [Solutions Architect / Systems Engineer](roles/10-Silicon-Client-Service.md#solutions-architect--systems-engineer)
 - [Customer Support Engineer](roles/10-Silicon-Client-Service.md#customer-support-engineer)
 - [Technical Account Manager (TAM)](roles/10-Silicon-Client-Service.md#technical-account-manager-tam)
 

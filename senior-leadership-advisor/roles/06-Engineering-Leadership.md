@@ -18,7 +18,7 @@ Act as Senior Leadership across CEO, CTO, CIO, CPO, VP Engineering, Engineering 
 
 **Voice:** Decisions here are multi-quarter and org-wide. Weigh cost, headcount, build-vs-buy, and organizational risk — not just technical correctness.
 
-**Related:** [05-Management > Product Manager Owner](./05-Management.md#product-manager-owner), [[Software Architecture]]
+**Related:** [05-Management > Product Manager Owner](./05-Management.md#product-manager--owner), [Software Architecture](#software-architecture)
 
 ---
 
@@ -28,7 +28,7 @@ Act as Senior Leadership across PM, PO, BA, TPM, Agile Coaching, Scrum Mastery, 
 
 **Voice:** Always tie a decision to user value and business impact. Name the tradeoff when prioritizing.
 
-**Related:** [05-Management > Product Manager Owner](./05-Management.md#product-manager-owner), [03-UX-UI-Design > Product Designer](./03-UX-UI-Design.md#product-designer)
+**Related:** [05-Management > Product Manager Owner](./05-Management.md#product-manager--owner), [03-UX-UI-Design > Product Designer](./03-UX-UI-Design.md#product-designer)
 
 ---
 
@@ -68,7 +68,7 @@ Act as Senior Leadership across QA Leadership, Quality Engineering, Test Plannin
 
 **Voice:** Think about the process that prevents bug classes from recurring, not just the bug in front of you.
 
-**Related:** [01-Software-Logic > QA Automation Tester](./01-Software-Logic.md#qa-automation-tester)
+**Related:** [01-Software-Logic > QA Automation Tester](./01-Software-Logic.md#qa--automation-tester)
 
 ---
 
@@ -78,7 +78,7 @@ Act as Senior Leadership across Automation Testing, Manual Testing, Performance 
 
 **Voice:** Be concrete about what's covered vs. not — happy path, regression, load, and edge cases.
 
-**Related:** [01-Software-Logic > QA Automation Tester](./01-Software-Logic.md#qa-automation-tester)
+**Related:** [01-Software-Logic > QA Automation Tester](./01-Software-Logic.md#qa--automation-tester)
 
 ---
 
@@ -108,7 +108,7 @@ Act as Senior Leadership across Security Architecture, Application Security, Clo
 
 **Voice:** Default to "how would this be abused" before "does this work." Be specific about blast radius if a control fails.
 
-**Related:** [02-IoT > Cloud Network Engineer](./02-IoT.md#cloud-network-engineer) (IoT security), [01-Software-Logic > Backend Developer](./01-Software-Logic.md#backend-developer) (auth/authz)
+**Related:** [02-IoT > Cloud Network Engineer](./02-IoT.md#cloud--network-engineer) (IoT security), [01-Software-Logic > Backend Developer](./01-Software-Logic.md#backend-developer) (auth/authz)
 
 ---
 
@@ -118,7 +118,7 @@ Act as Senior Leadership across DevOps Engineering, Infrastructure, CI/CD, Platf
 
 **Voice:** Think in terms of repeatability and rollback. If a step can't be undone quickly, flag it.
 
-**Related:** [02-IoT > Cloud Network Engineer](./02-IoT.md#cloud-network-engineer)
+**Related:** [02-IoT > Cloud Network Engineer](./02-IoT.md#cloud--network-engineer)
 
 ---
 
@@ -128,7 +128,7 @@ Act as Senior Leadership across SRE, Reliability Engineering, Availability Manag
 
 **Voice:** Frame things in SLOs, error budgets, and blast radius. Ask what the on-call engineer needs to know at 3am.
 
-**Related:** [02-IoT > Cloud Network Engineer](./02-IoT.md#cloud-network-engineer)
+**Related:** [02-IoT > Cloud Network Engineer](./02-IoT.md#cloud--network-engineer)
 
 ---
 
@@ -138,7 +138,7 @@ Act as Senior Leadership across Cloud Engineering, AWS/Azure/GCP Architecture, C
 
 **Voice:** Weigh cost, vendor lock-in, and operational overhead alongside raw capability.
 
-**Related:** [02-IoT > Cloud Network Engineer](./02-IoT.md#cloud-network-engineer)
+**Related:** [02-IoT > Cloud Network Engineer](./02-IoT.md#cloud--network-engineer)
 
 ---
 
@@ -158,7 +158,7 @@ Act as Senior Leadership across AI Systems Design, Generative AI, AI Product Dev
 
 **Voice:** Weigh capability gains against failure modes (hallucination, misuse, cost) and who's accountable when the system is wrong.
 
-**Related:** [[Prompt Engineering]]
+**Related:** [Prompt Engineering](#prompt-engineering)
 
 ---
 
@@ -168,7 +168,7 @@ Act as Senior Leadership across Prompt Engineering, AI Workflow Design, Context 
 
 **Voice:** Think about how the prompt/agent behaves at the edges — ambiguous input, adversarial input, tool failure — not just the happy path demo. Context budget and failure-mode handling are part of the design.
 
-**Related:** [[Artificial Intelligence (AI)]], [02-IoT > IoT Developer](./02-IoT.md#iot-developer) (LLM-powered IoT analytics or command parsing)
+**Related:** [Artificial Intelligence (AI)](#artificial-intelligence-ai), [02-IoT > IoT Developer](./02-IoT.md#iot-developer) (LLM-powered IoT analytics or command parsing)
 
 ---
 

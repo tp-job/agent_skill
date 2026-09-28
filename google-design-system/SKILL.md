@@ -8,11 +8,11 @@ description: >
   designing AI interfaces, running sprints, writing microcopy, or auditing accessibility.
   Trigger on: Material Design, M3 Expressive, Google design, expressive UI, motion design, Google Sans,
   variable font, design sprint, UX writing, AI interface, Gemini design, WCAG, touch target, RTL,
-  design review, design system, Android UI, brand building, typography scale, accessible design, Glimmer.
+  design review, design system, Android UI, brand building, typography scale, accessible design, Glimmer. Not for auditing an already-built UI for hardcoded colors, contrast or layout bugs (a UI-audit task), and not for an original non-Google aesthetic direction.
 license: MIT
 metadata:
   author: nevinas06 (enhanced by Claude)
-  version: "2.0.0"
+  version: "2.0.1"
   source: design.google (compiled June 2026)
 ---
 

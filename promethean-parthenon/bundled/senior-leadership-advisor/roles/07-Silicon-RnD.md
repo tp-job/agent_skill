@@ -26,7 +26,7 @@ related: "[08-Silicon-Test](./08-Silicon-Test.md), [09-Silicon-Sell](./09-Silico
 
 **Decision horizon:** 2–4 years from spec to silicon in customers' hands. Assume the market you designed for has moved by launch; build headroom for that, not for today's benchmark.
 
-**Related roles:** [[ASIC RTL Design Engineer]] (architect sets the spec RTL must implement), [08-Silicon-Test > Design Verification DV Engineer](./08-Silicon-Test.md#design-verification-dv-engineer) (DV proves the RTL matches the architect's intent), [[Software Compiler Engineer]] (compiler must be able to exploit what the architect adds), [06-Engineering-Leadership > Software Architecture](./06-Engineering-Leadership.md#software-architecture) (same discipline, one abstraction layer up)
+**Related roles:** [ASIC / RTL Design Engineer](#asic--rtl-design-engineer) (architect sets the spec RTL must implement), [08-Silicon-Test > Design Verification DV Engineer](./08-Silicon-Test.md#design-verification-dv-engineer) (DV proves the RTL matches the architect's intent), [Software / Compiler Engineer](#software--compiler-engineer) (compiler must be able to exploit what the architect adds), [06-Engineering-Leadership > Software Architecture](./06-Engineering-Leadership.md#software-architecture) (same discipline, one abstraction layer up)
 
 ---
 
@@ -42,7 +42,7 @@ related: "[08-Silicon-Test](./08-Silicon-Test.md), [09-Silicon-Sell](./09-Silico
 
 **Non-negotiables before handoff:** Lint clean · CDC clean · Synthesizes to target library · Timing report attached · Assertions written for every interface contract
 
-**Related roles:** [[Silicon Architect Microarchitect]] (owns the spec being implemented), [08-Silicon-Test > Design Verification DV Engineer](./08-Silicon-Test.md#design-verification-dv-engineer) (adversarial partner — RTL and DV must never be the same person), [01-Software-Logic > Embedded Firmware Engineer](./01-Software-Logic.md#embedded-firmware-engineer) (firmware runs on what RTL builds), [08-Silicon-Test > Post-Silicon Test Engineer](./08-Silicon-Test.md#post-silicon-test-engineer) (finds what escaped simulation)
+**Related roles:** [Silicon Architect / Microarchitect](#silicon-architect--microarchitect) (owns the spec being implemented), [08-Silicon-Test > Design Verification DV Engineer](./08-Silicon-Test.md#design-verification-dv-engineer) (adversarial partner — RTL and DV must never be the same person), [01-Software-Logic > Embedded Firmware Engineer](./01-Software-Logic.md#embedded--firmware-engineer) (firmware runs on what RTL builds), [08-Silicon-Test > Post-Silicon Test Engineer](./08-Silicon-Test.md#post-silicon-test-engineer) (finds what escaped simulation)
 
 ---
 
@@ -56,7 +56,7 @@ related: "[08-Silicon-Test](./08-Silicon-Test.md), [09-Silicon-Sell](./09-Silico
 
 **Key concerns:** Benchmark honesty — batch size, sequence length, precision, and whether the comparison is apples-to-apples · Reproducibility (seed, data, exact config) · Training vs. inference cost asymmetry · Quantization accuracy loss vs. throughput gain · Memory-bound vs. compute-bound characterization before optimizing anything · What the next-gen hardware would need to make this algorithm 10x better (this is the feedback loop into architecture) · Publish-vs-protect decisions
 
-**Related roles:** [[Silicon Architect Microarchitect]] (research findings become architectural requirements), [[Software Compiler Engineer]] (kernels and graph compilers turn research into shipped performance), [06-Engineering-Leadership > Artificial Intelligence AI](./06-Engineering-Leadership.md#artificial-intelligence-ai) (production ML counterpart), [09-Silicon-Sell > Technical Marketing Engineer](./09-Silicon-Sell.md#technical-marketing-engineer) (turns benchmark results into public claims — must be defensible)
+**Related roles:** [Silicon Architect / Microarchitect](#silicon-architect--microarchitect) (research findings become architectural requirements), [Software / Compiler Engineer](#software--compiler-engineer) (kernels and graph compilers turn research into shipped performance), [06-Engineering-Leadership > Artificial Intelligence AI](./06-Engineering-Leadership.md#artificial-intelligence-ai) (production ML counterpart), [09-Silicon-Sell > Technical Marketing Engineer](./09-Silicon-Sell.md#technical-marketing-engineer) (turns benchmark results into public claims — must be defensible)
 
 ---
 
@@ -70,4 +70,4 @@ related: "[08-Silicon-Test](./08-Silicon-Test.md), [09-Silicon-Sell](./09-Silico
 
 **Key concerns:** Roofline position of the target workload · Kernel fusion and memory traffic reduction · Occupancy vs. register pressure tradeoff · Autotuning vs. hand-written kernels (maintenance cost) · Day-one support for new silicon features (silicon with no compiler support is unsellable) · ABI and backward compatibility across driver versions · Framework integration (PyTorch/TensorFlow/JAX) — customers use frameworks, not your intrinsics · Correctness under fast-math and reduced precision
 
-**Related roles:** [[Silicon Architect Microarchitect]] (compiler must exploit new ISA features, or they were wasted silicon), [[AI Deep Learning Research Scientist]] (co-design partner on kernels), [01-Software-Logic > Logic Algorithm Engineer](./01-Software-Logic.md#logic-algorithm-engineer) (algorithmic optimization counterpart), [10-Silicon-Client-Service > Solutions Architect Systems Engineer](./10-Silicon-Client-Service.md#solutions-architect-systems-engineer) (escalation path for customer performance gaps)
+**Related roles:** [Silicon Architect / Microarchitect](#silicon-architect--microarchitect) (compiler must exploit new ISA features, or they were wasted silicon), [AI / Deep Learning Research Scientist](#ai--deep-learning-research-scientist) (co-design partner on kernels), [01-Software-Logic > Logic Algorithm Engineer](./01-Software-Logic.md#logic--algorithm-engineer) (algorithmic optimization counterpart), [10-Silicon-Client-Service > Solutions Architect Systems Engineer](./10-Silicon-Client-Service.md#solutions-architect--systems-engineer) (escalation path for customer performance gaps)

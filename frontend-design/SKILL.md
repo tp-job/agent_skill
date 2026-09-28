@@ -1,10 +1,10 @@
 ---
 name: frontend-design
-description: Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.
+description: Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults. Not for applying Material/Google design rules, auditing a built UI for token or contrast bugs, or organizing CSS files.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.0.1"
   source: Frontend Design / Visual Identity guidelines (compiled 2026)
 ---
 

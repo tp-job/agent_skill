@@ -1,16 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/skill-index.json",
   "version": "1.1.0",
-  "generated": "2026-09-27",
+  "generated": "2026-09-28",
   "root": "agent-skill",
-  "count": 33,
+  "count": 31,
   "skills": [
-    {
-      "name": "agent-skill-creator",
-      "path": "agent-skill-creator/SKILL.md",
-      "description": "Guide for creating, structuring, and organising AI agent skills — building a skill from scratch, setting up a .agents/ workspace, designing folder structures, and writing SKILL.md files with proper YAML frontmatter.",
-      "content": "Defines skill structure levels (single-file vs. multi-file with references vs. full workspace), when to use each, a quick-reference for frontmatter fields and folder layout, a how-to-use flow, and a link to the full reference document covering AGENT.md and agent rules/context."
-    },
     {
       "name": "agentic-engineering",
       "path": "agentic-engineering/SKILL.md",
@@ -108,6 +102,18 @@
       "content": "Two loops: a gated outer loop (Requirements → Design → Development → Integration QA → UAT → Deployment) around a per-feature inner loop that runs scoped regression → select → implement → verify → refactor what that feature touched → ledger → commit, backed by four harness files at the repo root (build-spec.md, feature-list.json, progress.md, init script) so state survives context loss. The refactor box is bounded to the feature's own diff, forbidden from changing behaviour, and re-verified against the same steps — which is what keeps a build that passes every gate from degrading one commit at a time. Stage 2 runs computational thinking as its method — decomposition into the feature ledger, pattern recognition for reuse, abstraction for the interface contract, algorithm design branch by branch, and data mapping at every boundary. Operates in 'strong push' mode requiring gate artifacts before advancing while respecting explicit overrides, and holds twelve hard invariants including an append-mostly ledger and never claiming an unobserved pass."
     },
     {
+      "name": "master-agent",
+      "path": "master-agent/SKILL.md",
+      "description": "Operates the AI side of an agent session as one managed system: inventories what is actually loaded (skills, MCP servers and their tools, subagents, models), triages MCP server state (connected, deferred, needs auth, failed), routes each…",
+      "content": ""
+    },
+    {
+      "name": "master-design",
+      "path": "master-design/SKILL.md",
+      "description": "Runs a whole design job from a one-line ask to a handoff-ready draft, in four disciplines taken in order: architecture (information architecture, screen inventory, design-system token structure), art direction (a written visual thesis,…",
+      "content": ""
+    },
+    {
       "name": "obsidian-vault",
       "path": "obsidian-vault/SKILL.md",
       "description": "Turn an Obsidian vault into a persistent, self-organizing knowledge base that Claude Code reads from and writes to across sessions — second brain / PKM setup, ingesting documents, URLs and transcripts into linked notes, querying past notes, and running project wikis.",
@@ -138,12 +144,6 @@
       "content": "Runs an autonomous protocol: auto-detect context, then emit layered contracts — frontend component contract (always), API contract, DB schema contract — followed by functional requirements, non-functional requirements, a lean risk register, and a small-team sign-off checklist. Ends with a full output document template; missing context is inferred and annotated as assumptions rather than asked about."
     },
     {
-      "name": "security",
-      "path": "security/SKILL.md",
-      "description": "Senior-level security architecture covering OAuth2 authorization flows and leveled API key design. Activates on OAuth2, access tokens, authorization flows, API key management and rotation, key compromise, leveled permissions, resource server security, and agent authentication patterns.",
-      "content": "Architecture references for OAuth2 flows and leveled API keys (read-only / write / admin scoping), agent-to-service security design, a threat response playbook for key compromise and rotation, a security review checklist, a decision matrix for choosing between patterns, and a list of red flags to always call out."
-    },
-    {
       "name": "senior-leadership-advisor",
       "path": "senior-leadership-advisor/SKILL.md",
       "description": "Acts as senior leadership (CTO/VP/Staff-level) across engineering, product, design, quality, architecture, data/AI, and prompt engineering. Auto-detects which discipline(s) a request touches and answers in that voice. Skip for casual conversation or trivial lookups.",
@@ -168,12 +168,6 @@
       "content": "Opens with a PM-style scope and acceptance criteria pass, then a reference map and decision tree for which reference file to read first. Provides a canonical modern scene bootstrap (r182+, import maps, delta-time animation, correct disposal/memory management), non-negotiable rules, and design quality standards for cinematic visual output."
     },
     {
-      "name": "tracking-and-debugging",
-      "path": "tracking-and-debugging/SKILL.md",
-      "description": "Autonomous bug triage, root-cause diagnosis, and issue reporting for PERN/MERN full-stack projects. Outputs a structured issue report and fix guidance without follow-up questions. Thai triggers included (แก้บัค, หา bug, ช้า, memory leak, login ไม่ได้).",
-      "content": "Seven-step autonomous protocol: classify symptom to layer (UI, state, API, DB, auth, build), run that layer's diagnostic checklist, state the root cause, give fix guidance, define verification steps, add regression prevention, and emit a standard issue report template (symptom, root cause, evidence, fix, verification, prevention)."
-    },
-    {
       "name": "ui-checker",
       "path": "ui-checker/SKILL.md",
       "description": "Systematically audit web UIs across four dimensions: theme compliance (CSS variables/design tokens vs. hardcoded values, Tailwind and shadcn .dark setups), layout integrity (dimensions, spacing, overflow, breakpoints), browser rendering via a live clickable inspector artifact, and accessibility polish (WCAG contrast, alt text, focus styles, fixed px fonts, reduced motion).",
@@ -196,12 +190,6 @@
       "path": "view-pdf/SKILL.md",
       "description": "Interactive PDF viewer. Use when the user wants to open, show, or view a PDF and collaborate on it visually — annotate, highlight, stamp, fill form fields, place signature/initials, review markup. Not for summarization or text extraction.",
       "content": "Describes when to reach for the viewer instead of plain reading, the available viewer tools, supported annotation types, interactive workflows (annotate, fill forms, sign), supported PDF sources, and explicit out-of-scope cases."
-    },
-    {
-      "name": "web-design-guidelines",
-      "path": "web-design-guidelines/SKILL.md",
-      "description": "Review UI code for Web Interface Guidelines compliance. Use for 'review my UI', 'check accessibility', 'audit design', 'review UX', or 'check my site against best practices'. Takes a file or glob pattern as argument.",
-      "content": "A thin review harness: explains how the check runs against a file or pattern, points to the canonical Web Interface Guidelines source used as the rule set, and documents usage."
     }
   ]
 }
