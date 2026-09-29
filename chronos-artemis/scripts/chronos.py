@@ -282,6 +282,11 @@ def plan(day):
 # --------------------------------------------------------------------------- cli
 
 def main(argv):
+    # Windows consoles default to a legacy code page that cannot print Thai; JSON output
+    # must survive any console, so force UTF-8 where the stream allows it.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
     if len(argv) < 2 or argv[1] in ("-h", "--help"):
         print(__doc__)
         return 0
