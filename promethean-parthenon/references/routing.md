@@ -103,8 +103,8 @@ Two active skills apply this same doctrine to other kinds of work. They are stan
 
 | Request | Skill (by name) | Its Role · Task · Format |
 | --- | --- | --- |
-| Design from scratch — information architecture, art direction, concepts, wireframes, drafts | **daedalus-atelier** | design lead · a written design target and visual thesis · a design record |
-| Which tool, skill, MCP server or subagent to use; MCP setup, auth or failure; building an MCP server | **hermes-agora** | orchestrator · a capability target with a proof line · a capability record |
+| Design from scratch — information architecture, art direction, concepts, wireframes, drafts | **athena-erechtheion** | design lead · a written design target and visual thesis · a design record |
+| Which tool, skill, MCP server or subagent to use; MCP setup, auth or failure; building an MCP server | **hermes-olympus** | orchestrator · a capability target with a proof line · a capability record |
 
 Route out early. A pillar applied to work it was not built for produces confident output about the wrong dimension — which is the exact failure this skill exists to prevent.
 

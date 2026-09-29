@@ -9,9 +9,11 @@ Layout (see CLAUDE.md §Layout):
     <hub>/SKILL.md                 an aggregator, top level — the names a user remembers
     <realm>/<skill>/SKILL.md       every other skill, filed under one realm folder
 
-A realm is a plain directory, never a skill. Hubs and realms are named in the
-library's Greek and Roman register as two words, like promethean-parthenon: the
-power or quality that governs that kind of work, then its place.
+A realm is a plain directory, never a skill. A hub is named in the library's Greek
+and Roman register as two words, like promethean-parthenon: the power or quality
+that governs that kind of work, then its place. A realm is named as one plain,
+literal English word for its category — core, design, web, stack, knowledge — so
+a reader can guess where a skill lives without opening the file.
 """
 from pathlib import Path
 
@@ -33,7 +35,7 @@ HUBS = {
         "skill-creator",
         "ui-checker",
     ],
-    "daedalus-atelier": [
+    "athena-erechtheion": [
         "css-architecture",
         "frontend-design",
         "google-design-system",
@@ -41,34 +43,34 @@ HUBS = {
     ],
 }
 
-# Realm folder -> (heading, what it holds, why the name). Order is the README order.
+# Realm folder -> (heading, what it holds). Order is the README order.
 REALMS = {
-    "olympian-pantheon": (
-        "Olympian Pantheon — the engineering specialists",
-        "The gods of Olympus, who dwell in the Parthenon: each specialist is reached through promethean-parthenon.",
+    "core": (
+        "Core — the engineering specialists",
+        "Reached only through promethean-parthenon.",
     ),
-    "heliconian-muses": (
-        "Heliconian Muses — the design specialists",
-        "The Muses of Mount Helicon, who inspire the arts: each is reached through daedalus-atelier.",
+    "design": (
+        "Design — the design specialists",
+        "Reached only through athena-erechtheion.",
     ),
-    "mercurial-forum": (
-        "Mercurial Forum — web delivery and quality",
-        "Swift Mercury in the Roman forum, god of messengers and trade: speed, shipping and the quality of what reaches the user.",
+    "web": (
+        "Web — web delivery and quality",
+        "Speed, shipping and the quality of what reaches the user.",
     ),
-    "hephaestian-forge": (
-        "Hephaestian Forge — application stacks",
-        "The forge of Hephaestus, smith of the gods: where a particular stack is built well.",
+    "stack": (
+        "Stack — application stacks",
+        "Where a particular stack is built well.",
     ),
-    "athenian-academy": (
-        "Athenian Academy — knowledge and teaching",
-        "The academy of Athena's city, goddess of wisdom: reference knowledge, notes, analysis and course design.",
+    "knowledge": (
+        "Knowledge — knowledge and teaching",
+        "Reference knowledge, notes, analysis and course design.",
     ),
 }
 
 HUB_NOTE = {
     "promethean-parthenon": "engineering",
-    "daedalus-atelier": "design",
-    "hermes-agora": "AI agents and MCP",
+    "athena-erechtheion": "design",
+    "hermes-olympus": "AI agents and MCP",
 }
 
 

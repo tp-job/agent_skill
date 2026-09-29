@@ -39,10 +39,10 @@ FINDING = [
     "| `owasp-top-10-2025` | \"is this secure\" | promethean-parthenon |",
     "| `ui-checker` | \"does dark mode work on this page\" | promethean-parthenon |",
     "| `agentic-engineering` / `requirement-gathering` | \"plan this build\" | promethean-parthenon |",
-    "| `frontend-design` | \"make this page look less generic\" | daedalus-atelier |",
-    "| `css-architecture` | \"organise my Tailwind CSS\" | daedalus-atelier |",
-    "| `threejs-3d` | \"build a 3D scene with three.js\" | daedalus-atelier |",
-    "| `hermes-agora` | \"which MCP server should handle this\" | itself |",
+    "| `frontend-design` | \"make this page look less generic\" | athena-erechtheion |",
+    "| `css-architecture` | \"organise my Tailwind CSS\" | athena-erechtheion |",
+    "| `threejs-3d` | \"build a 3D scene with three.js\" | athena-erechtheion |",
+    "| `hermes-olympus` | \"which MCP server should handle this\" | itself |",
     "| `deploy-to-vercel` | \"deploy this app\" | itself |",
     "",
     "Unsure which skill fits, or the request spans several? Say that — "
@@ -161,10 +161,12 @@ def main():
     found = discover()
     inner = spokes()
     # Hubs and realms carry the library's two-word mythic form, like promethean-parthenon.
-    for kind, names in (('hub', HUB_NOTE), ('realm', REALMS)):
-        for n in names:
-            if not re.fullmatch(r'[a-z]+-[a-z]+', n):
-                problems.append('%s name %r must be two words, like promethean-parthenon' % (kind, n))
+    for n in HUB_NOTE:
+        if not re.fullmatch(r'[a-z]+-[a-z]+', n):
+            problems.append('hub name %r must be two words, like promethean-parthenon' % n)
+    for n in REALMS:
+        if not re.fullmatch(r'[a-z]+', n):
+            problems.append('realm name %r must be one plain English word (no hyphen), like knowledge' % n)
     for name_dir, folder_rel in sorted(found.items(), key=lambda kv: kv[1]):
         rel = folder_rel + '/SKILL.md'
         folder = name_dir

@@ -1,27 +1,27 @@
 {
   "name": "agent-skill",
-  "description": "Claude Code skill library. Three hubs are the names to remember: promethean-parthenon (engineering — debugging, security, UI review, requirements, long builds, reports, skill authoring), daedalus-atelier (design — IA, art direction, concepts, drafts, plus frontend look, Material, Tailwind CSS, three.js) and hermes-agora (AI agents and MCP). The rest are standalone domain skills.",
+  "description": "Claude Code skill library. Three hubs are the names to remember: promethean-parthenon (engineering — debugging, security, UI review, requirements, long builds, reports, skill authoring), athena-erechtheion (design — IA, art direction, concepts, drafts, plus frontend look, Material, Tailwind CSS, three.js) and hermes-olympus (AI agents and MCP). The rest are standalone domain skills.",
   "author": {
     "name": "tp-job"
   },
   "repository": "https://github.com/tp-job/agent_skill",
   "license": "MIT",
   "skills": [
-    "./mercurial-forum/ai-web-product-craft",
-    "./mercurial-forum/clean-code-javascript",
-    "./athenian-academy/cs-course-designer",
-    "./daedalus-atelier",
-    "./athenian-academy/data-analyze",
-    "./mercurial-forum/deploy-to-vercel",
-    "./hephaestian-forge/flutter",
-    "./hermes-agora",
-    "./hephaestian-forge/java-api-performance",
-    "./athenian-academy/knowledge-base",
-    "./mercurial-forum/lighthouse",
-    "./athenian-academy/obsidian-vault",
+    "./web/ai-web-product-craft",
+    "./athena-erechtheion",
+    "./web/clean-code-javascript",
+    "./knowledge/cs-course-designer",
+    "./knowledge/data-analyze",
+    "./web/deploy-to-vercel",
+    "./stack/flutter",
+    "./hermes-olympus",
+    "./stack/java-api-performance",
+    "./knowledge/knowledge-base",
+    "./web/lighthouse",
+    "./knowledge/obsidian-vault",
     "./promethean-parthenon",
-    "./hephaestian-forge/supabase-senior",
-    "./mercurial-forum/vercel-cli-with-tokens",
-    "./mercurial-forum/vercel-react-best-practices"
+    "./stack/supabase-senior",
+    "./web/vercel-cli-with-tokens",
+    "./web/vercel-react-best-practices"
   ]
 }
