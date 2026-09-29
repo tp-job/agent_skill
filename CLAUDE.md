@@ -14,6 +14,7 @@ The repository root holds only the **hubs** — the few skills a user is expecte
 promethean-parthenon/   hub — engineering; routes to core/
 athena-erechtheion/     hub — design; routes to design/
 hermes-olympus/         hub — AI agents and MCP; routes to nothing
+chronos-artemis/        hub — time and task management (Google Calendar, ClickUp); routes to nothing
 core/          engineering specialists — promethean-parthenon's spokes
 design/        design specialists — athena-erechtheion's spokes
 web/           web delivery and quality

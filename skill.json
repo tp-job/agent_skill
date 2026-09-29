@@ -3,12 +3,18 @@
   "version": "1.1.0",
   "generated": "2026-09-29",
   "root": "agent-skill",
-  "count": 30,
+  "count": 31,
   "skills": [
     {
       "name": "athena-erechtheion",
       "path": "athena-erechtheion/SKILL.md",
       "description": "Runs a whole design job from a one-line ask to a handoff-ready draft, in four disciplines taken in order: architecture (information architecture, screen inventory, design-system token structure), art direction (a written visual thesis,…",
+      "content": ""
+    },
+    {
+      "name": "chronos-artemis",
+      "path": "chronos-artemis/SKILL.md",
+      "description": "Time and task management across Google Calendar and ClickUp.",
       "content": ""
     },
     {

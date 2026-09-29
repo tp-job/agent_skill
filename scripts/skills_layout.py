@@ -71,6 +71,7 @@ HUB_NOTE = {
     "promethean-parthenon": "engineering",
     "athena-erechtheion": "design",
     "hermes-olympus": "AI agents and MCP",
+    "chronos-artemis": "time and task management",
 }
 
 

@@ -29,7 +29,7 @@ from skills_layout import HUB_NOTE, HUBS, REALMS, active, discover, spokes  # no
 FINDING = [
     "## Finding a skill without knowing its name",
     "",
-    "Only three names are worth remembering — the hubs below. Everything else is opened for "
+    "Only four names are worth remembering — the hubs below. Everything else is opened for "
     "you: Claude Code reads each active skill's `description` and opens the match, and a hub "
     "opens the specialists filed under it. Describe the task in plain language and let it pick.",
     "",
@@ -43,6 +43,7 @@ FINDING = [
     "| `css-architecture` | \"organise my Tailwind CSS\" | athena-erechtheion |",
     "| `threejs-3d` | \"build a 3D scene with three.js\" | athena-erechtheion |",
     "| `hermes-olympus` | \"which MCP server should handle this\" | itself |",
+    "| `chronos-artemis` | \"plan my day\" / \"mark that task done\" | itself |",
     "| `deploy-to-vercel` | \"deploy this app\" | itself |",
     "",
     "Unsure which skill fits, or the request spans several? Say that — "
@@ -210,7 +211,7 @@ def main():
     lines = [
         '# Agent Skills',
         '',
-        'A library of %d Claude Code skills. Three hubs sit at the top level; every other skill '
+        'A library of %d Claude Code skills. Four hubs sit at the top level; every other skill '
         'is filed under a realm folder named for the power that governs its kind of work. Each '
         'skill folder is named for the `name:` in its `SKILL.md`, with deep-dive material under '
         '`references/` and any executable helpers under `scripts/`.' % len(skills),
@@ -230,7 +231,7 @@ def main():
         note = ' *Via %s.*' % hub if hub else ''
         return '| [%s](%s) | %s%s |' % (s['name'], s['path'], s['description'], note)
 
-    lines += ['## Hubs — the three names to remember', '',
+    lines += ['## Hubs — the four names to remember', '',
               '| Skill | Opens | What it does |', '| --- | --- | --- |']
     for hub, area in HUB_NOTE.items():
         if hub in by_name:

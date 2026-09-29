@@ -1,0 +1,24 @@
+{
+  "skill_name": "chronos-artemis",
+  "note": "Trigger evals: judged from skill descriptions alone. should_trigger=true means chronos-artemis must be picked; false means another skill (or none) must be picked.",
+  "evals": [
+    {"id": 1,  "should_trigger": true,  "prompt": "Plan my day — pull my meetings from Google Calendar and fit my ClickUp tasks around them."},
+    {"id": 2,  "should_trigger": true,  "prompt": "I finished the pricing email, mark it done in ClickUp."},
+    {"id": 3,  "should_trigger": true,  "prompt": "Add a sync with Mai at 2pm tomorrow and make a task to send her the budget before that."},
+    {"id": 4,  "should_trigger": true,  "prompt": "Am I overbooked this week? I have a lot due by Friday."},
+    {"id": 5,  "should_trigger": true,  "prompt": "Block two hours tomorrow morning for the API migration task."},
+    {"id": 6,  "should_trigger": true,  "prompt": "Weekly review please — what did I complete and what slipped?"},
+    {"id": 7,  "should_trigger": true,  "prompt": "I want to go to the gym three times a week, put it on my calendar."},
+    {"id": 8,  "should_trigger": true,  "prompt": "Here's my brain dump from today's meeting, sort out what's a meeting, what's a task and what's just a habit."},
+    {"id": 9,  "should_trigger": true,  "prompt": "Which of my ClickUp tasks are in progress and which are still to do?"},
+    {"id": 10, "should_trigger": true,  "prompt": "จัดตารางวันนี้ให้หน่อย มีประชุมบ่ายสองโมง"},
+    {"id": 11, "should_trigger": true,  "prompt": "งานเขียนสเปกเสร็จแล้ว อัปเดตใน ClickUp ให้ที"},
+    {"id": 12, "should_trigger": true,  "prompt": "My calendar blocks and ClickUp tasks are out of sync, reconcile them."},
+    {"id": 13, "should_trigger": false, "prompt": "The ClickUp MCP server says it needs authentication and its tools are missing. How do I fix it?"},
+    {"id": 14, "should_trigger": false, "prompt": "Build a booking calendar component in React with a date picker and time slots."},
+    {"id": 15, "should_trigger": false, "prompt": "Plan our next two-week sprint for the five engineers on the team, accounting for PTO."},
+    {"id": 16, "should_trigger": false, "prompt": "Write a Python function that converts ISO 8601 timestamps between time zones."},
+    {"id": 17, "should_trigger": false, "prompt": "Create a product roadmap for Q1 with Now/Next/Later columns."},
+    {"id": 18, "should_trigger": false, "prompt": "Why is my cron job running an hour late after the daylight saving change?"}
+  ]
+}

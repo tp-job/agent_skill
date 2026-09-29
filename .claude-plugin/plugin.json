@@ -1,6 +1,6 @@
 {
   "name": "agent-skill",
-  "description": "Claude Code skill library. Three hubs are the names to remember: promethean-parthenon (engineering — debugging, security, UI review, requirements, long builds, reports, skill authoring), athena-erechtheion (design — IA, art direction, concepts, drafts, plus frontend look, Material, Tailwind CSS, three.js) and hermes-olympus (AI agents and MCP). The rest are standalone domain skills.",
+  "description": "Claude Code skill library. Four hubs are the names to remember: promethean-parthenon (engineering — debugging, security, UI review, requirements, long builds, reports, skill authoring), athena-erechtheion (design — IA, art direction, concepts, drafts, plus frontend look, Material, Tailwind CSS, three.js), hermes-olympus (AI agents and MCP) and chronos-artemis (time and tasks — Google Calendar and ClickUp). The rest are standalone domain skills.",
   "author": {
     "name": "tp-job"
   },
@@ -9,6 +9,7 @@
   "skills": [
     "./web/ai-web-product-craft",
     "./athena-erechtheion",
+    "./chronos-artemis",
     "./web/clean-code-javascript",
     "./knowledge/cs-course-designer",
     "./knowledge/data-analyze",
