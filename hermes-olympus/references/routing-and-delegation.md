@@ -33,6 +33,9 @@ Default is **inline**. A subagent starts with none of your context and re-derive
 | Work is independent and can run in parallel (e.g. five unrelated searches) | Steps depend on each other's results |
 | A broad read-only sweep where you need only the conclusion | You need the file contents themselves |
 | Isolation matters — a risky change in a separate worktree | The change is small and reviewable in place |
+| A large audit or migration: many files, one rule applied to each | The "many files" are few enough to read yourself |
+
+**Fan out, then verify.** A worker's "done" is a claim, not a result. After a fan-out, spot-check each worker's output against the rule it was given before merging or reporting. Give workers disjoint scopes (a directory each, not "half the bugs"), so their results can be checked independently.
 
 A delegation brief must stand alone: the goal, the files, the constraints, what to return. The subagent never saw this conversation.
 
@@ -50,6 +53,10 @@ Reach for effort before reaching for a different model.
 | Irreversible decisions | max | the most capable available, plus a human gate |
 
 Check the current model identifiers in the client or the provider's docs rather than quoting from memory — they change.
+
+**Effort replaces thinking directives.** On current models (Claude Opus 5.5, 2026), reasoning is adaptive: the model already thinks before replying. "Think carefully" in a prompt or a delegation brief adds nothing, so set the effort level instead.
+
+**A flagged or refused message** can be retried on another model. The user switches with the client's model picker or `/model`. The orchestrator suggests it; it doesn't route around a refusal on its own.
 
 ---
 

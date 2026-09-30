@@ -141,6 +141,42 @@
       "should_trigger": false,
       "prompt": "Is the login form on this page vulnerable to XSS?",
       "expected_skill": "promethean-parthenon"
+    },
+    {
+      "id": 26,
+      "should_trigger": true,
+      "via": "reference-analysis",
+      "prompt": "Here's a screenshot of a site I love — what design style is this, what's the palette and type, and how would I build it with Tailwind?"
+    },
+    {
+      "id": 27,
+      "should_trigger": true,
+      "via": "reference-analysis",
+      "prompt": "ช่วยวิเคราะห์ภาพ Screenshot เว็บไซต์นี้เพื่อการศึกษา Web Design — สไตล์ สี ฟอนต์ layout และ tech stack"
+    },
+    {
+      "id": 28,
+      "should_trigger": false,
+      "expected_skill": "promethean-parthenon",
+      "prompt": "Here's a screenshot of my built dashboard — the dark mode text is unreadable, what's wrong?"
+    },
+    {
+      "id": 29,
+      "should_trigger": true,
+      "via": "critique",
+      "prompt": "Here's my Figma mockup for the pricing page before it goes to dev — critique it. What's weak and what should I keep?"
+    },
+    {
+      "id": 30,
+      "should_trigger": true,
+      "via": "critique",
+      "prompt": "ช่วยรีวิว mockup หน้า landing นี้หน่อย ก่อนส่งให้ dev ทำ ดูว่า hierarchy กับ responsive โอเคไหม"
+    },
+    {
+      "id": 31,
+      "should_trigger": true,
+      "via": "material-foundation",
+      "prompt": "I want our web app to follow Material Design but not look like a Google app — elegant and modern. How do we set that up?"
     }
   ]
 }

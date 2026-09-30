@@ -16,6 +16,8 @@ Concepts must differ in **idea**, not in colour. Force the spread with a differe
 | Borrowed world | "How would signage / print / games / instruments solve this?" |
 | Extreme user | "Designed for someone using it with gloves, in sunlight, in a hurry." |
 
+On a Material 3 foundation, also vary the expression levers (scheme variant, shape, type emphasis, motion scheme) while the invariants stay fixed. See [material-foundation](material-foundation.md) §4.
+
 Each concept gets a name, one sentence, and a thumbnail (ASCII or a rough render). No hi-fi yet.
 
 **BAD:** Concept A (blue), Concept B (teal), Concept C (dark mode).

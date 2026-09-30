@@ -1,6 +1,6 @@
 # Design record — Clinic "Today" screen (worked example)
 
-A complete run of the four stages on a small, real-sized job, so the method can be seen end to end. The draft it produced is [example-draft.html](example-draft.html).
+A complete run of the stages on a small, real-sized job, so the method can be seen end to end. The draft it produced is [example-draft.html](example-draft.html).
 
 ---
 

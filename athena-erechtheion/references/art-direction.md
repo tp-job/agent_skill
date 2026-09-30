@@ -45,7 +45,7 @@ Negative rules transfer taste faster than positive ones. Write exactly three.
 
 ## 4. Moodboard, if one helps
 
-A moodboard is evidence for the thesis, not a replacement for it. 6–12 references, each captioned with *what to take from it* ("the numeral size", not "nice").
+A moodboard is evidence for the thesis, not a replacement for it. 6–12 references, each captioned with *what to take from it* ("the numeral size", not "nice"). To pull tokens out of a reference instead of just a caption, run the teardown in [reference-analysis](reference-analysis.md).
 
 **When not to make one:** the brand already exists, or the job is one screen. A moodboard over an established system invites re-litigating decisions already made.
 

@@ -6,6 +6,8 @@ What actually changes the quality of agent output, ranked by effect. The ranking
 
 ## Lever 1 — Specificity of the target
 
+A specific target states two things: **when it is done**, and **when to stop and ask instead of pushing on**. The second half is the one usually missing. See [model-briefing](model-briefing.md) §1.
+
 The largest lever by a wide margin, and the cheapest to pull.
 
 An agent resolves ambiguity by picking. It does not flag the pick. So every vague word in your ask is a coin flip you did not know was being flipped, and the result compiles either way.
@@ -128,6 +130,7 @@ Worth naming, because effort goes here by default:
 - **Politeness, urgency, or stakes framing.** "This is critical" does not add information.
 - **Restating the same requirement in three ways.** It adds tokens and no constraints.
 - **Model choice, mostly.** It is real but far smaller than levers 1–3, and it cannot rescue an unspecified target. A better model builds the wrong thing more competently.
+- **Thinking directives** ("think carefully", "think step by step"). Current models already reason before replying. Depth is set with the effort level (lever 4), not with a phrase. Delete them from old prompts. See [model-briefing](model-briefing.md).
 - **Asking the agent to "be careful" or "double-check".** Compare to lever 2: a named check that runs is worth more than any amount of instructed diligence.
 
 ---

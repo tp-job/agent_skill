@@ -19,7 +19,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.3.0"
+  version: "3.4.0"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,
@@ -190,6 +190,8 @@ What actually moves agent output quality, ranked by effect. Detail and the measu
 4. **Effort placed at decisions, not iterations.** Deep thinking at the gates, at decomposition, and on anything that failed twice. Routine loop iterations were decided upstream; thinking hard there is spend with no return. On current models this is a literal setting — a reasoning effort level from `low` to `max` — so reach for it before reaching for a different model.
 5. **Scope held still.** A growing feature list is discovery working. A drifting acceptance criterion is the build going wrong. Know which one you are looking at.
 
+**How to say the levers to the model:** a finish line *and* stopping conditions in the brief, no "think carefully" (use the effort level), the whole scope in one message, blocking items first in the report. The Opus 5.5–era specifics, plus a paste-ready CLAUDE.md block, are in [model-briefing](references/model-briefing.md).
+
 ---
 
 ## Diagnosing bad output
@@ -220,6 +222,8 @@ Symptom → cause → pillar. Expanded, with the tells for each: [failure-modes]
 
 - **The target is never skipped, only sized.** A one-line ask for a one-line change needs one line of written target. It does not need zero.
 - **Never claim a pass you did not observe.** "Implemented" ≠ "verified." This is the rule that everything else is built to protect.
+- **Mark what you could not confirm, and say where to check it:** `file:line`, a URL, or the command that would settle it. An unmarked guess reads as a fact.
+- **Report blocking items first.** Put what you need from the human above the summary, and attach status notes to the actions they describe.
 - **One artifact per handoff.** A pillar handing off without its artifact is where the work leaks — and the next seat is usually a future session with no memory.
 - **Occupy the role, don't narrate it.** "As the architect, I would say…" is not the Role pillar. The switch changes the work, not the wording.
 - **Announce a skipped gate in one sentence, then comply.** Name the gate and the specific risk. If the user says go anyway, go — and do not re-raise it. A *new* risk later is fair; re-litigating the same one is not.

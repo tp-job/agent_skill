@@ -80,3 +80,7 @@ Open:       <questions still unanswered, each with an owner>
 - [ ] Every screen in the inventory has a state in the record
 - [ ] The record lets someone who missed the session rebuild the design
 - [ ] Nothing was shared or published without the human's yes
+
+## Handoff to review
+
+Pass forward: the draft, the question it answers, and its rung. Review sizes its passes to the rung. See [critique](critique.md).

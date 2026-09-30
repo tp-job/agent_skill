@@ -1,14 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/skill-index.json",
   "version": "1.1.0",
-  "generated": "2026-09-29",
+  "generated": "2026-09-30",
   "root": "agent-skill",
   "count": 31,
   "skills": [
     {
       "name": "athena-erechtheion",
       "path": "athena-erechtheion/SKILL.md",
-      "description": "Runs a whole design job from a one-line ask to a handoff-ready draft, in four disciplines taken in order: architecture (information architecture, screen inventory, design-system token structure), art direction (a written visual thesis,…",
+      "description": "Runs a whole design job from a one-line ask to a handoff-ready draft, in five disciplines taken in order: architecture, art direction (a written visual thesis), creativity (scored concepts), drafting and review (critique against the thesis)…",
       "content": ""
     },
     {
