@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/skill-index.json",
   "version": "1.1.0",
-  "generated": "2026-09-30",
+  "generated": "2026-10-01",
   "root": "agent-skill",
-  "count": 31,
+  "count": 33,
   "skills": [
     {
       "name": "athena-erechtheion",
@@ -102,9 +102,21 @@
       "content": "Opens with a PM-style scope and acceptance criteria pass, then a reference map and decision tree for which reference file to read first. Provides a canonical modern scene bootstrap (r182+, import maps, delta-time animation, correct disposal/memory management), non-negotiable rules, and design quality standards for cinematic visual output."
     },
     {
+      "name": "web-design-trends",
+      "path": "design/web-design-trends/SKILL.md",
+      "description": "Turns a year's web design trends into deliberate design decisions, filed by year.",
+      "content": ""
+    },
+    {
       "name": "hermes-olympus",
       "path": "hermes-olympus/SKILL.md",
       "description": "Operates the AI side of an agent session as one managed system: inventories what is actually loaded (skills, MCP servers and their tools, subagents, models), triages MCP server state (connected, deferred, needs auth, failed), routes each…",
+      "content": ""
+    },
+    {
+      "name": "archery",
+      "path": "knowledge/archery/SKILL.md",
+      "description": "Plans a lesson or training session and builds the slides that carry it, as one job: write the learning target, choose a teaching method that fits it (demonstration, role play, case study, game, simulation, concept attainment, or a plain…",
       "content": ""
     },
     {

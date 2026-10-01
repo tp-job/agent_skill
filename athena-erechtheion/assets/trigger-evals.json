@@ -177,6 +177,24 @@
       "should_trigger": true,
       "via": "material-foundation",
       "prompt": "I want our web app to follow Material Design but not look like a Google app — elegant and modern. How do we set that up?"
+    },
+    {
+      "id": 32,
+      "should_trigger": true,
+      "via": "web-design-trends",
+      "prompt": "What are the web design trends for 2026, and which ones should our architecture firm's new site actually use?"
+    },
+    {
+      "id": 33,
+      "should_trigger": true,
+      "via": "web-design-trends",
+      "prompt": "เว็บเราทำเมื่อ 2 ปีก่อน ดูเชยไหม เทรนด์เว็บ 2026 มีอะไรที่ควรเอามาใช้บ้าง"
+    },
+    {
+      "id": 34,
+      "should_trigger": false,
+      "expected_skill": "lighthouse",
+      "prompt": "Our new cinematic video hero tanked the LCP score — how do we get Core Web Vitals green again?"
     }
   ]
 }

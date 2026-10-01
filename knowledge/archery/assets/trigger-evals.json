@@ -1,0 +1,71 @@
+{
+  "skill_name": "archery",
+  "note": "Trigger evals: judged from active skill descriptions alone. should_trigger=true means archery must be picked; false means another skill (or none) must be picked.",
+  "evals": [
+    {
+      "id": 1,
+      "should_trigger": true,
+      "prompt": "I have to teach Year 9 about ratios on Monday. Help me plan the lesson and the slides."
+    },
+    {
+      "id": 2,
+      "should_trigger": true,
+      "prompt": "My teaching slides are boring and full of text. How do I make them better for students?"
+    },
+    {
+      "id": 3,
+      "should_trigger": true,
+      "prompt": "ช่วยสร้างสื่อการสอน PowerPoint เรื่องการดูฉลากโภชนาการ สำหรับ ม.2 หน่อย"
+    },
+    {
+      "id": 4,
+      "should_trigger": true,
+      "prompt": "Which teaching method fits 'handle a difficult customer' — role play, case study or simulation?"
+    },
+    {
+      "id": 5,
+      "should_trigger": true,
+      "prompt": "ทำแผนการสอน 1 คาบ พร้อมกิจกรรมให้เด็กมีส่วนร่วม แล้วทำสไลด์ประกอบ"
+    },
+    {
+      "id": 6,
+      "should_trigger": true,
+      "prompt": "Add some active-learning moments to my 60-minute workshop deck so people aren't just listening."
+    },
+    {
+      "id": 7,
+      "should_trigger": true,
+      "prompt": "Is my training deck accessible? What should I check before I present it?"
+    },
+    {
+      "id": 8,
+      "should_trigger": false,
+      "expected_skill": "cs-course-designer",
+      "prompt": "Write the course learning outcomes and a midterm exam for my SQL course."
+    },
+    {
+      "id": 9,
+      "should_trigger": false,
+      "expected_skill": "none",
+      "prompt": "Build me a Series A investor pitch deck for my startup."
+    },
+    {
+      "id": 10,
+      "should_trigger": false,
+      "expected_skill": "pptx",
+      "prompt": "Convert this markdown outline into a .pptx file I can download."
+    },
+    {
+      "id": 11,
+      "should_trigger": false,
+      "expected_skill": "none",
+      "prompt": "Explain recursion to me right now, I'm stuck on my homework."
+    },
+    {
+      "id": 12,
+      "should_trigger": false,
+      "expected_skill": "athena-erechtheion",
+      "prompt": "Design the visual identity and moodboard for our new marketing website."
+    }
+  ]
+}

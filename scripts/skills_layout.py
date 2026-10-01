@@ -40,6 +40,7 @@ HUBS = {
         "frontend-design",
         "google-design-system",
         "threejs-3d",
+        "web-design-trends",
     ],
 }
 

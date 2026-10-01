@@ -1,26 +1,26 @@
 ---
 name: athena-erechtheion
 description: >-
-  Single entry point to design work and to four bundled design specialists. Runs a job from a
+  Single entry point to design work and to five bundled design specialists. Runs a job from a
   one-line ask to a handoff-ready draft in five stages: architecture (IA, screens, token tiers), art
   direction (a written visual thesis), creativity (divergent concepts, scored), drafting (wireframes,
   prototypes, Figma, Canva, Blender), review (critique a draft against its thesis). Routes to: a
   distinctive look for one page or component, typography, less templated UI (frontend-design);
-  Material 3 Expressive, Google design, motion, UX writing, Google Sans (google-design-system);
-  Tailwind-first CSS files, CSS hell, specificity, design tokens, PostCSS (css-architecture);
-  three.js, WebGL/WebGPU, shaders, GLTF/GLB, R3F, 3D scenes, product viewers (threejs-3d). Tears
-  down a reference screenshot into style, palette, type, grid, components and a build stack.
-  Trigger for: "design this from scratch", "art direction for", "give me concepts", "wireframe
-  this", "moodboard", "what should this look like", "make this look less generic", "follow
-  Material 3", "organise my Tailwind CSS", "build a 3D scene", "analyse this design screenshot",
-  "critique this draft", "วิเคราะห์ดีไซน์เว็บ", "ออกแบบทั้งระบบ", "ช่วยคิดคอนเซปต์ดีไซน์", "ทำเว็บ 3D".
-  On a specialist trigger, open that bundled skill at once — do not run the stages for a
-  one-component tweak. Not for implementing a finished design (a Figma frame, a mockup) in code,
-  auditing a built UI for contrast or dark-mode bugs, or software and system architecture.
+  Material 3 Expressive, Google design, motion, UX writing (google-design-system); Tailwind-first
+  CSS files, CSS hell, specificity, design tokens (css-architecture); three.js, WebGL/WebGPU,
+  shaders, GLTF, R3F, 3D scenes (threejs-3d); this year's web design trends, filed by launch year,
+  scored before adoption (web-design-trends). Tears down a reference screenshot: style, palette,
+  type, grid, build stack. Trigger for: "design this from scratch", "art direction for", "give
+  me concepts", "wireframe this", "moodboard", "make this look less generic", "follow Material 3",
+  "organise my Tailwind CSS", "build a 3D scene", "analyse this design screenshot", "critique this
+  draft", "web design trends 2026", "is this design dated", "วิเคราะห์ดีไซน์เว็บ", "เทรนด์เว็บ 2026",
+  "ช่วยคิดคอนเซปต์ดีไซน์". On a specialist trigger, open that bundled skill at once — do not run the
+  stages for a one-component tweak. Not for implementing a finished design (a Figma frame, a
+  mockup) in code, auditing a built UI for contrast or dark-mode bugs, or software architecture.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.4.0"
+  version: "3.5.0"
   source: >-
     Promethean-Parthenon Role · Task · Format doctrine applied to design practice; information
     architecture, art-direction and double-diamond ideation methods (compiled 2026)
@@ -29,11 +29,11 @@ metadata:
 # Athena Erechtheion
 
 **Athena** — goddess of wisdom and of craft (Athena Ergane, patron of weavers, potters and every skilled hand): the judgement that turns a raw idea into a considered form.
-**Erechtheion** — her temple on the Acropolis, built to hold several sacred functions under one roof: the four design specialists in `bundled/` work here, each answering a different part of the same commission.
+**Erechtheion** — her temple on the Acropolis, built to hold several sacred functions under one roof: the five design specialists in `bundled/` work here, each answering a different part of the same commission.
 
 ## Fast path — read this first
 
-This skill is the **only** entry point to the four skills under `bundled/`; none of them loads on its own. When the request already names its specialist, skip everything below and open it:
+This skill is the **only** entry point to the five skills under `bundled/`; none of them loads on its own. When the request already names its specialist, skip everything below and open it:
 
 | The request is… | Open now |
 | --- | --- |
@@ -41,6 +41,7 @@ This skill is the **only** entry point to the four skills under `bundled/`; none
 | Material 3, Google design standards, motion, UX writing | [google-design-system](bundled/google-design-system/SKILL.md) |
 | Tailwind-first CSS files, CSS hell, specificity, token files, PostCSS | [css-architecture](bundled/css-architecture/SKILL.md) |
 | three.js, WebGL/WebGPU, shaders, GLTF, R3F, a 3D scene | [threejs-3d](bundled/threejs-3d/SKILL.md) |
+| What's trending this year, "make it feel current", "is this dated" | [web-design-trends](bundled/web-design-trends/SKILL.md) |
 | Analyse a screenshot or reference site: its style, palette, type, grid, and how to build it | [reference-analysis](references/reference-analysis.md), which needs no stages |
 | Critique a design draft or mockup that isn't built yet | [critique](references/critique.md), which needs no stages |
 
@@ -131,6 +132,7 @@ This skill plans and drafts. When a stage needs deeper craft, open the bundled s
 | Material 3 / Google design conformance | [google-design-system](bundled/google-design-system/SKILL.md) |
 | Tailwind-first CSS file and token layout — the *files* behind the token tiers from architecture | [css-architecture](bundled/css-architecture/SKILL.md) |
 | A 3D scene in three.js | [threejs-3d](bundled/threejs-3d/SKILL.md) |
+| Whether a current trend belongs in the thesis: baseline rules plus at most two scored statements for the launch year | [web-design-trends](bundled/web-design-trends/SKILL.md) |
 | An audit of the built result — contrast, dark mode, focus states | a UI-review skill (in this library, via the promethean-parthenon router) |
 | Charts, dashboards, KPI tiles inside the design | a data-visualization skill, if one is installed; otherwise treat chart colours as tokens and run review pass 7 on them |
 | UX writing rules for buttons, errors and empty states | [google-design-system](bundled/google-design-system/SKILL.md) — its UX-writing domain |
