@@ -1,26 +1,27 @@
 ---
 name: athena-erechtheion
 description: >-
-  Single entry point to design work and to five bundled design specialists. Runs a job from a
+  Single entry point to design work and five bundled design specialists. Runs a job from a
   one-line ask to a handoff-ready draft in five stages: architecture (IA, screens, token tiers), art
   direction (a written visual thesis), creativity (divergent concepts, scored), drafting (wireframes,
-  prototypes, Figma, Canva, Blender), review (critique a draft against its thesis). Routes to: a
+  prototypes, Figma, Canva, Blender), review (critique a draft against its thesis, iterate on
+  feedback). Routes to: a
   distinctive look for one page or component, typography, less templated UI (frontend-design);
   Material 3 Expressive, Google design, motion, UX writing (google-design-system); Tailwind-first
   CSS files, CSS hell, specificity, design tokens (css-architecture); three.js, WebGL/WebGPU,
-  shaders, GLTF, R3F, 3D scenes (threejs-3d); this year's web design trends, filed by launch year,
+  shaders, GLTF, R3F, 3D scenes (threejs-3d); this year's web design trends by launch year,
   scored before adoption (web-design-trends). Tears down a reference screenshot: style, palette,
-  type, grid, build stack. Trigger for: "design this from scratch", "art direction for", "give
+  type, grid, stack. Trigger for: "design this from scratch", "art direction for", "give
   me concepts", "wireframe this", "moodboard", "make this look less generic", "follow Material 3",
   "organise my Tailwind CSS", "build a 3D scene", "analyse this design screenshot", "critique this
   draft", "web design trends 2026", "is this design dated", "วิเคราะห์ดีไซน์เว็บ", "เทรนด์เว็บ 2026",
-  "ช่วยคิดคอนเซปต์ดีไซน์". On a specialist trigger, open that bundled skill at once — do not run the
+  "ช่วยคิดคอนเซปต์ดีไซน์". On a specialist trigger, open that bundled skill at once — skip the
   stages for a one-component tweak. Not for implementing a finished design (a Figma frame, a
   mockup) in code, auditing a built UI for contrast or dark-mode bugs, or software architecture.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.5.0"
+  version: "3.6.0"
   source: >-
     Promethean-Parthenon Role · Task · Format doctrine applied to design practice; information
     architecture, art-direction and double-diamond ideation methods (compiled 2026)
@@ -44,6 +45,7 @@ This skill is the **only** entry point to the five skills under `bundled/`; none
 | What's trending this year, "make it feel current", "is this dated" | [web-design-trends](bundled/web-design-trends/SKILL.md) |
 | Analyse a screenshot or reference site: its style, palette, type, grid, and how to build it | [reference-analysis](references/reference-analysis.md), which needs no stages |
 | Critique a design draft or mockup that isn't built yet | [critique](references/critique.md), which needs no stages |
+| A revised draft plus feedback: did it get better, is the feedback positive, what did it cost | [iteration-loop](references/iteration-loop.md), which needs no stages |
 
 Everything else — a new product, site, brand or scene, an unclear design ask, a design that keeps being redone — reads on.
 
@@ -63,7 +65,7 @@ The work runs through **five disciplines in order**. Each one hands the next a w
   how it is        thesis, in         then one,       medium that    thesis and    + checks run,
   organised        writing            scored          answers it     target        handed to the build
                                                           ▲              │
-                                                          └── blockers ──┘  (two loops at most)
+                                                          └─── round ────┘  (two per blocker at most)
 ```
 
 **Why this order:**
@@ -101,7 +103,7 @@ Then set the **Role**: name who has final taste (the user, a brand owner, or you
 | **Art direction** | a one-paragraph visual thesis, palette + type with reasons, three "never" rules | a stranger could reject an off-brand draft using only the thesis | [art-direction](references/art-direction.md) · references torn down with [reference-analysis](references/reference-analysis.md) |
 | **Creativity** | 3–5 divergent concepts, one scored winner, the runner-up's best idea salvaged | the scorecard picks a concept the lead accepts | [creative-process](references/creative-process.md) |
 | **Drafting** | wireframes, diagrams, a clickable or rendered draft, the design record | the draft answers the open question and the record lets someone rebuild it | [drafting](references/drafting.md) · real copy and images first: [imagery-and-content](references/imagery-and-content.md) |
-| **Review** | a review note: what to keep, blockers, and passes not run | no blockers remain, and every check in the record was actually run | [critique](references/critique.md) |
+| **Review** | a review note: what to keep, blockers, and passes not run | no blockers remain, and every check in the record was actually run | [critique](references/critique.md) · revisions closed out with [iteration-loop](references/iteration-loop.md) |
 
 **Worked example:** one small job taken through every stage — target, inventory, thesis, scored concepts with a lead override, a hi-fi draft and a record listing only the checks actually run: [example-design-record](assets/example-design-record.md) · [example-draft.html](assets/example-draft.html). Trigger tests for this skill's description: [trigger-evals.json](assets/trigger-evals.json).
 
@@ -149,6 +151,7 @@ This skill plans and drafts. When a stage needs deeper craft, open the bundled s
 - **Never claim a design passes a test you did not run.** "Accessible" means a checked contrast ratio, not an intention.
 - **No lorem ipsum in hi-fi.** Draft around the longest real string, or the layout is untested.
 - **Review before you hand off, and run the passes you claim.** A review with nothing listed under "not run" and no evidence is just an opinion.
+- **Close every revision as a round.** Update, evaluate, revise, then write the verdict and what the change cost. A revision with no verdict is a guess that it helped.
 - **The record is written from the final draft**, not from memory of the concepts.
 - **Stop after three rejected drafts of the same thing.** The thesis or the target is wrong, not the draft. Go back one stage and ask the lead one question.
 

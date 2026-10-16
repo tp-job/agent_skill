@@ -195,6 +195,18 @@
       "should_trigger": false,
       "expected_skill": "lighthouse",
       "prompt": "Our new cinematic video hero tanked the LCP score — how do we get Core Web Vitals green again?"
+    },
+    {
+      "id": 35,
+      "should_trigger": true,
+      "via": "iteration-loop",
+      "prompt": "I revised the hero mockup the way the client asked. They said 'nicer, but the pink still bothers me'. Is that feedback positive, and what did this round gain and cost us compared with the last draft?"
+    },
+    {
+      "id": 36,
+      "should_trigger": true,
+      "via": "iteration-loop",
+      "prompt": "แก้ draft หน้า landing ตาม feedback รอบที่แล้วแล้ว ช่วยประเมินผลรอบนี้หน่อย feedback เป็นบวกไหม ข้อดีข้อเสียของการแก้รอบนี้คืออะไร แล้วควรแก้ต่อหรือส่งงานได้เลย"
     }
   ]
 }

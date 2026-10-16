@@ -67,10 +67,11 @@ Tokens:     <link or table: primitive → semantic → component>
 Concepts:   <names + scores; winner; salvaged idea>
 Screens:    <inventory with the state of each: drafted / hi-fi / prototyped>
 Checks run: <contrast ratios, breakpoint tests, hallway test result — only what was actually run>
+Rounds:     <one log per revision: changed, verdict, gained, cost, decision>
 Open:       <questions still unanswered, each with an owner>
 ```
 
-"Checks run" lists only checks that were observed. An intended check goes under "Open".
+"Checks run" lists only checks that were observed. An intended check goes under "Open". "Rounds" takes one block per revision, in the format in [iteration-loop](iteration-loop.md) §5; a job that shipped its first draft leaves it empty.
 
 ---
 

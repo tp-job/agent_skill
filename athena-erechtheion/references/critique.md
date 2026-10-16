@@ -88,6 +88,7 @@ Copy the checks that actually ran into the design record's "Checks run". Copy "N
 ## 5. Loop limits
 
 - **Fix blockers, then re-run only the passes those blockers touched.** You don't need all eight again.
+- **Close each revision as a round.** After the fix, record whether the feedback was positive and what the change cost. See [iteration-loop](iteration-loop.md).
 - **Two review loops at most.** If blockers survive a second loop, stop polishing: the thesis or the target is wrong. Go back one stage and ask the lead one question. This is the same stop rule as three rejected drafts.
 - **Never review your own draft as "fine" without running a pass.** "Looks good" with nothing in "Not run" is a claim with no evidence.
 
