@@ -1,25 +1,25 @@
 ---
 name: promethean-parthenon
 description: >-
-  Single entry point to a bundled engineering skill set for AI coding agents, organised as Role ·
-  Task · Format. Routes to: leadership calls and trade-offs (senior-leadership-advisor);
-  requirements from existing code (requirement-gathering); a brief for a new ask
-  (agentic-engineering); multi-session builds under gates, phases and a ledger
-  (long-horizon-engineering-workflow); reports of shipped work from commits and PRs (github-report).
-  Specialists: any bug, error, stack trace or "something is wrong" (debug-master); security review,
-  auth, OAuth2, API keys, OWASP (owasp-top-10-2025); UI theme, dark mode, contrast, layout, UI
-  review (ui-checker); where a file goes or what to call it (project-file-structure); writing or
-  improving a skill (skill-creator). Also frames messy problems and synthesizes conflicting sources
-  into one position. Trigger for: "fix this bug", "why is this not working", "is this secure",
-  "review my UI", "does dark mode work", "where should this file go", "create a skill", "extract the
+  Entry point to a bundled engineering skill set for AI agents, organised as Role · Task · Format.
+  Routes to: leadership calls and trade-offs (senior-leadership-advisor); requirements from
+  existing code (requirement-gathering); a brief for a new ask (agentic-engineering); multi-session
+  builds under gates, phases and a ledger (long-horizon-engineering-workflow); reports of shipped
+  work from commits and PRs (github-report). Specialists: any bug, error, stack trace or "something
+  is wrong" (debug-master); security review, auth, OAuth2, API keys, OWASP (owasp-top-10-2025); UI
+  theme, dark mode, contrast, layout (ui-checker); test plans, test cases, edge cases, fuzzing, test
+  reports (test-strategy); where a file goes or what to call it (project-file-structure); writing a
+  skill (skill-creator). Also frames messy problems and synthesizes conflicting sources into one
+  position. Trigger for: "fix this bug", "why is this not working", "is this secure", "review my
+  UI", "write a test plan", "where should this file go", "create a skill", "extract the
   requirements", "plan this build", "which approach should we take", "write a sprint report", "agent
-  keeps drifting", "I'm stuck", "which skill should I use". Thai: "แก้บัค", "หา bug", "ควรใช้ skill
+  keeps drifting", "I'm stuck", "which skill should I use". Thai: "แก้บัค", "วางแผนเทส", "ควรใช้ skill
   ไหน", "agent ทำงานหลุดประเด็น", "ช่วยคิดแก้ปัญหานี้". On a specialist trigger, open that bundled
   skill at once — do not walk the doctrine for a one-line fix. Not for trivial fully-specified edits, or domain work another skill owns (3D, CSS, deploys, design craft, MCP ops).
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.4.0"
+  version: "3.5.0"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,
@@ -34,13 +34,14 @@ metadata:
 
 ## Fast path — read this first
 
-This skill is the **only** entry point to the ten skills under `bundled/`; none of them loads on its own. When the request already names its specialist, skip everything below and open it:
+This skill is the **only** entry point to the eleven skills under `bundled/`; none of them loads on its own. When the request already names its specialist, skip everything below and open it:
 
 | The request is… | Open now |
 | --- | --- |
 | A bug, error, stack trace, crash, slow query, or "something is wrong" | [debug-master](bundled/debug-master/SKILL.md) |
 | Security review, auth, OAuth2, API keys, secrets, "is this secure" | [owasp-top-10-2025](bundled/owasp-top-10-2025/SKILL.md) |
 | Theme, dark mode, contrast, layout, "review my UI" | [ui-checker](bundled/ui-checker/SKILL.md) |
+| A test plan, test cases, edge cases, fuzzing, exit criteria, a test report | [test-strategy](bundled/test-strategy/SKILL.md) |
 | Where a file goes, what to name it | [project-file-structure](bundled/project-file-structure/SKILL.md) |
 | Write, fix, or evaluate a skill | [skill-creator](bundled/skill-creator/SKILL.md) |
 | A report of shipped work from commits/PRs | [github-report](bundled/github-report/SKILL.md) |
@@ -164,12 +165,13 @@ Full decision table with tie-breakers: [routing](references/routing.md). The sho
 
 ## The specialists
 
-Five more skills travel in this bundle. They are not pillars — they do not carry the load path — but each one owns a question the pillars will hit and answer worse on their own. **Open them by the trigger, mid-build, without leaving the pillar you are in.**
+Six more skills travel in this bundle. They are not pillars — they do not carry the load path — but each one owns a question the pillars will hit and answer worse on their own. **Open them by the trigger, mid-build, without leaving the pillar you are in.**
 
 | Trigger — the moment it applies | Skill |
 | --- | --- |
 | You are about to write auth, crypto, access control, input handling, secrets, or anything an adversary touches — **before** writing it, not at review | [owasp-top-10-2025](bundled/owasp-top-10-2025/SKILL.md) |
 | You changed anything visual: theme, contrast, dark mode, focus states, layout at a breakpoint | [ui-checker](bundled/ui-checker/SKILL.md) |
+| You are deciding what "verified" means for a feature — test plan, cases, levels, fuzzing, exit criteria — or a build's tests must be reported | [test-strategy](bundled/test-strategy/SKILL.md) |
 | You are creating a file or folder and choosing where it goes or what it is called | [project-file-structure](bundled/project-file-structure/SKILL.md) |
 | You are writing or revising a skill — including these | [skill-creator](bundled/skill-creator/SKILL.md) |
 | A specific bug with a reproduction | [debug-master](bundled/debug-master/SKILL.md) |

@@ -33,6 +33,7 @@ HUBS = {
         "requirement-gathering",
         "senior-leadership-advisor",
         "skill-creator",
+        "test-strategy",
         "ui-checker",
     ],
     "athena-erechtheion": [

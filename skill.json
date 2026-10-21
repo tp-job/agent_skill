@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/skill-index.json",
   "version": "1.1.0",
-  "generated": "2026-10-17",
+  "generated": "2026-10-21",
   "root": "agent-skill",
-  "count": 33,
+  "count": 34,
   "skills": [
     {
       "name": "athena-erechtheion",
@@ -70,6 +70,12 @@
       "path": "core/skill-creator/SKILL.md",
       "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use to build a skill from scratch, edit or optimize an existing one, run evals, benchmark with variance analysis, or tune a skill description for better triggering accuracy.",
       "content": "Full lifecycle workflow for authoring skills: interviewing the user, drafting SKILL.md, structuring reference files, then evaluating. Covers writing and running test cases, blind comparison of skill variants, description optimization for trigger accuracy, report structure (executive summary / key findings / recommendations), commit message format, and Claude.ai- and Cowork-specific packaging notes."
+    },
+    {
+      "name": "test-strategy",
+      "path": "core/test-strategy/SKILL.md",
+      "description": "Plans, designs and runs software testing end to end as one gated loop: plan with written exit criteria, design cases (equivalence partitioning, boundary values, decision tables, state transitions), then test level by level — unit (white…",
+      "content": ""
     },
     {
       "name": "ui-checker",
