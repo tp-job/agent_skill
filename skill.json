@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/skill-index.json",
   "version": "1.1.0",
-  "generated": "2026-10-21",
+  "generated": "2026-10-25",
   "root": "agent-skill",
-  "count": 34,
+  "count": 35,
   "skills": [
     {
       "name": "athena-erechtheion",
@@ -52,6 +52,12 @@
       "path": "core/project-file-structure/SKILL.md",
       "description": "Rules for naming and placing every file and folder in a React + TypeScript + Node + Prisma project whose documentation lives in an Obsidian vault, plus PDF handling. Applies when creating, renaming, or moving any file, writing a Prisma model or migration, adding a vault note, or reviewing a PR that adds files.",
       "content": "Three governing rules — case is correct, files of one feature stay connected, and a name is findable in 10 seconds — expanded into naming tables per file type (components, pages, hooks, utils, types, routes, controllers, services, repositories, tests, PDF templates and generated PDFs), Prisma model and migration conventions, feature-folder colocation, and Obsidian vault note placement with links back to the code they describe."
+    },
+    {
+      "name": "project-pitfalls",
+      "path": "core/project-pitfalls/SKILL.md",
+      "description": "Checks a software project against failure modes that actually happened on a real build, at four checkpoints: before design (scope vs objective, unsigned business rules, permissions, data boundaries, baseline), day zero (clean-clone setup,…",
+      "content": ""
     },
     {
       "name": "requirement-gathering",

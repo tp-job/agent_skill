@@ -1,25 +1,24 @@
 ---
 name: promethean-parthenon
 description: >-
-  Entry point to a bundled engineering skill set for AI agents, organised as Role · Task · Format.
+  Entry point to a bundled engineering skill set, organised as Role · Task · Format.
   Routes to: leadership calls and trade-offs (senior-leadership-advisor); requirements from
   existing code (requirement-gathering); a brief for a new ask (agentic-engineering); multi-session
   builds under gates, phases and a ledger (long-horizon-engineering-workflow); reports of shipped
   work from commits and PRs (github-report). Specialists: any bug, error, stack trace or "something
   is wrong" (debug-master); security review, auth, OAuth2, API keys, OWASP (owasp-top-10-2025); UI
-  theme, dark mode, contrast, layout (ui-checker); test plans, test cases, edge cases, fuzzing, test
-  reports (test-strategy); where a file goes or what to call it (project-file-structure); writing a
-  skill (skill-creator). Also frames messy problems and synthesizes conflicting sources into one
-  position. Trigger for: "fix this bug", "why is this not working", "is this secure", "review my
-  UI", "write a test plan", "where should this file go", "create a skill", "extract the
+  theme, dark mode, contrast, layout (ui-checker); test plans, edge cases, fuzzing (test-strategy);
+  where a file goes (project-file-structure); project kickoff, repo/CI setup, pre-merge checks,
+  lessons learned (project-pitfalls); writing a skill (skill-creator). Also frames messy problems and synthesizes conflicting sources. Trigger for: "fix this bug", "is this secure", "review my
+  UI", "write a test plan", "where should this file go", "project kickoff checklist", "create a skill", "extract the
   requirements", "plan this build", "which approach should we take", "write a sprint report", "agent
-  keeps drifting", "I'm stuck", "which skill should I use". Thai: "แก้บัค", "วางแผนเทส", "ควรใช้ skill
-  ไหน", "agent ทำงานหลุดประเด็น", "ช่วยคิดแก้ปัญหานี้". On a specialist trigger, open that bundled
-  skill at once — do not walk the doctrine for a one-line fix. Not for trivial fully-specified edits, or domain work another skill owns (3D, CSS, deploys, design craft, MCP ops).
+  keeps drifting", "which skill should I use". Thai: "แก้บัค", "วางแผนเทส", "ก่อนเริ่ม dev ต้องเช็คอะไร", "ควรใช้ skill
+  ไหน", "agent ทำงานหลุดประเด็น". On a specialist trigger, open that bundled
+  skill at once, not the doctrine, for a one-line fix. Not for trivial fully-specified edits, or domain work another skill owns (3D, CSS, deploys, design craft, MCP ops).
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.5.0"
+  version: "3.6.0"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,
@@ -34,7 +33,7 @@ metadata:
 
 ## Fast path — read this first
 
-This skill is the **only** entry point to the eleven skills under `bundled/`; none of them loads on its own. When the request already names its specialist, skip everything below and open it:
+This skill is the **only** entry point to the twelve skills under `bundled/`; none of them loads on its own. When the request already names its specialist, skip everything below and open it:
 
 | The request is… | Open now |
 | --- | --- |
@@ -43,6 +42,7 @@ This skill is the **only** entry point to the eleven skills under `bundled/`; no
 | Theme, dark mode, contrast, layout, "review my UI" | [ui-checker](bundled/ui-checker/SKILL.md) |
 | A test plan, test cases, edge cases, fuzzing, exit criteria, a test report | [test-strategy](bundled/test-strategy/SKILL.md) |
 | Where a file goes, what to name it | [project-file-structure](bundled/project-file-structure/SKILL.md) |
+| Project kickoff, repo or CI setup, pre-merge check, "why is every page slow", lessons learned | [project-pitfalls](bundled/project-pitfalls/SKILL.md) |
 | Write, fix, or evaluate a skill | [skill-creator](bundled/skill-creator/SKILL.md) |
 | A report of shipped work from commits/PRs | [github-report](bundled/github-report/SKILL.md) |
 
@@ -165,7 +165,7 @@ Full decision table with tie-breakers: [routing](references/routing.md). The sho
 
 ## The specialists
 
-Six more skills travel in this bundle. They are not pillars — they do not carry the load path — but each one owns a question the pillars will hit and answer worse on their own. **Open them by the trigger, mid-build, without leaving the pillar you are in.**
+Seven more skills travel in this bundle. They are not pillars — they do not carry the load path — but each one owns a question the pillars will hit and answer worse on their own. **Open them by the trigger, mid-build, without leaving the pillar you are in.**
 
 | Trigger — the moment it applies | Skill |
 | --- | --- |
@@ -173,6 +173,7 @@ Six more skills travel in this bundle. They are not pillars — they do not carr
 | You changed anything visual: theme, contrast, dark mode, focus states, layout at a breakpoint | [ui-checker](bundled/ui-checker/SKILL.md) |
 | You are deciding what "verified" means for a feature — test plan, cases, levels, fuzzing, exit criteria — or a build's tests must be reported | [test-strategy](bundled/test-strategy/SKILL.md) |
 | You are creating a file or folder and choosing where it goes or what it is called | [project-file-structure](bundled/project-file-structure/SKILL.md) |
+| You are starting a project, setting up a repo or CI, merging to main, or writing up lessons learned — before the first line of code, not after the incident | [project-pitfalls](bundled/project-pitfalls/SKILL.md) |
 | You are writing or revising a skill — including these | [skill-creator](bundled/skill-creator/SKILL.md) |
 | A specific bug with a reproduction | [debug-master](bundled/debug-master/SKILL.md) |
 

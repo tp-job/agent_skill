@@ -30,6 +30,7 @@ HUBS = {
         "long-horizon-engineering-workflow",
         "owasp-top-10-2025",
         "project-file-structure",
+        "project-pitfalls",
         "requirement-gathering",
         "senior-leadership-advisor",
         "skill-creator",

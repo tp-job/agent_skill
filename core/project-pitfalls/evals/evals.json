@@ -1,0 +1,41 @@
+{
+  "skill_name": "project-pitfalls",
+  "note": "Cases written before the skill. Each failure_mode is what actually happened on the CMAS build without these checks.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're starting a new web app for our department next week. Here's the proposal PDF and a first Prisma schema. What should we check before we start coding?",
+      "context": "Schema models several institutions (Institution, Membership) while the proposal says the system serves one faculty. Grading formula is described in words only.",
+      "expected": "Runs the before-design checklist: compares every schema boundary against the written objective and flags the multi-tenant tables as unrequested scope; asks for the calculation rule to be signed off with a worked example and a hand-computed sheet; asks for a baseline measurement of the current manual process. Reports blocking items first.",
+      "failure_mode": "Multi-institution schema was found only after design work had started; a whole inserted task cost about one sprint and every document had to be revised. Two readings of 'weight' differed by 20 points and blocked the calculation tests."
+    },
+    {
+      "id": 2,
+      "prompt": "Every page in our app takes 2-6 seconds to load. Backend is Fastify + Prisma on Supabase. Make it faster.",
+      "context": "Database in a distant region, transaction pooler on port 6543 with pgbouncer=true, read-only queries wrapped in prisma.$transaction([...]), one dashboard request per student.",
+      "expected": "Measures before changing anything (a no-DB health endpoint vs DB endpoints, query log, per-query round-trip time). Identifies round trips, not payload size, as the cost. Checks region, pooler mode, batched read transactions, N+1 per-row requests, and localhost IPv6 fallback on Windows. Proposes fixes in order of measured effect and re-measures after each.",
+      "failure_mode": "Without measuring, the first guess was 'the query is heavy'. The real causes were 250 ms per round trip to Tokyo, 4 round trips per query through the transaction pooler, sequential reads inside $transaction, and 40 requests for a 40-student class."
+    },
+    {
+      "id": 3,
+      "prompt": "Our CI has been green for weeks and we're about to merge to main. Anything we should double check?",
+      "context": "CI has actually been failing at npm ci because .nvmrc pins Node 20 and a dependency needs Node 22+. main has no branch protection. Coverage threshold is configured but CI runs test, not test:coverage.",
+      "expected": "Does not trust 'green' without looking at the latest run of each required job. Checks runtime version parity across .nvmrc, engines, CI and Dockerfiles; whether CI is a required check; whether each gate can be shown to fail (break it on a throwaway branch). Flags the unenforced coverage threshold.",
+      "failure_mode": "CI failed silently for three weeks; no lint, test or build result in that window was real. PRs with red CI could still be merged."
+    },
+    {
+      "id": 4,
+      "prompt": "Can you write up what went wrong on this project and what we learned? It's for our final report.",
+      "context": "A repository with about 100 commits, progress reports in docs/, and several past agent sessions.",
+      "expected": "Uses the retrospective method: reads git history oldest-first including commit bodies, reads progress/decision docs, searches past sessions; separates problem / cause / fix / lesson; labels what was read in full versus inferred from snippets; writes the result to a lessons file rather than only to chat; names what was not covered.",
+      "failure_mode": "A summary built from commit titles alone misses the causes (many commits titled 'Refactor code structure for improved readability'), and claims read as verified when they were inferred."
+    },
+    {
+      "id": 5,
+      "prompt": "Fix the typo in the README heading.",
+      "context": "Trivial, fully specified change.",
+      "expected": "Skill does not trigger, or if consulted, states that no checklist applies and makes the edit.",
+      "failure_mode": "Over-applying a checklist to a one-line change is ceremony."
+    }
+  ]
+}
