@@ -38,5 +38,5 @@ Check `drawio --help` for the flags in your version. After inserting, look at th
 
 1. The diagram has no title block, no legend and no loose paragraph.
 2. Width is 800 px or less.
-3. Every exception ends at the side; no line crosses.
+3. Every decision splits left and right, every exception ends below its box; no line crosses.
 4. `python scripts/validate_drawio.py figure.drawio --strict` reports 0 and 0.

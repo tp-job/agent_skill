@@ -20,42 +20,42 @@ Append BOX from [style-spec.md](style-spec.md) after the shape part. The templat
 | A step says a verb and an object: "ตรวจว่ากรอกครบ" | A noun alone does not say what happens |
 | A decision is a yes/no question ending in "?" | Two exits stay two exits |
 | Every decision exit carries a label ("ใช่" / "ไม่ใช่") | Unlabelled exits force the reader to guess |
-| Flow runs top to bottom; the main happy path stays in one straight column | The eye follows the straight line first |
-| The "no" or error branch goes to the side, then either ends or loops back with a labelled line | Keeps the main path clean |
+| Flow runs top to bottom; the main happy path stays in one column | The eye follows the straight line first |
+| A decision splits left and right; the error branch goes right, then ends below or loops back with a labelled line | Keeps the main path clean |
 | Every box has a line in and a line out, except start (no in) and ends (no out) | A floating box is a mistake the reader cannot tell from an intention |
 | Max 9 boxes per frame | Past 9, readers lose the thread; use the linked-process box and a second page |
 
-## Layout: one main column, exits to the side
+## Layout: one main column, decisions split left and right
 
-The page is three columns. The happy path runs down the left one without turning; every exception leaves a decision sideways and ends at once.
+The page is three zones. The main column sits in the middle and always flows down. A decision splits its two exits 180 degrees apart, one out of each corner, never one sideways and one down.
 
 ```text
-   main column (260)        side column (220)      end (120)
-   [ เริ่ม ]
-       ↓
-   [ ผู้ใช้กรอกข้อมูล ]
-       ↓
-   < ข้อมูลถูกต้อง? > ─ไม่ใช่→ [ แจ้งว่าไม่ถูกต้อง ] → [ จบ ]
-       ↓ ใช่
-   [ เข้าสู่ระบบ ]
-       ↓
-   [ จบ ]
+   left zone          main column (260)        right zone (200)
+                      [ เริ่ม ]
+                          ↓
+                      [ ผู้ใช้กรอกข้อมูล ]
+                          ↓
+     ┌─ ใช่ ──────  < ข้อมูลถูกต้อง? > ─ ไม่ใช่ →  [ แจ้งว่าไม่ถูกต้อง ]
+     │                                                    ↓
+     └──────────→  [ เข้าสู่ระบบ ]                    [ จบ ]
+                          ↓
+                      [ จบ ]
 ```
 
 | Rule | Value |
 | --- | --- |
-| "ใช่" (the path the process wants) continues straight down | Never turns |
-| "ไม่ใช่" (failure, cancel, rejected) leaves to the right | A second different exit leaves to the left |
-| The side box is centred on the decision, so the exit line is one straight horizontal | Same `y` centre |
-| The side box ends in its own "จบ" in the end column, same row | The exception never rejoins the main path, so no lines cross |
-| An exception that should retry loops back to the earlier box with a labelled line | The only line that goes upward |
-| Widths | Main 260, side 220, end 120; gaps 80 and 40; frame padding 40; page width 800 |
-| Vertical gap | 60 between boxes in the main column |
-| Decision | 260 × 100; steps 260 × 60; terminators 160 × 60 in the main column, 120 × 60 in the end column |
+| The continuing branch ("ใช่", the path the process wants) leaves the left corner, runs down the left zone and enters the next box from its left side | Both exits leave horizontally, so they are 180 degrees apart |
+| The exception ("ไม่ใช่": failure, cancel, rejected) leaves the right corner into a box | The exception never rejoins the main path, so no lines cross |
+| The exception box ends in its own "จบ" directly below it, an arrow pointing down | Flow always travels downward |
+| An exception that should retry loops back to an earlier main box by its right side, with a labelled line | The only line that goes upward; do not use it when another decision lies between |
+| Widths | Main 260, right box 200, capsules 200 in the main column and 160 below the exception; frame padding 40; page width 800 |
+| Heights | Steps 60, decisions 120, exception boxes 60 to 100 by text length |
+| Vertical gap | 60 between boxes; 100 after a decision that is followed by another decision, so the exception capsule clears the next exception box |
+| Decision label | 20 characters at most; the diamond holds about two lines |
 
-Terminators do not count toward the box limit, so a flowchart may hold six steps and decisions plus any number of ends. Start from [template-flowchart.drawio](../assets/template-flowchart.drawio); it already sits on this grid.
+Terminators do not count toward the box limit, so a flowchart may hold six steps, decisions and exception boxes in total plus any number of ends. Start from [template-flowchart.drawio](../assets/template-flowchart.drawio); it already sits on this grid.
 
-Set `exitX=1;exitY=0.5` and `entryX=0;entryY=0.5` on the side exits so draw.io draws them straight.
+Set `exitX=0;exitY=0.5` and `entryX=0;entryY=0.5` with two waypoints on the left-zone run, and `exitX=1;exitY=0.5` with `entryX=0;entryY=0.5` on the exception, so draw.io draws them as the template does.
 
 ## Splitting
 

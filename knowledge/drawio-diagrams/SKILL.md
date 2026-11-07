@@ -12,7 +12,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.2.0"
+  version: "1.3.0"
   source: Requirements from the CMAS system-overview draw.io files; ISO 5807, UML 2.5, draw.io style reference (compiled 2026)
 ---
 
@@ -61,7 +61,7 @@ Needs two types (for example overview plus login steps)? Make two pages in one f
 | 10 | Positions on a 10px grid | warns |
 | 11 | One fact per box, 40 characters at most, no bullet lists, no code-like IDs (S1, F2, E01), no `·` strings | bullets error, rest warn |
 | 12 | At most 3 loose text blocks on the page; prose goes in your reply, not on the diagram | warns |
-| 13 | Flowchart: the happy path runs straight down one column, every exception exits to the side and ends there ([layout](references/flowchart.md)); lines do not cross; no line passes through a box | judgement |
+| 13 | Flowchart: the happy path runs down one centre column, each decision splits left (continue) and right (exception, ending below) ([layout](references/flowchart.md)); lines do not cross; no line passes through a box | judgement |
 | 14 | A title frame names the diagram; a one-line caption says what it shows | judgement |
 
 **Never shrink the font or the box spacing to fit more in.** Split the diagram instead; a 12px label fails the reader before it fails the rule.

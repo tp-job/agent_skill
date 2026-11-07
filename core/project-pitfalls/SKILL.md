@@ -71,8 +71,8 @@ happen?" or when you need a worked example for a report.
 
 The workflow as a draw.io flowchart: [workflow.drawio](assets/workflow.drawio). It is
 generated — edit [build_workflow_drawio.py](scripts/build_workflow_drawio.py), then run
-`python scripts/build_workflow_drawio.py assets/workflow.drawio preview.svg`. The script
-refuses to write when boxes overlap, leave the page, or an arrow points at nothing.
+`python scripts/build_workflow_drawio.py assets/workflow.drawio`. The diagram follows the
+rules of a draw.io style guide: one named frame per page, six boxes at most per frame.
 
 ---
 
