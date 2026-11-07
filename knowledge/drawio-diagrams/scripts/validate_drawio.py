@@ -19,8 +19,13 @@ FONT = "IBM Plex Sans Thai"
 MIN_FONT = 16
 PALETTE = {"#000000", "#ffffff", "#eef0f8"}
 FOCUS = "#eef0f8"
-MAX_NODES = 9
+MAX_NODES = 6      # boxes per frame
+MAX_PAGE = 12      # boxes per page
+MAX_LABEL = 40     # characters in one label
+MAX_FREE_TEXT = 3  # loose text blocks per page (title, caption, one note)
 MAX_FOCUS = 2
+BULLET = re.compile(r"[•▪‣◦]|<li\b|<ul\b|(?:^|<br\s*/?>)\s*[-–·]\s")
+CODE_ID = re.compile(r"\b[A-Z]{1,2}\d{1,2}(?:[–-][A-Z]?\d{1,2})?\b")
 GRID = 10
 COLOR_KEYS = ("fillColor", "strokeColor", "fontColor", "labelBackgroundColor",
               "labelBorderColor", "gradientColor", "swimlaneFillColor", "separatorColor")
@@ -158,6 +163,15 @@ def check_page(name, model, out):
             for col in re.findall(r"(?:[^-]color:\s*|color=\")([^;\">]+)", c.raw):
                 if norm_color(col) not in PALETTE:
                     err(c, "inline text colour %r is outside the palette" % col.strip())
+        if c.text and c.kind != "text":
+            if len(c.text) > MAX_LABEL:
+                err(c, "label is %d characters (max %d); cut it to a short phrase" % (len(c.text), MAX_LABEL), "WARN")
+            if BULLET.search(c.raw):
+                err(c, "bullet list inside a box; one idea per box, move the rest out of the diagram")
+            if " · " in c.text:
+                err(c, "'·' separator packs several facts into one label; split or cut", "WARN")
+            if CODE_ID.search(c.text):
+                err(c, "code-like ID in label (%s); use plain words" % CODE_ID.search(c.text).group(0), "WARN")
         for k in COLOR_KEYS:
             if k in s and norm_color(s[k]) not in PALETTE and s[k].lower() != "none":
                 err(c, "%s=%s is outside the palette (#000000, #FFFFFF, #EEF0F8)" % (k, s[k]))
@@ -228,6 +242,13 @@ def check_page(name, model, out):
     for k, n in focus.items():
         if n > MAX_FOCUS:
             err(cells.get(k), "%d items use the focus colour (max %d)" % (n, MAX_FOCUS), "WARN")
+
+    if len(leaves) > MAX_PAGE:
+        err(None, "page holds %d boxes (max %d); split into pages" % (len(leaves), MAX_PAGE), "WARN")
+    free = [c for c in allv if c.kind == "text" and "edgeLabel" not in c.bare
+            and not (cells.get(c.parent) is not None and cells[c.parent].edge)]
+    if len(free) > MAX_FREE_TEXT:
+        err(None, "%d loose text blocks (max %d); prose belongs in your reply, not on the diagram" % (len(free), MAX_FREE_TEXT), "WARN")
 
     # grid
     off = [c.id for c in boxes if any(round(v) % GRID for v in c.rel)]

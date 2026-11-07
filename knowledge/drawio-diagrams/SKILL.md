@@ -12,7 +12,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.1.0"
   source: Requirements from the CMAS system-overview draw.io files; ISO 5807, UML 2.5, draw.io style reference (compiled 2026)
 ---
 
@@ -55,15 +55,20 @@ Needs two types (for example overview plus login steps)? Make two pages in one f
 | 6 | A logo is embedded in the file (no URL), never alone, always with its name beneath | yes |
 | 7 | Each line joins two boxes; flowchart decisions have 2 or more labelled exits, one start, one or more ends | yes |
 | 8 | No shadow, gradient, glass or sketch effect | yes |
-| 9 | At most 9 boxes per frame; more means split the frame or the page | warns |
+| 9 | At most 6 boxes per frame and 12 per page; more means split the frame or the page | warns |
 | 10 | Positions on a 10px grid | warns |
-| 11 | Labels short and plain; technical term in brackets after the plain word | judgement |
-| 12 | Flow runs one direction (top to bottom or left to right); lines do not cross; no line passes through a box | judgement |
-| 13 | A title frame names the diagram; a one-line caption says what it shows | judgement |
+| 11 | One fact per box, 40 characters at most, no bullet lists, no code-like IDs (S1, F2, E01), no `·` strings | bullets error, rest warn |
+| 12 | At most 3 loose text blocks on the page; prose goes in your reply, not on the diagram | warns |
+| 13 | Flow runs one direction (top to bottom or left to right); lines do not cross; no line passes through a box | judgement |
+| 14 | A title frame names the diagram; a one-line caption says what it shows | judgement |
 
 **Never shrink the font or the box spacing to fit more in.** Split the diagram instead; a 12px label fails the reader before it fails the rule.
 
 **Where the rules stop:** logos keep their own colours (they are pictures, not diagram ink). Flowchart terminators and decisions may be capsule and diamond shapes, ellipses are allowed for use cases; every other box is a square-cornered rectangle.
+
+## Keep it light
+
+A diagram that looks machine-made is dense, coded and self-explaining. Before drawing, run the cut test from [plain-and-light.md](references/plain-and-light.md): delete anything the reader would not miss, then do it again. Typical cuts: bullet lists in boxes, Input/Process/Output columns, code legends, header text above the diagram, edge cases on the main page.
 
 ## Wording for non-experts
 
@@ -79,7 +84,7 @@ Use the reader's language for the plain word and keep the product name as writte
 
 | Script | Use |
 | --- | --- |
-| [validate_drawio.py](scripts/validate_drawio.py) | Checks rules 1 to 10 on `.drawio` or `.drawio.svg`, every page; exit 1 on error |
+| [validate_drawio.py](scripts/validate_drawio.py) | Checks rules 1 to 12 on `.drawio` or `.drawio.svg`, every page; exit 1 on error |
 | [embed_logo.py](scripts/embed_logo.py) | Turns a logo file or https URL into the `image=` style value |
 
 Logo sources and sizing: [logos.md](references/logos.md).
