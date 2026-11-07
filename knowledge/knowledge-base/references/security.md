@@ -1,5 +1,15 @@
 # Agent Security Skill
 
+## Contents
+
+- THREAT MAP
+- PART 1 — THREAT FRAMEWORKS & STANDARDS
+- PART 2 — ATTACK RESEARCH
+- PART 3 — DEFENSE RESEARCH
+- PART 4 — FORGE SUB-SKILL (Security Edition)
+- QUICK REFERENCE — Security Checks
+- Decision Flow
+
 > **Use when:** A skill for identifying, analyzing, and defending against security threats in AI agent systems and LLM-powered projects. Use when the user asks about prompt injection, tool poisoning, privilege escalation, data exfiltration, jailbreaking, backdoor attacks, agent deception, or any AI-specific security concern. Also trigger on: "is this safe?", "can this be exploited?", "how do I secure my agent?", "red team this", "what are the risks?", or when reviewing agent code, tool integrations, or system prompts. Covers both Attack Research (offensive) and Defense Research (defensive).
 >
 > *Provenance: imported as `agent-security`.*

@@ -1,5 +1,16 @@
 # Phases & Branches — the planning unit between the build and the feature
 
+## Contents
+
+- Phase or sprint — same unit, different cut
+- How to cut a phase
+- Compressing phases: merge by contract, never by topic
+- The 1:1 rule, and why it is the branch
+- Below the 1:1: branching by rationale
+- Where phases live on disk
+- The merge is a gate in miniature
+- When not to use phases
+
 The gates run **once per build**. The feature loop runs **once per feature**, dozens of times.
 Nothing ran in between, and on any build past about a dozen features that missing middle shows up
 as the same three symptoms: a flat ledger nobody can read progress off, a branch that has been

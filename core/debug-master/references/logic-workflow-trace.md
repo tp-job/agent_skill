@@ -1,5 +1,13 @@
 # Phase 2 — Logic & Workflow Trace
 
+## Contents
+
+- PHASE 2 — Logic & Workflow Trace
+- 2-A Locate the Entry Point
+- 2-B Long Workflow Decomposition
+- 2-C AI Agent / LLM Workflow Debugging
+- 2-D Conditional & Branch Logic Audit
+
 Entry point, long-workflow decomposition, AI agent/LLM workflow debugging, and branch-logic audits — for wrong output with no crash.
 
 ## PHASE 2 — Logic & Workflow Trace

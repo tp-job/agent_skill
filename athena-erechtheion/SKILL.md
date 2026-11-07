@@ -1,27 +1,21 @@
 ---
 name: athena-erechtheion
 description: >-
-  Single entry point to design work and five bundled design specialists. Runs a job from a
-  one-line ask to a handoff-ready draft in five stages: architecture (IA, screens, token tiers), art
-  direction (a written visual thesis), creativity (divergent concepts, scored), drafting (wireframes,
-  prototypes, Figma, Canva, Blender), review (critique a draft against its thesis, iterate on
-  feedback). Routes to: a
-  distinctive look for one page or component, typography, less templated UI (frontend-design);
-  Material 3 Expressive, Google design, motion, UX writing (google-design-system); Tailwind-first
-  CSS files, CSS hell, specificity, design tokens (css-architecture); three.js, WebGL/WebGPU,
-  shaders, GLTF, R3F, 3D scenes (threejs-3d); this year's web design trends by launch year,
-  scored before adoption (web-design-trends). Tears down a reference screenshot: style, palette,
-  type, grid, stack. Trigger for: "design this from scratch", "art direction for", "give
-  me concepts", "wireframe this", "moodboard", "make this look less generic", "follow Material 3",
-  "organise my Tailwind CSS", "build a 3D scene", "analyse this design screenshot", "critique this
-  draft", "web design trends 2026", "is this design dated", "วิเคราะห์ดีไซน์เว็บ", "เทรนด์เว็บ 2026",
-  "ช่วยคิดคอนเซปต์ดีไซน์". On a specialist trigger, open that bundled skill at once — skip the
-  stages for a one-component tweak. Not for implementing a finished design (a Figma frame, a
-  mockup) in code, auditing a built UI for contrast or dark-mode bugs, or software architecture.
+  Single entry point to design work and five bundled design specialists. Takes a one-line ask to a
+  handoff-ready draft in five stages: architecture, art direction (a written visual thesis),
+  concepts, drafting (wireframes, Figma, Canva, Blender) and review. Opens a specialist at once for:
+  a distinctive look or typography (frontend-design); Material 3 Expressive, motion, UX writing
+  (google-design-system); Tailwind CSS structure, CSS hell, tokens (css-architecture); three.js,
+  WebGL, shaders, R3F (threejs-3d); current web design trends (web-design-trends). Also tears down a
+  reference screenshot. Trigger for: "design this from scratch", "art direction for", "wireframe
+  this", "make this look less generic", "organise my Tailwind CSS", "build a 3D scene", "analyse
+  this design screenshot", "critique this draft", "is this design dated", "วิเคราะห์ดีไซน์เว็บ",
+  "เทรนด์เว็บ 2026", "ช่วยคิดคอนเซปต์ดีไซน์". Not for coding a finished design, auditing a built UI
+  for contrast or dark mode, or software architecture.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.6.0"
+  version: "3.7.0"
   source: >-
     Promethean-Parthenon Role · Task · Format doctrine applied to design practice; information
     architecture, art-direction and double-diamond ideation methods (compiled 2026)
@@ -29,8 +23,7 @@ metadata:
 
 # Athena Erechtheion
 
-**Athena** — goddess of wisdom and of craft (Athena Ergane, patron of weavers, potters and every skilled hand): the judgement that turns a raw idea into a considered form.
-**Erechtheion** — her temple on the Acropolis, built to hold several sacred functions under one roof: the five design specialists in `bundled/` work here, each answering a different part of the same commission.
+**Athena**: wisdom and craft, the judgement that turns a raw idea into a considered form. **Erechtheion**: her temple holding several functions under one roof, as the five design specialists in `bundled/` do.
 
 ## Fast path — read this first
 
@@ -42,7 +35,7 @@ This skill is the **only** entry point to the five skills under `bundled/`; none
 | Material 3, Google design standards, motion, UX writing | [google-design-system](bundled/google-design-system/SKILL.md) |
 | Tailwind-first CSS files, CSS hell, specificity, token files, PostCSS | [css-architecture](bundled/css-architecture/SKILL.md) |
 | three.js, WebGL/WebGPU, shaders, GLTF, R3F, a 3D scene | [threejs-3d](bundled/threejs-3d/SKILL.md) |
-| What's trending this year, "make it feel current", "is this dated" | [web-design-trends](bundled/web-design-trends/SKILL.md) |
+| Current web design trends by launch year, "make it feel current", "is this dated" | [web-design-trends](bundled/web-design-trends/SKILL.md) |
 | Analyse a screenshot or reference site: its style, palette, type, grid, and how to build it | [reference-analysis](references/reference-analysis.md), which needs no stages |
 | Critique a design draft or mockup that isn't built yet | [critique](references/critique.md), which needs no stages |
 | A revised draft plus feedback: did it get better, is the feedback positive, what did it cost | [iteration-loop](references/iteration-loop.md), which needs no stages |
@@ -105,7 +98,7 @@ Then set the **Role**: name who has final taste (the user, a brand owner, or you
 | **Drafting** | wireframes, diagrams, a clickable or rendered draft, the design record | the draft answers the open question and the record lets someone rebuild it | [drafting](references/drafting.md) · real copy and images first: [imagery-and-content](references/imagery-and-content.md) |
 | **Review** | a review note: what to keep, blockers, and passes not run | no blockers remain, and every check in the record was actually run | [critique](references/critique.md) · revisions closed out with [iteration-loop](references/iteration-loop.md) |
 
-**Worked example:** one small job taken through every stage — target, inventory, thesis, scored concepts with a lead override, a hi-fi draft and a record listing only the checks actually run: [example-design-record](assets/example-design-record.md) · [example-draft.html](assets/example-draft.html). Trigger tests for this skill's description: [trigger-evals.json](assets/trigger-evals.json).
+**Worked example:** one small job taken through every stage — target, inventory, thesis, scored concepts with a lead override, a hi-fi draft and a record listing only the checks actually run: [example-design-record](assets/example-design-record.md) · [example-draft.html](assets/example-draft.html).
 
 ---
 
@@ -159,7 +152,7 @@ This skill plans and drafts. When a stage needs deeper craft, open the bundled s
 
 ## Bundled skills
 
-This is an aggregator, like promethean-parthenon: every skill it links to travels with it as a verbatim copy under `bundled/`, so dropping this folder into a project brings the design cluster with it and nothing dangles. The copies are regenerated by `scripts/build-bundles.py` from the sources in the library's `design/` folder — change the source, never the copy.
+Every linked specialist travels as a verbatim copy under `bundled/`, regenerated from the library's `design/` folder. Change the source, never the copy. The description's trigger tests are in [trigger-evals.json](assets/trigger-evals.json).
 
 ---
 

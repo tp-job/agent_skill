@@ -1,5 +1,20 @@
 # B · Day zero
 
+## Contents
+
+- B1 · A clean clone runs with one command
+- B2 · Line endings, editor settings and runtime version pinned at commit one
+- B3 · One runtime major everywhere
+- B4 · CI is required, and each gate has been seen failing
+- B5 · Workflow hygiene (GitHub Actions)
+- B6 · Build artefacts exclude what they should
+- B7 · Secrets never enter an image or a committed file
+- B8 · Database region, pooler and latency measured in week one
+- B9 · Hosted database locked down (Supabase)
+- B10 · Free-tier limits written down before testing with real users
+- B11 · Local dev environment quirks documented (Windows)
+- Exit for checkpoint B
+
 Run when the repository is being set up, or as soon as someone cannot run the project
 from a clean clone. Gaps here silently invalidate every later measurement.
 

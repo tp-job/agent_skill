@@ -1,5 +1,16 @@
 # AI & Web Product Glossary
 
+## Contents
+
+- System shape
+- Prompting and context
+- Managing a long context
+- Agent architecture
+- Quality and failure
+- Responsible AI
+- Performance (web delivery)
+- Related
+
 Lookup reference for [ai-web-product-craft](../SKILL.md). Read a single entry when a term comes up — this file is not meant to be read start to finish.
 
 Terms are grouped by the decision they inform. Where a term has a common misuse, the misuse is called out, because using these words loosely is how teams end up building the wrong thing.

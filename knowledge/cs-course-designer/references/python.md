@@ -1,5 +1,13 @@
 # Python — Topic Map
 
+## Contents
+
+- Topic coverage
+- One reasonable sequencing
+- Common misconceptions
+- Where formative checks pay most
+- Related
+
 Reference for [cs-course-designer](../SKILL.md), Step 1. Covers syntax through OOP, error handling, common libraries, and testing/debugging.
 
 **State the Python version.** Default to current stable Python 3.x unless the request names one. Version matters for: f-strings (3.6+), dataclasses (3.7+), the walrus operator (3.8+), dict ordering guarantees (3.7+), `match` statements (3.10+), and built-in generic types like `list[int]` (3.9+). Writing 3.12 examples for a cohort on 3.8 wastes everyone's time.

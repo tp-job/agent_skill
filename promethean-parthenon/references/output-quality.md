@@ -1,5 +1,15 @@
 # The Five Levers
 
+## Contents
+
+- Lever 1 — Specificity of the target
+- Lever 2 — Verification you actually ran
+- Lever 3 — State that outlives the conversation
+- Lever 4 — Effort placed at decisions, not iterations
+- Lever 5 — Scope held still
+- What is *not* a lever
+- The one-line diagnostic
+
 What actually changes the quality of agent output, ranked by effect. The ranking matters more than the list: effort spent on lever 5 while lever 1 is broken is wasted, and that is the usual mistake.
 
 ---

@@ -1,5 +1,13 @@
 # Phase 1 — File System Inspection
 
+## Contents
+
+- PHASE 1 — File System Inspection
+- 1-A Path Validation Checklist
+- 1-B Folder Structure Scan
+- 1-C File Content Quick-Check
+- 1-D Dependency & Import Trace
+
 Paths, folder structure, file content, and dependency/import trace — run first for missing-module, wrong-path, and encoding errors.
 
 ## PHASE 1 — File System Inspection

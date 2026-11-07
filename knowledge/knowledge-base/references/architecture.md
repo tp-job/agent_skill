@@ -4,6 +4,26 @@
 
 # Component-Based Architecture & Software Development
 
+## Contents
+
+- name: component-based-architecture description: > Expert knowledge skill for Architecture and Component-Based Software Development (CBD). Use this skill whenever the user asks about component-based development, software architecture, monolithic vs microservices, layered architecture, SOLID principles, Python modules/packages, how to structure a Python project into components, how to design components with clear interfaces, how to apply High Cohesion / Low Coupling, or any question related to splitting a system into reusable, independently deployable units. Also trigger when the user mentions Class, Module, Package, Component hierarchy in Python, Dependency Injection, or Interface-based communication.
+- 1. OOP Foundations (Prerequisites)
+- 2. SOLID Principles
+- 3. Monolithic Architecture
+- 4. Component-Based Development (CBD)
+- 5. Code Unit Hierarchy (Small → Large)
+- 6. What Makes a Component?
+- 7. Component Design Principles
+- 8. Layered Architecture
+- 9. Microservices Architecture
+- 10. Monolithic vs Microservices — Comparison
+- 11. Python Modules
+- 12. Python Packages
+- 13. The `__init__.py` File
+- 14. Modules/Packages and CBD
+- 15. Summary
+- 16. Design Checklist
+
 This skill contains complete, authoritative knowledge from Session 06 covering: OOP foundations → SOLID principles → Monolithic systems → Component-Based Development → Layered Architecture → Microservices → Python Modules & Packages.
 
 ---

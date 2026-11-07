@@ -1,5 +1,12 @@
 # The Three Pillars
 
+## Contents
+
+- Pillar 1 — Role
+- Pillar 2 — Task
+- Pillar 3 — Format
+- The load path, restated
+
 **Role · Task · Format.** What each pillar holds, what it hands to the next, and how it cracks. Read the pillar you are standing in; skip the rest.
 
 ---

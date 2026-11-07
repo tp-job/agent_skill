@@ -1,5 +1,19 @@
 # A · Before design
 
+## Contents
+
+- A1 · Root problem written down, and every feature traced to it
+- A2 · Schema scope matches the written objective
+- A3 · Every calculation rule signed off with a worked example
+- A4 · Undefined states have a definition
+- A5 · Baseline of the current process measured
+- A6 · Roles and permissions decided from the matrix, not from intuition
+- A7 · Data shapes that are expensive to change later are decided now
+- A8 · Diagrams have one source and one official file each
+- A9 · Threat model numbers are not presented as protection
+- A10 · Decisions recorded as questions with owners
+- Exit for checkpoint A
+
 Run when a proposal or a first schema exists and no feature code has been written.
 Everything here is cheap now and costs a rebuild later.
 

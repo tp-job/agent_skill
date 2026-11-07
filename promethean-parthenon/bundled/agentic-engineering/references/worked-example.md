@@ -1,5 +1,12 @@
 # Worked Example: "Build a password reset system"
 
+## Contents
+
+- Step 1 — Frame
+- Step 2 — Interrogate
+- Step 3 — The brief
+- Step 4 — What changed
+
 The whole method on one ask. Note how much of the final brief is *not* present in the original sentence — and how all of it would otherwise have been decided by the agent, silently.
 
 ---

@@ -1,20 +1,20 @@
 ---
 name: requirement-gathering
 description: >
-  Autonomous requirement extraction and documentation for PERN/MERN full-stack projects
-  with micro design standards. Immediately produces a complete Markdown requirements document
-  WITHOUT asking follow-up questions. Trigger when: analyzing existing component/API/DB code,
+  Extracts and documents requirements from PERN/MERN full-stack code with micro design
+  standards, producing a complete Markdown requirements document in one pass without follow-up
+  questions. Trigger when: analyzing existing component/API/DB code,
   writing a spec or PRD, defining acceptance criteria, auditing DS token usage, documenting
   component API contracts, reviewing full-stack feature requirements, or performing gap analysis.
   Thai triggers: "วิเคราะห์ code", "เขียน spec", "ทำ requirements", "audit component",
   "เช็ค design system", "สร้าง acceptance criteria", "document API contract".
-  ALWAYS run autonomously — infer missing context, annotate assumptions, never ask to proceed.
+  Runs autonomously: infers missing context and marks every assumption instead of asking.
   This is the "extract" half of writing a target: use it when the requirements already live in
   code, and agentic-engineering when they live in someone's head. Not for a brand-new idea with no code yet — brief that instead.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.1.1"
+  version: "1.2.0"
   source: PERN/MERN requirement extraction methodology (compiled 2026)
 ---
 
@@ -25,7 +25,7 @@ metadata:
 
 ## AUTONOMOUS PROTOCOL
 
-Agent runs this skill in ONE pass — no confirmation, no follow-up questions.
+Run this skill in one pass, with no confirmation or follow-up questions. A spec that waits on answers never gets written; marked assumptions let the team correct it afterwards.
 
 ```
 STEP 1  Detect stack, mode, and layer scope from input
@@ -221,68 +221,9 @@ Owner:      Frontend | Backend | Both
 
 ---
 
-## STEP 6 — Sign-off Checklist (Small Team)
+## STEP 6 — Assemble the document
 
-```markdown
-## Sign-off: [Component/Feature Name]
-
-### Developer
-- [ ] All REQ-* implemented and self-tested
-- [ ] No TypeScript errors or eslint warnings
-- [ ] useEffect cleanup verified (no memory leaks)
-- [ ] DS tokens used throughout (no magic numbers)
-
-### Designer (if applicable)
-- [ ] Visual output matches Figma/spec
-- [ ] DS version compliance confirmed
-- [ ] Responsive behavior validated
-
-### QA / Second Developer
-- [ ] P0 and P1 acceptance criteria pass
-- [ ] API error states tested
-- [ ] Auth edge cases tested (if applicable)
-```
-
----
-
-## OUTPUT DOCUMENT TEMPLATE
-
-Agent generates a file named `REQ-[ComponentName]-[YYYYMMDD].md`:
-
-```markdown
-# Requirements: [Component/Feature Name]
-**Date:** [YYYY-MM-DD]  **Mode:** REVERSE | FORWARD | GAP
-**Stack layers:** [detected layers]  **DS Version:** [if found]
-
----
-
-## Component Contract
-[STEP 2A output]
-
-## API Contract
-[STEP 2B output — omit if L2/L3 not detected]
-
-## DB Contract
-[STEP 2C output — omit if L4 not detected]
-
-## Requirements
-[STEP 3 output — REQ-L1-001, REQ-L2-001, etc.]
-
-## Non-Functional Requirements
-[STEP 4 table]
-
-## Risk Register
-[STEP 5 output — only real risks]
-
-## Sign-off Checklist
-[STEP 6 output]
-
----
-
-## Assumptions & Inferences
-[All [INFERRED] and [ASSUMED] items consolidated here]
-[All [MISSING] items that human must fill in]
-```
+Write `REQ-[ComponentName]-[YYYYMMDD].md` from [requirements template](assets/requirements.template.md): header (date, mode, layers, DS version), the contracts from Step 2 (omit layers not detected), requirements, NFRs, risks, the small-team sign-off checklist (developer, designer, QA), and a closing **Assumptions & Inferences** block that consolidates every `[INFERRED]`, `[ASSUMED]` and `[MISSING]` item.
 
 ---
 
@@ -297,5 +238,3 @@ Read these only when deeper guidance is needed for that specific area.
 ---
 
 **Where this fits:** use this skill when the requirements already live in code — REVERSE mode to document what is there, GAP mode to name the delta against a desired behavior. When the requirements instead live in someone's head as a one-line ask, a different tool writes that kind of target. **What exists is evidence, not a specification** — a bug faithfully documented is still a bug; deciding which extracted behavior is actually intended is a judgment call, not this skill's job.
-
-These are copies, not forks. Refresh them from the skill library rather than editing them in place; the only thing that differs from the originals is the depth of their relative links.

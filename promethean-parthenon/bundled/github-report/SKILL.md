@@ -134,5 +134,3 @@ Define these once, per repo, and the report becomes mechanical. Introduce them f
 ---
 
 **Where this fits:** this skill is upstream of itself — the conventions in the first half of this file are what make the report in the second half possible, so the output shape is a decision to make *before* the build that produces the commits, not after it.
-
-These are copies, not forks. Refresh them from the skill library rather than editing them in place; the only thing that differs from the originals is the depth of their relative links.

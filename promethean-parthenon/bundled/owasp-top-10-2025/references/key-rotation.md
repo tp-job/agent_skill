@@ -1,5 +1,16 @@
 # Key Rotation Automation
 
+## Contents
+
+- Why rotation is hard (and how to make it easy)
+- The four-phase rotation
+- Automating it
+- Rotation cadence
+- Signing keys are a special case
+- Emergency rotation (compromise)
+- Design for rotation up front
+- Related
+
 Deep reference for [security](oauth2-and-api-keys.md). Read this when designing rotation for API keys, service credentials, or signing keys — including emergency rotation after a compromise.
 
 Companion to [secrets-management](secrets-management.md), which covers where secrets live. This covers how they change.

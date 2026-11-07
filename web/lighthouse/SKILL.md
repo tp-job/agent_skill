@@ -5,7 +5,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.1"
+  version: "1.0.2"
   source: Lighthouse Score Optimizer guidelines (compiled 2026)
 ---
 
@@ -15,7 +15,7 @@ Turn a middling or failing Lighthouse report into consistent 90+ (ideally 95–1
 
 ## Operating principle: diagnose before you touch code
 
-Never guess at fixes from the category scores alone. The category number is a weighted roll-up; the **individual audits** tell you exactly which bytes, requests, and DOM nodes are costing points. Always get the specific failing audits first (from the report, the JSON, or by re-running), rank them by estimated savings, and fix the biggest levers first. One `4.3s` LCP image often outweighs ten cosmetic warnings.
+Don't guess at fixes from the category scores alone. The category number is a weighted roll-up; the **individual audits** tell you exactly which bytes, requests, and DOM nodes are costing points. Always get the specific failing audits first (from the report, the JSON, or by re-running), rank them by estimated savings, and fix the biggest levers first. One `4.3s` LCP image often outweighs ten cosmetic warnings.
 
 ## The loop
 
@@ -24,7 +24,12 @@ Work in tight measure → diagnose → fix → verify cycles. Do **not** batch t
 1. **Measure** — capture a baseline for the _right_ form factor. Mobile and desktop use different throttling, so run both. Prefer the CLI for reproducibility:
 
     ```bash
-    npx lighthouse https://example.com \  --preset=desktop --output=json --output=html \  --output-path=./lh-desktop --chrome-flags="--headless=new"npx lighthouse https://example.com \  --form-factor=mobile --output=json --output=html \  --output-path=./lh-mobile --chrome-flags="--headless=new"
+    npx lighthouse https://example.com \
+      --preset=desktop --output=json --output=html \
+      --output-path=./lh-desktop --chrome-flags="--headless=new"
+    npx lighthouse https://example.com \
+      --form-factor=mobile --output=json --output=html \
+      --output-path=./lh-mobile --chrome-flags="--headless=new"
     ```
 
     Run each **3 times** and take the median — lab numbers are noisy, and a single run can swing a score by 10+ points.

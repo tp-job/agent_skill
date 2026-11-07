@@ -1,5 +1,16 @@
 # Slide design — slides that support the teaching
 
+## Contents
+
+- 1. Content rules
+- 2. Type
+- 3. Colour and contrast
+- 4. Images, icons and charts
+- 5. Layout and consistency
+- 6. Animation and sound
+- 7. The three-second test
+- When not to apply
+
 The **Draw** stage. Slides cue and support the teacher. They don't replace the teacher, and they aren't a document projected onto a wall.
 
 **How to read the numbers.** The size, line and colour limits below come from practitioner guides. Only one claim in the sources (about slide titles) cites research, and it is marked. Treat every number as a default to check on the real screen, not as a law. Source keys (full list in [sources](sources.md)): **[ITG]** IT-Guides 2026 · **[NIU]** Northern Illinois University CITL · **[COM]** COMSIAM · **[KCT]** KCT Academy 2024 · **[TT]** Teachers Tech.

@@ -1,5 +1,18 @@
 # Secrets Manager Integration Patterns
 
+## Contents
+
+- The one rule
+- Pattern 1 — Runtime fetch from a secrets manager
+- Pattern 2 — Injection at deploy time
+- Pattern 3 — Dynamic / short-lived credentials
+- Pattern 4 — Workload identity federation (no secret at all)
+- Scoping: least privilege for secrets
+- Preventing leaks before they land
+- When a secret leaks
+- Anti-patterns
+- Related
+
 Deep reference for [security](oauth2-and-api-keys.md). Read this when the task involves storing, injecting, or auditing secrets — not when it is about OAuth2 flow design (see [oauth2-deep](oauth2-deep.md)) or agent trust boundaries (see [agent-threat-model](agent-threat-model.md)).
 
 ---

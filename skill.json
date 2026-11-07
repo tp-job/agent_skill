@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/skill-index.json",
   "version": "1.1.0",
-  "generated": "2026-10-25",
+  "generated": "2026-11-07",
   "root": "agent-skill",
-  "count": 35,
+  "count": 36,
   "skills": [
     {
       "name": "athena-erechtheion",
@@ -142,6 +142,12 @@
       "path": "knowledge/data-analyze/SKILL.md",
       "description": "Answer data questions end-to-end, from a quick metric lookup to multi-dimensional analysis to a formal report. Triggers on any request that requires querying, aggregating, or interpreting data from a warehouse, table, CSV/Excel, or pasted results.",
       "content": "Six-step pipeline: classify the question (lookup vs. investigation vs. report), gather data (connected warehouse or user-provided files), analyze, validate before presenting (sanity-check aggregations and assumptions), present findings in the right format (number, table, chart, narrative), and visualize only where it adds meaning."
+    },
+    {
+      "name": "drawio-diagrams",
+      "path": "knowledge/drawio-diagrams/SKILL.md",
+      "description": "Draws flowcharts and diagrams as editable draw.io files for readers who do not know the subject: IBM Plex Sans Thai at 16px or larger, 2px solid square-cornered lines, black and white only with one #EEF0F8 focus colour, every rectangle a…",
+      "content": ""
     },
     {
       "name": "knowledge-base",

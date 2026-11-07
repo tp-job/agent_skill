@@ -1,5 +1,13 @@
 # C · During build
 
+## Contents
+
+- Performance
+- Security
+- Tests
+- Docs and diagrams
+- Exit for checkpoint C
+
 Run at each phase close, before merging to main, and whenever something is slow, flaky
 or out of sync. Four groups: performance, security, tests, docs.
 

@@ -1,5 +1,16 @@
 # Eval & Benchmark JSON Schemas
 
+## Contents
+
+- Where each file lives
+- `evals/evals.json`
+- `eval_metadata.json` (per run)
+- `grading.json` (per run)
+- `timing.json` (per run)
+- `benchmark.json` (aggregated)
+- Validation checklist
+- Related
+
 Reference for [skill-creator](../SKILL.md). Read this when writing `evals.json`, `eval_metadata.json`, `grading.json`, `timing.json`, or hand-generating `benchmark.json`.
 
 **Field names are a contract.** The aggregation script and the benchmark viewer read these exact keys. Renaming a field — even to something clearer — breaks the viewer silently, producing an empty or misleading report rather than an error.

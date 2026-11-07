@@ -1,5 +1,21 @@
 # Software Design 2024 — Agent Skill
 
+## Contents
+
+- Table of Contents
+- 1. High-Level vs Low-Level Design
+- 2. UML — Use Case Diagram
+- 3. UML — Class Diagram
+- 4. UML — Activity Diagram
+- 5. UML — Sequence Diagram
+- 6. Software Architecture Patterns
+- 7. UI/UX Design
+- 8. Material Design
+- 9. Color Theory
+- 10. Database Design — ERD
+- Design System References
+- Quick Reference Card
+
 > **Use when:** Comprehensive software design knowledge base extracted from "Design-2024-V1.6" course material. Use this skill whenever a user asks about UML diagrams (Use Case, Class, Activity, Sequence), software architecture patterns (Monolithic, SOA, Microservices, 3-tier), UI/UX design principles, Material Design guidelines, Nielsen's Heuristics, ERD/database design, wireframes, mockups, prototypes, color theory, or any software design concept. Trigger this skill for design reviews, architecture decisions, diagram explanations, usability evaluations, and database schema planning.
 >
 > *Provenance: imported as `software-design-2024`; author surachai; version 1.6.*

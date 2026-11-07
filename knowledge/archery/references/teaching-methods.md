@@ -1,5 +1,12 @@
 # Teaching methods — pick the method for the target
 
+## Contents
+
+- 1. Choose by target verb
+- 2. The seven methods
+- 3. Named in the source, not detailed here
+- When not to use a method
+
 The **Aim** stage. A method is chosen by what the learner must be able to do afterwards. It's not chosen by habit or by what's fashionable.
 
 **Provenance:** the seven methods below, with their steps, advantages and limits, come from a Thai guide (kru2day, 2017) that draws on Tisana Khammani (2000). The choose-by-verb table and the slide notes are this skill's own assessment.

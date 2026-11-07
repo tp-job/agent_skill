@@ -95,7 +95,8 @@ Every skill description sits in the model's context in every session, so the plu
 - `.claude-plugin/plugin.json` → `skills` is **generated** by `build-index.py`. Do not hand-edit it; change `HUBS` in `scripts/skills_layout.py` instead. Entries are `./<hub>` or `./<realm>/<skill>`.
 - `scripts/install.sh` / `install.ps1` read the same list, so every install route loads the same set.
 - Adding a spoke to a hub in `HUBS` deactivates it as a standalone skill. Its trigger phrases must then be added to the aggregator's description and fast-path table, or nothing will route to it.
-- A description is truncated at **1,536 characters** in the skill listing. The hubs' descriptions are the tightest; measure them after every change.
+- A description is capped at **1,024 characters**: the Agent Skills spec and Claude API upload limit (Claude Code itself truncates at 1,536). Write it in third person. The hubs' descriptions are the tightest; measure them after every change.
+- **The whole listing has a budget too**: 1% of the context window, shared with every other installed plugin. When it overflows, Claude Code keeps every name but drops the descriptions of the least-invoked skills first, and a skill listed by name alone only fires when typed. `lint-skills.py` caps this library's share (`LISTING_LIMIT`) so growth is a decision. Raising the budget (`skillListingBudgetFraction`) or turning off unused plugins (`/plugin`) is the user's setting, not a repo change.
 
 **Before adding a new skill, check whether an active skill or a core specialist already owns its triggers.** If one does, add the content as a `references/` file of that skill instead. `security`, `tracking-and-debugging`, `agent-skill-creator` and `web-design-guidelines` were merged this way into `owasp-top-10-2025`, `debug-master`, `skill-creator` and `ui-checker`.
 
@@ -140,6 +141,8 @@ Rules:
 - **Every reference must be a relative markdown link**, not a bare path in backticks and not an Obsidian `[[wikilink]]`. Markdown links resolve for both Claude and Obsidian; wikilinks only work in Obsidian, and a backticked path is a string the model has to guess at.
 - **Never link a file that does not exist.** A dangling pointer is worse than an omission — it promises depth that isn't there and sends the reader on a failed lookup.
 - **One concern per reference file.** If a file covers two topics, split it, so loading one doesn't drag in the other.
+- **A reference over 100 lines opens with `## Contents`.** Claude sometimes previews a file partially; the list shows the whole scope up front.
+- **No maintainer content in what the task loads.** Changelogs, bundle-repair history and "an earlier version of this skill…" go in a separate reference, never in `SKILL.md`.
 
 Run the checks below before committing; they catch both problems.
 
@@ -163,12 +166,18 @@ Rebuilds every `bundled/` directory from its sources, then verifies the closure,
 python scripts/lint-skills.py
 ```
 
-Checks what the other two cannot: description over the 1,536-character listing cap, no negative scope in the description, orphaned reference files, broken `#heading` anchors (GitHub slugs — `## Cloud & Network` is `#cloud--network`), Obsidian wikilinks, skill frontmatter left inside a reference file, mojibake, personal paths, and credential-shaped strings. Exits non-zero on any finding.
+Checks what the other two cannot: description over the 1,024-character spec limit or not in third person, no negative scope in the description, a reference over 100 lines with no `## Contents`, orphaned reference files, broken `#heading` anchors (GitHub slugs — `## Cloud & Network` is `#cloud--network`), Obsidian wikilinks, skill frontmatter left inside a reference file, mojibake, personal paths, and credential-shaped strings. Exits non-zero on any finding.
+
+```bash
+claude plugin eval . --tag trigger --runs 3 --ablation none --no-publish --model claude-sonnet-5-5
+```
+
+Runs the routing suite in `evals/` (Claude Code v2.1.269+): each case is a realistic prompt, and its graders check which skill fired (`tool_used: Skill`) and which bundled spoke the hub opened (`tool_used: Read`), including should-*not*-fire cases. Run it after changing a hub's description or fast-path table — the description is the trigger, and a check that only measures length cannot tell you it still routes. `--tag quality` runs the slower cases that judge the answer itself. Each case is a directory: `prompt.md` plus `graders/*.md`; results land in `evals/results/`, which is git-ignored. The suite is the library's, not a skill's, so it lives at the root, never inside a skill folder.
 
 Before committing a skill change, confirm:
 
 - [ ] Folder name == `name:` in frontmatter
-- [ ] `description` names what it does, when to use it, literal trigger phrases, and what it is **not** for — within 1,536 characters
+- [ ] `description` names what it does, when to use it, literal trigger phrases, and what it is **not** for — third person, within 1,024 characters
 - [ ] `license` and `metadata` blocks present
 - [ ] Every reference is a relative markdown link to a file that exists
 - [ ] No link leaves the skill folder — a cross-skill link points at `bundled/`, never `../`
@@ -177,10 +186,13 @@ Before committing a skill change, confirm:
 - [ ] `python scripts/build-index.py` exits clean
 - [ ] `python scripts/build-bundles.py && python scripts/check-bundles.py` exits clean
 - [ ] `python scripts/lint-skills.py` exits clean
+- [ ] Hub description or fast-path table changed → the `evals/` trigger suite passes
 
 ---
 
 ## Writing style for skill content
+
+The full rubric, compiled from Anthropic's skill-authoring best practices, lives in the `skill-creator` skill (`core/skill-creator/references/authoring-standard.md`). The short version:
 
 These files are read by a model under context pressure, mid-task. That shapes the prose:
 
@@ -189,6 +201,9 @@ These files are read by a model under context pressure, mid-task. That shapes th
 - **Show the wrong version next to the right one.** A BAD/BETTER pair transfers more than a rule stated abstractly.
 - **State the version or dialect** whenever behavior depends on it — SQL engine, Python version, C standard, library major version. Guidance graded against the wrong version is worse than no guidance.
 - **Say when *not* to apply the advice.** A rule with no stated limits gets over-applied.
+- **Assume the model is already smart.** Cut definitions, motivation essays and history it does not need; every loaded line competes with the conversation.
+- **Explain why instead of shouting.** `ALWAYS`/`NEVER`/`MUST` in capitals is a warning sign; keep it for the rare rule where a mistake is destructive.
+- **No time-sensitive wording.** Not "currently" or "the latest": state the version.
 
 ---
 

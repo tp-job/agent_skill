@@ -6,6 +6,20 @@ related: "[00-INDEX](../00-INDEX.md)"
 
 # Role Catalog (Full Reference)
 
+## Contents
+
+- สาย Software & Logic
+- สาย IoT (Internet of Things)
+- สาย UX/UI & Design
+- สาย Writing & Content
+- สายบริหารจัดการและประสานงาน
+- Engineering & Leadership Roles (Original Set)
+- สาย R&D — Research & Development (Silicon)
+- สาย TEST — Verification & Quality Assurance (Silicon)
+- สาย SELL — Sales, Marketing & Business (Silicon)
+- สาย Client Service — Customer Support & Technical Services (Silicon)
+- Composite Modes
+
 Complete listing of all roles across all tracks. Agents use this for the "Act as..." framing, voice guidance, and cross-role links.
 
 For Obsidian graph view, the individual role files in `../roles/` are better — this file is the agent reference.

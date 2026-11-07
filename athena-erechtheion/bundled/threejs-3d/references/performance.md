@@ -1,5 +1,17 @@
 # Performance Reference
 
+## Contents
+
+- Profiling First — Measure Before Optimizing
+- Draw Call Reduction
+- Memory Management (GPU)
+- Render Loop Optimizations
+- Texture Optimization
+- Mobile Optimization
+- Geometry Optimization
+- Scene Graph
+- Performance Checklist
+
 Profiling, draw call reduction, GPU memory, mobile optimization, frustum culling, static optimization.
 
 ---

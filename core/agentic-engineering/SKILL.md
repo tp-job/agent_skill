@@ -1,35 +1,26 @@
 ---
 name: agentic-engineering
-description: >
-  Turns a one-line request into a brief an AI coding agent can execute without drifting.
-  Applies four framing questions — what is being created, for whom, what are the limitations,
-  how will it be proven complete and correct — then interrogates the ask for the unstated
-  rules (expiry, reuse, rate limits, concurrency, failure paths) that decide whether the
-  generated code is right or merely plausible. Trigger when: a request is a single sentence
-  but the work is not ("build a password reset", "add login", "make an upload feature"),
-  the user asks how to prompt or brief an agent, a previous agent run produced working code
-  that solved the wrong problem, you are about to start coding from an ask with no stated
-  edge cases, or someone asks what questions to ask before building. Thai triggers:
-  "ถามอะไรก่อนเริ่มเขียนโค้ด", "เขียน brief ให้ AI", "สั่งงาน AI ยังไงให้ตรง", "ขอบเขตงานไม่ชัด".
-  Not for extracting requirements from code that already exists (use requirement-gathering)
-  and not for gating a multi-session build (use long-horizon-engineering-workflow) — this
-  is the step before either: writing the ask down properly in the first place.
+description: >-
+  Turns a one-line request into a brief an AI coding agent can execute without drifting. Answers
+  four framing questions (what is being created, for whom, under what limits, proven how), then
+  interrogates the ask for the unstated rules (expiry, reuse, rate limits, concurrency, failure
+  paths) that decide whether generated code is right or merely plausible. Use when a request is one
+  sentence but the work is not ("build a password reset", "add login", "make an upload feature"),
+  when asked how to prompt or brief an agent, when an earlier agent run solved the wrong problem, or
+  before coding from an ask with no stated edge cases. Trigger for: "what should I ask before
+  building", "write a brief for the agent", "ถามอะไรก่อนเริ่มเขียนโค้ด", "เขียน brief ให้ AI",
+  "สั่งงาน AI ยังไงให้ตรง", "ขอบเขตงานไม่ชัด". Not for extracting requirements from existing code or
+  gating a multi-session build; this is the step before either.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.1.0"
+  version: "1.2.0"
   source: Agentic Engineering briefing method (compiled 2026)
 ---
 
 # Agentic Engineering
 
-## Why this exists
-
-An agent will build almost anything you describe. It will not tell you that your description had four unanswered questions in it — it will answer them itself, silently, in whichever way the training data leaned, and hand you code that runs.
-
-That is the actual failure mode of agent-assisted development. Not broken code: **plausible code built against invented requirements.** "Build a password reset" gets you a token. Whether that token expires in an hour or never, whether it can be used twice, whether an attacker can request ten thousand of them — the agent picked. You will find out in production.
-
-The fix is not longer prompts. It is a short, specific brief, produced by asking the four questions below and then interrogating the answers for the rules nobody stated.
+The failure this prevents is **plausible code built against invented requirements**: "build a password reset" gets a token, and the agent silently decides whether it expires, can be reused, or can be requested ten thousand times. The fix is a short, specific brief: ask the four questions below, then interrogate the answers for the rules nobody stated.
 
 ---
 
@@ -98,5 +89,3 @@ Equally: an agent that never asks anything about a genuinely ambiguous ask is no
 ## One-paragraph version
 
 Before building, write down what is being created, for whom, under what limits, and how you will know it is right. Then attack the limits section until it contains numbers and named failure cases instead of adjectives. Confirm it. Build against it. The cost of this is about ten minutes; the cost of not doing it is a rebuild you will mistake for a bug fix.
-
-These are copies, not forks. Refresh them from the skill library rather than editing them in place; the only thing that differs from the originals is the depth of their relative links.

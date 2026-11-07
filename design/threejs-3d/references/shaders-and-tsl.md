@@ -1,5 +1,14 @@
 # Shaders & TSL Reference
 
+## Contents
+
+- When to Use What
+- ShaderMaterial — Full Custom GLSL
+- RawShaderMaterial — Bare GLSL
+- onBeforeCompile — Extend Built-in Materials
+- GLSL Best Practices
+- TSL — Three.js Shading Language (WebGPU)
+
 Custom GLSL (ShaderMaterial), onBeforeCompile injection, TSL (Three.js Shading Language) for WebGPU.
 
 ---

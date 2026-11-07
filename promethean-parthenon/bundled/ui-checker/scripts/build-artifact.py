@@ -3,7 +3,7 @@
 ui-checker / scripts / build-artifact.py
 
 Injects a target HTML file + static-analysis JSON into
-templates/inspector-artifact.html using base64 encoding.
+assets/inspector-artifact.html using base64 encoding.
 
 Base64 keeps the artifact valid no matter what's inside the user's HTML
 (backticks, ${...}, </script> tags, unbalanced quotes — all safe).
@@ -11,7 +11,7 @@ Base64 keeps the artifact valid no matter what's inside the user's HTML
 Usage:
   python3 build-artifact.py \
     --html     /tmp/ui-checker/target.html \
-    --template /path/to/ui-checker/templates/inspector-artifact.html \
+    --template /path/to/ui-checker/assets/inspector-artifact.html \
     --analysis /tmp/ui-checker/analysis.json \
     --output   /tmp/ui-checker/ui-inspector.html
 """

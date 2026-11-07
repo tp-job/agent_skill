@@ -1,5 +1,16 @@
 # Theme Patterns — Per-Framework Reference
 
+## Contents
+
+- 1. CSS Custom Properties (Vanilla)
+- 2. Tailwind CSS — Palette Utilities + dark: Variants
+- 3. Tailwind CSS + shadcn/ui — Semantic Token Classes
+- 4. SCSS Variables
+- 5. CSS-in-JS (styled-components / Emotion)
+- 6. Bootstrap 5
+- Dark Mode Method Decision Matrix
+- Common Violations Quick Reference
+
 Quick reference for how each theming system works, how `static-analysis.py`
 detects it, what counts as compliant, and how to fix common violations.
 

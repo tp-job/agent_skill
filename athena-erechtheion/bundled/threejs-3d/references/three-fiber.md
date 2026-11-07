@@ -1,5 +1,17 @@
 # React & Frameworks Reference
 
+## Contents
+
+- React Three Fiber (R3F) — Recommended for React
+- R3F — useFrame (render loop)
+- R3F — useGLTF (model loading)
+- R3F — Animation with useAnimations
+- R3F — useThree (access renderer, scene, camera)
+- R3F — Drei Components (common helpers)
+- R3F — Postprocessing
+- Vanilla Three.js in React (without R3F)
+- Vue Integration (vue-three / vanilla)
+
 React Three Fiber (R3F), Drei, Vue, cleanup patterns, component structure.
 
 ---

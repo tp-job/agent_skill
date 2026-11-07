@@ -1,20 +1,16 @@
 ---
 name: chronos-artemis
 description: >-
-  Time and task management across Google Calendar and ClickUp. Sorts every captured item into
-  one of three kinds before touching a tool: a schedule (fixed clock time, lives in Google
-  Calendar), a task (an outcome with a done state, lives in ClickUp) or an activity (ongoing time
-  spent with no done state — habits, focus blocks, practice — planned as calendar blocks and
-  logged as time). Classifies every task as To Do, In Progress or Completed whatever the list's
-  own status names are, and moves tasks between them. Runs capture and triage, daily planning and
-  time-blocking, status updates, meeting prep, overload and conflict checks, rescheduling and
-  weekly reviews, and keeps each calendar block linked to its task. Use when asked "plan my day",
-  "what's on my plate", "add this to my calendar", "make a task for", "I finished X", "mark it in
-  progress", "block time for", "am I overbooked", "weekly review", "what slipped this week",
-  "sync my calendar with ClickUp", "จัดตารางวันนี้", "วันนี้มีงานอะไรบ้าง", "เพิ่มนัด", "สร้างงานใน
-  ClickUp", "งานนี้เสร็จแล้ว", "สรุปงานประจำสัปดาห์". Not for setting up or debugging the Calendar or
-  ClickUp MCP connection itself (hermes-olympus), sprint or team capacity planning across many
-  people, project roadmaps, or building a scheduling feature into an application.
+  Time and task management across Google Calendar and ClickUp. Sorts each item into a schedule
+  (fixed time, Calendar), a task (has a done state, ClickUp) or an activity (ongoing time with no
+  done state, planned as calendar blocks), and maps every task to To Do, In Progress or Completed
+  whatever the list calls its statuses. Runs capture and triage, daily planning and time-blocking,
+  status updates, meeting prep, overload checks, rescheduling and weekly reviews, keeping each block
+  linked to its task. Trigger for: "plan my day", "what's on my plate", "add this to my calendar",
+  "make a task for", "I finished X", "block time for", "am I overbooked", "weekly review", "sync my
+  calendar with ClickUp", "จัดตารางวันนี้", "วันนี้มีงานอะไรบ้าง", "เพิ่มนัด", "สร้างงานใน ClickUp",
+  "งานนี้เสร็จแล้ว", "สรุปงานประจำสัปดาห์". Not for fixing the Calendar or ClickUp MCP connection
+  itself, team capacity planning, roadmaps, or building a scheduling feature into an app.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)

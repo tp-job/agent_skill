@@ -1,5 +1,26 @@
 # Failure Modes
 
+## Contents
+
+- 1. Plausible code, invented requirements
+- 2. Declared victory
+- 3. Context amnesia
+- 4. The silent rewrite
+- 5. The fourth copy
+- 6. Shape mismatch
+- 7. Over-return
+- 8. Correct at n=10
+- 9. The average answer
+- 10. Competent execution of a bad decision
+- 11. The recurring bug
+- 12. Invisible work
+- 13. Built against a system nobody read
+- 14. The module that gets worse
+- 15. The right fix for the wrong problem
+- 16. The digest that decides nothing
+- 17. Right by the book, wrong for this team
+- The meta-tell
+
 How agent output goes bad. Every one of these produces something that *looks* like success — that is what makes them worth cataloguing, and why attention alone does not catch them.
 
 Each entry: the tell, the real cause, and the pillar that fixes it. Task verdicts name which of its three skills carries the fix — **extract** (requirement-gathering), **brief** (agentic-engineering), or **build** (long-horizon-engineering-workflow).

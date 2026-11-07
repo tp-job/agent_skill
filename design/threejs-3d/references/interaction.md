@@ -1,5 +1,16 @@
 # Interaction Reference
 
+## Contents
+
+- Raycasting — Click to Select Object
+- Hover Highlight Pattern
+- DragControls
+- Pointer Events on DOM Overlay (2D UI over 3D)
+- CSS2DRenderer / CSS3DRenderer — HTML Labels in 3D
+- TransformControls — Move/Rotate/Scale Objects
+- Touch / Mobile Pointer Events
+- Raycaster Tips
+
 Raycasting, object picking, drag-and-drop, hover, pointer events in 3D.
 
 ---

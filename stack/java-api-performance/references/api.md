@@ -1,11 +1,17 @@
-name: pdf-processing
-description: Extract PDF text, fill forms, merge files. Use when handling PDFs.
-license: Apache-2.0
-metadata:
-  author: example-org
-  version: "1.0"
+# Java API Performance — Patterns with Code
 
----
+## Contents
+
+- Step 01: LOOP OPTIMIZATION - Fix Inefficient Loops
+- Step 02: OBJECT CREATION - Stop Creating New Objects Inside Loops
+- Step 03: ASYNC PROCESSING - Use @Async — Don't Block the API Thread
+- Step 04: CACHING - Cache Expensive Results — Stop Hitting the DB Every Time
+- Step 05: PAGINATION - Never Return All Records — Always Paginate
+- Step 06: QUERY OPTIMIZATION - Fetch Only What You Need — Ban SELECT ***
+- Step 07: DATABASE INDEXING - Add Indexes on Query Columns — Stop Full Table Scans
+- Step 08: N+1 PROBLEM - Fix the N+1 Query Problem with JOIN FETCH
+- Step 09: CONNECTION POOLING - Tune HikariCP — Never Open a New DB Connection Per Request
+
 ## Step 01: LOOP OPTIMIZATION - Fix Inefficient Loops
 
 **Concept:** Never filter, sort or process data in Java when the database can do it. Loading all records into memory wastes heap and causes GC pressure.
@@ -219,8 +225,7 @@ RULES:
 - Don't over-index — it slows down writes
 
 ---
-## ## **Step 08: N+1 PROBLEM - Fix the N+1 Query Problem with JOIN FETCH**
-
+## Step 08: N+1 PROBLEM - Fix the N+1 Query Problem with JOIN FETCH
 **Concept:** N+1 = 1 query to get N records, then N more queries for each child. 100 orders = 101 DB queries silently killing your API performance.
 
 BAD — 101 QUERIES FOR 100 ORDERS
@@ -248,8 +253,7 @@ RULES:
 - Configure Hibernate batch fetching as fallback
 
 ---
-## ## **Step 09: CONNECTION POOLING - Tune HikariCP — Never Open a New DB Connection Per Request**
-
+## Step 09: CONNECTION POOLING - Tune HikariCP — Never Open a New DB Connection Per Request
 **Concept:** Opening a new DB connection per request costs 50–200ms. HikariCP reuses pre-opened connections — cutting that overhead to near zero under any traffic load.
 
 **STEPS TO IMPLEMENT**:

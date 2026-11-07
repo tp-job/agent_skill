@@ -1,5 +1,18 @@
 # Setup & Renderer Reference
 
+## Contents
+
+- Import Map (mandatory — never use old CDN)
+- Renderer — Full Options
+- Critical Renderer Settings (always apply)
+- Tone Mapping Options
+- Camera Setup
+- Animation Loop — setAnimationLoop (mandatory)
+- Resize Handler
+- Controls
+- Scene Setup Helpers
+- Vite / Build Tool Setup
+
 Three.js r186+ · WebGLRenderer & WebGPURenderer setup, resize, controls.
 
 ---

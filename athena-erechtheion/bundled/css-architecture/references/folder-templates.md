@@ -1,5 +1,12 @@
 # Folder Structure Templates
 
+## Contents
+
+- Small — Landing page, portfolio, micro-app
+- Medium — App, dashboard, multi-page site
+- Large — Design system, enterprise app, multi-product
+- Splitting Rules
+
 Three sizes. Start smaller than you think you need — it's easy to expand, hard to consolidate.
 
 > **CSS Modules note:** Files ending in `.module.css` are component-scoped and do NOT belong in `src/styles/`. CSS Modules and the `src/styles/` architecture coexist without conflict.

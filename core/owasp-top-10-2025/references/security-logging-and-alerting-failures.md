@@ -4,6 +4,13 @@ name: security-logging-and-alerting-failures description: > Use when the user as
 
 # A09:2025 Security Logging & Alerting Failures
 
+## Contents
+
+- Description
+- Example Attack Scenarios
+- How to Prevent
+- Rules
+
 ## Description
 
 Without logging and monitoring, attacks and breaches cannot be detected, and without alerting it is very difficult to respond quickly and effectively during a security incident. Insufficient logging, continuous monitoring, detection, and alerting occurs any time:

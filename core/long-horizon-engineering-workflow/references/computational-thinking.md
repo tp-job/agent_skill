@@ -1,5 +1,15 @@
 # Computational Thinking (Stage 2 method)
 
+## Contents
+
+- 1. Decomposition
+- 2. Pattern Recognition
+- 3. Abstraction
+- 4. Algorithm Design
+- 5. Data Mapping
+- When to run this
+- Failure mode this prevents
+
 [design-and-architecture](design-and-architecture.md) says *what* Stage 2 must produce. This file is *how* to produce it.
 
 Five moves, run in order. They are not academic vocabulary — each one has a named output that lands in a harness file, and each one prevents a specific failure that shows up later at ten times the cost.

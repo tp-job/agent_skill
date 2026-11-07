@@ -1,5 +1,17 @@
 # Assessment Design
 
+## Contents
+
+- The alignment rule
+- Formative vs. summative
+- Matching assessment type to Bloom's level
+- Writing good items
+- Rubrics
+- Blueprinting an exam
+- Subject-specific notes
+- Review checklist
+- Related
+
 Reference for [cs-course-designer](../SKILL.md), Step 5. Read before drafting quizzes, exams, rubrics, or project briefs.
 
 ---

@@ -1,5 +1,13 @@
 # Role Placement — who stands where, and what moves between them
 
+## Contents
+
+- The station map
+- The switch is a work step, not a voice
+- Handoffs carry a payload
+- When the seats disagree
+- When not to bother
+
 A gate without an owner is a gate nobody closes. In a human team the seats are separate people; on a solo long-horizon build you occupy all of them — but you must occupy them **distinctly**, because the value is the change in viewpoint, not the change in headcount.
 
 The failure this prevents: the person who wrote the code is the worst possible person to verify it, and knows it least.

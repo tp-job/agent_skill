@@ -4,6 +4,13 @@ name: security-misconfiguration description: > Use when the user asks about inse
 
 # A02:2025 Security Misconfiguration
 
+## Contents
+
+- Description
+- Example Attack Scenarios
+- How to Address It
+- How to Prevent
+
 ## Description
 
 Security misconfiguration is when a system, application, or cloud service is set up incorrectly from a security perspective, creating vulnerabilities.

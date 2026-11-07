@@ -1,5 +1,16 @@
 # Engineering Workflow & Core Skills Framework
 
+## Contents
+
+- Executive Summary
+- The Root Cause: Where Delivery Breaks Down
+- The Delivery Workflow: Gate-by-Gate
+- Structured Feedback Format
+- The Five Core Skills Every Engineer Must Develop
+- Leadership Accountability Matrix
+- Metrics That Will Be Tracked
+- Summary: What Changes Starting Now
+
 **Perspective: CEO · CTO · CIO · CPO · VP Engineering · Engineering Director · Technology Leadership**
 
 ---

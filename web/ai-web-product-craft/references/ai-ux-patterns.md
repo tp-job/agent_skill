@@ -1,5 +1,13 @@
 # Designing the AI user experience
 
+## Contents
+
+- Background AI
+- Constrained AI
+- Open-ended AI
+- Quick reference table
+- Further reading
+
 Source: web.dev Learn AI — "Designing the AI user experience."
 
 From a user's perspective, AI systems are inherently uncertain — they can produce inconsistent results and fail in unpredictable ways. The interface is where you absorb, filter, and reduce the frustration that comes from those limitations. As the builder, you usually understand far better than the user where and how the AI is likely to fail, which makes the UI decisions below your responsibility, not the model's.

@@ -1,5 +1,15 @@
 # Stylelint Setup — Automated CSS Enforcement
 
+## Contents
+
+- Install
+- `.stylelintrc.json`
+- What Each Rule Does
+- Running Stylelint
+- Add to `package.json` scripts
+- Add to CI (GitHub Actions)
+- VS Code Integration
+
 Stylelint turns the QA checklist into CI failures. Rules catch violations that code review misses.
 
 ---

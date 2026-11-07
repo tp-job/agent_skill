@@ -1,5 +1,17 @@
 # The Feature Loop — sub-tasks and the inner cycle
 
+## Contents
+
+- Regression: full at the edges, scoped in the middle
+- What a good sub-task looks like
+- How much to specify up front
+- Selection order
+- Verification: the part that gets faked
+- Refactor: the last box, not an optional one
+- Commit discipline
+- Closing a phase
+- When a feature is blocked
+
 The six gates run **once per build**. This loop runs **once per feature**, dozens of times, and it is where a long build is actually made or lost.
 
 ```

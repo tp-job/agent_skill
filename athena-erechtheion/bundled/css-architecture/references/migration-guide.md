@@ -1,5 +1,14 @@
 # Migration Guide — Moving to Clean CSS Architecture
 
+## Contents
+
+- Before You Start — Audit First
+- Phase 1 — Create the Structure (Zero Risk)
+- Phase 2 — Migrate Tokens (Low Risk)
+- Phase 3 — Migrate Rules (One Component Per Sprint)
+- After Migration — Enable Strict Linting
+- Migration Risk Matrix
+
 For teams with an existing messy codebase. This is a 3-phase plan designed to be done incrementally — no big-bang rewrite.
 
 **Rule #1: Never rewrite all CSS at once.** The risk of visual regression is too high. Migrate one layer at a time.

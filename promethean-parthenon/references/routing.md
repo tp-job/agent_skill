@@ -1,5 +1,14 @@
 # Routing
 
+## Contents
+
+- By what you are holding right now
+- By what went wrong
+- Sizing: how much pillar for how much work
+- Tie-breakers
+- Handing off to skills outside the Parthenon
+- The default
+
 Which pillar carries this work. Read the first table that matches your situation and stop.
 
 Task carries three skills, so a Task verdict always names which one: **extract** (requirement-gathering), **brief** (agentic-engineering), or **build** (long-horizon-engineering-workflow).

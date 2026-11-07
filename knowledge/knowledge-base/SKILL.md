@@ -1,11 +1,17 @@
 ---
 name: knowledge-base
 description: >-
-  Software engineering knowledge base covering architecture patterns, component-based design, security fundamentals, software design principles, and use case + microservices design. Use this skill when answering questions about software architecture, design patterns, system design, security best practices, or use case modeling. Triggers on tasks involving architecture decisions, component design, software design review, or microservices planning. Also trigger for: "architecture patterns", "component design", "software design", "system design", "security patterns", "use case diagram", "microservices design", "3-tier architecture", "design principles", or any request for software engineering reference knowledge. Not for auditing code for vulnerabilities (an OWASP-style security review) or for managing a personal notes vault — this is conceptual software-design reference.
+  Reference knowledge for software design: architecture patterns (layered, 3-tier,
+  microservices), component-based design, design principles, security fundamentals and use-case
+  modeling. Use when answering a conceptual architecture, design-pattern, system-design or
+  use-case question, or checking a design decision against those patterns. Trigger for:
+  "architecture patterns", "system design", "design principles", "use case diagram",
+  "microservices design", "3-tier architecture". Not for auditing code for vulnerabilities (an
+  OWASP-style review) or for managing a personal notes vault.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.1"
+  version: "1.1.0"
   source: Software Engineering Knowledge Base (compiled 2026)
 ---
 

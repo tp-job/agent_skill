@@ -1,5 +1,18 @@
 # Memory Management & Disposal Reference
 
+## Contents
+
+- Core Rule
+- Dispose a Single Mesh (standard pattern)
+- Recursive Disposal (entire model hierarchy)
+- Render Targets
+- Renderer Disposal
+- React useEffect Cleanup Pattern
+- Reuse vs. Create
+- Object Pool (spawn-heavy scenarios)
+- Loop Allocation Prevention
+- Memory Leak Detection
+
 Three.js does NOT garbage-collect GPU resources automatically. Missing `.dispose()` = memory leak = browser crash.
 
 ---

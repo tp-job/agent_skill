@@ -1,5 +1,16 @@
 # Lighting & Shadows Reference
 
+## Contents
+
+- Light Types
+- 3-Point Lighting Setup (professional default)
+- Shadow Configuration
+- Cascaded Shadow Maps (CSM) — Large Outdoor Scenes
+- Baked Lighting (Lightmaps)
+- Environment Light (HDRI IBL)
+- Light Performance Guide
+- Light Helpers (development only)
+
 Three-point lighting, shadow maps, CSM, HDRI, baked lightmaps.
 
 ---

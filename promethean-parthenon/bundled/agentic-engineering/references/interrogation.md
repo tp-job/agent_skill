@@ -1,5 +1,18 @@
 # Interrogation
 
+## Contents
+
+- How to run it
+- Bank 1 — Lifetime and reuse
+- Bank 2 — Volume and abuse
+- Bank 3 — Identity and permission
+- Bank 4 — State and concurrency
+- Bank 5 — Failure and recovery
+- Bank 6 — Data lifecycle
+- Bank 7 — Surfaces and integration
+- Domain add-ons
+- Turning answers into rules
+
 The framing questions get answered fluently and emptily. Interrogation is what makes the answers load-bearing: attack each one until it yields rules with numbers, boundaries, and named forbidden cases.
 
 Work the banks below in order. Skip a bank only when you can say why it does not apply — "no concurrency here" is a decision; silence is an omission.

@@ -1,5 +1,15 @@
 # CSS Architecture — Implementation Checklist
 
+## Contents
+
+- Setup Checklist
+- If Migrating Existing Project
+- Testing Checklist
+- Success Metrics (Measure After Implementation)
+- Common Issues & Fixes
+- Team Onboarding
+- Quick Links to Each Reference
+
 Copy this checklist to your project. Check off as you implement.
 
 ---

@@ -1,5 +1,16 @@
 # Reference analysis — deconstructing a screenshot
 
+## Contents
+
+- 0. Rules before the six sections
+- 1. Visual style & concept
+- 2. Colour palette & atmosphere
+- 3. Typography & hierarchy
+- 4. Layout & grid
+- 5. UI components & interaction
+- 6. Technical implementation
+- Check before handing on
+
 A reference is only useful once it has been turned into decisions you can reuse. This file is the teardown method for "analyse this website screenshot", "what style is this?", "how would I build this?". It feeds the moodboard in [art-direction](art-direction.md) and can also run on its own as a study exercise.
 
 ---

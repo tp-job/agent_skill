@@ -1,5 +1,13 @@
 # SQL — Topic Map
 
+## Contents
+
+- Topic coverage
+- One reasonable sequencing
+- Common misconceptions
+- Where formative checks pay most
+- Related
+
 Reference for [cs-course-designer](../SKILL.md), Step 1. Covers querying, joins, subqueries, window functions, and query performance.
 
 **Always state the engine and version.** SQL behavior diverges more than students expect: `LIMIT` vs. `TOP` vs. `FETCH FIRST`, NULL sort order, window-function support, string concatenation, date arithmetic, and identifier quoting all differ. Default to current mainstream **PostgreSQL** unless the request names another engine, and say so up front.

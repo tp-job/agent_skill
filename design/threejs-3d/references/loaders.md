@@ -1,5 +1,18 @@
 # Loaders Reference
 
+## Contents
+
+- GLTF / GLB (primary 3D format)
+- GLTF + DRACO Compression
+- GLTF + KTX2 Compressed Textures
+- GLTF + DRACO + KTX2 (production optimal)
+- Async / Promise Loading (recommended pattern)
+- LoadingManager (progress tracking)
+- Other Formats
+- Loading from ArrayBuffer / Blob / Data URL
+- Error Handling & Retry
+- Asset Manager (caching + disposal)
+
 GLTF/GLB, DRACO, OBJ, FBX, textures, HDR, async loading, LoadingManager.
 
 ---

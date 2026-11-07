@@ -4,6 +4,27 @@
 
 # Component-Based Architecture
 
+## Contents
+
+- name: component-based-architecture-ts description: > Expert knowledge skill for Architecture and Component-Based Software Development using TypeScript, React, Next.js, and Node.js. Use this skill whenever the user asks about component-based development, software architecture, monolithic vs microservices, layered architecture, SOLID principles, how to structure a TypeScript/React/Next.js/Node.js project into components, how to design components with clear interfaces using TypeScript types/interfaces, how to apply High Cohesion / Low Coupling, React component design, custom hooks as service layer, Next.js App Router structure, Node.js module organization, Dependency Injection in TypeScript, or any question related to splitting a frontend/backend system into reusable, independently deployable units.
+- TypeScript / React / Next.js / Node.js Edition
+- name: component-based-architecture-ts description: > Expert knowledge skill for Architecture and Component-Based Software Development using TypeScript, React, Next.js, and Node.js. Use this skill whenever the user asks about component-based development, software architecture, monolithic vs microservices, layered architecture, SOLID principles, how to structure a TypeScript/React/Next.js/Node.js project into components, how to design components with clear interfaces using TypeScript types/interfaces, how to apply High Cohesion / Low Coupling, React component design, custom hooks as service layer, Next.js App Router structure, Node.js module organization, Dependency Injection in TypeScript, or any question related to splitting a frontend/backend system into reusable, independently deployable units.
+- TypeScript / React / Next.js / Node.js Edition
+- 1. OOP Foundations in TypeScript
+- 2. SOLID Principles in TypeScript
+- 3. Monolithic vs Component-Based
+- 4. Code Unit Hierarchy in TypeScript/React
+- 5. What Makes a Component (TypeScript)
+- 6. Layered Architecture in Next.js / Node.js
+- 7. React Component Layer
+- 8. Project Structure (Next.js — Layered + Component-Based)
+- 9. Barrel Files (`index.ts`) — Equivalent to `__init__.py`
+- 10. Microservices in Node.js (Basic)
+- 11. Dependency Injection Patterns in TypeScript
+- 12. Monolithic vs Microservices (TypeScript Context)
+- 13. Summary
+- 14. Design Checklist (TypeScript/React/Next.js)
+
 ## TypeScript / React / Next.js / Node.js Edition
 
 All concepts are based on Session 06: Architecture and Component-Based Software Development, fully mapped to the TypeScript ecosystem.

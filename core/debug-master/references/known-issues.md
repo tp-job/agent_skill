@@ -1,5 +1,17 @@
 # Loading.tsx — Known Issues & Technical Debt Register
 
+## Contents
+
+- Active Issues
+- ISSUE-001: Inline LaserFlow Should Be External Module
+- ISSUE-002: Google Fonts Injected via DOM (Non-Next.js Pattern)
+- ISSUE-003: Style Injection in useEffect (CSP Risk)
+- ISSUE-004: Missing `prefers-reduced-motion` Support
+- ISSUE-005: onComplete Race Condition on Fast Unmount
+- ISSUE-006: Three.js r128 — OrbitControls Unavailable
+- ISSUE-007: WaveformSVG Animation Uses Inline style (Not DS Motion)
+- Technical Debt Summary
+
 ## Active Issues
 
 ### ISSUE-001: Inline LaserFlow Should Be External Module

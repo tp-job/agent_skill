@@ -1,5 +1,19 @@
 # CSS Anti-Patterns — Root Causes of CSS Hell
 
+## Contents
+
+- 1. The `!important` Addiction
+- 2. Deep Selector Nesting
+- 3. Hardcoded Values in Component Files
+- 4. Recreating Tailwind Utilities
+- 5. Global Style Leaks
+- 6. The z-index Arms Race
+- 7. Fighting Tailwind's Preflight with a Heavy Reset
+- 8. Keyframes Scattered Across Component Files
+- 9. Overusing `@apply`
+- 10. The One-Big-File Catch-All
+- CSS Hell Smell Test
+
 Ten patterns with before/after fixes. Each is independently common; together they are multiplicative.
 
 ---

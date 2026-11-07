@@ -5,7 +5,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.1"
+  version: "1.1.0"
   source: CSS Architecture / TailwindCSS best practices (compiled 2026)
 ---
 
@@ -13,17 +13,17 @@ metadata:
 
 Prevent CSS hell and manage scalable CSS file structure in projects where **TailwindCSS is primary** and custom CSS files play a deliberate supporting role. Focus: clear structure, zero conflicts, maintainability at scale.
 
-This skill does NOT cover theming systems, dark mode, or multi-brand design tokens — it covers architectural concerns only.
+This skill does not cover theming systems, dark mode, or multi-brand design tokens — it covers architectural concerns only.
 
 ---
 
-## Step 0 — Intake (Always Do This First)
+## Step 0 — Intake (first, every time)
 
 Before generating any file or advice, gather context silently (check files, don't always ask):
 
 1. **Tailwind version** — read `package.json` → `tailwindcss` version. v3 and v4 have different `@import` patterns.
 2. **Framework** — Vite, Next.js, Nuxt, CRA, or plain HTML. Affects PostCSS config needs.
-3. **CSS Modules?** — If the project uses CSS Modules (`.module.css`), those files follow different rules and must NOT be placed inside `src/styles/`. Flag this to the user.
+3. **CSS Modules?** — If the project uses CSS Modules (`.module.css`), those files follow different rules and must not be placed inside `src/styles/`. Flag this to the user.
 4. **Project state** — New project (scaffold mode) or existing project (audit + migration mode)?
 
 **Default output mode:** When the user's intent is unclear, default to scaffold mode — produce: (1) recommended folder structure as a tree, (2) ready-to-use `main.css`, (3) starter `tokens/_root.css`. Always produce runnable code, not explanatory prose alone.
@@ -158,59 +158,19 @@ Tokens belong here if they are **structural** (spacing, sizing, radius, animatio
 All tokens live in `:root` inside `@layer tokens`. Components reference them via `var()` — never hardcode values.
 
 ```css
-/* tokens/_root.css */
+/* tokens/_root.css — excerpt; full starter file: assets/tokens-root.template.css */
 @layer tokens {
   :root {
-    /* === SPACING === */
-    --space-1: 0.25rem;   /* 4px */
-    --space-2: 0.5rem;    /* 8px */
-    --space-3: 0.75rem;   /* 12px */
-    --space-4: 1rem;      /* 16px */
-    --space-6: 1.5rem;    /* 24px */
-    --space-8: 2rem;      /* 32px */
-    --space-12: 3rem;     /* 48px */
-    --space-16: 4rem;     /* 64px */
-
-    /* === BORDER RADIUS === */
-    --radius-sm: 0.25rem;
+    --space-4: 1rem;
     --radius-md: 0.5rem;
-    --radius-lg: 1rem;
-    --radius-full: 9999px;
-
-    /* === Z-INDEX SCALE (prevents z-index arms races) === */
-    --z-base:    0;
-    --z-raised:  10;    /* cards, dropdowns */
-    --z-sticky:  100;   /* sticky headers */
-    --z-overlay: 200;   /* backdrops */
-    --z-modal:   300;   /* modals, drawers */
-    --z-popover: 400;   /* tooltips, popovers */
-    --z-toast:   500;   /* notifications */
-
-    /* === ANIMATION === */
-    --duration-fast:   150ms;
-    --duration-base:   250ms;
-    --duration-slow:   400ms;
-    --ease-out:        cubic-bezier(0.0, 0, 0.2, 1);
-    --ease-spring:     cubic-bezier(0.34, 1.56, 0.64, 1);
-
-    /* === SHADOWS === */
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-    --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
-    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
-
-    /* === COMPONENT TOKENS === */
-    /* Per-component structural values — prevents hardcoded values inside component files */
-    --btn-height-sm:  2rem;
-    --btn-height-md:  2.5rem;
-    --btn-height-lg:  3rem;
-    --btn-padding-x:  1rem;
-    --input-height:   2.5rem;
-    --input-radius:   var(--radius-md);
-    --card-padding:   var(--space-6);
-    --card-radius:    var(--radius-lg);
+    --z-modal: 300;          /* a named z-index scale ends z-index arms races */
+    --duration-fast: 150ms;
+    --btn-height-md: 2.5rem; /* component tokens: --component-property */
   }
 }
 ```
+
+Full starter file (spacing, radius, z-index scale, animation, shadows, component tokens): [tokens-root template](assets/tokens-root.template.css).
 
 **Token naming rules:**
 - Follow Tailwind's scale for spacing: 1 = 0.25rem, 2 = 0.5rem, 4 = 1rem
@@ -308,7 +268,7 @@ module.exports = {
 
 Tailwind v4 uses native CSS `@import` resolution via Lightning CSS — no `postcss-import` needed.
 
-> **CSS Modules note:** If the project uses CSS Modules (`.module.css` files), those are component-scoped and follow different rules. They must NOT be placed inside `src/styles/`. CSS Modules and the `src/styles/` architecture coexist without conflict — they serve different purposes.
+> **CSS Modules note:** If the project uses CSS Modules (`.module.css` files), those are component-scoped and follow different rules. They must not be placed inside `src/styles/`. CSS Modules and the `src/styles/` architecture coexist without conflict — they serve different purposes.
 
 ---
 
@@ -365,22 +325,6 @@ Tailwind v4 uses native CSS `@import` resolution via Lightning CSS — no `postc
 
 ---
 
-## Success Metrics
-
-A well-structured CSS codebase should achieve:
-
-| Metric | Target |
-|---|---|
-| `!important` count outside vendors/ | 0 |
-| Hardcoded hex/px values in component files | 0 |
-| CSS files outside `src/styles/` | 0 |
-| Selector nesting depth | ≤ 2 |
-| `@keyframes` not in `animations/_keyframes.css` | 0 |
-| Stylelint errors on CI | 0 |
-| File count > 150 lines without a documented reason | 0 |
-
----
-
 ## Reference Files
 
 | File | Read When |
@@ -391,4 +335,7 @@ A well-structured CSS codebase should achieve:
 | [linting-setup](references/linting-setup.md) | Setting up Stylelint for automated enforcement |
 | [migration-guide](references/migration-guide.md) | Migrating an existing messy codebase incrementally |
 | [implementation-checklist](references/implementation-checklist.md) | Rolling the architecture out in a project, phase by phase, with success metrics |
-| `assets/main.css.template` | Starter `main.css` ready to copy into a project |
+| [main.css template](assets/main.css.template) | Starter `main.css` ready to copy into a project |
+| [tokens-root template](assets/tokens-root.template.css) | Starter `tokens/_root.css` with every structural token |
+
+Target metrics for a finished rollout (zero `!important` outside vendors, zero hardcoded values in components, nesting ≤ 2) are in [implementation-checklist](references/implementation-checklist.md).

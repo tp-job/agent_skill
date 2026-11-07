@@ -1,5 +1,15 @@
 # Use Case + Microservices + 3-Tier Architecture Skill
 
+## Contents
+
+- Table of Contents
+- 1. Use Case Diagram — Complete Guide
+- 2. 3-Tier Architecture
+- 3. Microservices Architecture
+- 4. Mapping: Use Cases → Architecture
+- 5. Step-by-Step Design Workflow
+- 6. Templates & Examples
+
 > **Use when:** Focused skill for writing Use Case Diagrams and designing systems using Microservices Architecture and 3-Tier Architecture. Use this skill whenever a user asks to write, design, or review a Use Case Diagram, define actors and use cases, plan system architecture with Microservices or 3-tier, map use cases to services/tiers, design API Gateway flows, or model any software system that combines use case analysis with Microservices or 3-tier patterns. Trigger for: "เขียน use case", "ออกแบบ Microservices", "3-tier architecture", "แบ่ง service", "API Gateway", "use case diagram".
 >
 > *Provenance: imported as `usecase-microservices-3tier`; author surachai; version 1.6.*

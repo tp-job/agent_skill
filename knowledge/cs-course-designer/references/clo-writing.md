@@ -1,5 +1,17 @@
 # Writing Course Learning Outcomes
 
+## Contents
+
+- What a CLO is and is not
+- The verb bank
+- Verbs to avoid entirely
+- Anatomy of a well-formed CLO
+- How many, and at what level
+- Worked examples by subject
+- Review checklist
+- Accreditation and certification contexts
+- Related
+
 Reference for [cs-course-designer](../SKILL.md), Step 3. Read before drafting CLOs, and use the checklist when reviewing CLOs someone else wrote.
 
 ---

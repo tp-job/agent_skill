@@ -1,5 +1,14 @@
 # Harness State — the files that survive you
 
+## Contents
+
+- Where they live
+- Cold bootstrap
+- Warm resume — the fast path
+- Teardown
+- Writing `progress.md` well
+- When not to build a harness
+
 Context decays. Sessions end. Compaction drops the middle of the conversation. Anything that only exists in the transcript is **not state** — it is a memory of state, and on a long build it will be wrong before it is missing.
 
 The harness is four files on disk. They are the build's real memory.

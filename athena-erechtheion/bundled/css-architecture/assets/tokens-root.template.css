@@ -1,0 +1,52 @@
+/* tokens/_root.css */
+@layer tokens {
+  :root {
+    /* === SPACING === */
+    --space-1: 0.25rem;   /* 4px */
+    --space-2: 0.5rem;    /* 8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-6: 1.5rem;    /* 24px */
+    --space-8: 2rem;      /* 32px */
+    --space-12: 3rem;     /* 48px */
+    --space-16: 4rem;     /* 64px */
+
+    /* === BORDER RADIUS === */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-full: 9999px;
+
+    /* === Z-INDEX SCALE (prevents z-index arms races) === */
+    --z-base:    0;
+    --z-raised:  10;    /* cards, dropdowns */
+    --z-sticky:  100;   /* sticky headers */
+    --z-overlay: 200;   /* backdrops */
+    --z-modal:   300;   /* modals, drawers */
+    --z-popover: 400;   /* tooltips, popovers */
+    --z-toast:   500;   /* notifications */
+
+    /* === ANIMATION === */
+    --duration-fast:   150ms;
+    --duration-base:   250ms;
+    --duration-slow:   400ms;
+    --ease-out:        cubic-bezier(0.0, 0, 0.2, 1);
+    --ease-spring:     cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* === SHADOWS === */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+
+    /* === COMPONENT TOKENS === */
+    /* Per-component structural values — prevents hardcoded values inside component files */
+    --btn-height-sm:  2rem;
+    --btn-height-md:  2.5rem;
+    --btn-height-lg:  3rem;
+    --btn-padding-x:  1rem;
+    --input-height:   2.5rem;
+    --input-radius:   var(--radius-md);
+    --card-padding:   var(--space-6);
+    --card-radius:    var(--radius-lg);
+  }
+}

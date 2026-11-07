@@ -1,20 +1,16 @@
 ---
 name: hermes-olympus
 description: >-
-  Operates the AI side of an agent session as one managed system: inventories what is actually
-  loaded (skills, MCP servers and their tools, subagents, models), triages MCP server state
-  (connected, deferred, needs auth, failed), routes each task to the right capability, decides when
-  to delegate to a subagent and at what model and effort, holds the trust boundary between user
-  instructions and tool output, and designs, configures and evaluates MCP servers. Built on the
-  Promethean-Parthenon Role · Task · Format doctrine: set the orchestrator seat, write the
-  capability target before wiring anything, land a capability record. Use when a session has many
-  tools or servers and it is unclear which to use; when an MCP server fails, needs auth or its
-  tools are missing; when setting up .mcp.json or `claude mcp add`; when building or reviewing an
-  MCP server; when planning multi-agent or subagent work; or when asked "which tool should I use",
-  "why can't Claude see my MCP server", "set up MCP", "build an MCP server", "manage my agents",
-  "orchestrate these tools", "จัดการ MCP", "ตั้งค่า agent". Not for writing the task brief itself
-  (agentic-engineering), authoring a skill, Claude API or SDK reference questions, or debugging
-  application code that merely calls an LLM.
+  Operates the AI side of an agent session as one managed system: inventories what is loaded
+  (skills, MCP servers and tools, subagents, models), triages MCP server state (connected, deferred,
+  needs auth, failed), routes each task to the right capability, decides when to delegate and at
+  what model and effort, holds the trust boundary between user instructions and tool output, and
+  designs, configures and evaluates MCP servers. Use when a session has many tools and it is unclear
+  which to use, when an MCP server fails or its tools are missing, when setting up .mcp.json or
+  `claude mcp add`, when building or reviewing an MCP server, or when planning subagent work.
+  Trigger for: "which tool should I use", "why can't Claude see my MCP server", "set up MCP", "build
+  an MCP server", "orchestrate these tools", "จัดการ MCP", "ตั้งค่า agent". Not for writing a task
+  brief, authoring a skill, Claude API reference questions, or debugging app code that calls an LLM.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)

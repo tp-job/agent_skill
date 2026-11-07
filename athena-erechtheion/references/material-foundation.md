@@ -1,5 +1,15 @@
 # Material foundation — M3 as the system, the brand as the expression
 
+## Contents
+
+- 1. The system decision (Stage 0)
+- 2. What is fixed and what is yours
+- 3. The four stages on an M3 foundation
+- 4. Expression levers for divergent concepts
+- 5. Recipe: "Quiet Material", elegant and modern
+- 6. M3 tokens in Tailwind v4
+- Check before handing on
+
 Material 3 has two layers, and they are worth separating on purpose:
 
 - a **system layer**: token tiers, surfaces, state, accessibility and motion physics. Nobody sees it, and everybody benefits from it.

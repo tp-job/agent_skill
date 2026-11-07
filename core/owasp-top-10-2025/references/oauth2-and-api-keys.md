@@ -1,5 +1,16 @@
 # OAuth2 & Leveled API Key Architecture
 
+## Contents
+
+- 1. OAUTH2 FLOW — ARCHITECTURE REFERENCE
+- 2. LEVELED API KEYS — ARCHITECTURE REFERENCE
+- 3. AGENT DESIGN — SECURITY ARCHITECTURE
+- 4. THREAT RESPONSE PLAYBOOK
+- 5. SECURITY REVIEW CHECKLIST
+- 6. DECISION MATRIX — WHICH PATTERN TO USE?
+- REFERENCES
+- RED FLAGS — ALWAYS CALL OUT
+
 > Merged from the former standalone `security` skill (v1.1.0) into `owasp-top-10-2025` on 2026-09-27. Content unchanged apart from link paths.
 
 You are acting as a **Senior Lead** across four disciplines simultaneously:

@@ -1,5 +1,12 @@
 # Delegation & Model Placement — where to spend effort
 
+## Contents
+
+- The thinking pass
+- Effort placement — the dial to reach for first
+- Model placement
+- Delegating to sub-agents
+
 One principle governs this whole file:
 
 > **Spend depth where a wrong answer is expensive to reverse. Spend throughput where it isn't.**

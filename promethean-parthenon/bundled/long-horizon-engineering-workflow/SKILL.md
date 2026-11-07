@@ -1,22 +1,20 @@
 ---
 name: long-horizon-engineering-workflow
 description: >-
-  Runs long, multi-session builds — a new app, a multi-component feature, a refactor touching many
-  files, any "build me X" too big for one shot — as a gated outer loop (Requirements → Design →
-  Development → Integration QA → UAT → Deployment), a per-phase middle loop (one phase or sprint =
-  one branch, merged at close) and a per-feature inner loop (scoped regression → implement → verify
-  → refactor what it touched → commit), backed by on-disk state that survives context loss. Stage 2
-  decomposes with computational thinking: decomposition, pattern recognition, abstraction, algorithm
-  design, data mapping. Trigger on: "split this into phases", "sprint plan", "how should we branch
-  this", "one branch per sprint", "clean up as we go", "the code is getting messy as we build",
-  "break this down", "decompose this build", "map the data flow"; and mid-build when no requirement,
-  design or feature ledger was written and work is drifting, or features are declared done without
-  verification. Push for gate artifacts before advancing, but respect an explicit user override. Not
-  for quick snippets, one-off scripts, or small well-specified bug fixes — those need no gates.
+  Runs long, multi-session builds (a new app, a multi-component feature, a wide refactor) as three
+  loops: gated stages (Requirements, Design, Development, Integration QA, UAT, Deployment), one
+  branch per phase or sprint merged at close, and a per-feature loop (scoped regression, implement,
+  verify, refactor what it touched, commit), backed by on-disk state that survives context loss.
+  Stage 2 decomposes with computational thinking. Use when a build is too big for one shot, or
+  mid-build when nothing was written down and work is drifting or features are declared done without
+  verification. Trigger for: "build me X", "split this into phases", "sprint plan", "how should we
+  branch this", "clean up as we go", "the code is getting messy as we build", "break this down",
+  "decompose this build", "map the data flow". Pushes for gate artifacts but respects an explicit
+  override. Not for quick snippets, one-off scripts, or small well-specified bug fixes.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.5.0"
+  version: "3.6.0"
   source: >
     Long-Horizon Engineering Workflow playbook (compiled 2026), merged with
     Anthropic "Effective harnesses for long-running agents", the
@@ -28,15 +26,7 @@ metadata:
 
 # Long-Horizon Engineering Workflow
 
-## Why this exists
-
-Long builds rarely fail because the code was hard. They fail in two distinct ways, and you need both defenses.
-
-**Quality failures** — a vague requirement gets built wrong, nobody drew the logic before coding it, edge cases surface in production, "it's broken" burns a debug loop, and the fix gets fixed again next sprint. Every one is a process failure, not a developer failure.
-
-**Horizon failures** — the ones specific to working across many turns and sessions. Context decays. A session ends and the next starts blind. Compaction keeps the gist and drops the fact. And the signature failure of an unattended agent: **declaring victory** — marking things done that were never verified, because nothing external held the definition of done.
-
-Gates fix the first. A harness fixes the second. This skill is both, and the join is the point: **the gates decide what "done" means; the harness makes that decision survive you.**
+Long builds fail two ways: **quality failures** (a vague requirement built wrong, edge cases found in production) and **horizon failures** (context lost between sessions, and features declared done that were never verified). Gates fix the first; an on-disk harness fixes the second. **The gates decide what "done" means; the harness makes that decision survive the session.**
 
 ---
 
@@ -218,13 +208,7 @@ Not tradeable against speed. Full statements in [safety-and-invariants](referenc
 
 ---
 
-## The five core skills, condensed
-
-1. **Elicit clean requirements** — ask "what does success look like" before "how should I build it"; challenge "fast," "simple," "better" until measurable; confirm the written summary before starting. → [requirements-checklist](references/requirements-checklist.md)
-2. **Reason through system logic before coding** — decompose, spot what already exists, fix the interface, then walk the happy path and every branch: empty input, failed call, timeout, partial data. → [computational-thinking](references/computational-thinking.md), [design-and-architecture](references/design-and-architecture.md)
-3. **Define and validate output before writing the function** — write the expected shape down, then use it as the test case. → [qa-uat-signoff](references/qa-uat-signoff.md)
-4. **Communicate outcomes, not activity** — "the login flow is complete and tested," not "I'm working on auth." Surface blockers the moment you hit them.
-5. **Leave a written trail** — that's what the harness is. → [harness-state](references/harness-state.md)
+**Report outcomes, not activity**: "the login flow is complete and tested," not "I'm working on auth." Surface blockers the moment you hit them.
 
 ---
 
@@ -237,5 +221,3 @@ A confirmed bug becomes a **new ledger feature** with verification steps, and if
 ---
 
 **Where this fits:** this skill builds against a target that was written down elsewhere — a brief for new work, or an extracted contract for an existing system. Stage 1 consumes that target; it does not produce one. When the request is a decision or a critique rather than something to construct, that is a different mode of working than this one.
-
-These are copies, not forks. Refresh them from the skill library rather than editing them in place; the only thing that differs from the originals is the depth of their relative links.

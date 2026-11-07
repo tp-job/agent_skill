@@ -1,5 +1,13 @@
 # C Programming — Topic Map
 
+## Contents
+
+- Topic coverage
+- One reasonable sequencing
+- Common misconceptions
+- Where formative checks pay most
+- Related
+
 Reference for [cs-course-designer](../SKILL.md), Step 1. Covers pointers, memory management, structs, and low-level concepts.
 
 **State the standard.** Default to **C11/C17** unless the request names another. It matters for: variable declarations in `for` loops (C99+), `//` comments (C99+), variable-length arrays (C99, optional since C11), `_Static_assert` and `<stdalign.h>` (C11), and `gets` (removed in C11). Also state the compiler and flags — students should be compiling with `-Wall -Wextra` from day one, because the warnings *are* the curriculum.

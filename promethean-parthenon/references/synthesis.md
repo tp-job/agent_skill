@@ -1,5 +1,15 @@
 # Synthesis — from many sources to one position
 
+## Contents
+
+- Summary is not synthesis
+- Step 1 — Grade each source before using it
+- Step 2 — Map the agreement and the conflict
+- Step 3 — Add what the sources cannot know
+- Step 4 — Write the position
+- Anti-patterns
+- When not to use this
+
 The input is several things that disagree: expert articles, docs for two library versions, a colleague's advice, three blog posts, the codebase's own history. The output the Role pillar needs is **a position** — not a digest of the inputs.
 
 **Hands off:** a position, the confidence behind it, the premise it rests on, and what would change it.

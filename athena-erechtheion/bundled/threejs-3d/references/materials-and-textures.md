@@ -1,5 +1,18 @@
 # Materials & Textures Reference
 
+## Contents
+
+- Material Selection Guide
+- MeshStandardMaterial — Full API
+- MeshPhysicalMaterial — Extended PBR
+- Texture Loading
+- Color Space — Critical Rules
+- Texture Configuration
+- Environment Maps (IBL — Image-Based Lighting)
+- KTX2 Compressed Textures
+- onBeforeCompile — Shader Injection
+- Transparency Best Practices
+
 PBR materials, texture loading, color space, environment maps, KTX2.
 
 ---

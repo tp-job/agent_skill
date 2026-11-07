@@ -27,3 +27,6 @@ Thumbs.db
 # Obsidian workspace state (vault config is per-machine)
 .obsidian/workspace*
 .trash/
+
+# claude plugin eval run output
+evals/results/

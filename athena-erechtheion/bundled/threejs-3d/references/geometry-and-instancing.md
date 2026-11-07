@@ -1,5 +1,16 @@
 # Geometry & Instancing Reference
 
+## Contents
+
+- Built-in Geometries
+- Custom BufferGeometry
+- InstancedMesh — Thousands of Identical Objects
+- Merge Static Geometries — Reduce Draw Calls
+- Level of Detail (LOD)
+- GPU Particles — Points
+- Dynamic Geometry Updates
+- Typed Array Reference
+
 BufferGeometry, instancing, merging, LOD, particles, procedural geometry.
 
 ---

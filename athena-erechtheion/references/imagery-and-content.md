@@ -1,5 +1,13 @@
 # Imagery and content — real words and real pictures before hi-fi
 
+## Contents
+
+- 1. Content first
+- 2. Imagery: decide the source by what the audience trusts
+- 3. Icons
+- 4. Hand-off facts the build will need
+- Check before drafting hi-fi
+
 A layout is designed around the content it holds. Hi-fi drafted around lorem ipsum and random stock photos looks finished and then breaks when real content arrives. This file covers deciding what goes inside the boxes, before drafting fills them.
 
 Use it between art direction and drafting, whenever a draft reaches rung 4 (hi-fi) or above.

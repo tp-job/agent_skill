@@ -1,5 +1,17 @@
 # Animation Reference
 
+## Contents
+
+- Animation System Overview
+- AnimationMixer — Play GLTF Animations
+- AnimationAction Controls
+- Animation Blending (State Machine Pattern)
+- Keyframe Tracks (custom animations)
+- Morph Targets
+- Skeletal Animation — Bone Access
+- Procedural Animation Patterns
+- Performance Tips
+
 AnimationMixer, keyframe tracks, skeletal rigs, morph targets, blending, procedural motion.
 
 ---

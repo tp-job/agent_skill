@@ -1,5 +1,15 @@
 # Problem-solving — framing before the pillars
 
+## Contents
+
+- The rule
+- Step 1 — Restate, then find the question behind it
+- Step 2 — Measure before you theorize
+- Step 3 — Decompose by hypothesis, not by topic
+- Step 4 — Pick the reasoning move that fits
+- Step 5 — When stuck
+- When not to use this
+
 The pillars assume a problem worth building against. This file is for the step before that: when the ask is a symptom, a wish, or a mess, and nobody has yet said what the problem *is*.
 
 **Hands off:** a problem statement one sentence long, a named hypothesis, and the cheapest test that could kill it. Task — brief consumes all three.

@@ -6,6 +6,13 @@ related: "[SKILL.md](../SKILL.md), [roles.md](./roles.md), [thinking-framework.m
 
 # Role Assumption & Team Protocol
 
+## Contents
+
+- Part 1 — Assuming a role independently
+- Part 2 — Running multiple roles as a team
+- Part 3 — Output shape
+- Anti-patterns
+
 How to *become* a role without being told, and how to run several roles as one functioning team instead of a panel of talking heads.
 
 ← Back to [00-INDEX](../00-INDEX.md)

@@ -1,28 +1,21 @@
 ---
 name: project-pitfalls
 description: >-
-  Checks a software project against failure modes that actually happened on a real
-  build, at four checkpoints: before design (scope vs objective, unsigned business
-  rules, permissions, data boundaries, baseline), day zero (clean-clone setup, one
-  runtime version everywhere, CI that is required and provably fails, database
-  region and pooler, secrets), during build (measure round trips before tuning,
-  central access gate, isolated tests, docs and diagrams regenerated not hand-edited)
-  and handoff or retrospective (one-concern commits, honest PRs, team onboarding,
-  mining git history into lessons). Each item says how to prove it and what broke
-  when it was skipped. Use when starting a project, before the first line of code,
-  setting up a repo or CI, before merging to main, when every page is slow, when
-  onboarding a teammate, or when writing up lessons learned. Trigger for: "what
-  should we check before we start", "project kickoff checklist", "set up the repo
-  properly", "is our CI trustworthy", "why is every request slow", "pre-merge
-  check", "write the lessons learned", "retrospective", "what went wrong on this
-  project", "ก่อนเริ่ม dev ต้องเช็คอะไร", "เช็คโปรเจกต์ก่อนเริ่ม", "สรุปบทเรียน",
-  "ปัญหาที่เจอในโปรเจกต์", "ทำไมเว็บช้าทุกหน้า". Not for one known bug with a
-  reproduction, a full security audit, writing a test plan, or a trivial
-  fully-specified edit.
+  Checks a software project against failure modes that happened on a real build, at four
+  checkpoints: before design (scope, unsigned business rules, permissions, data boundaries), day
+  zero (clean-clone setup, one runtime version, CI that provably fails, database region, secrets),
+  during build (measure round trips before tuning, central access gate, isolated tests, generated
+  docs) and handoff (one-concern commits, honest PRs, onboarding, lessons mined from git history).
+  Each item says how to prove it and what broke when skipped. Trigger for: "project kickoff
+  checklist", "what should we check before we start", "set up the repo properly", "is our CI
+  trustworthy", "why is every request slow", "pre-merge check", "write the lessons learned",
+  "retrospective", "ก่อนเริ่ม dev ต้องเช็คอะไร", "สรุปบทเรียน", "ทำไมเว็บช้าทุกหน้า". Not for one
+  known bug or slow query, a security audit, a test plan, running the build phase by phase, or a
+  shipped-work report.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "0.1.0"
+  version: "1.0.0"
   source: Lessons learned from the CMAS course-outcome tracking app, Jul-Oct 2026 (compiled 2026)
 ---
 
@@ -120,9 +113,15 @@ If there is time for only ten, run these. Each line is the check, then what it c
 ## When not to use this
 
 - **A trivial, fully-specified edit** — a typo, a version bump. No checklist applies.
-- **One known bug with a reproduction** — debug it directly.
+- **One known bug with a reproduction** — debug it directly. The same goes for one slow
+  query or endpoint you can point at; this skill owns slowness only when *every* page is
+  slow, because that is a setup problem (region, pooler, round trips), not a code bug.
 - **A full security audit or a test plan** — those need their own method; this skill only
   carries the security and testing failures that actually occurred, not complete coverage.
+- **Running the build** — phases, branches and a feature ledger belong to a gated build
+  workflow. This skill audits the project at a checkpoint; it does not drive the work.
+- **A report of what shipped** — a sprint or feature report is built from commits and PRs.
+  A retrospective here asks what went wrong and why, not what was done.
 - **Exploration or a spike** — set a time box instead; run checkpoint A when the spike
   turns into a project.
 

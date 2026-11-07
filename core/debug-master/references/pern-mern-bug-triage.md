@@ -1,5 +1,18 @@
 # PERN/MERN Bug Triage & Issue Report
 
+## Contents
+
+- AUTONOMOUS PROTOCOL
+- STEP 1 — Symptom → Layer Classification
+- STEP 2 — Layer Diagnostic Checklists
+- STEP 3 — Root Cause Statement
+- STEP 4 — Fix Guidance
+- STEP 5 — Verification Steps
+- STEP 6 — Regression Prevention
+- STEP 7 — Output: Issue Report Template
+- Small-Team Escalation Guide
+- Reference Files
+
 > Merged from the former standalone `tracking-and-debugging` skill (v1.0.0) into `debug-master` on 2026-09-27. Content unchanged apart from link paths.
 
 **Stack:** PERN / MERN · **Team:** 1–5 · **Output:** Markdown Issue Report

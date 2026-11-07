@@ -1,5 +1,13 @@
 # Database Management — Topic Map
 
+## Contents
+
+- Topic coverage
+- One reasonable sequencing
+- Common misconceptions
+- Where formative checks pay most
+- Related
+
 Reference for [cs-course-designer](../SKILL.md), Step 1. Covers ER modeling, the relational model, normalization, transactions, indexing, and a NoSQL overview.
 
 For query-language content, use [sql](sql.md) — the two overlap deliberately, and when a course covers both, teach each concept once, where it is first needed.

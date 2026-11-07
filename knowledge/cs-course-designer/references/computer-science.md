@@ -1,5 +1,13 @@
 # General Computer Science — Topic Map
 
+## Contents
+
+- Topic coverage
+- One reasonable sequencing
+- Common misconceptions
+- Where formative checks pay most
+- Related
+
 Reference for [cs-course-designer](../SKILL.md), Step 1. Covers CS1/CS2 fundamentals, algorithms, and data structures.
 
 The sequencing below is **a** defensible order, not **the** order. Institutions reasonably disagree — objects-first vs. objects-later, spiral vs. linear. If the user's request implies a different philosophy or a specific textbook order, follow that instead.

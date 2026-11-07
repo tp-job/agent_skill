@@ -1,5 +1,13 @@
 # Agent Skill Structure & Organisation
 
+## Contents
+
+- When to Apply
+- Skill Structure Levels
+- Quick Reference
+- How to Use
+- Full Reference Document
+
 > Merged from the former standalone `agent-skill-creator` skill (v1.0.0) into `skill-creator` on 2026-09-27. Content unchanged apart from link paths.
 
 A guide for building well-structured AI agent skills. Covers the canonical folder layout for `.agents/` workspaces and the required format for `SKILL.md` files that agents can discover and execute reliably.

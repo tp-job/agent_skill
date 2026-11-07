@@ -1,5 +1,14 @@
 # Data Collection
 
+## Contents
+
+- 1. Merged PRs — the delivery log
+- 2. Closed issues — the outcomes
+- 3. Commits — the detail
+- 4. Reviews and cycle time — only if asked
+- Without `gh`
+- Handling the raw pull
+
 Commands assume **GitHub CLI ≥ 2.40** (`gh --version`) authenticated for the repo (`gh auth status`), and **Git ≥ 2.30**. Run them from inside the repo, or add `--repo <owner>/<name>`.
 
 Set the window once and reuse it:

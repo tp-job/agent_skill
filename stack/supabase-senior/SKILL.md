@@ -5,7 +5,7 @@ description: >
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.2.1"
+  version: "1.2.2"
   source: Supabase + Prisma 7 documentation (compiled 2026, checked against Prisma 7.10)
 ---
 
@@ -25,7 +25,7 @@ Always think in duals: **Prisma owns the schema shape. Supabase owns the runtime
 
 ## 1. CONNECTION REFERENCE CARD
 
-This is the single most common source of broken Supabase + Prisma setups. Internalize this.
+The most common source of broken Supabase + Prisma setups.
 
 ### Three Supabase connection strings (know them all)
 
@@ -35,7 +35,7 @@ This is the single most common source of broken Supabase + Prisma setups. Intern
 |**Transaction Pooler**|6543|Runtime queries (serverless, Vercel, edge)|`postgresql://postgres.[ref]:pw@aws-0-[region].pooler.supabase.com:6543/postgres?pgbouncer=true`|
 |**Session Pooler**|5432|Runtime queries (long-lived servers)|`postgresql://postgres.[ref]:pw@aws-0-[region].pooler.supabase.com:5432/postgres`|
 
-### Prisma 7 (current stable) — canonical dual-URL setup
+### Prisma 7+ — canonical dual-URL setup
 
 **Check the version first:** `npx prisma --version`. Prisma 7 moved the URLs out of the schema; a v6 project needs the legacy block below.
 

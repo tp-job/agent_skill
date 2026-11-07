@@ -1,5 +1,16 @@
 # UI Audit Checklist — 50 Points
 
+## Contents
+
+- 1. Theme & Color (14 points)
+- 2. Layout & Dimensions (12 points)
+- 3. Typography (6 points)
+- 4. WCAG Contrast (4 points)
+- 5. Responsive & Breakpoints (4 points)
+- 6. Accessibility (6 points)
+- 7. Motion & Performance (4 points)
+- Score Guidance
+
 Use this as a manual companion to `static-analysis.py`.
 Mark each item: ✅ Pass · ❌ Fail · ⚠️ Partial · N/A
 

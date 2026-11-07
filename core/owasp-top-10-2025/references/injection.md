@@ -4,6 +4,13 @@ name: injection description: > Use when the user asks about SQL injection, comma
 
 # A05:2025 Injection
 
+## Contents
+
+- Description
+- Example Attack Scenarios
+- How to Prevent
+- Rules
+
 ## Description
 
 An injection vulnerability is an application flaw that allows untrusted user input to be sent to an interpreter (e.g. a browser, database, the command line, or an LLM) and causes the interpreter to execute parts of that input as commands.

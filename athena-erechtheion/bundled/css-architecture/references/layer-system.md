@@ -1,5 +1,15 @@
 # CSS Cascade Layers — Technical Reference
 
+## Contents
+
+- Why @layer Solves CSS Hell
+- Declaration Rules
+- Layer Priority Reference
+- Tailwind v3 — Full Integration
+- Tailwind v4 — Full Integration
+- Cross-Layer Specificity (How Conflicts Resolve)
+- Common Mistakes
+
 ## Why @layer Solves CSS Hell
 
 Before `@layer`, specificity conflicts were resolved by:

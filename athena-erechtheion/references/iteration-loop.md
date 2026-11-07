@@ -1,5 +1,15 @@
 # Iteration round — update, evaluate, revise, verdict, trade-offs
 
+## Contents
+
+- 1. The round, in five steps
+- 2. Verdict: classify the feedback, don't describe the mood
+- 3. Trade-offs: what the round gained and what it cost
+- 4. Negative verdict: return to the stage that owns the symptom
+- 5. Output: the round log
+- 6. Limits
+- When not to run a round
+
 Review judges one draft against its thesis and target. A **round** judges a *revision*: it compares this draft with the last one and answers three things review alone does not — did the change help, was the feedback positive, and what did the change cost.
 
 Without a round, every revision is judged alone. Each one "passes", and the design still drifts: the strong parts of round 1 erode by round 4 and nobody can say which change did it.

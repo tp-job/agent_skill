@@ -1,23 +1,31 @@
 ---
 name: threejs-3d
-description: >
-  Build high-performance, production-grade Three.js and 3D web experiences. ALWAYS use this skill when the user mentions: Three.js, WebGL, WebGPU, 3D scene, 3D model, GLTF, GLB, OBJ, FBX, STL, shader, GLSL, TSL, vertex shader, fragment shader, particle system, procedural geometry, 3D animation, skeletal animation, morph target, animation mixer, environment map, HDRI, PBR material, physically based rendering, shadow, ambient occlusion, instanced mesh, raycasting, picking, interaction in 3D, camera rig, orbit controls, postprocessing, bloom, depth of field, FXAA, SMAA, tone mapping, color grading, 3D product viewer, configurator, 3D background, WebGL demo, spinning cube, Three Fiber, R3F, Drei, canvas 3D, point cloud, terrain generation, procedural mesh, GPU particles, compute shader, or anything involving rendering 3D graphics in the browser. Also trigger for: "make it look cinematic", "add glow", "add reflections", "realistic materials", "game-like graphics", "3D interactive experience". Produces modern r186+ code with correct memory management, delta-time animation, import maps, and professional visual quality. Not for 2D canvas/SVG charts or CSS-only animation.
+description: >-
+  Builds production-grade Three.js and 3D web experiences with modern r186+ code: correct disposal,
+  delta-time animation, import maps and professional visual quality. Covers scenes and renderers,
+  GLTF/GLB/OBJ/FBX loading, PBR materials, HDRI lighting and shadows, GLSL and TSL shaders, WebGPU
+  and compute, instancing and particles, animation mixers and morph targets, raycasting and
+  controls, postprocessing (bloom, depth of field, tone mapping) and React Three Fiber with Drei.
+  Use whenever the request involves rendering 3D in the browser, even when three.js is not named.
+  Trigger for: "Three.js", "WebGL", "WebGPU", "3D scene", "3D model", "shader", "R3F", "product
+  viewer", "configurator", "particle system", "make it look cinematic", "add glow", "add
+  reflections", "realistic materials". Not for 2D canvas or SVG charts, or CSS-only animation.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.1.1"
+  version: "1.2.0"
   source: Three.js r186 source, release notes & best practices (compiled 2026)
 ---
 
 # Three.js & 3D Web — Professional Skill
 
-Version: Three.js **r186** (min r183 for `Timer`) | Maintainer: Senior Leadership (FE + Design + QA + PM)
+Targets Three.js **r186** (min r183 for `Timer`).
 
 ---
 
 ## 📋 PM — Scope & Acceptance Criteria
 
-Every output from this skill MUST satisfy:
+Every output meets all ten. Each one prevents a defect that only shows up later: on a high-DPI phone, after an hour of use, or on a slower frame rate.
 
 |#|Criterion|Owner|
 |---|---|---|
@@ -38,7 +46,7 @@ Every output from this skill MUST satisfy:
 
 | File | Covers |
 |---|---|
-| [setup-and-renderer](references/setup-and-renderer.md) | ALWAYS read for new scenes |
+| [setup-and-renderer](references/setup-and-renderer.md) | Read first for every new scene |
 | [geometry-and-instancing](references/geometry-and-instancing.md) | BufferGeometry, InstancedMesh, LOD, particles |
 | [materials-and-textures](references/materials-and-textures.md) | PBR, texture config, KTX2, environment maps |
 | [lighting-and-shadows](references/lighting-and-shadows.md) | Lights, shadow maps, CSM, baked lighting |
@@ -50,13 +58,12 @@ Every output from this skill MUST satisfy:
 | [interaction](references/interaction.md) | Raycasting, picking, drag, pointer events |
 | [three-fiber](references/three-fiber.md) | React Three Fiber, Drei, Vue integration |
 | [memory-and-disposal](references/memory-and-disposal.md) | GPU resource cleanup, `.dispose()` patterns |
-| [api](references/api.md) | API surface reference |
 
 ---
 
 ## 🔀 Decision Tree — Which Files to Read
 
-- New 3D scene from scratch → ALWAYS: [setup-and-renderer](references/setup-and-renderer.md) + [memory-and-disposal](references/memory-and-disposal.md)
+- New 3D scene from scratch → always: [setup-and-renderer](references/setup-and-renderer.md) + [memory-and-disposal](references/memory-and-disposal.md)
 - Geometry / mesh / procedural shape / particles → [geometry-and-instancing](references/geometry-and-instancing.md)
 - Load model (GLTF / OBJ / FBX / STL) → [loaders](references/loaders.md) [+ [animation](references/animation.md) if model has animations]
 - Materials / textures / PBR / looks realistic → [materials-and-textures](references/materials-and-textures.md) + [lighting-and-shadows](references/lighting-and-shadows.md)

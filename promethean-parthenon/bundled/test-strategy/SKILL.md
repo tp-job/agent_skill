@@ -1,19 +1,16 @@
 ---
 name: test-strategy
 description: >-
-  Plans, designs and runs software testing end to end as one gated loop: plan with written exit
-  criteria, design cases (equivalence partitioning, boundary values, decision tables, state
-  transitions), then test level by level — unit (white box), integration (grey box), system (black
-  box, with API fuzzing, performance and security), acceptance (black box, human plus AI role-play)
-  — with fuzzing at unit and API level, a defect loop that turns every failing input into a
-  permanent regression test, a hard cap on retries, and a fixed report table. Use when asked to
-  write a test plan, decide what or how to test, design test cases, find edge cases, add fuzz
-  testing, set exit criteria, or report test results. Trigger for: "write a test plan", "how should
-  I test this", "design test cases", "find edge cases", "decision table", "fuzz this", "unit vs
-  integration test", "acceptance test", "test report", "are we done testing", "วางแผนเทส",
-  "ออกแบบ test case", "ทดสอบระบบ", "หา edge case", "ทำ fuzz testing", "สรุปผลเทส". Not for
-  fixing one known bug with a repro (a debugging skill owns that), a security audit, or a
-  one-line change where a single regression test is the whole job.
+  Plans, designs and runs software testing as one gated loop: a plan with written exit criteria,
+  case design (equivalence partitioning, boundary values, decision tables, state transitions), then
+  unit, integration, system and acceptance levels, with fuzzing at unit and API level, a defect loop
+  that turns each failure into a permanent regression test, a retry cap, and a fixed report table.
+  Use when asked to write a test plan, decide what or how to test, design cases, find edge cases,
+  add fuzzing, set exit criteria or report results. Trigger for: "write a test plan", "how should I
+  test this", "design test cases", "find edge cases", "fuzz this", "unit vs integration test",
+  "acceptance test", "are we done testing", "วางแผนเทส", "ออกแบบ test case", "หา edge case",
+  "สรุปผลเทส". Not for fixing one known bug with a repro, a security audit, or a one-line change
+  where one regression test is the whole job.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)

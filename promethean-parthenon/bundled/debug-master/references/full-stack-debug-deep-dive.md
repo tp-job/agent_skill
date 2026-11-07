@@ -1,5 +1,11 @@
 # PERN/MERN Full-Stack Debug Deep Dive — L8/L9/L10
 
+## Contents
+
+- L8: Express API — Common Failure Patterns
+- L9: Database Deep Dive
+- L10: Auth Debug Patterns
+
 ## L8: Express API — Common Failure Patterns
 
 ### Middleware Order (most common mistake)

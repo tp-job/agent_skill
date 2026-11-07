@@ -1,12 +1,20 @@
 ---
 name: ui-checker
-description: >
-  Audit web UIs across four dimensions: theme compliance (colors, borders, shadows follow CSS variables/design tokens, incl. Tailwind and shadcn `.dark` setups, instead of hardcoded values), layout integrity (dimensions, spacing, overflow, breakpoints), browser rendering (a live clickable inspector artifact to toggle themes, measure elements, check contrast), and accessibility polish (WCAG contrast, alt text, focus styles, fixed px fonts, reduced motion). Also reviews UI code against the Vercel Web Interface Guidelines with `file:line` findings.
-  Trigger for: "check UI colors", "audit my theme", "does dark mode work", "find hardcoded colors", "check CSS variables", "layout dimensions", "responsive check", "WCAG contrast", "color audit", "UI QA", "inspect my design", "theme compliance", "check my Tailwind dark mode", "review my UI", "check accessibility", "audit design", "review UX", "check my site against best practices", or pasted HTML/CSS with "does this look right" / "why doesn't my dark mode work" / "what's wrong with my layout". Not for choosing a new aesthetic direction or applying a design system from scratch — this audits what is already built.
+description: >-
+  Audits built web UIs on four dimensions: theme compliance (colors, borders, shadows use CSS
+  variables or tokens, including Tailwind and shadcn dark mode), layout integrity (spacing,
+  overflow, breakpoints), browser rendering (a live inspector artifact to toggle themes, measure
+  elements, check contrast) and accessibility (WCAG contrast, alt text, focus styles, fixed px
+  fonts, reduced motion). Also reviews UI code against the Vercel Web Interface Guidelines with
+  file:line findings. Trigger for: "review my UI", "audit my theme", "does dark mode work", "find
+  hardcoded colors", "WCAG contrast", "responsive check", "UI QA", "check accessibility", "check my
+  site against best practices", or pasted HTML/CSS asking "why doesn't my dark mode work" or "what's
+  wrong with my layout". Not for choosing a new aesthetic or applying a design system from scratch;
+  this audits what is already built.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.1.1"
+  version: "1.2.0"
   source: UI Inspection & WCAG guidelines (compiled 2026)
 ---
 
@@ -14,9 +22,9 @@ metadata:
 
 Audits web UIs across four dimensions: **Theme Compliance**, **Layout Integrity**, **Browser Rendering**, and **Accessibility**.
 
-**Primary deliverable in Claude.ai web chat: the live Inspector Artifact.** It renders entirely client-side using `visualize:show_widget` or as a saved `.html` file — no headless browser, Node, or network access required. It gives the person a real, interactive preview in their own browser: click any element for live dimensions, toggle light/dark, click two swatches for WCAG contrast. This is usually a stronger result than a static screenshot since it's interactive and runs in their actual browser engine.
+**Primary deliverable: the live Inspector Artifact**, a single client-side `.html` file (or inline widget) that runs in the person's own browser: click an element for live dimensions, toggle light/dark, click two swatches for WCAG contrast. It needs no headless browser, Node or network, so it works in every environment.
 
-Playwright-based screenshots (Step 4) are optional and typically unavailable in Claude.ai web chat (no network/Node access in that sandbox) — skip straight to the artifact unless you've confirmed Playwright works in this environment (e.g. Claude Code with network access).
+Playwright screenshots (Step 4) are optional; use them only after confirming Node, network and Playwright are available (often true in Claude Code, usually not in a claude.ai sandbox).
 
 ---
 
@@ -26,14 +34,14 @@ Identify what's been provided and what checks to run:
 
 |Input|Detection|Checks to Run|
 |---|---|---|
-|`.html` file uploaded|`/mnt/user-data/uploads/*.html`|All three: static + WCAG + artifact|
-|`.css` file uploaded|`/mnt/user-data/uploads/*.css`|Static + WCAG only|
+|`.html` file (uploaded or in the repo)|`*.html` path|All three: static + WCAG + artifact|
+|`.css` file (uploaded or in the repo)|`*.css` path|Static + WCAG only|
 |URL|Starts `http://` or `https://`|Fetch first, then all|
 |Pasted HTML/CSS|Raw code in message|Write to `/tmp/ui-checker/`, then all|
 |`.jsx` / `.tsx` / `.vue`|Component file|Extract `<style>` / CSS-in-JS, then static|
 |Screenshot / image|Image file|Visual analysis only, describe issues|
 
-Always write temp working files to `/tmp/ui-checker/`. Create this dir first:
+Write temp working files to a scratch directory (`/tmp/ui-checker/` below; use the session's scratch or temp folder where `/tmp` does not exist). Create it first:
 
 ```bash
 mkdir -p /tmp/ui-checker/screenshots
@@ -120,7 +128,7 @@ Inject the target HTML (and the Step 1 analysis) into the artifact template usin
 ```bash
 python3 scripts/build-artifact.py \
   --html /tmp/ui-checker/target.html \
-  --template templates/inspector-artifact.html \
+  --template assets/inspector-artifact.html \
   --analysis /tmp/ui-checker/analysis.json \
   --output /tmp/ui-checker/ui-inspector.html
 ```
@@ -139,9 +147,9 @@ Then show the result to the person using `visualize:show_widget` (preferred — 
 
 ---
 
-## Step 4 — Browser Screenshots (optional — usually skip in Claude.ai)
+## Step 4 — Browser Screenshots (optional)
 
-Only attempt this if you've confirmed Node + network + Playwright are actually available in the current environment (check with `npx playwright --version`). In standard Claude.ai web chat this is typically **not available** — go straight from Step 3 to Step 5 in that case.
+Only attempt this if you've confirmed Node + network + Playwright are actually available in the current environment (check with `npx playwright --version`). If it is not available, go straight from Step 3 to Step 5.
 
 ```bash
 npx playwright --version 2>/dev/null && echo "AVAILABLE" || echo "NOT_AVAILABLE"
@@ -264,7 +272,7 @@ Theme Compliance: 62% — 8 hardcoded colors found
 
 ---
 
-## Outputs (always produce all that apply)
+## Outputs (produce every one that applies)
 
 1. **In-chat summary** — always, even for quick checks
 2. **Inspector Artifact** — live interactive checker in Claude's UI — always for HTML input
