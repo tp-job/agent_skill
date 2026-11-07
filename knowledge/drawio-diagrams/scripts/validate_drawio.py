@@ -139,6 +139,7 @@ def check_page(name, model, out):
                    or any(contains(c, o) for o in boxes))]
     frame_ids = {f.id for f in frames}
     leaves = [c for c in allv if c.kind == "shape" and c.id not in frame_ids]
+    counted = [c for c in leaves if "flowchart.terminator" not in c.style.get("shape", "")]
 
     for c in cells.values():
         s = c.style
@@ -231,7 +232,7 @@ def check_page(name, model, out):
         host = [f for f in frames if contains(f, c)]
         return min(host, key=lambda f: f.box[2] * f.box[3]).id if host else "(page)"
     count, focus = {}, {}
-    for c in leaves:
+    for c in counted:
         count[home(c)] = count.get(home(c), 0) + 1
     for c in boxes:
         if c.style.get("fillColor", "").lower() == FOCUS:
@@ -243,8 +244,8 @@ def check_page(name, model, out):
         if n > MAX_FOCUS:
             err(cells.get(k), "%d items use the focus colour (max %d)" % (n, MAX_FOCUS), "WARN")
 
-    if len(leaves) > MAX_PAGE:
-        err(None, "page holds %d boxes (max %d); split into pages" % (len(leaves), MAX_PAGE), "WARN")
+    if len(counted) > MAX_PAGE:
+        err(None, "page holds %d boxes (max %d); split into pages" % (len(counted), MAX_PAGE), "WARN")
     free = [c for c in allv if c.kind == "text" and "edgeLabel" not in c.bare
             and not (cells.get(c.parent) is not None and cells[c.parent].edge)]
     if len(free) > MAX_FREE_TEXT:
@@ -263,7 +264,9 @@ def check_page(name, model, out):
         return "flowchart.terminator" in c.style.get("shape", "")
     edges = [c for c in cells.values() if c.edge]
     decisions = [c for c in leaves if is_decision(c)]
-    terms = [c for c in leaves if is_term(c)]
+    def is_conn(c):
+        return "ellipse" in c.bare and 0 < len(c.text) <= 2
+    terms = [c for c in leaves if is_term(c) or (is_conn(c) and (decisions or any(is_term(x) for x in leaves)))]
     if decisions or terms:
         for d in decisions:
             outs = [e for e in edges if e.source == d.id]
@@ -275,9 +278,9 @@ def check_page(name, model, out):
         starts = [t for t in terms if not any(e.target == t.id for e in edges)]
         ends = [t for t in terms if not any(e.source == t.id for e in edges)]
         if len(starts) != 1:
-            err(None, "flowchart needs exactly 1 start (terminator with no incoming line), found %d" % len(starts))
+            err(None, "flowchart needs exactly 1 start (terminator or page connector with no incoming line), found %d" % len(starts))
         if not ends:
-            err(None, "flowchart needs at least 1 end (terminator with no outgoing line)")
+            err(None, "flowchart needs at least 1 end (terminator or page connector with no outgoing line)")
         for c in leaves:
             if not any(e.source == c.id or e.target == c.id for e in edges):
                 err(c, "box has no line in or out")
