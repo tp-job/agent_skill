@@ -141,6 +141,10 @@ def check_page(name, model, out):
     leaves = [c for c in allv if c.kind == "shape" and c.id not in frame_ids]
     counted = [c for c in leaves if "flowchart.terminator" not in c.style.get("shape", "")]
 
+    # UML use case pages draw straight, possibly diagonal lines; every other page is square-cornered
+    uml_case = any(c.style.get("shape") == "umlActor" for c in cells.values())
+    straight_ok = uml_case
+
     for c in cells.values():
         s = c.style
         has_text = bool(c.text) or c.kind == "text"
@@ -208,8 +212,10 @@ def check_page(name, model, out):
         if c.kind == "edge":
             if not c.source or not c.target:
                 err(c, "edge is not connected at both ends (set source and target)")
-            if "edgeStyle" not in s:
+            if "edgeStyle" not in s and not straight_ok:
                 err(c, "edgeStyle not set; the line may run diagonally", "WARN")
+            if "edgeStyle" in s and uml_case:
+                err(c, "use case lines are straight (no edgeStyle); remove it", "WARN")
 
     # frames
     if boxes and not frames:

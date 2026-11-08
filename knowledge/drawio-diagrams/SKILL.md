@@ -12,7 +12,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.3.0"
+  version: "1.4.0"
   source: Requirements from the CMAS system-overview draw.io files; ISO 5807, UML 2.5, draw.io style reference (compiled 2026)
 ---
 
@@ -50,7 +50,7 @@ Needs two types (for example overview plus login steps)? Make two pages in one f
 | # | Rule | Checked by script |
 | --- | --- | --- |
 | 1 | Font `IBM Plex Sans Thai` with `fontSource`, size 16 or larger everywhere, including labels under logos and on lines | yes |
-| 2 | Lines and outlines `strokeWidth=2`, `rounded=0`, solid | yes |
+| 2 | Lines and outlines `strokeWidth=2`, `rounded=0`, solid; lines are square-cornered, except UML use case lines, which are straight and may run diagonally | yes |
 | 3 | Dashed only for UML «include», «extend», dependency and return | yes |
 | 4 | Colours `#000000`, `#FFFFFF` only; `#EEF0F8` fill marks what to look at, at most 2 per frame, never text colour | yes |
 | 5 | Every box sits inside a frame, and every frame has a name at its top left | yes |
