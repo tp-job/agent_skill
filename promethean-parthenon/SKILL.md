@@ -4,18 +4,18 @@ description: >-
   Engineering hub; load it before answering any engineering question in scope, even one that looks
   answerable directly; specialists carry checks a direct answer skips. Opens one at once for: a bug,
   error, stack trace, slow query or "something is wrong" (debug-master); security, auth, API keys,
-  OWASP (owasp-top-10-2025); theme, dark mode, contrast, layout (ui-checker); test plans, edge
-  cases, fuzzing (test-strategy); where a file goes (project-file-structure); kickoff, repo or CI
-  setup, pre-merge checks, every page slow, lessons learned (project-pitfalls); writing a skill
-  (skill-creator). Runs its own doctrine for trade-offs, requirements, briefs, multi-session builds,
-  messy problems. Trigger for: "why is this not working", "I'm stuck", "help me think this through",
-  "is this secure", "plan this build", "แก้บัค", "วางแผนเทส", "ก่อนเริ่ม dev ต้องเช็คอะไร",
-  "ทำไมเว็บช้าทุกหน้า". Not for trivial fully-specified edits or domain work another skill owns (3D,
-  CSS, deploys, design craft, MCP ops).
+  OWASP (owasp-top-10-2025); theme, dark mode, contrast, layout (ui-checker); test plans, edge cases,
+  fuzzing (test-strategy); NFR targets (non-functional-requirements); where a file goes
+  (project-file-structure); kickoff, repo/CI setup, pre-merge checks, every page slow, lessons learned
+  (project-pitfalls); writing a skill (skill-creator). Runs its own doctrine for trade-offs,
+  requirements, briefs, long builds, messy problems. Trigger for: "why is this not working", "I'm
+  stuck", "help me think this through", "is this secure", "แก้บัค", "วางแผนเทส", "ตรวจ NFR",
+  "ก่อนเริ่ม dev ต้องเช็คอะไร", "ทำไมเว็บช้าทุกหน้า". Not for trivial fully-specified edits or domain
+  work another skill owns (3D, CSS, deploys, design craft, MCP ops).
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.8.2"
+  version: "3.9.0"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,
@@ -29,7 +29,7 @@ metadata:
 
 ## Fast path — read this first
 
-This skill is the **only** entry point to the twelve skills under `bundled/`; none of them loads on its own. When the request already names its specialist, skip everything below and open it:
+This skill is the **only** entry point to the thirteen skills under `bundled/`; none of them loads on its own. When the request already names its specialist, skip everything below and open it:
 
 | The request is… | Open now |
 | --- | --- |
@@ -37,6 +37,7 @@ This skill is the **only** entry point to the twelve skills under `bundled/`; no
 | Security review, auth, OAuth2, API keys, secrets, "is this secure" | [owasp-top-10-2025](bundled/owasp-top-10-2025/SKILL.md) |
 | Theme, dark mode, contrast, layout, "review my UI" | [ui-checker](bundled/ui-checker/SKILL.md) |
 | A test plan, test cases, edge cases, fuzzing, exit criteria, a test report | [test-strategy](bundled/test-strategy/SKILL.md) |
+| Non-functional requirements: write or verify NFRs, response-time targets, contrast/WCAG criteria, SUS/UX metrics, availability, "ตรวจสอบ non-functional" | [non-functional-requirements](bundled/non-functional-requirements/SKILL.md) |
 | Where a file goes, what to name it | [project-file-structure](bundled/project-file-structure/SKILL.md) |
 | Project kickoff, repo or CI setup, "is our CI trustworthy", pre-merge check, every page slow, lessons learned | [project-pitfalls](bundled/project-pitfalls/SKILL.md) |
 | Write, fix, or evaluate a skill | [skill-creator](bundled/skill-creator/SKILL.md) |
@@ -118,6 +119,7 @@ Open a specialist at the moment its trigger applies, mid-build, without leaving 
 | About to write auth, crypto, access control, input handling or secrets (before writing it, not at review) | [owasp-top-10-2025](bundled/owasp-top-10-2025/SKILL.md) |
 | Changed anything visual: theme, contrast, dark mode, focus, a breakpoint | [ui-checker](bundled/ui-checker/SKILL.md) |
 | Deciding what "verified" means for a feature, or reporting a build's tests | [test-strategy](bundled/test-strategy/SKILL.md) |
+| Setting a quality bar with a number: response time, availability, contrast, SUS, data accuracy — or a thesis NFR chapter | [non-functional-requirements](bundled/non-functional-requirements/SKILL.md) |
 | Creating a file or folder | [project-file-structure](bundled/project-file-structure/SKILL.md) |
 | Starting a project, setting up repo or CI, merging to main, writing lessons learned | [project-pitfalls](bundled/project-pitfalls/SKILL.md) |
 | Writing or revising a skill | [skill-creator](bundled/skill-creator/SKILL.md) |

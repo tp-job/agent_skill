@@ -28,6 +28,7 @@ HUBS = {
         "debug-master",
         "github-report",
         "long-horizon-engineering-workflow",
+        "non-functional-requirements",
         "owasp-top-10-2025",
         "project-file-structure",
         "project-pitfalls",
