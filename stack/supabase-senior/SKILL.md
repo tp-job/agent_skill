@@ -1,11 +1,20 @@
 ---
 name: supabase-senior
-description: >
-  Senior-level Supabase architecture and engineering skill. Activate whenever the user mentions Supabase, Prisma ORM, database schema design, RLS (Row Level Security), Supabase migrations, connection pooling, Supabase Auth, Edge Functions, Realtime, Storage, or any combination of Supabase + Prisma workflows. Also trigger for database algorithm review, long workflow logic checks, architecture advice, migration planning (Postgres → Supabase), and query optimization. This skill acts as a Senior Lead across Prompt Engineering, Context Engineering, Agent Design, and AI Workflow Architecture in the Supabase + Prisma ecosystem. Use it proactively — if the user is building anything backend with PostgreSQL and TypeScript/Node.js, this skill likely applies. Not for architecture questions with no Supabase or Prisma in play, or for Mongo/MySQL stacks.
+description: >-
+  Senior-level Supabase architecture and engineering skill. Activate whenever the user mentions
+  Supabase, Prisma ORM, database schema design, RLS (Row Level Security), Supabase migrations,
+  connection pooling, Supabase Auth, Edge Functions, Realtime, Storage, or any combination of Supabase
+  + Prisma workflows. Also trigger for connecting to Supabase, "วิธีเชื่อมต่อ supabase", a full or
+  slow database, running Postgres in Docker, database algorithm review, long workflow logic checks,
+  architecture advice, migration planning (Postgres → Supabase), and query optimization. This skill
+  acts as a Senior Lead across Prompt Engineering, Context Engineering, Agent Design, and AI Workflow
+  Architecture in the Supabase + Prisma ecosystem. Use it proactively — if the user is building
+  anything backend with PostgreSQL and TypeScript/Node.js, this skill likely applies. Not for
+  architecture questions with no Supabase or Prisma in play, or for Mongo/MySQL stacks.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.2.2"
+  version: "1.2.3"
   source: Supabase + Prisma 7 documentation (compiled 2026, checked against Prisma 7.10)
 ---
 

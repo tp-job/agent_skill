@@ -1,17 +1,18 @@
 ---
 name: knowledge-base
 description: >-
-  Reference knowledge for software design: architecture patterns (layered, 3-tier,
-  microservices), component-based design, design principles, security fundamentals and use-case
-  modeling. Use when answering a conceptual architecture, design-pattern, system-design or
-  use-case question, or checking a design decision against those patterns. Trigger for:
-  "architecture patterns", "system design", "design principles", "use case diagram",
-  "microservices design", "3-tier architecture". Not for auditing code for vulnerabilities (an
-  OWASP-style review) or for managing a personal notes vault.
+  Reference knowledge for software design: architecture patterns (layered, 3-tier, microservices),
+  component-based design, design principles, security fundamentals and use-case modeling. Use when
+  answering a conceptual architecture, design-pattern, system-design or use-case question, or checking
+  a design decision against those patterns, even when asked in Thai. Trigger for: "architecture
+  patterns", "layered architecture", "system design", "design principles", "use case diagram",
+  "microservices design", "3-tier architecture", "สถาปัตยกรรมแบบแบ่งชั้น", "สถาปัตยกรรมซอฟต์แวร์",
+  "หลักการออกแบบระบบ". Not for auditing code for vulnerabilities (an OWASP-style review) or for
+  managing a personal notes vault.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.1.0"
+  version: "1.1.1"
   source: Software Engineering Knowledge Base (compiled 2026)
 ---
 

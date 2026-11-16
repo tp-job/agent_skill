@@ -1,20 +1,20 @@
 ---
 name: obsidian-vault
-description: >
-  Turn an Obsidian vault into a persistent, self-organizing knowledge base that
-  Claude Code reads from and writes to across sessions. Use whenever the user wants
-  to set up or work with an Obsidian vault, build a "second brain" or personal
-  knowledge management (PKM) system, ingest documents/URLs/transcripts into linked
-  notes, ask "what do you know about X" against past notes, keep a running project
-  wiki, or wants notes that persist and cross-reference between Claude Code
-  sessions. Triggers on: "obsidian vault", "second brain", "knowledge base",
-  "PKM", "set up a wiki", "ingest this into my notes", "query my notes",
-  "note-taking system", "/vault", "/ingest", "/wiki". Not for software-architecture or design-pattern reference questions — this manages the user's own notes.
+description: >-
+  Turn an Obsidian vault into a persistent, self-organizing knowledge base that Claude Code reads from
+  and writes to across sessions. Use whenever the user wants to set up or work with an Obsidian vault,
+  build a "second brain" or personal knowledge management (PKM) system, read, summarize or ingest
+  notes, documents, URLs or transcripts into linked notes, ask "what do you know about X" against past
+  notes, keep a running project wiki, or wants notes that persist and cross-reference between
+  sessions. Triggers on: "obsidian vault", "second brain", "PKM", "set up a wiki", "ingest this into
+  my notes", "query my notes", "summarize my notes", "สรุปโน้ต", "อ่านโน้ตใน Obsidian", "/vault",
+  "/ingest", "/wiki". Not for software-architecture or design-pattern reference questions — this
+  manages the user's own notes.
 allowed-tools: Read Write Edit Glob Grep Bash
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.1"
+  version: "1.0.2"
   source: Obsidian PKM / LLM Wiki pattern (compiled 2026)
 ---
 

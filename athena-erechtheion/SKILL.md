@@ -2,20 +2,20 @@
 name: athena-erechtheion
 description: >-
   Single entry point to design work and five bundled design specialists. Takes a one-line ask to a
-  handoff-ready draft in five stages: architecture, art direction (a written visual thesis),
-  concepts, drafting (wireframes, Figma, Canva, Blender) and review. Opens a specialist at once for:
-  a distinctive look or typography (frontend-design); Material 3 Expressive, motion, UX writing
+  handoff-ready draft in five stages: architecture, art direction (a written visual thesis), concepts,
+  drafting (wireframes, Figma, Canva, Blender) and review. Opens a specialist at once for: a
+  distinctive look or typography (frontend-design); Material 3, motion, UX writing
   (google-design-system); Tailwind CSS structure, CSS hell, tokens (css-architecture); three.js,
-  WebGL, shaders, R3F (threejs-3d); current web design trends (web-design-trends). Also tears down a
-  reference screenshot. Trigger for: "design this from scratch", "art direction for", "wireframe
-  this", "make this look less generic", "organise my Tailwind CSS", "build a 3D scene", "analyse
-  this design screenshot", "critique this draft", "is this design dated", "วิเคราะห์ดีไซน์เว็บ",
-  "เทรนด์เว็บ 2026", "ช่วยคิดคอนเซปต์ดีไซน์". Not for coding a finished design, auditing a built UI
-  for contrast or dark mode, or software architecture.
+  WebGL, shaders (threejs-3d); web design trends (web-design-trends). Also tears down a reference
+  screenshot. Trigger for: "design this from scratch", "design system", "user flow", "art direction
+  for", "wireframe this", "make this look less generic", "organise my Tailwind CSS", "build a 3D
+  scene", "critique this draft", "วิเคราะห์ดีไซน์เว็บ", "ออกแบบหน้า", "เทรนด์เว็บ 2026",
+  "ช่วยคิดคอนเซปต์ดีไซน์". Not for coding a finished design, auditing a built UI for contrast or dark
+  mode, or software architecture.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.7.0"
+  version: "3.8.0"
   source: >-
     Promethean-Parthenon Role · Task · Format doctrine applied to design practice; information
     architecture, art-direction and double-diamond ideation methods (compiled 2026)

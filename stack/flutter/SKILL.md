@@ -1,11 +1,18 @@
 ---
 name: flutter
 description: >-
-  Flutter application engineering skill covering architecture, layout debugging, responsive design, and widget previews. Use this skill when building, structuring, refactoring, or debugging Flutter/Dart apps. Also trigger for: "structure my Flutter project", "fix RenderFlex overflowed", "Vertical viewport was given unbounded height", "make this responsive on tablet and mobile", "add a widget preview", "Flutter architecture", "Flutter layout error", or any Flutter/Dart UI or structure request. Routes to the focused reference guides under references/. Not for React Native, native Swift/Kotlin UI, or web-only front ends.
+  Flutter application engineering skill covering architecture, layout debugging, responsive design,
+  and widget previews. Use this skill when building, structuring, refactoring, or debugging
+  Flutter/Dart apps. Also trigger for: "structure my Flutter project", "fix RenderFlex overflowed",
+  "Vertical viewport was given unbounded height", "make this responsive on tablet and mobile", "add a
+  widget preview", "Flutter architecture", "Flutter layout error", "run Flutter on my phone", "รัน
+  flutter บนมือถือ", "ทดสอบแอป Flutter", or any Flutter/Dart UI or structure request. Routes to the
+  focused reference guides under references/. Not for React Native, native Swift/Kotlin UI, or
+  web-only front ends.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.1"
+  version: "1.0.2"
   source: Flutter engineering best practices (compiled 2026)
 ---
 
