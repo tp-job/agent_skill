@@ -32,6 +32,16 @@
 ยังไม่ผ่าน (prompt จริง): `google-button-error` (debug-master), `slow-insert-thai`, `sql-injection-thai` (owasp), `ui-border-thai` (ui-checker), `thesis-examiner` (NFR), `next-issue-plan`, `setup-react`, `skill-flowchart-pages`
 ชุดเดิมที่ไม่เต็ม: `im-stuck` 0, `lessons-learned` 0, `one-slow-query` 0.5, `ci-trustworthy` 0.5 (ไม่มีค่าฐานก่อนแก้ จึงยังบอกไม่ได้ว่าถอยหลังหรือไม่)
 
+### ผลหลังแก้ 8 เคสที่ไม่ผ่าน (2026-11-17, prompt จริงและเคสไม่ควรเรียก 27 ข้อ × 2 รอบ)
+
+แก้ที่คำอธิบายของ `promethean-parthenon` (v3.11.0: เพิ่ม "ปุ่มไม่ทำงาน", "insert ช้า", "ขอบไม่ตรง", "thesis defence", "setup project", "เริ่มทำ issue ต่อ" และคำไทย "ช้ามาก") กับ `drawio-diagrams` (v1.4.1: "สร้าง page ใน drawio") ผ่าน 47 จาก 54 รอบ (ก่อนแก้ 17 จาก 27 ข้อ)
+
+| ยังไม่ผ่านแน่นอน | เหตุผล |
+| --- | --- |
+| `sql-injection-thai` 0/2 | prompt ถามให้อธิบายตารางในโปรเจกต์ มีคำว่า sql injection แค่ท้ายประโยค โมเดลตอบเองโดยไม่เปิด skill |
+
+ไม่เสถียร (ผ่าน 1 จาก 2): `design-system-html`, `layered-arch-thai`, `skill-flowchart-pages`, `srs-sprint`, `supabase-mcp` เคสไม่ควรเรียก skill (`not-real-*`) ผ่านครบ
+
 ช่องว่างที่พบระหว่างทำ eval: ไม่มี skill ดูแล **Render deploy** (มีแต่ Vercel), **Excel/VBA** และ **การเขียน thesis/รายงาน** ทั้งที่เป็นงานที่ทำบ่อย ใช้เป็นข้อมูลของระยะ 2
 
 ## Contents

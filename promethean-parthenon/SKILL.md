@@ -1,21 +1,21 @@
 ---
 name: promethean-parthenon
 description: >-
-  Engineering hub; load it before answering any engineering question in scope, even one that looks
-  easy. Opens a specialist at once for: a bug, error, crash, slow query or "something is wrong"
-  (debug-master); security, auth, JWT, API keys, injection, OWASP (owasp-top-10-2025); dark mode,
-  contrast, layout, UI review (ui-checker); test plans, edge cases (test-strategy); NFR targets,
-  response time (non-functional-requirements); where a file goes (project-file-structure); kickoff, CI
-  setup, pre-merge checks, every page slow (project-pitfalls); writing a skill (skill-creator). Runs
-  its own doctrine for trade-offs, requirements, SRS, sprint plans, briefs, long builds, messy
-  problems. Trigger for: "why is this not working", "I'm stuck", "is this secure", "แก้บัค",
-  "ไม่ทำงาน", "เกิด error", "ปลอดภัยไหม", "ตรวจหน้าตา", "วางแผนเทส", "ตรวจ NFR", "ก่อนเริ่ม dev
-  ต้องเช็คอะไร", "ทำไมเว็บช้าทุกหน้า". Not for trivial fully-specified edits or domain work another
-  skill owns (3D, CSS, deploys, design craft, MCP ops).
+  Engineering hub; load before answering any engineering question in scope, even an easy one. Opens a
+  specialist at once for: a bug, error, a button that does nothing, slow insert or query (debug-
+  master); security, auth, API keys, SQL injection, OWASP (owasp-top-10-2025); dark mode, contrast,
+  misaligned borders, UI review (ui-checker); test plans (test-strategy); NFR targets, response time,
+  thesis-defence questions (non-functional-requirements); where a file goes (project-file-structure);
+  kickoff, CI, pre-merge, every page slow (project-pitfalls); writing a skill (skill-creator).
+  Doctrine: trade-offs, sprint plans, briefs, setting up a project, planning the next issue, long
+  builds. Trigger for: "why is this not working", "is this secure", "แก้บัค", "ไม่ทำงาน", "ช้ามาก",
+  "sql injection", "ขอบไม่ตรง", "ปลอดภัยไหม", "ตรวจหน้าตา", "ทำไมเว็บช้าทุกหน้า", "setup project
+  ให้พร้อม dev", "เริ่มทำ issue ต่อ". Not for trivial fully-specified edits or domain work another
+  skill owns (3D, CSS, deploys, design, MCP ops).
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.10.0"
+  version: "3.11.0"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,

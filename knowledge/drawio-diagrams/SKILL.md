@@ -7,12 +7,12 @@ description: >-
   Covers flowchart (ISO 5807), system overview, UML sequence and use case, and ER, laid out for
   reports and theses; a validator script checks every rule. Trigger for: "draw a flowchart", "make a diagram in draw.io",
   "system overview diagram", "sequence diagram", "ER diagram", "วาด flowchart", "ทำแผนภาพ drawio",
-  "แผนภาพภาพรวมระบบ", "วาด use case", "ภาพประกอบวิทยานิพนธ์". Not for Mermaid or PlantUML text, Figma or FigJam diagrams,
+  "แผนภาพภาพรวมระบบ", "วาด use case", "ภาพประกอบวิทยานิพนธ์", "สร้าง page ใน drawio", "เขียน flowchart กระบวนการ". Not for Mermaid or PlantUML text, Figma or FigJam diagrams,
   data charts, UI mockups, or diagrams in another brand's style.
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.4.0"
+  version: "1.4.1"
   source: Requirements from the CMAS system-overview draw.io files; ISO 5807, UML 2.5, draw.io style reference (compiled 2026)
 ---
 
