@@ -2,20 +2,20 @@
 name: promethean-parthenon
 description: >-
   Engineering hub; load before answering any engineering question in scope, even an easy one. Opens a
-  specialist at once for: a bug, error, a button that does nothing, slow insert or query (debug-
-  master); security, auth, API keys, SQL injection, OWASP (owasp-top-10-2025); dark mode, contrast,
-  misaligned borders, UI review (ui-checker); test plans (test-strategy); NFR targets, response time,
+  specialist at once for: a bug, error, a button that does nothing, slow insert or query
+  (debug-master); security, auth, API keys, input handling, SQL injection, OWASP (owasp-top-10-2025);
+  dark mode, contrast, misaligned borders (ui-checker); test plans (test-strategy); NFR targets,
   thesis-defence questions (non-functional-requirements); where a file goes (project-file-structure);
-  kickoff, CI, pre-merge, every page slow (project-pitfalls); writing a skill (skill-creator).
-  Doctrine: trade-offs, sprint plans, briefs, setting up a project, planning the next issue, long
-  builds. Trigger for: "why is this not working", "is this secure", "แก้บัค", "ไม่ทำงาน", "ช้ามาก",
-  "sql injection", "ขอบไม่ตรง", "ปลอดภัยไหม", "ตรวจหน้าตา", "ทำไมเว็บช้าทุกหน้า", "setup project
-  ให้พร้อม dev", "เริ่มทำ issue ต่อ". Not for trivial fully-specified edits or domain work another
-  skill owns (3D, CSS, deploys, design, MCP ops).
+  kickoff, CI, pre-merge, lessons learned (project-pitfalls); writing a skill (skill-creator).
+  Doctrine: trade-offs, sprint and phase plans, briefs, setting up a project, the next issue. Trigger
+  for: "why is this not working", "I'm stuck", "is this secure", "แก้บัค", "ไม่ทำงาน", "ช้ามาก", "sql
+  injection", "การรับค่า", "ขอบไม่ตรง", "ปลอดภัยไหม", "ทำไมเว็บช้าทุกหน้า", "setup project ให้พร้อม
+  dev", "เริ่มทำ issue ต่อ". Not for trivial fully-specified edits or domain work another skill owns
+  (3D, CSS, deploys, design, MCP ops).
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.11.0"
+  version: "3.12.0"
   source: >-
     Promethean Parthenon doctrine — Role · Task · Format synthesis of the
     senior-leadership-advisor, requirement-gathering, agentic-engineering,
@@ -34,7 +34,7 @@ This skill is the **only** entry point to the thirteen skills under `bundled/`; 
 | The request is… | Open now |
 | --- | --- |
 | A bug, error, stack trace, crash, one slow query or endpoint, or "something is wrong" | [debug-master](bundled/debug-master/SKILL.md) |
-| Security review, auth, OAuth2, API keys, secrets, "is this secure" | [owasp-top-10-2025](bundled/owasp-top-10-2025/SKILL.md) |
+| Security review, auth, OAuth2, API keys, secrets, input handling, SQL injection ("การรับค่า"), "is this secure" | [owasp-top-10-2025](bundled/owasp-top-10-2025/SKILL.md) |
 | Theme, dark mode, contrast, layout, "review my UI" | [ui-checker](bundled/ui-checker/SKILL.md) |
 | A test plan, test cases, edge cases, fuzzing, exit criteria, a test report | [test-strategy](bundled/test-strategy/SKILL.md) |
 | Non-functional requirements: write or verify NFRs, response-time targets, contrast/WCAG criteria, SUS/UX metrics, availability, "ตรวจสอบ non-functional" | [non-functional-requirements](bundled/non-functional-requirements/SKILL.md) |
@@ -124,6 +124,25 @@ Open a specialist at the moment its trigger applies, mid-build, without leaving 
 | Starting a project, setting up repo or CI, merging to main, writing lessons learned | [project-pitfalls](bundled/project-pitfalls/SKILL.md) |
 | Writing or revising a skill | [skill-creator](bundled/skill-creator/SKILL.md) |
 | A specific bug with a reproduction | [debug-master](bundled/debug-master/SKILL.md) |
+
+## Hand-off contracts
+
+Work crosses hubs as a written artifact in a fixed shape, so the next hub reads it instead of re-asking. Name the other hub in prose; never link into its folder.
+
+| This hub hands over | In this shape | To |
+| --- | --- | --- |
+| Requirements | `REQ-*` items, each with a source and an acceptance check | the athena-erechtheion skill (screens trace to REQs); test-strategy |
+| Quality targets | NFRs with a number, a method and a pass line (contrast ratio, p95 latency) | the athena-erechtheion skill (token and contrast choices); ui-checker |
+| A phase plan | `Phase N: title (\`branch\`) — size, risk`, steps as bullets, then `เกณฑ์ผ่าน:` / `Exit criteria:` | the chronos-artemis skill (one task per phase, one calendar block per step) |
+| A task brief | Goal, constraints, done-when, what not to touch | the hermes-olympus skill (which tools and agents carry it) |
+
+| This hub receives | From | Use it as |
+| --- | --- | --- |
+| A design target: screens, token tiers, a visual thesis | the athena-erechtheion skill | the spec to build against; ui-checker audits against the thesis |
+| A capability record: servers, tools, agents that work | the hermes-olympus skill | what the build may call; a missing tool becomes a task, not a guess |
+| Task status: To Do, In Progress, Completed | the chronos-artemis skill | which phase is current when the session resumes |
+
+Keep the phase-plan headings in that exact shape: status tools (the Pitbox mod's sidebar, a task list) read them to show progress.
 
 ---
 

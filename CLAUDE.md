@@ -169,6 +169,12 @@ python scripts/lint-skills.py
 Checks what the other two cannot: description over the 1,024-character spec limit or not in third person, no negative scope in the description, a reference over 100 lines with no `## Contents`, orphaned reference files, broken `#heading` anchors (GitHub slugs — `## Cloud & Network` is `#cloud--network`), Obsidian wikilinks, skill frontmatter left inside a reference file, mojibake, personal paths, and credential-shaped strings. Exits non-zero on any finding.
 
 ```bash
+python scripts/build-claude-ai.py
+```
+
+Zips each active skill into `dist/claude-ai/<skill>.zip` (git-ignored) for upload to claude.ai, so claude.ai and Claude Code run the same set from the same folders. Run it after `build-bundles.py`, since a hub's zip carries its `bundled/` copies; `--check` validates without writing.
+
+```bash
 claude plugin eval . --tag trigger --runs 3 --ablation none --no-publish --model claude-sonnet-5-5
 ```
 

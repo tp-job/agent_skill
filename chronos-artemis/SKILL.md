@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "1.0.0"
+  version: "1.1.0"
   source: >-
     Personal time-management practice (capture, time-blocking, weekly review) mapped onto the
     Google Calendar MCP connector and the ClickUp MCP connector as exposed in Claude Code, and
@@ -92,6 +92,17 @@ ClickUp lists use their own status names. Always reduce them to three classes, a
 Rules: **never mark Completed without the user's word**; never move Completed back without asking; "blocked" and "in review" stay In Progress but are reported with their flag. Depth: [task-status-model](references/task-status-model.md).
 
 ---
+
+## Hand-off contracts
+
+Name the other hub in prose; never link into its folder.
+
+| Direction | Artifact, in this shape | Other hub |
+| --- | --- | --- |
+| Receives | A phase plan: `Phase N: title (\`branch\`) — size, risk`, steps as bullets, `เกณฑ์ผ่าน:` / `Exit criteria:` | the promethean-parthenon or athena-erechtheion skill |
+| Does with it | One ClickUp task per phase (its exit criteria as the done state), one calendar block per step, status kept as To Do / In Progress / Completed | — |
+| Hands back | Task status per phase, so a resumed session knows which phase is current | the promethean-parthenon skill |
+| Receives | Whether the Calendar and ClickUp servers answer | the hermes-olympus skill |
 
 ## Operating rules
 

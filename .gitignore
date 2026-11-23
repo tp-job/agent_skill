@@ -30,3 +30,6 @@ Thumbs.db
 
 # claude plugin eval run output
 evals/results/
+
+# claude.ai upload zips (scripts/build-claude-ai.py)
+dist/

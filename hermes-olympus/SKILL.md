@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "2.2.0"
+  version: "2.3.0"
   source: >-
     Promethean-Parthenon Role · Task · Format doctrine applied to agent orchestration; Model
     Context Protocol specification revision 2025-11-25 and Claude Code MCP configuration
@@ -90,6 +90,16 @@ The fourth line is the one that gets skipped. A server that has "been added" has
 **The rule under every row:** never report a capability as missing until you have checked its real state. "I can't access Figma" when Figma is deferred is a routing failure, not a limitation.
 
 ---
+
+## Hand-off contracts
+
+The capability record is what this hub hands over; name the other hub in prose, never link into its folder.
+
+| Direction | Artifact, in this shape | Other hub |
+| --- | --- | --- |
+| Receives | A task brief: goal, constraints, done-when, what not to touch | the promethean-parthenon skill |
+| Hands over | A capability record: each server connected / deferred / needs auth / failed, the tools that work, the agents and models chosen | the promethean-parthenon skill (what the build may call) and the athena-erechtheion skill (which drafting tools exist) |
+| Hands over | Calendar and ClickUp server state | the chronos-artemis skill (it plans only on tools that answer) |
 
 ## Operating rules
 

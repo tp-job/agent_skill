@@ -15,7 +15,7 @@ description: >-
 license: MIT
 metadata:
   author: tp-job (enhanced by Claude)
-  version: "3.8.0"
+  version: "3.9.0"
   source: >-
     Promethean-Parthenon Role · Task · Format doctrine applied to design practice; information
     architecture, art-direction and double-diamond ideation methods (compiled 2026)
@@ -134,6 +134,20 @@ This skill plans and drafts. When a stage needs deeper craft, open the bundled s
 | Figma, Canva or Blender tool calls | that tool's own skill or MCP instructions — see [drafting](references/drafting.md) §Media |
 
 ---
+
+## Hand-off contracts
+
+Design work leaves and arrives as written artifacts in a fixed shape. Name the other hub in prose; never link into its folder.
+
+| This hub hands over | In this shape | To |
+| --- | --- | --- |
+| A design target | Screens with the `REQ-*` each serves, token tiers (primitive → semantic → component), the visual thesis in one paragraph | the promethean-parthenon skill (build against it; its UI checker audits against the thesis) |
+| Design phases for a large job | `Phase N: title — size, risk`, steps as bullets, then `Exit criteria:` | the chronos-artemis skill (one task per phase) |
+
+| This hub receives | From | Use it as |
+| --- | --- | --- |
+| `REQ-*` items and quality targets with numbers (contrast, response time) | the promethean-parthenon skill | the Stage 0 design target; a contrast NFR is a token constraint, not a review note |
+| A capability record: Figma, Canva or Blender connected or not | the hermes-olympus skill | which drafting tools exist before Stage 4 promises them |
 
 ## Operating rules
 

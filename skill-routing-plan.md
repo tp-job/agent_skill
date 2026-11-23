@@ -1,13 +1,16 @@
 # แผน: จัดระเบียบ skill และให้เรียกใช้อัตโนมัติ
 
-สถานะ: **ระยะ 0–1 กำลังทำ** (2026-11-16)
+สถานะ: **ระยะ 0–3 เสร็จ, ระยะ 4 ทำแล้วรอวัดผลซ้ำ** (2026-11-23)
 
 ## ความคืบหน้า
 
 | ระยะ | ทำแล้ว | ค้าง |
 | --- | --- | --- |
-| 0 | เพิ่ม eval จาก prompt จริง 27 ข้อใน `evals/trigger/real-*` และ `not-real-*` (tag `real`) | รัน baseline ไม่ได้: `claude` CLI ยังไม่ได้ login ต้องรัน `claude /login` ใน terminal ก่อน แล้วรัน `claude plugin eval . --tag real --runs 2 --ablation none --no-publish --model claude-sonnet-5-5 -j 4` |
-| 1 | ตั้ง `skillListingBudgetFraction: 0.03` ใน `~/.claude/settings.json` ให้คำอธิบาย skill ทุกตัวอยู่ในงบ เก็บ plugin ทุกตัวไว้ตามที่คุณเลือก | คุณปิด plugin `agent-skill` ใน claude.ai (Customize → Plugins) เพื่อเหลือแค่ตัวที่ติดตั้งจาก GitHub |
+| 0 | eval จาก prompt จริง 27 ข้อ (`evals/trigger/real-*`, `not-real-*`) และ baseline 10/27 | — |
+| 1 | `skillListingBudgetFraction: 0.03` ใน `~/.claude/settings.json` เก็บ plugin ทุกตัวไว้ตามที่คุณเลือก | คุณปิด plugin `agent-skill` ใน claude.ai เองแล้วอัปโหลด zip จากระยะ 4 แทน |
+| 2 | คำ trigger ไทยใน hub และ specialist | — |
+| 3 | ตาราง routing ใน `~/.claude/CLAUDE.md`, แก้ 8 เคส ได้ 47/54 รอบ | `sql-injection-thai` (แก้คำอธิบายแล้ว รอวัดผล) |
+| 4 | สัญญาส่งต่องานใน hub ทั้ง 4 ตัว, `scripts/build-claude-ai.py` สร้าง zip จากชุดเดียวกับ plugin, คืนคำ trigger "I'm stuck" และ "lessons learned" | รัน eval ทั้งชุดซ้ำ: `claude` CLI หลุดล็อกอิน ต้องรัน `claude auth login` ก่อน |
 
 ### ผล baseline (2026-11-16, 27 ข้อ × 2 รอบ, ค่าใช้จ่าย $3.57)
 
@@ -32,6 +35,13 @@
 ยังไม่ผ่าน (prompt จริง): `google-button-error` (debug-master), `slow-insert-thai`, `sql-injection-thai` (owasp), `ui-border-thai` (ui-checker), `thesis-examiner` (NFR), `next-issue-plan`, `setup-react`, `skill-flowchart-pages`
 ชุดเดิมที่ไม่เต็ม: `im-stuck` 0, `lessons-learned` 0, `one-slow-query` 0.5, `ci-trustworthy` 0.5 (ไม่มีค่าฐานก่อนแก้ จึงยังบอกไม่ได้ว่าถอยหลังหรือไม่)
 
+### ระยะ 4 (2026-11-23)
+
+- **สัญญาส่งต่องาน:** หัวข้อ "Hand-off contracts" ใน `promethean-parthenon`, `athena-erechtheion`, `hermes-olympus`, `chronos-artemis` บอกว่าแต่ละ hub ส่งอะไร ในรูปแบบไหน และให้ hub ไหน อ้างถึงกันเป็นข้อความ ไม่ใช่ลิงก์ แผน phase ใช้รูปแบบ `Phase N: title (\`branch\`)` + ขั้นตอน + `เกณฑ์ผ่าน:` ตัวเดียวกับที่ Pitbox อ่าน
+- **ชุดเดียวทั้งสองที่:** `python scripts/build-claude-ai.py` สร้าง `dist/claude-ai/<skill>.zip` ครบ 19 ตัวจากชุด active ตัวเดียวกับ plugin (hub มี `bundled/` ติดไปด้วย)
+- **คำ trigger ที่หายไปตอนแก้ v3.11.0:** "I'm stuck" (เคส `im-stuck`) และ "lessons learned" (เคส `lessons-learned`) ถูกตัดออกเพื่อให้คำอธิบายพอดี 1,024 ตัวอักษร คืนกลับใน v3.12.0 พร้อม "input handling" และ "การรับค่า" สำหรับ `sql-injection-thai`
+- **วัดผลซ้ำ:** ยังไม่ได้ ผลรอบนี้ใช้ไม่ได้เพราะ CLI หลุดล็อกอิน
+
 ### ผลหลังแก้ 8 เคสที่ไม่ผ่าน (2026-11-17, prompt จริงและเคสไม่ควรเรียก 27 ข้อ × 2 รอบ)
 
 แก้ที่คำอธิบายของ `promethean-parthenon` (v3.11.0: เพิ่ม "ปุ่มไม่ทำงาน", "insert ช้า", "ขอบไม่ตรง", "thesis defence", "setup project", "เริ่มทำ issue ต่อ" และคำไทย "ช้ามาก") กับ `drawio-diagrams` (v1.4.1: "สร้าง page ใน drawio") ผ่าน 47 จาก 54 รอบ (ก่อนแก้ 17 จาก 27 ข้อ)
@@ -49,7 +59,7 @@
 - สิ่งที่พบ
 - เป้าหมาย
 - แผนงาน 5 ระยะ
-- เรื่องที่คุณต้องตัดสินใจ
+- เรื่องที่ตัดสินแล้ว
 - สิ่งที่แผนนี้ไม่ครอบคลุม
 
 ---
@@ -161,12 +171,14 @@ Claude Code มีงบรายการ skill ร่วมกันทุก 
 
 ---
 
-## เรื่องที่คุณต้องตัดสินใจ
+## เรื่องที่ตัดสินแล้ว
 
-1. **plugin ที่จะปิด:** `bio-research`, `product-tracking-skills`, `operations`, `enterprise-search`, `cowork-plugin-management` ไม่เคยใช้เลย ส่วน `data`, `figma`, `design`, `engineering`, `product-management` ใช้บ้างหรือซ้ำกับของคุณ
-2. **hub ใหม่ 2 ตัว:** เอาทั้งคู่, เอาแค่ hub เอกสาร หรือไม่เพิ่ม และชื่อที่ชอบ
-3. **ทางติดตั้ง agent-skill:** ใช้แบบ marketplace ใน Claude Code อย่างเดียว หรือคงแบบ sync จาก claude.ai ไว้ด้วย
-4. **hook อัตโนมัติ:** เริ่มจาก CLAUDE.md ก่อน แล้วค่อยเพิ่ม hook ถ้าไม่พอ (แนะนำ) หรือทำ hook เลย
+| เรื่อง | ตัดสิน | เหตุผล |
+| --- | --- | --- |
+| plugin ที่จะปิด | ไม่ปิด เพิ่มงบรายการ skill เป็น 3% แทน | คุณเลือกเก็บไว้ทั้งหมด (ระยะ 1) |
+| hub ใหม่ (เอกสาร, web delivery) | ไม่เพิ่ม | eval ชี้ว่าเคสที่ต้องผ่าน hub สองชั้นพลาดบ่อยกว่า skill ที่เรียกตรง เปิดใหม่ได้ถ้าผลวัดซ้ำบอกว่า skill ในกลุ่มนั้นแย่งกัน |
+| ทางติดตั้ง agent-skill | Claude Code ใช้ plugin จาก GitHub, claude.ai อัปโหลด zip จาก `build-claude-ai.py` | คุณเลือกใช้จาก repo; ทั้งสองที่มาจากโฟลเดอร์เดียวกัน |
+| hook อัตโนมัติ | ยังไม่ทำ ใช้ตาราง routing ใน `~/.claude/CLAUDE.md` | ผ่าน 47/54 รอบแล้วโดยไม่ต้องมี hook ทำเมื่อผลวัดซ้ำยังต่ำกว่านี้ |
 
 ## สิ่งที่แผนนี้ไม่ครอบคลุม
 
