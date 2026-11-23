@@ -1,7 +1,7 @@
 [
-  { "name": "0 baseline", "status": "done", "note": "27 real prompts, 10/27 passed before any change" },
-  { "name": "1 listing budget", "status": "done", "note": "3% budget set; turning off the claude.ai plugin is still yours" },
-  { "name": "2 reorganize", "status": "done", "note": "Thai triggers in hubs and specialists, real-prompt evals" },
-  { "name": "3 auto-routing", "status": "done", "note": "47/54 runs pass; sql-injection-thai fix waits for the re-run" },
-  { "name": "4 hub hand-off", "status": "doing", "note": "contracts and claude.ai zips done; full eval re-run needs claude auth login" }
+  {"name": "0 baseline", "status": "done", "note": "27 real prompts, 10/27 passed before any change"},
+  {"name": "1 listing budget", "status": "done", "note": "3% budget set; turning off the claude.ai plugin is still yours"},
+  {"name": "2 reorganize", "status": "done", "note": "Thai triggers in hubs and specialists, real-prompt evals"},
+  {"name": "3 auto-routing", "status": "done", "note": "47/54 runs passed; sql-injection-thai still fails"},
+  {"name": "4 hub hand-off", "status": "done", "note": "contracts, claude.ai zips; full re-run 78/92 runs pass"}
 ]

@@ -1,6 +1,6 @@
 # แผน: จัดระเบียบ skill และให้เรียกใช้อัตโนมัติ
 
-สถานะ: **ระยะ 0–3 เสร็จ, ระยะ 4 ทำแล้วรอวัดผลซ้ำ** (2026-11-23)
+สถานะ: **ระยะ 0–4 เสร็จ** (2026-11-23) เหลือ `sql-injection-thai` และการอัปโหลด zip ขึ้น claude.ai ที่คุณต้องทำเอง
 
 ## ความคืบหน้า
 
@@ -9,8 +9,8 @@
 | 0 | eval จาก prompt จริง 27 ข้อ (`evals/trigger/real-*`, `not-real-*`) และ baseline 10/27 | — |
 | 1 | `skillListingBudgetFraction: 0.03` ใน `~/.claude/settings.json` เก็บ plugin ทุกตัวไว้ตามที่คุณเลือก | คุณปิด plugin `agent-skill` ใน claude.ai เองแล้วอัปโหลด zip จากระยะ 4 แทน |
 | 2 | คำ trigger ไทยใน hub และ specialist | — |
-| 3 | ตาราง routing ใน `~/.claude/CLAUDE.md`, แก้ 8 เคส ได้ 47/54 รอบ | `sql-injection-thai` (แก้คำอธิบายแล้ว รอวัดผล) |
-| 4 | สัญญาส่งต่องานใน hub ทั้ง 4 ตัว, `scripts/build-claude-ai.py` สร้าง zip จากชุดเดียวกับ plugin, คืนคำ trigger "I'm stuck" และ "lessons learned" | รัน eval ทั้งชุดซ้ำ: `claude` CLI หลุดล็อกอิน ต้องรัน `claude auth login` ก่อน |
+| 3 | ตาราง routing ใน `~/.claude/CLAUDE.md`, แก้ 8 เคส ได้ 47/54 รอบ | `sql-injection-thai` ยังไม่ผ่าน (0/2 หลังแก้คำอธิบาย) |
+| 4 | สัญญาส่งต่องานใน hub ทั้ง 4 ตัว, `scripts/build-claude-ai.py` สร้าง zip จากชุดเดียวกับ plugin, คืนคำ trigger "I'm stuck" และ "lessons learned" | — |
 
 ### ผล baseline (2026-11-16, 27 ข้อ × 2 รอบ, ค่าใช้จ่าย $3.57)
 
@@ -40,7 +40,18 @@
 - **สัญญาส่งต่องาน:** หัวข้อ "Hand-off contracts" ใน `promethean-parthenon`, `athena-erechtheion`, `hermes-olympus`, `chronos-artemis` บอกว่าแต่ละ hub ส่งอะไร ในรูปแบบไหน และให้ hub ไหน อ้างถึงกันเป็นข้อความ ไม่ใช่ลิงก์ แผน phase ใช้รูปแบบ `Phase N: title (\`branch\`)` + ขั้นตอน + `เกณฑ์ผ่าน:` ตัวเดียวกับที่ Pitbox อ่าน
 - **ชุดเดียวทั้งสองที่:** `python scripts/build-claude-ai.py` สร้าง `dist/claude-ai/<skill>.zip` ครบ 19 ตัวจากชุด active ตัวเดียวกับ plugin (hub มี `bundled/` ติดไปด้วย)
 - **คำ trigger ที่หายไปตอนแก้ v3.11.0:** "I'm stuck" (เคส `im-stuck`) และ "lessons learned" (เคส `lessons-learned`) ถูกตัดออกเพื่อให้คำอธิบายพอดี 1,024 ตัวอักษร คืนกลับใน v3.12.0 พร้อม "input handling" และ "การรับค่า" สำหรับ `sql-injection-thai`
-- **วัดผลซ้ำ:** ยังไม่ได้ ผลรอบนี้ใช้ไม่ได้เพราะ CLI หลุดล็อกอิน
+- **วัดผลซ้ำ (ทั้งชุด 46 ข้อ × 2 รอบ, $8.35):** ผ่าน 78 จาก 92 รอบ (85%)
+
+| ชุด | ก่อน | หลังระยะ 4 |
+| --- | --- | --- |
+| prompt จริงและเคสไม่ควรเรียก (27 ข้อ) | 47/54 | 43/54 |
+| ชุดเดิม (19 ข้อ) | 30/38 | 35/38 |
+
+ชุดเดิมดีขึ้นจากการคืนคำ trigger: `lessons-learned` 0 → 2/2, `im-stuck` 0 → 1/2, `ci-trustworthy` และ `is-this-secure` 1 → 2/2, `one-slow-query` 0 → 1/2
+
+ชุด prompt จริงลดลง 4 รอบ แต่เคสที่ลดเป็นเคสที่ผลเดิมไม่นิ่งอยู่แล้ว และ skill ที่มันคาดหวัง (`drawio-diagrams`, `knowledge-base`, `flutter`) ไม่ได้ถูกแก้ในรอบนี้: `layered-arch-thai`, `skill-flowchart-pages`, `srs-sprint` 1 → 0/2, `flutter-wifi`, `plan-endpoint-thai` 2 → 1/2; `design-system-html` 1 → 2/2 รอบละ 2 ครั้งแกว่งได้ ±1 ต่อเคส ถ้าจะสรุปว่าแย่ลงจริงต้องรัน 4 รอบขึ้นไป
+
+`sql-injection-thai` ยังเป็น 0/2: การเพิ่ม "การรับค่า" ในคำอธิบายไม่พอ prompt นี้ถามให้อธิบายตารางในโปรเจกต์ และเอ่ย SQL injection ท้ายประโยค โมเดลตอบเองโดยไม่เปิด skill
 
 ### ผลหลังแก้ 8 เคสที่ไม่ผ่าน (2026-11-17, prompt จริงและเคสไม่ควรเรียก 27 ข้อ × 2 รอบ)
 
